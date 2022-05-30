@@ -13,15 +13,10 @@ public class UnitSelectionManager : MonoBehaviour
     public UnitStat unitStat;
 
     //Need to create event that whenever a unit got clicked, it updates the text and unit stats of the unit selection 
-
+    
     void Start()
     {
-        if(unitStat != null)
-        {
-            attackText.text = unitStat.attack.ToString();
-            defenseText.text = unitStat.defense.ToString();
-            moveSpeed.text = unitStat.moveSpeed.ToString();
-        }
+      
         
     }
 
@@ -29,6 +24,16 @@ public class UnitSelectionManager : MonoBehaviour
     void Update()
     {
         
+    }
+
+    public void ChangeInfo()
+    {
+        if (unitStat != null)
+        {
+            attackText.text = unitStat.attack.ToString();
+            defenseText.text = unitStat.defense.ToString();
+            moveSpeed.text = unitStat.moveSpeed.ToString();
+        }
     }
 
 
