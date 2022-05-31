@@ -94,7 +94,7 @@ public class Health : MonoBehaviour
         else
         {
             isAlive = false;
-            OnDeath.Invoke();
+            OnDeath?.Invoke();
 
         }
     }

@@ -14,7 +14,7 @@ public class SelectUnit : MonoBehaviour
     RaycastHit raycastHit;
 
     //Unit Layer Tag
-    private int unitLayerMask = 1 << 6;
+    public LayerMask unitLayerMask /*= 1 << 7*/;
 
 
    // public delegate void ClickUnit();
@@ -74,6 +74,11 @@ public class SelectUnit : MonoBehaviour
        //selectionManager.unitStat = testStatsHolder.unitStat;
     }
 
+
+    //private void OnMouseDown()
+    //{
+    //    //Debug.Log("Current");
+    //}
 
 
 }
