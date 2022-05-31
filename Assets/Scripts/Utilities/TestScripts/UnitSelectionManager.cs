@@ -14,21 +14,21 @@ public class UnitSelectionManager : MonoBehaviour
 
     //Need to create event that whenever a unit got clicked, it updates the text and unit stats of the unit selection 
 
-    void Start()
+    //public delegate void ClickUnit();
+    //public event ClickUnit unitClicked;
+
+    public Action unitClicked;
+    public void ChangeInfo()
     {
-        if(unitStat != null)
+        unitClicked?.Invoke();
+        if (unitStat != null)
         {
+   
+            Debug.Log("Some Stuff");
             attackText.text = unitStat.attack.ToString();
             defenseText.text = unitStat.defense.ToString();
             moveSpeed.text = unitStat.moveSpeed.ToString();
         }
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 
 
