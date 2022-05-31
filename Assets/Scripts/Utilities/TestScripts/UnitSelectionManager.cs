@@ -10,15 +10,17 @@ public class UnitSelectionManager : MonoBehaviour
     public TextMeshProUGUI defenseText;
     public TextMeshProUGUI moveSpeed;
 
-    public UnitStat unitStat;
+ ///   public UnitStat unitStat;
 
     //Need to create event that whenever a unit got clicked, it updates the text and unit stats of the unit selection 
 
     //public delegate void ClickUnit();
     //public event ClickUnit unitClicked;
 
+    //Display Stat Event
+
     public Action unitClicked;
-    public void ChangeInfo()
+    public void ChangeInfo(UnitStat unitStat)
     {
         unitClicked?.Invoke();
         if (unitStat != null)

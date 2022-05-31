@@ -42,30 +42,30 @@ public class SelectUnit : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetMouseButtonDown(0))
-        {
-            ray = cam.ScreenPointToRay(Input.mousePosition);
+        //if (Input.GetMouseButtonDown(0))
+        //{
+        //    ray = cam.ScreenPointToRay(Input.mousePosition);
 
-            if (Physics.Raycast(ray, out raycastHit, 1000f, unitLayerMask))
-            {
-                if (raycastHit.transform == transform)
-                {
-                    //Do something 
-                    selectionManager.unitStat = testStatsHolder.unitStat;
-                    selectionManager.ChangeInfo();
+        //    if (Physics.Raycast(ray, out raycastHit, 1000f, unitLayerMask))
+        //    {
+        //        if (raycastHit.transform == transform)
+        //        {
+        //            //Do something 
+        //            selectionManager.unitStat = testStatsHolder.unitStat;
+        //            selectionManager.ChangeInfo();
 
-                    //if (testStatsHolder != null)
-                    //{
-                    //    Debug.Log("Hero" + raycastHit.transform.name);
+        //            //if (testStatsHolder != null)
+        //            //{
+        //            //    Debug.Log("Hero" + raycastHit.transform.name);
                      
                        
-                    //}
+        //            //}
                    
-                }
-            }
+        //        }
+        //    }
 
 
-        }
+        //}
     }
 
     public void CurrentUnitStatus()
@@ -75,10 +75,12 @@ public class SelectUnit : MonoBehaviour
     }
 
 
-    //private void OnMouseDown()
-    //{
-    //    //Debug.Log("Current");
-    //}
+    private void OnMouseDown()
+    {
+        // selectionManager.unitStat = testStatsHolder.unitStat;
+        selectionManager.ChangeInfo(testStatsHolder.unitStat);
+        //Debug.Log("Current");
+    }
 
 
 }
