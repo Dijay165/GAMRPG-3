@@ -1281,6 +1281,10 @@ PrefabInstance:
       propertyPath: m_Radius
       value: 0.59
       objectReference: {fileID: 0}
+    - target: {fileID: 6464614735045049383, guid: e812c04705f47d645beb13e90ec0ff93, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8753619234690991415, guid: e812c04705f47d645beb13e90ec0ff93, type: 3}
       propertyPath: m_RootOrder
       value: 13
@@ -5875,7 +5879,6 @@ MonoBehaviour:
   attackText: {fileID: 2076662681}
   defenseText: {fileID: 1476123350}
   moveSpeed: {fileID: 126266873}
-  unitStat: {fileID: 0}
 --- !u!1 &1746107787 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1161251386251526, guid: 6f6de38bc4946428ab2a1d468039753e, type: 3}

@@ -14,7 +14,7 @@ public class SelectUnit : MonoBehaviour
     RaycastHit raycastHit;
 
     //Unit Layer Tag
-    public LayerMask unitLayerMask /*= 1 << 7*/;
+    private LayerMask unitLayerMask = 1 << 7;
 
 
    // public delegate void ClickUnit();
@@ -42,30 +42,31 @@ public class SelectUnit : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //if (Input.GetMouseButtonDown(0))
-        //{
-        //    ray = cam.ScreenPointToRay(Input.mousePosition);
+ 
+        if (Input.GetMouseButtonDown(0))
+        {
+            ray = cam.ScreenPointToRay(Input.mousePosition);
 
-        //    if (Physics.Raycast(ray, out raycastHit, 1000f, unitLayerMask))
-        //    {
-        //        if (raycastHit.transform == transform)
-        //        {
-        //            //Do something 
-        //            selectionManager.unitStat = testStatsHolder.unitStat;
-        //            selectionManager.ChangeInfo();
+            if (Physics.Raycast(ray, out raycastHit, 1000f, unitLayerMask))
+            {
+                if (raycastHit.transform == transform)
+                {
+                    //Do something 
+                    Debug.Log("Hit Something");
+                    selectionManager.ChangeInfo(testStatsHolder.unitStat);
 
-        //            //if (testStatsHolder != null)
-        //            //{
-        //            //    Debug.Log("Hero" + raycastHit.transform.name);
-                     
-                       
-        //            //}
-                   
-        //        }
-        //    }
+                    //if (testStatsHolder != null)
+                    //{
+                    //    Debug.Log("Hero" + raycastHit.transform.name);
 
 
-        //}
+                    //}
+
+                }
+            }
+
+
+        }
     }
 
     public void CurrentUnitStatus()
@@ -78,7 +79,7 @@ public class SelectUnit : MonoBehaviour
     private void OnMouseDown()
     {
         // selectionManager.unitStat = testStatsHolder.unitStat;
-        selectionManager.ChangeInfo(testStatsHolder.unitStat);
+       // selectionManager.ChangeInfo(testStatsHolder.unitStat);
         //Debug.Log("Current");
     }
 
