@@ -10859,7 +10859,7 @@ MonoBehaviour:
   selectionManager: {fileID: 1733160536}
   unitLayerMask:
     serializedVersion: 2
-    m_Bits: 128
+    m_Bits: 0
 --- !u!114 &5001893671019957702
 MonoBehaviour:
   m_ObjectHideFlags: 0
