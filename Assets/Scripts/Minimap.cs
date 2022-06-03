@@ -5,56 +5,6 @@ using UnityEngine.UI;
 using UnityEngine.EventSystems;
 public class Minimap : MonoBehaviour, IPointerDownHandler
 {
-    public GameObject iconPrefab;
-    public MinimapSignal heroSignal;
-    public RectTransform minimapParent;
-    public List<MinimapIconUI> miniMapIcons = new List<MinimapIconUI>();
-    private void Start()
-    {
-
-        minimapParent = minimapParent ? minimapParent : gameObject.GetComponent<RectTransform>();
-        if (heroSignal == null)
-        {
-            Debug.Log("ERROR: NO HERO SIGNAL ASSIGNED TO VARIABLE");
-        }
-        
-        MinimapManager.instance.OnMinimapSignalRegistered += RegisterNewSignal;
-        StartCoroutine(Co_GenerateMinimap());
-    }
-
-    public void DeregisterGlobalSignal(int p_ID)
-    {
-        foreach (MinimapIconUI selectedLocalIcon in miniMapIcons)
-        {
-            if (selectedLocalIcon.id == p_ID)
-            {
-                selectedLocalIcon.minimapRect.gameObject.SetActive(false);
-                miniMapIcons.Remove(selectedLocalIcon);
-                break;
-            }
-        }
-
-    }
-
-    protected virtual void RegisterNewSignal(MinimapIcon selectedMinimapIcon)
-    {
-
-        MinimapIconUI newIcon = new MinimapIconUI();
-
-        newIcon.id = selectedMinimapIcon.id;
-
-
-        miniMapIcons.Add(newIcon);
-
-        GameObject newMinimapObject = Instantiate(iconPrefab, minimapParent);
-        newIcon.minimapRect = newMinimapObject.GetComponent<RectTransform>();
-        newMinimapObject.GetComponent<Image>().sprite = selectedMinimapIcon.icon;
-        newIcon.minimapRect.anchoredPosition = selectedMinimapIcon.minimapPosition;
-        newIcon.minimapRect.sizeDelta = selectedMinimapIcon.iconSize;
-
-        MinimapManager.instance.OnDeregistered += DeregisterGlobalSignal;
-
-    }
 
     public void OnPointerDown(PointerEventData data)
     {
@@ -99,43 +49,5 @@ public class Minimap : MonoBehaviour, IPointerDownHandler
 
     }
    
-    private IEnumerator Co_GenerateMinimap()
-    {
-
-        foreach (MinimapIcon selectedGlobalIcon in MinimapManager.instance.miniMapIcons)
-        {
-
-            //Look for local icon
-            foreach (MinimapIconUI selectedLocalIcon in miniMapIcons)
-            {
-                if (selectedGlobalIcon.team == heroSignal.team) //teammate
-                {
-                    if (selectedGlobalIcon.id == selectedLocalIcon.id)
-                    {
-                        selectedLocalIcon.minimapRect.anchoredPosition = selectedGlobalIcon.minimapPosition;
-                        break;
-                    }
-
-
-                }
-                else if (selectedGlobalIcon.team != heroSignal.team) //Not teammate
-                {
-                    if (selectedGlobalIcon.isSeenByOpposingTeam)
-                    {
-                        if (selectedGlobalIcon.id == selectedLocalIcon.id)
-                        {
-                            selectedLocalIcon.minimapRect.anchoredPosition = selectedGlobalIcon.minimapPosition;
-                            break;
-                        }
-                    }
-
-                }
-            }
-
-
-        }
-        yield return new WaitForSeconds(1f);
-        StartCoroutine(Co_GenerateMinimap());
-
-    }
+  
 }
