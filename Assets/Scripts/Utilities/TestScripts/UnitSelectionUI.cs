@@ -3,26 +3,23 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using System;
-public class UnitSelectionManager : MonoBehaviour
+
+/*
+  It has the same functionality as a normal event. You call the Events script to invoke the declared event variable that you've created. 
+  please look at the SelectUnit.cs to see how to connect them. 
+ reference: https://www.youtube.com/watch?v=RPhTEJw6KbI&list=PLuiBbLS_hU1uu5bMXVceRpHBxO7fSmeLd&index=48
+*/
+public class UnitSelectionUI : MonoBehaviour
 {
     // Start is called before the first frame update
     public TextMeshProUGUI attackText;
     public TextMeshProUGUI defenseText;
     public TextMeshProUGUI moveSpeed;
 
- ///   public UnitStat unitStat;
-
-    //Need to create event that whenever a unit got clicked, it updates the text and unit stats of the unit selection 
-
-    //public delegate void ClickUnit();
-    //public event ClickUnit unitClicked;
-
-    //Display Stat Event
-
-    public Action unitClicked;
     public void ChangeInfo(UnitStat unitStat)
     {
-        unitClicked?.Invoke();
+        Events.OnUnitSelect.Invoke();
+        
         if (unitStat != null)
         {
    
@@ -32,6 +29,5 @@ public class UnitSelectionManager : MonoBehaviour
             moveSpeed.text = unitStat.moveSpeed.ToString();
         }
     }
-
 
 }
