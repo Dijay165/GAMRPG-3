@@ -14,11 +14,15 @@ public static class Events
 
     public static readonly Evt OnUnitDied = new Evt();
 
-    public static readonly Evt OnTowerDied = new Evt();
+    
 
     public static readonly Evt OnUnitSelect = new Evt();
 
+    public static readonly Evt OnTowerDied = new Evt();
+
+    public static readonly Evt OnTowerSelect = new Evt();
+
     //To create an event with parameters, please follow this format. 
-  //  public static readonly Evt<int> OnTakeDamage = new Evt<int>();
+    //  public static readonly Evt<int> OnTakeDamage = new Evt<int>();
 
 }

@@ -46,7 +46,11 @@ public class SelectUnit : MonoBehaviour
             {
                 if (raycastHit.transform == transform)
                 {
+                    if(testStatsHolder != null)
                     selectionUI.ChangeInfo(testStatsHolder.unitStat);
+
+                    //Events.OnTowerDied.Invoke();
+                    //Debug.Log("Test");
                 }
             }
         }
