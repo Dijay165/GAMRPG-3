@@ -14,8 +14,8 @@ public class UnitSelectionUI : MonoBehaviour
     // Start is called before the first frame update
     public TextMeshProUGUI attackText;
     public TextMeshProUGUI defenseText;
-    public TextMeshProUGUI moveSpeed;
-
+    public TextMeshProUGUI moveSpeedText;
+    public TextMeshProUGUI healthPointText;
     public void ChangeInfo(UnitStat unitStat)
     {
         Events.OnUnitSelect.Invoke();
@@ -26,7 +26,8 @@ public class UnitSelectionUI : MonoBehaviour
             Debug.Log("Some Stuff");
             attackText.text = unitStat.attack.ToString();
             defenseText.text = unitStat.defense.ToString();
-            moveSpeed.text = unitStat.moveSpeed.ToString();
+            moveSpeedText.text = unitStat.moveSpeed.ToString();
+            healthPointText.text = unitStat.healthPoints.ToString();
         }
     }
 
