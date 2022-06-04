@@ -3,77 +3,63 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 
+/*
+  It has the same functionality as a normal event. You add and remove the desired event that you wish to connect with. 
+   reference: https://www.youtube.com/watch?v=RPhTEJw6KbI&list=PLuiBbLS_hU1uu5bMXVceRpHBxO7fSmeLd&index=48
+*/
 public class SelectUnit : MonoBehaviour
 {
     // Start is called before the first frame update
     private TestStatsHolder testStatsHolder;
-    public UnitSelectionManager selectionManager;
+    private UnitSelectionUI selectionUI;
 
     private Camera cam;
     private Ray ray;
     RaycastHit raycastHit;
 
-    //Unit Layer Tag
-    private int unitLayerMask = 1 << 6;
-
-
-   // public delegate void ClickUnit();
-    //public event ClickUnit unitClicked;
-
     void Start()
     {
-      
         cam = Camera.main;
+        selectionUI = GameObject.Find("UnitSelection").GetComponent<UnitSelectionUI>();
         testStatsHolder = GetComponent<TestStatsHolder>();
     }
 
     private void OnEnable()
     {
-        Debug.Log("Enalve");
-        selectionManager.unitClicked += CurrentUnitStatus;
+        Events.OnUnitSelect.AddListener(CurrentUnitStatus);
     }
 
     private void OnDisable()
     {
-        selectionManager.unitClicked -= CurrentUnitStatus;
-
+        Events.OnUnitSelect.RemoveListener(CurrentUnitStatus);
     }
 
     // Update is called once per frame
     void Update()
     {
+       
         if (Input.GetMouseButtonDown(0))
         {
             ray = cam.ScreenPointToRay(Input.mousePosition);
 
-            if (Physics.Raycast(ray, out raycastHit, 1000f, unitLayerMask))
+            if (Physics.Raycast(ray, out raycastHit /*, 1000f*//*, unitLayerMask*/))
             {
                 if (raycastHit.transform == transform)
                 {
-                    //Do something 
-                    selectionManager.unitStat = testStatsHolder.unitStat;
-                    selectionManager.ChangeInfo();
+                    if(testStatsHolder != null)
+                    selectionUI.ChangeInfo(testStatsHolder.unitStat);
 
-                    //if (testStatsHolder != null)
-                    //{
-                    //    Debug.Log("Hero" + raycastHit.transform.name);
-                     
-                       
-                    //}
-                   
+                    //Events.OnTowerDied.Invoke();
+                    //Debug.Log("Test");
                 }
             }
-
-
         }
     }
 
     public void CurrentUnitStatus()
     {
         Debug.Log("Current");
-       //selectionManager.unitStat = testStatsHolder.unitStat;
     }
-
 
 
 }

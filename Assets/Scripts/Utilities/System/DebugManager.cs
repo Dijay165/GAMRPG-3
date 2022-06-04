@@ -8,9 +8,17 @@ public class DebugManager : MonoBehaviour
 
     public GameObject debugGO;
     public TimeManager timeManager;
-    void Start()
+    public GameObject structure;
+
+
+    private void OnEnable()
     {
-        
+        Events.OnTowerDied.AddListener(DestroyStructure);
+    }
+
+    private void OnDisable()
+    {
+        Events.OnTowerDied.RemoveListener(DestroyStructure);
     }
 
     // Update is called once per frame
@@ -50,5 +58,16 @@ public class DebugManager : MonoBehaviour
     public void ResetTime()
     {
         Time.timeScale = 1;
+    }
+
+    public void DestroyStructure()
+    {
+        //Click any structure and then if this button is pressed, structure will be destroy. 
+        Destroy(structure.gameObject);
+        Debug.Log("Destroy");
+    }
+    public void RestoreHealth()
+    {
+        //Click any unit and then if this button is pressed, the healthpoints of the unit will be filled. 
     }
 }

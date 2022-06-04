@@ -9,4 +9,5 @@ public class UnitStat : ScriptableObject
     public float attack;
     public float defense;
     public float moveSpeed;
+    public float healthPoints;
 }
