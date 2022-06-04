@@ -31,8 +31,8 @@ public class MOBACamera : MonoBehaviour
             pos.x -= panSpeed * Time.deltaTime;
         }
 
-        pos.x = Mathf.Clamp(pos.x, -panLimit.x, panLimit.x);
-        pos.z = Mathf.Clamp(pos.z, -panLimit.y, panLimit.y);
+        pos.x = Mathf.Clamp(pos.x, 0, panLimit.x);
+        pos.z = Mathf.Clamp(pos.z, 0, panLimit.y);
         transform.position = pos;
     }
 }

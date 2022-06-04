@@ -44,7 +44,7 @@ public class Minimap : MonoBehaviour, IPointerDownHandler
         
         float worldPositionX = (xpos /250f ) *5000f;
         float worldPositionY = (ypos / 250f) * 5000f;
-        //Debug.Log("Pos: " + xpos + " = " + worldPositionX + "," + ypos + " = " + worldPositionY);
+        Debug.Log("Pos: " + xpos + " = " + worldPositionX + "," + ypos + " = " + worldPositionY);
         CameraManager.instance.cam.transform.position = new Vector3(worldPositionX, CameraManager.instance.cam.transform.position.y, worldPositionY);
 
     }

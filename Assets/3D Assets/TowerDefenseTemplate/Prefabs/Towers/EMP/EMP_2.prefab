@@ -9,7 +9,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4064439936423624}
-  m_Layer: 10
+  - component: {fileID: 788445809}
+  m_Layer: 0
   m_Name: EMP_2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -33,6 +34,23 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &788445809
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1018291631365572}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b2ee099bcef3156419938abf98198822, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playersParent: {fileID: 0}
+  team: 0
+  health: 0
+  minHealth: 0
+  maxHealth: 0
 --- !u!1 &1228855972254258
 GameObject:
   m_ObjectHideFlags: 0
@@ -140,8 +158,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1372693806144200}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 3.13, y: 1.84, z: -8.22}
+  m_LocalScale: {x: 0.59337, y: 0.53329164, z: 0.59337}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 4554340477483686}
@@ -157,7 +175,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4426900634282998}
-  m_Layer: 10
+  m_Layer: 0
   m_Name: Affector
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -189,8 +207,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4258173200443278}
   - component: {fileID: 54954052437601860}
-  - component: {fileID: 136802984214141268}
-  m_Layer: 10
+  m_Layer: 0
   m_Name: Targetter
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -226,22 +243,8 @@ Rigidbody:
   m_UseGravity: 0
   m_IsKinematic: 1
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 126
   m_CollisionDetection: 0
---- !u!136 &136802984214141268
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1751241635366000}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  m_Radius: 8
-  m_Height: 20
-  m_Direction: 1
-  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &1932577520024318
 GameObject:
   m_ObjectHideFlags: 0
