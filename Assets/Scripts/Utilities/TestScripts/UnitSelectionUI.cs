@@ -16,6 +16,16 @@ public class UnitSelectionUI : MonoBehaviour
     public TextMeshProUGUI defenseText;
     public TextMeshProUGUI moveSpeedText;
     public TextMeshProUGUI healthPointText;
+
+    public void OnEnable()
+    {
+        Events.OnResetInfoUI.AddListener(ResetInfo);
+    }
+
+    private void OnDisable()
+    {
+        Events.OnResetInfoUI.RemoveListener(ResetInfo);
+    }
     public void ChangeInfo(UnitStat unitStat)
     {
         Events.OnUnitSelect.Invoke();
@@ -23,12 +33,20 @@ public class UnitSelectionUI : MonoBehaviour
         if (unitStat != null)
         {
    
-            Debug.Log("Some Stuff");
+           //Debug.Log("Some Stuff");
             attackText.text = unitStat.attack.ToString();
             defenseText.text = unitStat.defense.ToString();
             moveSpeedText.text = unitStat.moveSpeed.ToString();
             healthPointText.text = unitStat.healthPoints.ToString();
         }
+    }
+
+    public void ResetInfo()
+    {
+        attackText.text = "";
+        defenseText.text = "";
+        moveSpeedText.text = "";
+        healthPointText.text = "";
     }
 
 }

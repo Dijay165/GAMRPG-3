@@ -64,6 +64,8 @@ public class DebugManager : MonoBehaviour
     {
         //Click any structure and then if this button is pressed, structure will be destroy. 
         Destroy(structure.gameObject);
+        //   Events.OnUnitSelect.Invoke();
+        Events.OnResetInfoUI.Invoke();
         Debug.Log("Destroy");
     }
     public void RestoreHealth()

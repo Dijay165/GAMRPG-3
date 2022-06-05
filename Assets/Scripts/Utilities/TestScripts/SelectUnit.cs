@@ -47,7 +47,10 @@ public class SelectUnit : MonoBehaviour
                 if (raycastHit.transform == transform)
                 {
                     if(testStatsHolder != null)
-                    selectionUI.ChangeInfo(testStatsHolder.unitStat);
+                    {
+                        selectionUI.ChangeInfo(testStatsHolder.unitStat);
+                    }
+                 
 
                     //Events.OnTowerDied.Invoke();
                     //Debug.Log("Test");
@@ -64,6 +67,7 @@ public class SelectUnit : MonoBehaviour
     public void CurrentUnitStatus()
     {
         Debug.Log("Current");
+        //selectionUI.ChangeInfo(testStatsHolder.unitStat);
     }
 
 
