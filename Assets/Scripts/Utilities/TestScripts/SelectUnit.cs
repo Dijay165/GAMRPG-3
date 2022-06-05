@@ -51,6 +51,11 @@ public class SelectUnit : MonoBehaviour
 
                     //Events.OnTowerDied.Invoke();
                     //Debug.Log("Test");
+                    if(gameObject.TryGetComponent(out Structures structures))
+                    {
+//                        Events.OnTowerDied.Invoke();
+                        structures.OnSelectStructure();
+                    }
                 }
             }
         }

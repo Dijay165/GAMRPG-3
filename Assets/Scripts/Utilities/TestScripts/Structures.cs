@@ -6,7 +6,13 @@ public class Structures : MonoBehaviour
 {
     // Start is called before the first frame update
 
-    public DebugManager debugManager;
+    private DebugManager debugManager;
+
+    private void Start()
+    {
+        debugManager = GameObject.Find("DebugManager").GetComponent<DebugManager>();
+    }
+
     private void OnEnable()
     {
         Events.OnTowerDied.AddListener(OnSelectStructure);
@@ -18,22 +24,10 @@ public class Structures : MonoBehaviour
     }
 
 
-    private void OnMouseDown()
-    {
-        //if clicked, set the structure to this tower. 
-        OnSelectStructure();
-
-        Debug.Log("Click");
-       // Events.OnTowerDied.Invoke();
-    }
-
     public void OnSelectStructure()
     {
         //  Events.OnTowerDied.Invoke();
         debugManager.structure = gameObject;
-     //  Destroy(debugManager.struc)
-      //  Debug.Log("Destroyed");
-       // Destroy(gameObject);
     }
 
 
