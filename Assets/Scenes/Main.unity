@@ -1723,7 +1723,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playersParent: {fileID: 0}
   team: 0
-  health: 0
   minHealth: 0
   maxHealth: 0
 --- !u!1 &262662539
@@ -1820,6 +1819,7 @@ RectTransform:
   m_Children:
   - {fileID: 389108199643996316}
   - {fileID: 1207707758}
+  - {fileID: 1879462200}
   m_Father: {fileID: 0}
   m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1847,7 +1847,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playersParent: {fileID: 0}
   team: 0
-  health: 0
   minHealth: 0
   maxHealth: 0
 --- !u!114 &271162596
@@ -1862,7 +1861,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d42ae0f970e31d6419841f83a85e76eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  debugManager: {fileID: 699944809}
 --- !u!136 &271162597
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -2332,6 +2330,57 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4064439936423624, guid: d8faacfa67b8d4af8b5a81028390f02b, type: 3}
   m_PrefabInstance: {fileID: 492492756}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &500029811
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 500029812}
+  - component: {fileID: 500029813}
+  m_Layer: 0
+  m_Name: OverheadHealthUI
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &500029812
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 500029811}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 622543547}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &500029813
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 500029811}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe53c6e1b5f6e6f40aa629ce9c9dcfc1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isAlwaysInContainer: 0
+  isInactiveInContainer: 1
+  container: {fileID: 500029812}
+  prefab: {fileID: 569862017832577074, guid: 31bae4ae65cd77d47b8492b2382b463f, type: 3}
+  isCollectionCheck: 0
+  defaultMaxAmount: 10
+  flexibleMaxAmount: 3
 --- !u!1 &505173292
 GameObject:
   m_ObjectHideFlags: 0
@@ -2760,6 +2809,52 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 1161251386251526, guid: 6f6de38bc4946428ab2a1d468039753e, type: 3}
   m_PrefabInstance: {fileID: 1396764950}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &622543545
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 622543547}
+  - component: {fileID: 622543548}
+  m_Layer: 0
+  m_Name: ObjectPoolManagers
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &622543547
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 622543545}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 500029812}
+  m_Father: {fileID: 0}
+  m_RootOrder: 15
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &622543548
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 622543545}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 89bcf74e5c2224340872557c4fcdb0cd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pools: []
 --- !u!1 &657236270
 GameObject:
   m_ObjectHideFlags: 0
@@ -3595,6 +3690,51 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 826196032}
   m_CullTransparentMesh: 1
+--- !u!1 &831711855
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 831711857}
+  - component: {fileID: 831711856}
+  m_Layer: 0
+  m_Name: UIManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &831711856
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 831711855}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1a7bc0d3131a16144abb5f211ba53243, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  overheadUI: {fileID: 1879462200}
+--- !u!4 &831711857
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 831711855}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 2500, y: 1125, z: 2500}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 16
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &842992566 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1161251386251526, guid: 6f6de38bc4946428ab2a1d468039753e, type: 3}
@@ -3614,7 +3754,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playersParent: {fileID: 0}
   team: 0
-  health: 0
   minHealth: 0
   maxHealth: 0
 --- !u!114 &842992569
@@ -3629,7 +3768,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d42ae0f970e31d6419841f83a85e76eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  debugManager: {fileID: 699944809}
 --- !u!136 &842992570
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -3944,7 +4082,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playersParent: {fileID: 0}
   team: 0
-  health: 0
   minHealth: 0
   maxHealth: 0
 --- !u!114 &959122153
@@ -3959,7 +4096,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d42ae0f970e31d6419841f83a85e76eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  debugManager: {fileID: 699944809}
 --- !u!136 &959122154
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -4172,6 +4308,51 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 972189966}
   m_CullTransparentMesh: 1
+--- !u!1 &1001036087
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1001036089}
+  - component: {fileID: 1001036088}
+  m_Layer: 0
+  m_Name: PlayerManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1001036088
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1001036087}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0cdc1c67bb952294e8f014406d736293, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 2024789444}
+--- !u!4 &1001036089
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1001036087}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 14
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1012443585 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1161251386251526, guid: 6f6de38bc4946428ab2a1d468039753e, type: 3}
@@ -4331,7 +4512,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playersParent: {fileID: 0}
   team: 0
-  health: 0
   minHealth: 0
   maxHealth: 0
 --- !u!114 &1037190646
@@ -4346,7 +4526,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d42ae0f970e31d6419841f83a85e76eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  debugManager: {fileID: 699944809}
 --- !u!136 &1037190647
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -4868,7 +5047,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playersParent: {fileID: 0}
   team: 0
-  health: 0
   minHealth: 0
   maxHealth: 0
 --- !u!1 &1337099423 stripped
@@ -5390,7 +5568,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playersParent: {fileID: 0}
   team: 0
-  health: 0
   minHealth: 0
   maxHealth: 0
 --- !u!114 &1396764954
@@ -5405,7 +5582,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d42ae0f970e31d6419841f83a85e76eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  debugManager: {fileID: 699944809}
 --- !u!136 &1396764955
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -5531,7 +5707,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playersParent: {fileID: 0}
   team: 0
-  health: 0
   minHealth: 0
   maxHealth: 0
 --- !u!114 &1421030372
@@ -5546,7 +5721,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d42ae0f970e31d6419841f83a85e76eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  debugManager: {fileID: 699944809}
 --- !u!136 &1421030373
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -5596,7 +5770,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playersParent: {fileID: 0}
   team: 0
-  health: 0
   minHealth: 0
   maxHealth: 0
 --- !u!1 &1434935306
@@ -5923,7 +6096,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playersParent: {fileID: 0}
   team: 0
-  health: 0
   minHealth: 0
   maxHealth: 0
 --- !u!114 &1458438691
@@ -5938,7 +6110,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d42ae0f970e31d6419841f83a85e76eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  debugManager: {fileID: 699944809}
 --- !u!136 &1458438692
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -6131,7 +6302,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1483129753}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 100, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 100, y: 100, z: 100}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -6334,7 +6505,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playersParent: {fileID: 0}
   team: 0
-  health: 0
   minHealth: 0
   maxHealth: 0
 --- !u!114 &1507728893
@@ -6349,7 +6519,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d42ae0f970e31d6419841f83a85e76eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  debugManager: {fileID: 699944809}
 --- !u!136 &1507728894
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -6929,7 +7098,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playersParent: {fileID: 0}
   team: 0
-  health: 0
   minHealth: 0
   maxHealth: 0
 --- !u!114 &1570788273
@@ -6944,7 +7112,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d42ae0f970e31d6419841f83a85e76eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  debugManager: {fileID: 699944809}
 --- !u!136 &1570788274
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -7112,7 +7279,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playersParent: {fileID: 0}
   team: 0
-  health: 0
   minHealth: 0
   maxHealth: 0
 --- !u!114 &1612738821
@@ -7127,7 +7293,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d42ae0f970e31d6419841f83a85e76eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  debugManager: {fileID: 699944809}
 --- !u!136 &1612738822
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -7177,7 +7342,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playersParent: {fileID: 0}
   team: 0
-  health: 0
   minHealth: 0
   maxHealth: 0
 --- !u!1001 &1659740204
@@ -7328,7 +7492,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playersParent: {fileID: 0}
   team: 0
-  health: 0
   minHealth: 0
   maxHealth: 0
 --- !u!1 &1686130874 stripped
@@ -7473,7 +7636,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playersParent: {fileID: 0}
   team: 0
-  health: 0
   minHealth: 0
   maxHealth: 0
 --- !u!114 &1746107790
@@ -7488,7 +7650,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d42ae0f970e31d6419841f83a85e76eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  debugManager: {fileID: 699944809}
 --- !u!136 &1746107791
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -7711,7 +7872,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playersParent: {fileID: 0}
   team: 0
-  health: 0
   minHealth: 0
   maxHealth: 0
 --- !u!114 &1798436160
@@ -7726,7 +7886,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d42ae0f970e31d6419841f83a85e76eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  debugManager: {fileID: 699944809}
 --- !u!136 &1798436161
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -8028,7 +8187,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playersParent: {fileID: 0}
   team: 0
-  health: 0
   minHealth: 0
   maxHealth: 0
 --- !u!114 &1846914686
@@ -8043,7 +8201,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d42ae0f970e31d6419841f83a85e76eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  debugManager: {fileID: 699944809}
 --- !u!136 &1846914687
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -8275,7 +8432,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playersParent: {fileID: 0}
   team: 0
-  health: 0
   minHealth: 0
   maxHealth: 0
 --- !u!114 &1852742858
@@ -8290,7 +8446,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d42ae0f970e31d6419841f83a85e76eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  debugManager: {fileID: 699944809}
 --- !u!136 &1852742859
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -8399,6 +8554,82 @@ CanvasRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1873137218}
+  m_CullTransparentMesh: 1
+--- !u!1 &1879462199
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1879462200}
+  - component: {fileID: 1879462202}
+  - component: {fileID: 1879462201}
+  m_Layer: 5
+  m_Name: Overlay
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1879462200
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1879462199}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 262662543}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 910, y: -490.08838}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1879462201
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1879462199}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 0}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &1879462202
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1879462199}
   m_CullTransparentMesh: 1
 --- !u!1 &1898619243
 GameObject:
@@ -8554,7 +8785,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playersParent: {fileID: 0}
   team: 0
-  health: 0
   minHealth: 0
   maxHealth: 0
 --- !u!1001 &1915367129
@@ -8726,7 +8956,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playersParent: {fileID: 0}
   team: 0
-  health: 0
   minHealth: 0
   maxHealth: 0
 --- !u!114 &1915367133
@@ -8741,7 +8970,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d42ae0f970e31d6419841f83a85e76eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  debugManager: {fileID: 699944809}
 --- !u!136 &1915367134
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -8791,7 +9019,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playersParent: {fileID: 0}
   team: 0
-  health: 0
   minHealth: 0
   maxHealth: 0
 --- !u!114 &1924741741
@@ -8806,7 +9033,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d42ae0f970e31d6419841f83a85e76eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  debugManager: {fileID: 699944809}
 --- !u!136 &1924741742
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -9002,7 +9228,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playersParent: {fileID: 0}
   team: 0
-  health: 0
   minHealth: 0
   maxHealth: 0
 --- !u!114 &1947597565
@@ -9017,7 +9242,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d42ae0f970e31d6419841f83a85e76eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  debugManager: {fileID: 699944809}
 --- !u!136 &1947597566
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -9175,7 +9399,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playersParent: {fileID: 0}
   team: 0
-  health: 0
   minHealth: 0
   maxHealth: 0
 --- !u!114 &2016645755
@@ -9190,7 +9413,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d42ae0f970e31d6419841f83a85e76eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  debugManager: {fileID: 699944809}
 --- !u!136 &2016645756
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -9240,7 +9462,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playersParent: {fileID: 0}
   team: 0
-  health: 0
   minHealth: 0
   maxHealth: 0
 --- !u!114 &2018294792
@@ -9255,7 +9476,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d42ae0f970e31d6419841f83a85e76eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  debugManager: {fileID: 699944809}
 --- !u!136 &2018294793
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -9296,6 +9516,12 @@ GameObject:
   m_Component:
   - component: {fileID: 2024789449}
   - component: {fileID: 2024789450}
+  - component: {fileID: 2024789454}
+  - component: {fileID: 2024789453}
+  - component: {fileID: 2024789452}
+  - component: {fileID: 2024789451}
+  - component: {fileID: 2024789455}
+  - component: {fileID: 2024789456}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -9311,7 +9537,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2024789444}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2500, y: 100, z: 2500}
+  m_LocalPosition: {x: 2500, y: 0, z: 2500}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -9334,9 +9560,104 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playersParent: {fileID: 0}
   team: 0
-  health: 0
   minHealth: 0
-  maxHealth: 0
+  maxHealth: 5
+--- !u!114 &2024789451
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2024789444}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f9a1deda5d6ea0f438edc7e43d8d3274, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  healthOverheadUI: {fileID: 0}
+--- !u!114 &2024789452
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2024789444}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 818c3a2412f2bb144a2bc0ca7995697f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &2024789453
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2024789444}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7e5d8922040091140b3322a7fb27ccc8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  assignedKey: 49
+  pressedAmount: 2
+  decayTime: 3
+--- !u!114 &2024789454
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2024789444}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 95d7cb9630da06743bcaf5770b9282cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  assignedKey: 115
+  anim: {fileID: 0}
+--- !u!195 &2024789455
+NavMeshAgent:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2024789444}
+  m_Enabled: 1
+  m_AgentTypeID: 0
+  m_Radius: 0.5
+  m_Speed: 3.5
+  m_Acceleration: 8
+  avoidancePriority: 50
+  m_AngularSpeed: 1440
+  m_StoppingDistance: 0
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 2
+  m_BaseOffset: 0
+  m_WalkableMask: 4294967295
+  m_ObstacleAvoidanceType: 4
+--- !u!95 &2024789456
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2024789444}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 0}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &2032241050 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1018291631365572, guid: d8faacfa67b8d4af8b5a81028390f02b, type: 3}
@@ -9356,7 +9677,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playersParent: {fileID: 0}
   team: 0
-  health: 0
   minHealth: 0
   maxHealth: 0
 --- !u!1 &2076662679
@@ -9643,7 +9963,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playersParent: {fileID: 0}
   team: 0
-  health: 0
   minHealth: 0
   maxHealth: 0
 --- !u!114 &2106419691
@@ -9658,7 +9977,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d42ae0f970e31d6419841f83a85e76eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  debugManager: {fileID: 699944809}
 --- !u!136 &2106419692
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -9708,7 +10026,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playersParent: {fileID: 0}
   team: 0
-  health: 0
   minHealth: 0
   maxHealth: 0
 --- !u!114 &2123510607
@@ -9723,7 +10040,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d42ae0f970e31d6419841f83a85e76eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  debugManager: {fileID: 699944809}
 --- !u!136 &2123510608
 CapsuleCollider:
   m_ObjectHideFlags: 0

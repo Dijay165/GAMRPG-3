@@ -2,28 +2,41 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using System;
+using UnityEngine.Events;
+
+public class Death : UnityEvent { }
+public class HealthModify : UnityEvent<bool, float, float> { }
 public class Health : MonoBehaviour
 {
     public Transform playersParent;
 
     [SerializeField] private int team;
     private bool isAlive;
-    [SerializeField] private float health;
+    private float currentHealth;
     [SerializeField] private float minHealth;
     [SerializeField] private float maxHealth;
 
-    public Action OnDeath;
-
+    public Death OnDeathEvent = new Death();
+    public HealthModify OnHealthModifyEvent = new HealthModify();
 
     // Start is called before the first frame update
     void Start()
     {
  
         isAlive = true;
-        ModifyHealth(maxHealth);
+        
         playersParent = transform;
 
+    }
+
+    private void OnEnable()
+    {
+        InitializeValues();
+    }
+    public void InitializeValues()
+    {
+        isAlive = true;
+        currentHealth = maxHealth;
     }
     public bool CompareTeam(int p_inflictingTeam)
     {
@@ -42,9 +55,9 @@ public class Health : MonoBehaviour
     {
         if (isAlive)
         {
-            health += p_healthModifer;
+            currentHealth += p_healthModifer;
 
-            Mathf.Clamp(health, minHealth, maxHealth);
+            Mathf.Clamp(currentHealth, minHealth, maxHealth);
             
             //Check is alive
             CheckHealth();
@@ -55,10 +68,10 @@ public class Health : MonoBehaviour
     {
         if (isAlive)
         {
-            health += p_healthModifer;
-            if (health > maxHealth)
+            currentHealth += p_healthModifer;
+            if (currentHealth > maxHealth)
             {
-                health = maxHealth;
+                currentHealth = maxHealth;
             }
             
             //Check is alive
@@ -72,10 +85,10 @@ public class Health : MonoBehaviour
 
         if (isAlive)
         {
-            health -= p_healthModifer;
-            if (health < minHealth)
+            currentHealth -= p_healthModifer;
+            if (currentHealth < minHealth)
             {
-                health = minHealth;
+                currentHealth = minHealth;
             }
             //Check is alive
             CheckHealth();
@@ -86,15 +99,15 @@ public class Health : MonoBehaviour
 
     void CheckHealth()
     {
-        if (health > 0)
+        if (currentHealth > 0)
         {
             isAlive = true;
-            
+            OnHealthModifyEvent.Invoke(isAlive, currentHealth, maxHealth);
         }
         else
         {
             isAlive = false;
-            OnDeath?.Invoke();
+            OnDeathEvent?.Invoke();
 
         }
     }
