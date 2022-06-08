@@ -24,15 +24,8 @@ public class ObjectPoolsManager : MonoBehaviour
     public List<GenericObjectPool> pools = new List<GenericObjectPool>();
     private void Awake()
     {
-        if (_instance != null)
-        {
-            Destroy(gameObject);
-        }
-        else
-        {
-            _instance = this;
+        _instance = this;
 
-        }
         foreach (GenericObjectPool pool in transform.GetComponentsInChildren(typeof(GenericObjectPool)))
         {
             pools.Add(pool);
