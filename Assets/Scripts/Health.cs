@@ -4,13 +4,13 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Events;
 
-public class Death : UnityEvent { }
+public class Death : UnityEvent<Health> { }
 public class HealthModify : UnityEvent<bool, float, float> { }
 public class Health : MonoBehaviour
 {
     public Transform playersParent;
-
-    [SerializeField] private int team;
+    [HideInInspector] public bool invulnerable = false;
+    [SerializeField] public int team;
     private bool isAlive;
     private float currentHealth;
     [SerializeField] private float minHealth;
@@ -107,7 +107,7 @@ public class Health : MonoBehaviour
         else
         {
             isAlive = false;
-            OnDeathEvent?.Invoke();
+            OnDeathEvent.Invoke(this);
 
         }
     }

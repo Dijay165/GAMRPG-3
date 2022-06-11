@@ -4,10 +4,10 @@ using UnityEngine;
 using UnityEngine.Pool;
 public class PoolableObject : MonoBehaviour
 {
-    protected GenericObjectPool genericObjectPool;
+    //protected GenericObjectPool genericObjectPool;
 
-    public void SetPool(GenericObjectPool p_pool)
-    {
-        genericObjectPool = p_pool;
-    }
+    //public void SetPool(GenericObjectPool p_pool)
+    //{
+    //    genericObjectPool = p_pool;
+    //}
 }

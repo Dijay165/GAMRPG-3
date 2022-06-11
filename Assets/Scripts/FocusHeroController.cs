@@ -17,20 +17,21 @@ public class FocusHeroController : MonoBehaviour
             if (runningCoroutine != null)
             {
                 StopCoroutine(runningCoroutine);
-                currentPressedAmount++;
                 
-                if (currentPressedAmount >= pressedAmount)
-                {
-                    currentPressedAmount = 0;
-                    CameraManager.instance.cam.transform.position = new Vector3(PlayerManager.instance.player.transform.position.x - 15, 20, PlayerManager.instance.player.transform.position.z - 15);
-                }
-                else
-                {
-                    runningCoroutine = StartCoroutine(Co_Decay());
-                }
             }
-            
-           
+            currentPressedAmount++;
+
+            if (currentPressedAmount >= pressedAmount)
+            {
+                currentPressedAmount = 0;
+                CameraManager.instance.cam.transform.position = new Vector3(PlayerManager.instance.player.transform.position.x - 15, 1500, PlayerManager.instance.player.transform.position.z - 15);
+            }
+            else
+            {
+                runningCoroutine = StartCoroutine(Co_Decay());
+            }
+
+
         }
     }
 
