@@ -10,4 +10,5 @@ public class UnitStat : ScriptableObject
     public float defense;
     public float moveSpeed;
     public float healthPoints;
+    public Sprite portraitImage;
 }

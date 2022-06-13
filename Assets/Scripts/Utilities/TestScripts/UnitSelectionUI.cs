@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.UI;
 using System;
 
 /*
@@ -16,15 +17,27 @@ public class UnitSelectionUI : MonoBehaviour
     public TextMeshProUGUI defenseText;
     public TextMeshProUGUI moveSpeedText;
     public TextMeshProUGUI healthPointText;
+    public Image characterPortrait;
+
+
+    UnitStat unit;
 
     public void OnEnable()
     {
         Events.OnResetInfoUI.AddListener(ResetInfo);
+        Events.OnPlayerSelect.AddListener(PlayerInfo);
     }
 
     private void OnDisable()
     {
         Events.OnResetInfoUI.RemoveListener(ResetInfo);
+        Events.OnPlayerSelect.RemoveListener(PlayerInfo);
+    }
+
+    private void Start()
+    {
+        GameObject player = GameObject.FindGameObjectWithTag("Player");
+        unit = player.GetComponent<TestStatsHolder>().unitStat;
     }
     public void ChangeInfo(UnitStat unitStat)
     {
@@ -32,8 +45,6 @@ public class UnitSelectionUI : MonoBehaviour
         
         if (unitStat != null)
         {
-   
-           //Debug.Log("Some Stuff");
             attackText.text = unitStat.attack.ToString();
             defenseText.text = unitStat.defense.ToString();
             moveSpeedText.text = unitStat.moveSpeed.ToString();
@@ -47,6 +58,16 @@ public class UnitSelectionUI : MonoBehaviour
         defenseText.text = "";
         moveSpeedText.text = "";
         healthPointText.text = "";
+    }
+
+    public void PlayerInfo()
+    {
+
+        attackText.text = unit.attack.ToString();
+        defenseText.text = unit.defense.ToString();
+        moveSpeedText.text = unit.moveSpeed.ToString();
+        healthPointText.text = unit.healthPoints.ToString();
+        characterPortrait.sprite = unit.portraitImage;
     }
 
 }

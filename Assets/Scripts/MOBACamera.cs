@@ -10,7 +10,9 @@ public class MOBACamera : MonoBehaviour
     private void Update()
     {
         Vector3 pos = transform.position;
-        if (Input.GetKey("w") || 
+
+        //Uncomment if you want to enable this feature, this is not included in the milestone btw
+        if (Input.GetKey("w") ||
             Input.mousePosition.y >= Screen.height - panBorderThickness)
         {
             pos.z += panSpeed * Time.deltaTime;
