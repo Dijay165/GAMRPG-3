@@ -16,13 +16,13 @@ public class ForceStopController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKey(assignedKey))
+        if (Input.GetKeyDown(assignedKey))
         {
             //stops state
             //anim.Play(); 
-      
+            Debug.Log("Stop");
             anim.SetTrigger("Stop");
-          
+            anim.ResetTrigger("Basic Attack");
         }
     }
 }
