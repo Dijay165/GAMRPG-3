@@ -5,8 +5,13 @@ using UnityEngine;
 public class ForceStopController : MonoBehaviour
 {
     [SerializeField] private KeyCode assignedKey = KeyCode.S;
-    [SerializeField] private Animator anim;
-    
+     private Animator anim;
+
+
+    private void Start()
+    {
+        anim = GetComponent<Animator>();
+    }
 
     // Update is called once per frame
     void Update()
@@ -15,6 +20,7 @@ public class ForceStopController : MonoBehaviour
         {
             //stops state
             //anim.Play(); 
+            anim.SetTrigger("Turn");
         }
     }
 }

@@ -12,6 +12,8 @@ public class SelectUnit : MonoBehaviour
     // Start is called before the first frame update
     private TestStatsHolder testStatsHolder;
     private UnitSelectionUI selectionUI;
+ //   TargetedDamager targetedDamager;
+
 
     private Camera cam;
     private Ray ray;
@@ -22,6 +24,7 @@ public class SelectUnit : MonoBehaviour
         cam = Camera.main;
         selectionUI = GameObject.Find("UnitSelection").GetComponent<UnitSelectionUI>();
         testStatsHolder = GetComponent<TestStatsHolder>();
+       // targetedDamager = GetComponent<TargetedDamager>();
     }
 
     private void OnEnable()
@@ -58,6 +61,8 @@ public class SelectUnit : MonoBehaviour
                     {
 //                        Events.OnTowerDied.Invoke();
                         structures.OnSelectStructure();
+                      //  targetedDamager.targetHealth = structures.health;
+                        
                     }
                 }
             }

@@ -11,9 +11,33 @@ public class TargetedDamager : MonoBehaviour
 
     public Health targetHealth;
 
+    Animator anim;
+
+    float distance;
+
+    MOBAMovement mOBAMovement;
+    
     void Start()
     {
         team = GetComponent<Health>().team;
+        anim = GetComponent<Animator>();
+
+        mOBAMovement = GetComponent<MOBAMovement>();
+    }
+
+    private void Update()
+    {
+        if(targetHealth != null)
+        {
+            float distance = Vector3.Distance(mOBAMovement.agent.transform.position, targetHealth.playersParent.position);
+            if (distance < range)
+            {
+
+                anim.SetTrigger("Basic Attack");
+        
+            }
+        }
+       
     }
     private void NewTarget(GameObject p_target)
     {
@@ -28,8 +52,13 @@ public class TargetedDamager : MonoBehaviour
 
     }
 
-    void DamageTarget()
+    public void DamageTarget()
     {
         targetHealth.SubtractHealth(damageAmount);
+    }
+
+    private void OnDrawGizmos()
+    {
+        
     }
 }
