@@ -227,6 +227,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 818c3a2412f2bb144a2bc0ca7995697f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  rotateSpeed: 0
 --- !u!195 &6952724
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -46295,6 +46296,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 818c3a2412f2bb144a2bc0ca7995697f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  rotateSpeed: 0
 --- !u!195 &5001893671019957707
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -107063,6 +107065,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 818c3a2412f2bb144a2bc0ca7995697f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  rotateSpeed: 100
 --- !u!195 &8915489909188169920
 NavMeshAgent:
   m_ObjectHideFlags: 0
