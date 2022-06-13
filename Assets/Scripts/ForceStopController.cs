@@ -20,7 +20,9 @@ public class ForceStopController : MonoBehaviour
         {
             //stops state
             //anim.Play(); 
-            anim.SetTrigger("Turn");
+      
+            anim.SetTrigger("Stop");
+          
         }
     }
 }

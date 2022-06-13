@@ -9,12 +9,12 @@ public class MOBAMovement : MonoBehaviour
     [HideInInspector]
     public NavMeshAgent agent;
     Animator anim;
-    Vector2 smoothDeltaPosition = Vector2.zero;
-    Vector2 velocity = Vector2.zero;
-
     float rotateSpeed = 1440f;
 
     TargetedDamager targetedDamager;
+
+  //  public Vector3 lastSavedLocation;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -28,13 +28,20 @@ public class MOBAMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
-        
         if (Input.GetMouseButtonDown(1))
         {
+            HeroMove();
+        }
+          
+       
+    }
+
+    public void HeroMove()
+    {
+       
             RaycastHit hit;
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-            
+
             if (Physics.Raycast(ray, out hit, Mathf.Infinity))
             {
 
@@ -43,14 +50,11 @@ public class MOBAMovement : MonoBehaviour
                 agent.SetDestination(hit.point);
                 anim.SetTrigger("Turn");
 
-                if(hit.transform.gameObject.TryGetComponent(out Structures structures))
+                if (hit.transform.gameObject.TryGetComponent(out Structures structures))
                 {
                     targetedDamager.targetHealth = structures.health;
                 }
-            }
-            //  anim.SetTrigger("Attack1");
-            //anim.SetTrigger("Attack2");
-            //  anim.SetBool("dead", true);
+            
         }
 
         anim.SetFloat("Velocity X", agent.velocity.x, 0.01f, Time.deltaTime);

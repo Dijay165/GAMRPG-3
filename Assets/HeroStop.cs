@@ -1,26 +1,46 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
-public class HeroTurn : StateMachineBehaviour
+public class HeroStop : StateMachineBehaviour
 {
+    NavMeshAgent agent;
+    MOBAMovement mOBAMovement;
+
     // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
+        agent = animator.gameObject.GetComponent<NavMeshAgent>();
+        mOBAMovement = animator.gameObject.GetComponent<MOBAMovement>();
+
+        animator.ResetTrigger("Turn");
         animator.ResetTrigger("Basic Attack");
         animator.ResetTrigger("Attack2");
+
+
+        mOBAMovement.HeroMove();
+        if (Input.GetKeyDown(KeyCode.S))
+        {
+           
+           // animator.ResetTrigger("Stop");
+        }
+
     }
 
-    // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
+    //OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
     //override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     //{
-    //    
+    //    //mOBAMovement.HeroMove();
+    //    //agent.SetDestination();
+
+       
     //}
 
     // OnStateExit is called when a transition ends and the state machine finishes evaluating this state
     //override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     //{
-
+    //    
     //}
 
     // OnStateMove is called right after Animator.OnAnimatorMove()
