@@ -12,7 +12,7 @@ public class Health : MonoBehaviour
     [HideInInspector] public bool invulnerable = false;
     [SerializeField] public int team;
     private bool isAlive;
-    private float currentHealth;
+    [SerializeField] private float currentHealth;
     [SerializeField] private float minHealth;
     [SerializeField] private float maxHealth;
 

@@ -7,34 +7,39 @@ public class MOBACamera : MonoBehaviour
     public float panSpeed = 20f;
     public float panBorderThickness = 10f;
     public Vector2 panLimit;
+    private void Start()
+    {
+        
+    }
     private void Update()
     {
-        Vector3 pos = transform.position;
+        Vector3 pos = transform.parent.transform.localPosition;
 
         //Uncomment if you want to enable this feature, this is not included in the milestone btw
-        if (Input.GetKey("w") ||
-            Input.mousePosition.y >= Screen.height - panBorderThickness)
+        if (Input.mousePosition.y >= Screen.height - panBorderThickness)
         {
-            pos.z += panSpeed * Time.deltaTime;
+            Vector3 dir = transform.InverseTransformDirection(Vector3.right);
+            pos += (dir * panSpeed) * Time.deltaTime;
         }
-        if (Input.GetKey("s") ||
-            Input.mousePosition.y <= panBorderThickness)
+        if (Input.mousePosition.y <= panBorderThickness)
         {
-            pos.z -= panSpeed * Time.deltaTime;
+            Vector3 dir = transform.InverseTransformDirection(Vector3.right);
+            pos -= (dir * panSpeed) * Time.deltaTime;
         }
-        if (Input.GetKey("d") ||
-            Input.mousePosition.x >= Screen.width - panBorderThickness)
+        if (Input.mousePosition.x >= Screen.width - panBorderThickness)
         {
-            pos.x += panSpeed * Time.deltaTime;
+            Vector3 dir = transform.InverseTransformDirection(Vector3.forward);
+            pos -= (dir * panSpeed) * Time.deltaTime;
         }
-        if (Input.GetKey("a") ||
-            Input.mousePosition.x <= panBorderThickness)
+        if (Input.mousePosition.x <= panBorderThickness)
         {
-            pos.x -= panSpeed * Time.deltaTime;
+            Vector3 dir = transform.InverseTransformDirection(Vector3.forward);
+            pos += (dir * panSpeed) * Time.deltaTime;
         }
 
         pos.x = Mathf.Clamp(pos.x, 0, panLimit.x);
+        pos.y = 1000;
         pos.z = Mathf.Clamp(pos.z, 0, panLimit.y);
-        transform.position = pos;
+        transform.parent.transform.localPosition = pos;
     }
 }

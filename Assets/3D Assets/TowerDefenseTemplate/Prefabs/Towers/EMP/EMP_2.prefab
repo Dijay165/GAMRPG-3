@@ -52,7 +52,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playersParent: {fileID: 0}
+  invulnerable: 0
   team: 0
+  currentHealth: 0
   minHealth: 0
   maxHealth: 0
 --- !u!114 &1371393305
@@ -92,6 +94,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d42ae0f970e31d6419841f83a85e76eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  health: {fileID: 0}
 --- !u!54 &2006759774174617894
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -427,7 +430,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: e4eee19ad5fd925418b45f655ea9a72a, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.073467255, g: 1, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0

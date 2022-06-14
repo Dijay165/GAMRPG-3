@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 1716755602}
   - component: {fileID: 1716755606}
   - component: {fileID: 1716755607}
+  - component: {fileID: 3144587810365715528}
   m_Layer: 0
   m_Name: LaserTower_0
   m_TagString: Untagged
@@ -68,7 +69,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playersParent: {fileID: 0}
+  invulnerable: 0
   team: 0
+  currentHealth: 0
   minHealth: 0
   maxHealth: 0
 --- !u!114 &1289839868
@@ -83,6 +86,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d42ae0f970e31d6419841f83a85e76eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  health: {fileID: 0}
 --- !u!136 &1716755602
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -120,6 +124,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7c3d457f7f78c7a43abe4111be03762d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &3144587810365715528
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1161251386251526}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6bc377d0a1420e548b6e80d6e238b2b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &1213524718981924
@@ -562,7 +578,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: e4eee19ad5fd925418b45f655ea9a72a, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.1490072, g: 1, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
