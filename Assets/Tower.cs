@@ -8,20 +8,11 @@ public class Tower : MonoBehaviour
     void Start()
     {
         
-
         Health health = GetComponent<Health>();
         HealthOverheadUI healthOverheadUI = HealthOverheadUIPool.pool.Get();
         healthOverheadUI.SetHealthBarData(transform, UIManager.instance.overheadUI);
         health.OnHealthModifyEvent.AddListener(healthOverheadUI.OnHealthChanged);
         health.OnDeathEvent.AddListener(healthOverheadUI.OnHealthDied);
-
-
-
-
-
-
-
-
     }
 
     private void OnEnable()

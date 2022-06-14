@@ -107283,7 +107283,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aa974d873231b7248a3e4d96e0eed970, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damageAmount: 2
+  damageAmount: 50
   range: 150
   targetHealth: {fileID: 0}
 --- !u!114 &8915489909188169919

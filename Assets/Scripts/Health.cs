@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+//using System;
 using UnityEngine.Events;
 
 public class Death : UnityEvent<Health> { }
@@ -17,7 +18,10 @@ public class Health : MonoBehaviour
     [SerializeField] private float maxHealth;
 
     public Death OnDeathEvent = new Death();
+  //  public Action OnDeath;
     public HealthModify OnHealthModifyEvent = new HealthModify();
+
+
 
     // Start is called before the first frame update
     void Start()
@@ -108,6 +112,8 @@ public class Health : MonoBehaviour
         {
             isAlive = false;
             OnDeathEvent.Invoke(this);
+        //    Debug.Log("Check Health");
+            //OnDeath.Invoke();
 
         }
     }
