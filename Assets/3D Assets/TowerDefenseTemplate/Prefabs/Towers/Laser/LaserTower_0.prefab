@@ -21,7 +21,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &4123545054233330
 Transform:
@@ -73,7 +73,7 @@ MonoBehaviour:
   team: 0
   currentHealth: 0
   minHealth: 0
-  maxHealth: 0
+  maxHealth: 100
 --- !u!114 &1289839868
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -97,7 +97,7 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 142.77
+  m_Radius: 228.61
   m_Height: 5.35
   m_Direction: 1
   m_Center: {x: 0, y: 119.1, z: 0}
@@ -153,8 +153,8 @@ GameObject:
   m_Name: LaserTower_TURRET_L01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_NavMeshLayer: 1
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &4772094725469776
 Transform:
@@ -404,8 +404,8 @@ GameObject:
   m_Name: LaserTower_BASE_L01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_NavMeshLayer: 1
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &4285562123101454
 Transform:
@@ -602,7 +602,7 @@ GameObject:
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &7258400321219153387
 Transform:

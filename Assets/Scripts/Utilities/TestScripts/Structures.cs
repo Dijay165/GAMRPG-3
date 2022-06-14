@@ -7,7 +7,7 @@ public class Structures : MonoBehaviour
     // Start is called before the first frame update
 
     private DebugManager debugManager;
-   // [HideInInspector]
+    [HideInInspector]
     public Health health;
 
     private void Start()
