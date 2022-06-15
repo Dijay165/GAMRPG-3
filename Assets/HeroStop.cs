@@ -17,7 +17,7 @@ public class HeroStop : StateMachineBehaviour
 
         animator.ResetTrigger("Basic Attack");
         animator.ResetTrigger("Attack2");
-        mOBAMovement.HeroMove();
+      //  mOBAMovement.HeroMove();
         animator.ResetTrigger("Turn");
        // animator.ResetTrigger("Stop");
 

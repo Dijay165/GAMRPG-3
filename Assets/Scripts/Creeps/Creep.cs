@@ -35,7 +35,6 @@ public class Creep : MonoBehaviour
         animator = GetComponent<Animator>();
 
 
-
     }
 
     private void OnEnable()
@@ -43,8 +42,8 @@ public class Creep : MonoBehaviour
         StartCoroutine(Co_Detection());
     }
 
-
- 
+    
+    
     IEnumerator Co_Detection()
     {
         yield return new WaitForSeconds(1f);

@@ -27,6 +27,6 @@ public static class Events
     public static readonly Evt OnPlayerSelect = new Evt();
 
     //To create an event with parameters, please follow this format. 
-    //  public static readonly Evt<int> OnTakeDamage = new Evt<int>();
+    //public static readonly Evt<int> OnTakeDamage = new Evt<int>();
 
 }

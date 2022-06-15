@@ -76048,7 +76048,7 @@ Transform:
   - {fileID: 5979033839377591761}
   m_Father: {fileID: 8832258378954178409}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0.3417427, y: 0.000006106591, z: -11.94467}
+  m_LocalEulerAnglesHint: {x: 0.000002861023, y: 0.000025991962, z: -11.94545}
 --- !u!199 &8658541517338298736
 ParticleSystemRenderer:
   serializedVersion: 6
@@ -104999,7 +104999,7 @@ Transform:
   - {fileID: 7661649834236234664}
   m_Father: {fileID: 8037113435841686929}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 89.74743, y: -0.0030930685, z: -0.0030930988}
+  m_LocalEulerAnglesHint: {x: 89.98021, y: 0.0002705109, z: 0.00020220425}
 --- !u!4 &8855652648377580308
 Transform:
   m_ObjectHideFlags: 0
@@ -107509,7 +107509,7 @@ Transform:
   - {fileID: 4449859599536467777}
   m_Father: {fileID: 8832258378954178409}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0.26176268, y: -0.0000075539733, z: 11.940343}
+  m_LocalEulerAnglesHint: {x: 0.0000009536743, y: 0.0000013287063, z: 11.94545}
 --- !u!137 &8866765364096707950
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 0

@@ -10,6 +10,7 @@ public class HeroTurn : StateMachineBehaviour
      //   animator.ResetTrigger("Stop");
         animator.ResetTrigger("Basic Attack");
         animator.ResetTrigger("Attack2");
+        animator.SetBool("PressStop", false);
     }
 
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks

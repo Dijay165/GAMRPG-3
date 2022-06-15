@@ -14,7 +14,7 @@ public class TestStatsHolder : MonoBehaviour
     }
     private void Start()
     {
-        initialization
+        Intialization();
     }
 
 

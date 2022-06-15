@@ -18,4 +18,5 @@ public class UnitStat : ScriptableObject
     public Sprite portraitImage;
     [HideInInspector]
     public Faction faction;
+    
 }

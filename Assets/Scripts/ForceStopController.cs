@@ -20,7 +20,7 @@ public class ForceStopController : MonoBehaviour
         {
             //stops state
             //anim.Play(); 
-            Debug.Log("Stop");
+            anim.SetBool("PressStop", true);
             anim.SetTrigger("Stop");
             anim.ResetTrigger("Basic Attack");
         }

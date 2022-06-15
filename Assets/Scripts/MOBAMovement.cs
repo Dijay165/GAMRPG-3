@@ -60,7 +60,7 @@ public class MOBAMovement : MonoBehaviour
                  {
                     targetedDamager.targetHealth = structures.health;
                     Debug.Log("Can Target");
-                }
+                 }
                 else
                 {
                     Debug.Log("Cannot Target");
