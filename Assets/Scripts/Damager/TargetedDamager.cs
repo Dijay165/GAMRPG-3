@@ -32,6 +32,7 @@ public class TargetedDamager : MonoBehaviour
             float distance = Vector3.Distance(mOBAMovement.agent.transform.position, targetHealth.playersParent.position);
             if (distance < range)
             {
+                Debug.Log("In Distance");
 
                 anim.SetTrigger("Basic Attack");
         

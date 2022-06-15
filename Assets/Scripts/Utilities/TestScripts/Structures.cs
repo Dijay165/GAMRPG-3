@@ -10,10 +10,13 @@ public class Structures : MonoBehaviour
     [HideInInspector]
     public Health health;
 
+    public TestStatsHolder statsHolder;
+
     private void Start()
     {
         debugManager = GameObject.Find("DebugManager").GetComponent<DebugManager>();
         health = GetComponent<Health>();
+        statsHolder = GetComponent<TestStatsHolder>();
 
         if (health != null)
             health.OnDeathEvent.AddListener(Death);
@@ -38,14 +41,12 @@ public class Structures : MonoBehaviour
 
     public void OnSelectStructure()
     {
-        //  Events.OnTowerDied.Invoke();
         debugManager.structure = gameObject;
     }
 
     public void Death(Health objectHealth = null)
     {
         Debug.Log("Death");
-    //    health.OnDeathEvent.AddListener(Death);
         Destroy(gameObject);
     }
 

@@ -6,5 +6,16 @@ public class TestStatsHolder : MonoBehaviour
 {
     // Start is called before the first frame update
     public UnitStat unitStat;
-   
+    public Faction unitFaction;
+
+    public void Intialization()
+    {
+        unitStat.faction = unitFaction;
+    }
+    private void Start()
+    {
+        initialization
+    }
+
+
 }

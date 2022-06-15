@@ -336,6 +336,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   unitStat: {fileID: 11400000, guid: 545ae41fadf85ea4998106309ce23962, type: 2}
+  unitFaction: 0
 --- !u!95 &6952731
 Animator:
   serializedVersion: 4
@@ -451,6 +452,10 @@ PrefabInstance:
       propertyPath: unitStat
       value: 
       objectReference: {fileID: 11400000, guid: 6fae045a3a261e84fa0e69b9d218aa1a, type: 2}
+    - target: {fileID: 1371393305, guid: d8faacfa67b8d4af8b5a81028390f02b, type: 3}
+      propertyPath: unitFaction
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1018291631365572, guid: d8faacfa67b8d4af8b5a81028390f02b, type: 3}
       propertyPath: m_Name
       value: EMP_2 (4)
@@ -1166,6 +1171,10 @@ PrefabInstance:
       propertyPath: debugManager
       value: 
       objectReference: {fileID: 699944809}
+    - target: {fileID: 1716755606, guid: 6f6de38bc4946428ab2a1d468039753e, type: 3}
+      propertyPath: unitFaction
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1161251386251526, guid: 6f6de38bc4946428ab2a1d468039753e, type: 3}
       propertyPath: m_Name
       value: LaserTower_0 (13)
@@ -1595,6 +1604,10 @@ PrefabInstance:
       propertyPath: debugManager
       value: 
       objectReference: {fileID: 699944809}
+    - target: {fileID: 1716755606, guid: 6f6de38bc4946428ab2a1d468039753e, type: 3}
+      propertyPath: unitFaction
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1161251386251526, guid: 6f6de38bc4946428ab2a1d468039753e, type: 3}
       propertyPath: m_Name
       value: LaserTower_0 (19)
@@ -18148,6 +18161,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 379709189}
     m_Modifications:
+    - target: {fileID: 1371393305, guid: d8faacfa67b8d4af8b5a81028390f02b, type: 3}
+      propertyPath: unitFaction
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1018291631365572, guid: d8faacfa67b8d4af8b5a81028390f02b, type: 3}
       propertyPath: m_Name
       value: EMP_2 (1)
@@ -18979,6 +18996,10 @@ PrefabInstance:
       propertyPath: unitStat
       value: 
       objectReference: {fileID: 11400000, guid: 6fae045a3a261e84fa0e69b9d218aa1a, type: 2}
+    - target: {fileID: 1371393305, guid: d8faacfa67b8d4af8b5a81028390f02b, type: 3}
+      propertyPath: unitFaction
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1018291631365572, guid: d8faacfa67b8d4af8b5a81028390f02b, type: 3}
       propertyPath: m_Name
       value: EMP_2 (3)
@@ -20245,6 +20266,10 @@ PrefabInstance:
       propertyPath: debugManager
       value: 
       objectReference: {fileID: 699944809}
+    - target: {fileID: 1716755606, guid: 6f6de38bc4946428ab2a1d468039753e, type: 3}
+      propertyPath: unitFaction
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1161251386251526, guid: 6f6de38bc4946428ab2a1d468039753e, type: 3}
       propertyPath: m_Name
       value: LaserTower_0 (14)
@@ -21027,6 +21052,10 @@ PrefabInstance:
       propertyPath: debugManager
       value: 
       objectReference: {fileID: 699944809}
+    - target: {fileID: 1716755606, guid: 6f6de38bc4946428ab2a1d468039753e, type: 3}
+      propertyPath: unitFaction
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1161251386251526, guid: 6f6de38bc4946428ab2a1d468039753e, type: 3}
       propertyPath: m_Name
       value: LaserTower_0 (20)
@@ -23872,6 +23901,10 @@ PrefabInstance:
       propertyPath: debugManager
       value: 
       objectReference: {fileID: 699944809}
+    - target: {fileID: 1716755606, guid: 6f6de38bc4946428ab2a1d468039753e, type: 3}
+      propertyPath: unitFaction
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1161251386251526, guid: 6f6de38bc4946428ab2a1d468039753e, type: 3}
       propertyPath: m_Name
       value: LaserTower_0 (21)
@@ -25327,6 +25360,10 @@ PrefabInstance:
       propertyPath: debugManager
       value: 
       objectReference: {fileID: 699944809}
+    - target: {fileID: 1716755606, guid: 6f6de38bc4946428ab2a1d468039753e, type: 3}
+      propertyPath: unitFaction
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1161251386251526, guid: 6f6de38bc4946428ab2a1d468039753e, type: 3}
       propertyPath: m_Name
       value: LaserTower_0 (15)
@@ -25621,6 +25658,10 @@ PrefabInstance:
       propertyPath: debugManager
       value: 
       objectReference: {fileID: 699944809}
+    - target: {fileID: 1716755606, guid: 6f6de38bc4946428ab2a1d468039753e, type: 3}
+      propertyPath: unitFaction
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1161251386251526, guid: 6f6de38bc4946428ab2a1d468039753e, type: 3}
       propertyPath: m_Name
       value: LaserTower_0 (12)
@@ -25888,6 +25929,10 @@ PrefabInstance:
       propertyPath: unitStat
       value: 
       objectReference: {fileID: 11400000, guid: 6fae045a3a261e84fa0e69b9d218aa1a, type: 2}
+    - target: {fileID: 1371393305, guid: d8faacfa67b8d4af8b5a81028390f02b, type: 3}
+      propertyPath: unitFaction
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1018291631365572, guid: d8faacfa67b8d4af8b5a81028390f02b, type: 3}
       propertyPath: m_Name
       value: EMP_2 (5)
@@ -36506,9 +36551,9 @@ PrefabInstance:
       propertyPath: debugManager
       value: 
       objectReference: {fileID: 699944809}
-    - target: {fileID: 1716755602, guid: 6f6de38bc4946428ab2a1d468039753e, type: 3}
-      propertyPath: m_Radius
-      value: 228.61
+    - target: {fileID: 1716755606, guid: 6f6de38bc4946428ab2a1d468039753e, type: 3}
+      propertyPath: unitFaction
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1161251386251526, guid: 6f6de38bc4946428ab2a1d468039753e, type: 3}
       propertyPath: m_Name
@@ -36756,6 +36801,10 @@ PrefabInstance:
       propertyPath: debugManager
       value: 
       objectReference: {fileID: 699944809}
+    - target: {fileID: 1716755606, guid: 6f6de38bc4946428ab2a1d468039753e, type: 3}
+      propertyPath: unitFaction
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1161251386251526, guid: 6f6de38bc4946428ab2a1d468039753e, type: 3}
       propertyPath: m_Name
       value: LaserTower_0 (17)
@@ -37330,6 +37379,10 @@ PrefabInstance:
       propertyPath: debugManager
       value: 
       objectReference: {fileID: 699944809}
+    - target: {fileID: 1716755606, guid: 6f6de38bc4946428ab2a1d468039753e, type: 3}
+      propertyPath: unitFaction
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1161251386251526, guid: 6f6de38bc4946428ab2a1d468039753e, type: 3}
       propertyPath: m_Name
       value: LaserTower_0 (16)
@@ -37696,6 +37749,10 @@ PrefabInstance:
       propertyPath: debugManager
       value: 
       objectReference: {fileID: 699944809}
+    - target: {fileID: 1716755606, guid: 6f6de38bc4946428ab2a1d468039753e, type: 3}
+      propertyPath: unitFaction
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1161251386251526, guid: 6f6de38bc4946428ab2a1d468039753e, type: 3}
       propertyPath: m_Name
       value: LaserTower_0 (18)
@@ -46591,6 +46648,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   unitStat: {fileID: 11400000, guid: 545ae41fadf85ea4998106309ce23962, type: 2}
+  unitFaction: 0
 --- !u!135 &5001893671019957703
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -107870,6 +107928,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   unitStat: {fileID: 11400000, guid: 545ae41fadf85ea4998106309ce23962, type: 2}
+  unitFaction: 0
 --- !u!114 &8915489909188169927
 MonoBehaviour:
   m_ObjectHideFlags: 0
