@@ -13,7 +13,7 @@ public class TargetedDamager : MonoBehaviour
 
     Animator anim;
 
-    float distance;
+    public float attackSpeed = 1.7f;
 
     MOBAMovement mOBAMovement;
     
@@ -34,8 +34,8 @@ public class TargetedDamager : MonoBehaviour
             {
                 Debug.Log("In Distance");
 
-                anim.SetTrigger("Basic Attack");
-        
+
+                StartCoroutine(MeleeAttack());
             }
         }
        
@@ -58,8 +58,10 @@ public class TargetedDamager : MonoBehaviour
         targetHealth.SubtractHealth(damageAmount);
     }
 
-    private void OnDrawGizmos()
+    public IEnumerator MeleeAttack()
     {
-        
+        Debug.Log("Atack");
+        anim.SetTrigger("Basic Attack");
+        yield return new WaitForSeconds(attackSpeed / ((100 + attackSpeed) * 0.01f));
     }
 }
