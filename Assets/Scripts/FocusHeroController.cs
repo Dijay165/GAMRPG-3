@@ -9,8 +9,9 @@ public class FocusHeroController : MonoBehaviour
     private int currentPressedAmount;
     [SerializeField] private float decayTime;
     private Coroutine runningCoroutine;
+    [SerializeField]
+    private Vector3 offset;
 
-   
     // Update is called once per frame
     void Update()
     {
@@ -27,7 +28,7 @@ public class FocusHeroController : MonoBehaviour
             {
                 currentPressedAmount = 0;
                 Events.OnPlayerSelect.Invoke();
-                CameraManager.instance.cam.transform.position = new Vector3(PlayerManager.instance.player.transform.position.x - 15, 1500, PlayerManager.instance.player.transform.position.z - 15);
+                CameraManager.instance.cam.transform.parent.transform.position = new Vector3(PlayerManager.instance.player.transform.position.x + offset.x, offset.y, PlayerManager.instance.player.transform.position.z + offset.z);
             }
             else
             {

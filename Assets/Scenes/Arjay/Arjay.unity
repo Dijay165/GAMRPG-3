@@ -214,6 +214,7 @@ MonoBehaviour:
   damageAmount: 2
   range: 150
   targetHealth: {fileID: 0}
+  attackSpeed: 1.7
 --- !u!114 &6952723
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -264,6 +265,7 @@ MonoBehaviour:
   assignedKey: 49
   pressedAmount: 2
   decayTime: 3
+  offset: {x: 0, y: 0, z: 0}
 --- !u!114 &6952726
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -46748,6 +46750,7 @@ MonoBehaviour:
   assignedKey: 49
   pressedAmount: 2
   decayTime: 3
+  offset: {x: 0, y: 0, z: 0}
 --- !u!114 &5001893671019957709
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -46806,6 +46809,7 @@ MonoBehaviour:
   damageAmount: 2
   range: 150
   targetHealth: {fileID: 0}
+  attackSpeed: 1.7
 --- !u!114 &5001893671019957713
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -107806,6 +107810,7 @@ MonoBehaviour:
   damageAmount: 50
   range: 200
   targetHealth: {fileID: 0}
+  attackSpeed: 1.7
 --- !u!114 &8915489909188169919
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -107856,6 +107861,7 @@ MonoBehaviour:
   assignedKey: 49
   pressedAmount: 2
   decayTime: 3
+  offset: {x: -600, y: 1000, z: -600}
 --- !u!114 &8915489909188169922
 MonoBehaviour:
   m_ObjectHideFlags: 0
