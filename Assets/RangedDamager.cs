@@ -5,7 +5,7 @@ using UnityEngine;
 public class RangedDamager : Damager
 {
     [SerializeField] private Transform firePoint;
-    HomingProjectile prefab;
+    [SerializeField] private HomingProjectile prefab;
     public override void DamageTarget()
     {
         int damage = 0;
@@ -21,6 +21,8 @@ public class RangedDamager : Damager
             newInstance.targetUnit = unit.currentTarget;
             newInstance.damage = damage;
             newInstance.target = unit.currentTarget.transform;
+            newInstance.Homing();
+
             //unit.currentTarget.gameObject.GetComponent<Health>().SubtractHealth(damage);
             //Debug.Log(unit.gameObject.name + " - " + damage + " - " + unit.currentTarget.gameObject.name);
         }

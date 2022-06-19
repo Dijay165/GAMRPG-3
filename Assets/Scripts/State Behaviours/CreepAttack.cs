@@ -24,6 +24,7 @@ public class CreepAttack : StateMachineBehaviour
         //    creep.currentTarget.gameObject.GetComponent<Health>().SubtractHealth(damage);
         //    Debug.Log(creep.gameObject.name + " - " + damage + " - " + creep.currentTarget.gameObject.name);
         //}
+        agent.isStopped = true;
         creep.gameObject.GetComponent<Damager>().DamageTarget();
         
         animator.SetBool("isAttacking", false);

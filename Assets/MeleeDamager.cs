@@ -15,7 +15,7 @@ public class MeleeDamager : Damager
         if (unit.currentTarget.gameObject.activeSelf)
         {
             unit.currentTarget.gameObject.GetComponent<Health>().SubtractHealth(damage);
-            Debug.Log(unit.gameObject.name + " - " + damage + " - " + unit.currentTarget.gameObject.name);
+            //Debug.Log(unit.gameObject.name + " - " + damage + " - " + unit.currentTarget.gameObject.name);
         }
     }
 }

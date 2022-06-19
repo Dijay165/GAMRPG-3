@@ -8,19 +8,43 @@ public class HomingProjectile : MonoBehaviour
     public Transform target;
     public int damage;
     public float speed;
+    public float rotateSpeed = 200f;
 
-    private void Update()
+
+    private void Start()
     {
-        transform.position = target.position * speed;
-
+     
     }
-
-    private void OnTriggerEnter(Collider other)
+    
+    public IEnumerator SendHoming()
     {
-        if (other.GetComponent<Unit>() == targetUnit)
+        while (Vector3.Distance(target.transform.position, transform.position) > 0.3f)
         {
-            targetUnit.SubtractHealth(damage);
+            Vector3 direction = target.position - transform.position;
+            transform.position += ( direction ).normalized * speed * Time.deltaTime;
+            transform.LookAt(target.transform);
+            yield return null;
         }
+        Debug.Log(gameObject.name + " - " + damage + " - " + targetUnit.gameObject.name);
+        targetUnit.SubtractHealth(damage);
+        Destroy(gameObject);
     }
+
+    public void Homing()
+    {
+
+        StartCoroutine(SendHoming());
+        
+
+
+    }
+
+    //private void OnTriggerEnter(Collider other)
+    //{
+    //    if (other.GetComponent<Unit>() == targetUnit)
+    //    {
+    //        targetUnit.SubtractHealth(damage);
+    //    }
+    //}
    
 }

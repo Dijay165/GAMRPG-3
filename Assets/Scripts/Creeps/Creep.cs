@@ -78,7 +78,7 @@ public class Creep : Unit
                         enemies.Add(hitHealth);
 
                         //organize
-                        if (enemies.Count > 1)
+                        if (enemies.Count > 2)
                         {
                             for (int i = 0; i < enemies.Count; i++)
                             {
@@ -173,12 +173,16 @@ public class Creep : Unit
             currentTarget = enemies[0];
             currentTarget.OnDeathEvent.AddListener(NewCurrentTarget);
             animator.SetBool("isFollowingPath", false);
+            animator.SetBool("isAttacking", true);
+
+
             //enemies.RemoveAt(0);
         }
         else
         {
             currentTarget = null;
             animator.SetBool("isFollowingPath", true);
+            animator.SetBool("isAttacking", false);
         }
     }
 
