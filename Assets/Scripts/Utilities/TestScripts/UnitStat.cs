@@ -16,6 +16,7 @@ public class UnitStat : ScriptableObject
     public float moveSpeed;
     public float healthPoints;
     public Sprite portraitImage;
+    public Sprite iconImage;
     [HideInInspector]
     public Faction faction;
     

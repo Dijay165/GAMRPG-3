@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 1371393307}
   - component: {fileID: 2006759774174617894}
   - component: {fileID: 8830081746614289503}
+  - component: {fileID: 8922848427992051963}
   m_Layer: 0
   m_Name: EMP_2
   m_TagString: Untagged
@@ -53,7 +54,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playersParent: {fileID: 0}
   invulnerable: 0
-  team: 0
   currentHealth: 0
   minHealth: 0
   maxHealth: 0
@@ -70,6 +70,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   unitStat: {fileID: 11400000, guid: d6750346963de0840911385da16d176a, type: 2}
+  unitFaction: 0
 --- !u!114 &1371393306
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -95,6 +96,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: {fileID: 0}
+  statsHolder: {fileID: 0}
 --- !u!54 &2006759774174617894
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -125,6 +127,19 @@ CapsuleCollider:
   m_Height: 1
   m_Direction: 1
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &8922848427992051963
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1018291631365572}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6bc377d0a1420e548b6e80d6e238b2b3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  icon: {fileID: 8176847129870774413}
 --- !u!1 &1228855972254258
 GameObject:
   m_ObjectHideFlags: 0

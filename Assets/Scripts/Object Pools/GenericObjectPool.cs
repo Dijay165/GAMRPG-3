@@ -77,6 +77,7 @@ public class GenericObjectPool<T> : MonoBehaviour where T : MonoBehaviour
     void ReleaseObject(T p_desiredObject)
     {
         p_desiredObject.transform.position = container.position;
+        
         //if (!isInactiveInContainer)
         //{
         //    p_desiredObject.gameObject.SetActive(false);

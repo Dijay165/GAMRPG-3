@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.AI;
 
 public class SpawnManager : MonoBehaviour
 {
@@ -10,7 +10,7 @@ public class SpawnManager : MonoBehaviour
 
     [SerializeField] private int waveCounter = 0;
     [SerializeField] private float waveTime = 30;
-    private float waveTimer = 0;
+    [SerializeField] private float waveTimer = 0;
 
     [SerializeField] private int amountOfMeleeCreep = 3;
     [SerializeField] private int amountOfRangeCreep = 1;
@@ -21,26 +21,28 @@ public class SpawnManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
         waveTimer = waveTime;
+   
     }
 
     // Update is called once per frame
     void Update()
     {
         GameManager.instance.gameTime += Time.deltaTime;
+        waveTimer += Time.deltaTime;
         SpawnWave();
+       
     }
 
     void SpawnWave()
     {
-        if (GameManager.instance.gameTime < spawnTime) //less than spawn time
-        {
-            return;
-        }
+        //if (GameManager.instance.gameTime < spawnTime) //less than spawn time
+        //{
+        //    return;
+        //}
         if (waveTimer >= waveTime)
         {
-
+       
             for (int teamIndex = 0; teamIndex < GameManager.instance.teams.Count; teamIndex++)//For each team
             {
                 for (int laneIndex = 0; laneIndex < GameManager.instance.teams[teamIndex].lanes.Count; laneIndex++)// For each team's lanes
@@ -96,7 +98,7 @@ public class SpawnManager : MonoBehaviour
         }
         else
         {
-            waveTimer += Time.deltaTime;
+            return;
         }
     }
 
@@ -105,15 +107,25 @@ public class SpawnManager : MonoBehaviour
         for (int i = 0; i < p_amount; i++)
         {
             T genericObject = GenericObjectPool<T>.pool.Get();
-            genericObject.transform.position = GameManager.instance.teams[p_team].lanes[p_lane].creepSpawnPoint.transform.position;
-
-
             
             if (genericObject is Creep)
             {
                 Creep newCreep = genericObject as Creep;
                 newCreep.paths = GameManager.MakePath(p_team, p_lane);
-                newCreep.currentPath = newCreep.paths[0].transform;
+                newCreep.currentPath = newCreep.paths[2].transform;
+                newCreep.transform.position = (GameManager.instance.teams[p_team].lanes[p_lane].creepSpawnPoint.transform.position);
+                newCreep.GetComponent<TestStatsHolder>().unitFaction = (Faction)p_team;
+                //NavMeshHit hit;
+                //if (NavMesh.SamplePosition(, out hit,2f,0f))
+                //{
+                Animator anim = newCreep.GetComponent<Animator>();
+                NavMeshAgent nav = newCreep.GetComponent<NavMeshAgent>();
+                nav.Warp(newCreep.transform.position);
+                anim.SetInteger("pathCount",2);
+                newCreep.GetComponent<NavMeshAgent>().SetDestination(newCreep.paths[anim.GetInteger("pathCount")].transform.position);
+                anim.SetFloat("targetDistance", nav.remainingDistance);
+                //}
+
             }
             
         }

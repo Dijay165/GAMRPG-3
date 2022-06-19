@@ -14,15 +14,17 @@ public class CreepAttack : StateMachineBehaviour
         creep = animator.gameObject.GetComponent<Creep>();
 
         agent = animator.gameObject.GetComponent<NavMeshAgent>();
-        if (creep.gameObject.activeSelf)
-        {
-            damage = creep.gameObject.GetComponent<Attributes>().attackDamage;
-        }
-        
-        if (creep.currentEnemyTarget.gameObject.activeSelf)
-        {
-            creep.currentEnemyTarget.gameObject.GetComponent<Health>().SubtractHealth(damage);
-        }
+        //if (creep.gameObject.activeSelf)
+        //{
+        //    damage = creep.gameObject.GetComponent<Attributes>().attackDamage;
+        //}
+
+        //if (creep.currentTarget.gameObject.activeSelf)
+        //{
+        //    creep.currentTarget.gameObject.GetComponent<Health>().SubtractHealth(damage);
+        //    Debug.Log(creep.gameObject.name + " - " + damage + " - " + creep.currentTarget.gameObject.name);
+        //}
+        creep.gameObject.GetComponent<Damager>().DamageTarget();
         
         animator.SetBool("isAttacking", false);
 

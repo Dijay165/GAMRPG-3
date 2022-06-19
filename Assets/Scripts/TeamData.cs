@@ -9,7 +9,7 @@ public class TeamData
     public int kills;
 
     [SerializeField] public List<GameObject> heroSpawnPoints = new List<GameObject>();
-    public List<LaneData> lanes = new List<LaneData>();
+    [NonReorderable]  public List<LaneData> lanes = new List<LaneData>();
 
 }
 

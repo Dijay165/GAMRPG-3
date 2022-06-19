@@ -7,11 +7,12 @@ using UnityEngine.Events;
 
 public class Death : UnityEvent<Health> { }
 public class HealthModify : UnityEvent<bool, float, float> { }
+[RequireComponent(typeof(TestStatsHolder))]
 public class Health : MonoBehaviour
 {
     public Transform playersParent;
     [HideInInspector] public bool invulnerable = false;
-    [SerializeField] public int team;
+     int team;
     private bool isAlive;
     [SerializeField] private float currentHealth;
     [SerializeField] private float minHealth;
@@ -30,12 +31,14 @@ public class Health : MonoBehaviour
         isAlive = true;
         
         playersParent = transform;
-
+        team = (int)GetComponent<TestStatsHolder>().unitFaction;
+        maxHealth = GetComponent<TestStatsHolder>().unitStat.healthPoints;
+        InitializeValues();
     }
 
     private void OnEnable()
     {
-        InitializeValues();
+        
     }
     public void InitializeValues()
     {

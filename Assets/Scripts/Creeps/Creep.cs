@@ -5,7 +5,7 @@ using UnityEngine.AI;
 
 
 [RequireComponent(typeof(NavMeshAgent))]
-public class Creep : MonoBehaviour
+public class Creep : Unit
 {
     public NavMeshAgent agent;
     public Transform currentPath;
@@ -18,22 +18,22 @@ public class Creep : MonoBehaviour
 
     public float attackRate;
 
-    public Health currentEnemyTarget;
+    //public Health currentEnemyTarget;
 
     public Animator animator;
     public List<Health> enemies = new List<Health>();
 
 
- 
     // Start is called before the first frame update
-    void Start()
+    protected override void Start()
     {
+        base.Start();
 
         agent = GetComponent<NavMeshAgent>();
         agent.updatePosition = true;
         agent.updateRotation = false;
         animator = GetComponent<Animator>();
-
+       
 
     }
 
@@ -64,20 +64,21 @@ public class Creep : MonoBehaviour
 
             if (hitCollider.gameObject.GetComponent<Health>())
             {
+                
                 //Debug.Log("CREEP DETECTED " + hitCollider.gameObject.name);
                 Health hitHealth = hitCollider.gameObject.GetComponent<Health>();
                 //check if it is already in target list, if not in target list, add it
 
                 if (hitHealth.invulnerable == false) //add it if it isnt invulnerable
                 {
-
-                    if (!hitHealth.CompareTeam(gameObject.GetComponent<Health>().team))
+                    
+                    if (!hitHealth.CompareTeam(team))
                     {
-                       
+                        
                         enemies.Add(hitHealth);
 
                         //organize
-                        if (enemies.Count > 2)
+                        if (enemies.Count > 1)
                         {
                             for (int i = 0; i < enemies.Count; i++)
                             {
@@ -119,22 +120,26 @@ public class Creep : MonoBehaviour
     void CheckEnemyTargetStatus()
     {
         //check if current target still within range
-        if (currentEnemyTarget != null)
+        if (currentTarget != null)
         {
             //check current target if its still within detection radius
-            if (Vector3.Distance(currentEnemyTarget.transform.position, transform.position) < detectionRadius) //if within attack radius
+            if (Vector3.Distance(currentTarget.transform.position, transform.position) < detectionRadius) //if within attack radius
             {
+             
                 //check if current target is within attack radius
-                if (Vector3.Distance(currentEnemyTarget.transform.position, transform.position) < attackRadius) //if within attack radius
+                if (Vector3.Distance(currentTarget.transform.position, transform.position) < attackRadius) //if within attack radius
                 {
+                   
                     animator.SetBool("isAttacking", true);
-
+                    animator.SetBool("isFollowingPath",false);
                     //it will start attacking
                 }
                 else
                 {
                     //it isnt within attack radius
+                  
                     animator.SetBool("isAttacking", false);
+                    animator.SetBool("isFollowingPath", true);
 
                 }
             }
@@ -155,24 +160,25 @@ public class Creep : MonoBehaviour
     {
         //old enemy target that just died / moved out of detection range
         animator.SetBool("isAttacking", false);
-        currentEnemyTarget = null;
-        if (currentEnemyTarget != null)
+        currentTarget = null;
+        if (currentTarget != null)
         {
-            currentEnemyTarget.OnDeathEvent.RemoveListener(NewCurrentTarget);
+            currentTarget.OnDeathEvent.RemoveListener(NewCurrentTarget);
         }
 
         DetectEnemies();
         if (enemies.Count > 0)
         {
             //Because the list was organizest nearest to furthest before coming here, we'll just choose the next index
-            currentEnemyTarget = enemies[0];
-            currentEnemyTarget.OnDeathEvent.AddListener(NewCurrentTarget);
-
+            currentTarget = enemies[0];
+            currentTarget.OnDeathEvent.AddListener(NewCurrentTarget);
+            animator.SetBool("isFollowingPath", false);
             //enemies.RemoveAt(0);
         }
         else
         {
-            currentEnemyTarget = null;
+            currentTarget = null;
+            animator.SetBool("isFollowingPath", true);
         }
     }
 

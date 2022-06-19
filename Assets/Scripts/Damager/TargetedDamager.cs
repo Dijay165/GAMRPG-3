@@ -19,7 +19,7 @@ public class TargetedDamager : MonoBehaviour
     
     void Start()
     {
-        team = GetComponent<Health>().team;
+        team = (int)GetComponent<TestStatsHolder>().unitFaction;
         anim = GetComponent<Animator>();
 
         mOBAMovement = GetComponent<MOBAMovement>();

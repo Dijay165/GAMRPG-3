@@ -70,7 +70,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playersParent: {fileID: 0}
   invulnerable: 0
-  team: 0
   currentHealth: 0
   minHealth: 0
   maxHealth: 100
@@ -140,6 +139,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6bc377d0a1420e548b6e80d6e238b2b3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  icon: {fileID: 252143906332641596}
 --- !u!1 &1213524718981924
 GameObject:
   m_ObjectHideFlags: 0

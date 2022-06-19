@@ -405,7 +405,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8096049}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 4849, y: 100, z: 2123}
+  m_LocalPosition: {x: 4774, y: 50, z: 1945}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -11819,7 +11819,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &191338300
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11836,17 +11836,68 @@ MonoBehaviour:
   teams:
   - name: Sentinel
     kills: 0
-    heroSpawnPoints: []
-    lanes: []
+    heroSpawnPoints:
+    - {fileID: 0}
+    lanes:
+    - meleeBarracksIsAlive: 1
+      rangeBarracksIsAlive: 1
+      creepSpawnPoint: {fileID: 8096049}
+      wayPoints:
+      - {fileID: 1945290261}
+      - {fileID: 284933934}
+      - {fileID: 1276481025}
+      - {fileID: 1855090126}
+      buildings: []
+    - meleeBarracksIsAlive: 1
+      rangeBarracksIsAlive: 1
+      creepSpawnPoint: {fileID: 1088689699}
+      wayPoints:
+      - {fileID: 812704568}
+      - {fileID: 1967242382}
+      - {fileID: 368371979}
+      - {fileID: 1672868601}
+      buildings: []
+    - meleeBarracksIsAlive: 1
+      rangeBarracksIsAlive: 1
+      creepSpawnPoint: {fileID: 1917327809}
+      wayPoints:
+      - {fileID: 640402439}
+      - {fileID: 1846867094}
+      - {fileID: 1545633412}
+      - {fileID: 644956670}
+      buildings: []
   - name: Dire
     kills: 0
     heroSpawnPoints:
     - {fileID: 0}
     lanes:
-    - meleeBarracksIsAlive: 0
-      rangeBarracksIsAlive: 0
-      creepSpawnPoint: {fileID: 0}
-      wayPoints: []
+    - meleeBarracksIsAlive: 1
+      rangeBarracksIsAlive: 1
+      creepSpawnPoint: {fileID: 1993373033}
+      wayPoints:
+      - {fileID: 2141735491}
+      - {fileID: 619753196}
+      - {fileID: 1375661094}
+      - {fileID: 1877035643}
+      buildings: []
+    - meleeBarracksIsAlive: 1
+      rangeBarracksIsAlive: 1
+      creepSpawnPoint: {fileID: 195785628}
+      wayPoints:
+      - {fileID: 1626882087}
+      - {fileID: 25638073}
+      - {fileID: 1373671558}
+      - {fileID: 1545882110}
+      buildings: []
+    - meleeBarracksIsAlive: 1
+      rangeBarracksIsAlive: 1
+      creepSpawnPoint: {fileID: 287397685}
+      wayPoints:
+      - {fileID: 476055588}
+      - {fileID: 969809972}
+      - {fileID: 575488199}
+      - {fileID: 622331979}
+      buildings: []
 --- !u!4 &191338301
 Transform:
   m_ObjectHideFlags: 0
@@ -11886,7 +11937,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 195785628}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1531, y: 100, z: 3492}
+  m_LocalPosition: {x: 1531, y: 50, z: 3731}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -12334,7 +12385,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 255659978}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 5000, y: -5, z: 0}
+  m_LocalPosition: {x: 10000, y: -5, z: 0}
   m_LocalScale: {x: 50, y: 1, z: 50}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -17418,7 +17469,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 268318004}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 5000, y: 0, z: 0}
+  m_LocalPosition: {x: 10000, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -17584,7 +17635,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 287397685}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1763, y: 100, z: 4672}
+  m_LocalPosition: {x: 274, y: 50, z: 2875}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -19645,7 +19696,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 695664809}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 5000, y: 0, z: 0}
+  m_LocalPosition: {x: 10000, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -22009,7 +22060,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1088689699}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 3609, y: 100, z: 1554}
+  m_LocalPosition: {x: 3810, y: 50, z: 1583}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -22041,7 +22092,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1098101387}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 5000, y: 0, z: 0}
+  m_LocalPosition: {x: 10000, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -22271,7 +22322,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1113928669}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 5000, y: 0, z: 0}
+  m_LocalPosition: {x: 10000, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -22669,7 +22720,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1263771212
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -22685,6 +22736,7 @@ MonoBehaviour:
   spawnTime: 75
   waveCounter: 0
   waveTime: 30
+  waveTimer: 0
   amountOfMeleeCreep: 3
   amountOfRangeCreep: 1
   amountOfSiegeCreep: 1
@@ -23655,7 +23707,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1401291596}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 5000, y: 0, z: 0}
+  m_LocalPosition: {x: 10000, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -24573,7 +24625,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1496303560}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2456.0916, y: 2474.6553, z: 2529.2554}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -31123,7 +31175,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1739258215}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 5000, y: 0, z: 0}
+  m_LocalPosition: {x: 10000, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -37206,7 +37258,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1897186121}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 5000, y: 0, z: 0}
+  m_LocalPosition: {x: 10000, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -37582,7 +37634,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1917327809}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 3498, y: 100, z: 130}
+  m_LocalPosition: {x: 3498, y: 50, z: 377.2}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -42933,7 +42985,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1993373033}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1763, y: 100, z: 4672}
+  m_LocalPosition: {x: 1763, y: 50, z: 4402}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

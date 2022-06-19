@@ -23,9 +23,9 @@ public class CreepMove : StateMachineBehaviour
         if (creep!= null && agent != null)
         {
             //If there is a current Enemy target, prioritize chasing it
-            if (creep.currentEnemyTarget != null)
+            if (creep.currentTarget != null)
             {
-                agent.SetDestination(creep.currentEnemyTarget.transform.position);
+                agent.SetDestination(creep.currentTarget.transform.position);
             }
             else//Else if there is no enemy, go to path
             {
@@ -35,22 +35,27 @@ public class CreepMove : StateMachineBehaviour
                     agent.SetDestination(creep.currentPath.position);
                 }
 
-                if (agent.remainingDistance >= agent.stoppingDistance)
-                {
-                    //If minion is on its way
+                //if (animator.GetFloat("targetDistance") >= 20)
+                //{
+                //    //If minion is on its way
 
 
-                }
-                else
-                {
-                    //if minion arrived at destination
-                    if (animator.GetInteger("pathCount") + 1 < creep.paths.Count)
-                    {
-                        animator.SetInteger("pathCount", animator.GetInteger("pathCount") + 1);
-                        creep.currentPath = creep.paths[animator.GetInteger("pathCount")].transform;
-                    }
+                //}
+                //else
+                //{
+                //    //if minion arrived at destination
+                //    if (animator.GetBool("isFollowingPath"))
+                //    {
+                //        if (animator.GetInteger("pathCount") + 1 < creep.paths.Count)
+                //        {
+                //            Debug.Log("Test");
+                //            animator.SetInteger("pathCount", animator.GetInteger("pathCount") + 1);
+                //            creep.currentPath = creep.paths[animator.GetInteger("pathCount")].transform;
+                //        }
+                //    }
+                   
 
-                }
+                //}
             }
         }
         
@@ -61,7 +66,35 @@ public class CreepMove : StateMachineBehaviour
     // OnStateExit is called when a transition ends and the state machine finishes evaluating this state
     override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
+        if (creep != null && agent != null)
+        {
 
+            //if (animator.GetFloat("targetDistance") >= 30)
+            //{
+            //    //If minion is on its way
+
+
+            //}
+            //else
+            //{
+            //if minion arrived at destination
+            //if (animator.GetBool("isFollowingPath"))
+            //{
+            //    if (animator.GetInteger("pathCount") + 1 < creep.paths.Count)
+            //    {
+
+            //        animator.SetInteger("pathCount", animator.GetInteger("pathCount") + 1);
+            //        creep.currentPath = creep.paths[animator.GetInteger("pathCount")].transform;
+            //        agent.SetDestination(creep.paths[animator.GetInteger("pathCount")].transform.position);
+            //        animator.SetFloat("targetDistance", agent.remainingDistance);
+            //        Debug.Log(agent.gameObject.name + " -  " + agent.remainingDistance);
+            //    }
+            //}
+
+
+            //}
+
+        }
     }
 
     // OnStateMove is called right after Animator.OnAnimatorMove()

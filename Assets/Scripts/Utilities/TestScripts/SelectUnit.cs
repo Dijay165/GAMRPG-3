@@ -71,7 +71,7 @@ public class SelectUnit : MonoBehaviour
 
     public void CurrentUnitStatus()
     {
-        Debug.Log("Current");
+       // Debug.Log("Current");
         //selectionUI.ChangeInfo(testStatsHolder.unitStat);
     }
 

@@ -8,6 +8,7 @@ public class LaneData
     public bool meleeBarracksIsAlive;
     public bool rangeBarracksIsAlive;
     public GameObject creepSpawnPoint;
-    public List<GameObject> wayPoints = new List<GameObject>();
+    [NonReorderable] public List<GameObject> wayPoints = new List<GameObject>();
+    [NonReorderable] public List<Health> buildings = new List<Health>();
 
 }

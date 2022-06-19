@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-public class HealthOverheadUI : PoolableObject
+public class HealthOverheadUI : MonoBehaviour
 {
     [SerializeField] private bool isRevealed = false;
     [SerializeField] private float unrevealTimeOut;
@@ -98,24 +98,58 @@ public class HealthOverheadUI : PoolableObject
         cam = cam ? cam : Camera.main;
 
     }
+    Vector3 worldToViewportPoint(Vector3 point3D)
+    {
+        Matrix4x4 P = Camera.main.projectionMatrix;
+        Matrix4x4 V = Camera.main.transform.worldToLocalMatrix;
+        Matrix4x4 VP = P * V;
 
+        Vector4 point4 = new Vector4(point3D.x, point3D.y, point3D.z, 1.0f);  // turn into (x,y,z,1)
+        Vector4 result4 = VP * point4;  // multiply 4 components
+
+        Vector3 result = result4;  // store 3 components of the resulting 4 components
+
+        // normalize by "-w"
+        result /= -result4.w;
+
+        // clip space => view space
+        result.x = result.x / 2 + 0.5f;
+        result.y = result.y / 2 + 0.5f;
+
+        // "The z position is in world units from the camera."
+        result.z = -result4.w;
+
+
+        var _result = Camera.main.WorldToViewportPoint(point3D);
+        // result == _result
+
+        return _result;
+    }
 
     private void RepositionHealthBar()
     {
         Vector3 newtest = objectToFollow.position;
-        Vector2 ViewportPosition = cam.WorldToViewportPoint(new Vector2(newtest.x, newtest.z));
-        Debug.Log(ViewportPosition);
+        var ViewportPositiont = cam.WorldToViewportPoint(objectToFollow.position);
+        Vector2 ViewportPosition = worldToViewportPoint(newtest);
+        Vector3 p = cam.ViewportToWorldPoint(ViewportPosition);
+        //new Vector2(2200,80,2800)
+        //Vector2 tre = RectTransformUtility.WorldToScreenPoint(Camera.main, new Vector3(0,100, 0)); // cam.WorldToViewportPoint(new Vector2(2500,2500));
+        //Vector2 tree = RectTransformUtility.WorldToScreenPoint(Camera.main, new Vector3(2500,100, 2500)); //cam.WorldToViewportPoint(new Vector2(0, 0));
+        //Vector2 treee = RectTransformUtility.WorldToScreenPoint(Camera.main, new Vector3(5000, 100,5000)); //cam.WorldToViewportPoint(new Vector2(5000, 5000));
+        //Debug.Log(ViewportPositiont + " - " + ViewportPosition + " - " + p);
+        //Debug.Log(tre + " - " + tree + " - " + treee);
+    
         Vector2 WorldObject_ScreenPosition = new Vector2(
-        ((ViewportPosition.x * targetCanvas.sizeDelta.x) - (targetCanvas.sizeDelta.x * 1.25f)),
-        ((ViewportPosition.y * targetCanvas.sizeDelta.y) - (targetCanvas.sizeDelta.y * 1f)));
-        Debug.Log(WorldObject_ScreenPosition + " - " + targetCanvas.sizeDelta.x);
-        var distance = (cam.transform.position - objectToFollow.position).magnitude;
+        ((ViewportPosition.x * targetCanvas.sizeDelta.x) - (targetCanvas.sizeDelta.x * 0.5f)),//
+        ((ViewportPosition.y * targetCanvas.sizeDelta.y) - (targetCanvas.sizeDelta.y * 0.5f))); //
+        //Debug.Log(WorldObject_ScreenPosition + " - " + targetCanvas.sizeDelta.x);
+        //var distance = (cam.transform.position - objectToFollow.position).magnitude;
         //Debug.Log(objectToFollow.ToString() + " - " + ViewportPosition + " - " + WorldObject_ScreenPosition + " - " + distance + " - " + (positionCorrection.y - distance/31f).ToString());
         //WorldObject_ScreenPosition += new Vector2(positionCorrection.x * distance / 22.1248f, positionCorrection.y * distance / 22.1248f);
-        WorldObject_ScreenPosition += new Vector2(positionCorrection.x, positionCorrection.y);
+        //WorldObject_ScreenPosition += new Vector2(positionCorrection.x, positionCorrection.y);
 
 
-        healthBarTransform.anchoredPosition = WorldObject_ScreenPosition;
+        healthBarTransform.anchoredPosition = WorldObject_ScreenPosition;// - targetCanvas.sizeDelta / 2f;// WorldObject_ScreenPosition;
 
     }
 }
