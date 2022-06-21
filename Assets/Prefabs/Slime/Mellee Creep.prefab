@@ -170,6 +170,7 @@ GameObject:
   - component: {fileID: 2302585352391668168}
   - component: {fileID: 5411609801805300714}
   - component: {fileID: 132704296402765267}
+  - component: {fileID: 7228419342817421869}
   m_Layer: 0
   m_Name: Mellee Creep
   m_TagString: Untagged
@@ -206,7 +207,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 59eb483532ed36b41ab5d6f465746404, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  unitStat: {fileID: 0}
+  unitStat: {fileID: 11400000, guid: 9bb58c1cb67e8bb44aab53587d0bb5b7, type: 2}
   unitFaction: 0
 --- !u!114 &3370601766904226936
 MonoBehaviour:
@@ -237,7 +238,7 @@ Rigidbody:
   m_Drag: 0
   m_AngularDrag: 0.05
   m_UseGravity: 1
-  m_IsKinematic: 0
+  m_IsKinematic: 1
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
@@ -346,6 +347,28 @@ MonoBehaviour:
   attackRate: 1
   animator: {fileID: 0}
   enemies: []
+--- !u!114 &7228419342817421869
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4721253483830942850}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1745d2ceb585d8f4e84d4c8cc99f97f9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  skillPoints: 0
+  strength: 0
+  agility: 0
+  intelligence: 0
+  armor: 0
+  magicResistance: 0
+  attackDamage: 21
+  attackSpeed: 0
+  attackRange: 0
+  movementSpeed: 0
 --- !u!1 &5636219751343395753
 GameObject:
   m_ObjectHideFlags: 0

@@ -11,15 +11,21 @@ public class Unit : MonoBehaviour
     {
         TestStatsHolder testStatsHolder = GetComponent<TestStatsHolder>();
         team = (int)testStatsHolder.unitFaction;
-        icon.sprite = testStatsHolder.unitStat.iconImage;
-        if (testStatsHolder.unitFaction == Faction.Radiant)
+
+        if(icon != null)
         {
-            icon.color = new Color32(0, 255, 0, 255);
+            icon.sprite = testStatsHolder.unitStat.iconImage;
+
+            if (testStatsHolder.unitFaction == Faction.Radiant)
+            {
+                icon.color = new Color32(0, 255, 0, 255);
+            }
+            else
+            {
+                icon.color = new Color32(255, 0, 0, 255);
+            }
         }
-        else
-        {
-            icon.color = new Color32(255, 0, 0, 255);
-        }
+          
         
     }
     protected virtual void Start()
