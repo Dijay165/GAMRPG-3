@@ -7,12 +7,17 @@ public class Unit : MonoBehaviour
     public SpriteRenderer icon;
     protected int team;
     public Health currentTarget;
+
+    public Health health;
+
+
     public void AssignTeam()
     {
         TestStatsHolder testStatsHolder = GetComponent<TestStatsHolder>();
         team = (int)testStatsHolder.unitFaction;
 
-        if(icon != null)
+  
+        if (icon != null)
         {
             icon.sprite = testStatsHolder.unitStat.iconImage;
 
@@ -30,13 +35,14 @@ public class Unit : MonoBehaviour
     }
     protected virtual void Start()
     {
+        health = GetComponent<Health>();
         InitializeValues();
     }
 
     protected virtual void InitializeValues()
     {
         AssignTeam();
-        Health health = GetComponent<Health>();
+       
         HealthOverheadUI healthOverheadUI = HealthOverheadUIPool.pool.Get();
         healthOverheadUI.SetHealthBarData(transform, UIManager.instance.overheadUI);
         health.OnHealthModifyEvent.AddListener(healthOverheadUI.OnHealthChanged);

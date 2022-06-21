@@ -15,27 +15,52 @@ public class HomingProjectile : MonoBehaviour
     {
      
     }
-    
+
+
+    private void Update()
+    {
+        if (target.transform != null)
+        {
+            Destroy(gameObject);
+        }
+    }
+
     public IEnumerator SendHoming()
     {
-        while (Vector3.Distance(target.transform.position, transform.position) > 0.3f)
+        //Iirc using while in a coroutine is bad practice
+        if(target.transform != null)
         {
-            Vector3 direction = target.position - transform.position;
-            transform.position += ( direction ).normalized * speed * Time.deltaTime;
-            transform.LookAt(target.transform);
-            yield return null;
+            while (Vector3.Distance(target.transform.position, transform.position) > 0.3f)
+            {
+                Vector3 direction = target.position - transform.position;
+                transform.position += (direction).normalized * speed * Time.deltaTime;
+                transform.LookAt(target.transform);
+                yield return null;
+            }
+            Debug.Log(gameObject.name + " - " + damage + " - " + targetUnit.gameObject.name);
+            targetUnit.SubtractHealth(damage);
+            Destroy(gameObject);
         }
-        Debug.Log(gameObject.name + " - " + damage + " - " + targetUnit.gameObject.name);
-        targetUnit.SubtractHealth(damage);
-        Destroy(gameObject);
+        else
+        {
+            yield return null;
+            Destroy(gameObject);
+        }
+ 
+
     }
 
     public void Homing()
     {
-
-        StartCoroutine(SendHoming());
-        
-
+        if(targetUnit != null)
+        {
+            StartCoroutine(SendHoming());
+        }
+        else
+        {
+            Destroy(gameObject);
+        }
+    
 
     }
 
@@ -46,5 +71,10 @@ public class HomingProjectile : MonoBehaviour
     //        targetUnit.SubtractHealth(damage);
     //    }
     //}
-   
+
+    private void OnBecameInvisible()
+    {
+        Destroy(gameObject);
+    }
+
 }

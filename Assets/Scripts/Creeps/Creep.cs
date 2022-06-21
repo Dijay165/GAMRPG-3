@@ -33,7 +33,14 @@ public class Creep : Unit
         agent.updatePosition = true;
         agent.updateRotation = false;
         animator = GetComponent<Animator>();
-       
+
+        if (health != null)
+        {
+            health.OnDeathEvent.AddListener(DestroyUnit);
+            Debug.Log("Listen");
+        }
+            
+
 
     }
 
@@ -42,6 +49,7 @@ public class Creep : Unit
         StartCoroutine(Co_Detection());
     }
 
+  
     
     
     IEnumerator Co_Detection()
@@ -184,6 +192,12 @@ public class Creep : Unit
             animator.SetBool("isFollowingPath", true);
             animator.SetBool("isAttacking", false);
         }
+    }
+
+    public void DestroyUnit(Health objectHealth = null)
+    {
+        Debug.Log("Destroy");
+        Destroy(gameObject);
     }
 
 }

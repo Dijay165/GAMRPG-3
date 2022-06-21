@@ -44,8 +44,10 @@ public class HealthOverheadUI : MonoBehaviour
         
         if (isRevealed)
         {
-          
-            RepositionHealthBar();
+            if (objectToFollow != null)
+                RepositionHealthBar();
+            else
+                Destroy(gameObject);
     
             
 

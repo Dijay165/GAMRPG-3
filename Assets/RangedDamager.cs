@@ -14,17 +14,26 @@ public class RangedDamager : Damager
             damage = attributes.attackDamage;
         }
 
-        if (unit.currentTarget.gameObject.activeSelf)
+        if(unit.currentTarget != null)
         {
-            HomingProjectile newInstance = Instantiate(prefab);
-            newInstance.transform.position = firePoint.position;
-            newInstance.targetUnit = unit.currentTarget;
-            newInstance.damage = damage;
-            newInstance.target = unit.currentTarget.transform;
-            newInstance.Homing();
+            if (unit.currentTarget.gameObject.activeSelf)
+            {
+                HomingProjectile newInstance = Instantiate(prefab);
+                newInstance.transform.position = firePoint.position;
+                newInstance.targetUnit = unit.currentTarget;
+                newInstance.damage = damage;
+                newInstance.target = unit.currentTarget.transform;
+                newInstance.Homing();
 
-            //unit.currentTarget.gameObject.GetComponent<Health>().SubtractHealth(damage);
-            //Debug.Log(unit.gameObject.name + " - " + damage + " - " + unit.currentTarget.gameObject.name);
+                //unit.currentTarget.gameObject.GetComponent<Health>().SubtractHealth(damage);
+                //Debug.Log(unit.gameObject.name + " - " + damage + " - " + unit.currentTarget.gameObject.name);
+            }
         }
+        else
+        {
+            Destroy(gameObject);
+        }
+
+       
     }
 }

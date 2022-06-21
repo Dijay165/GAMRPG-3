@@ -6,16 +6,19 @@ public class MeleeDamager : Damager
 {
     public override void DamageTarget()
     {
-        int damage = 0;
-        if (gameObject.activeSelf)
+        if(unit.currentTarget != null)
         {
-            damage = attributes.attackDamage;
+            if (unit.currentTarget.gameObject.activeSelf)
+            {
+                unit.currentTarget.gameObject.GetComponent<Health>().SubtractHealth(attributes.attackDamage);
+                //Debug.Log("Damage");
+            }
         }
-
-        if (unit.currentTarget.gameObject.activeSelf)
+        else
         {
-            unit.currentTarget.gameObject.GetComponent<Health>().SubtractHealth(damage);
-            //Debug.Log(unit.gameObject.name + " - " + damage + " - " + unit.currentTarget.gameObject.name);
+            unit.currentTarget = null;
+            Destroy(gameObject);
         }
+        
     }
 }

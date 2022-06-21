@@ -25,6 +25,7 @@ public class CreepMove : StateMachineBehaviour
             //If there is a current Enemy target, prioritize chasing it
             if (creep.currentTarget != null)
             {
+                if(agent != null)
                 agent.SetDestination(creep.currentTarget.transform.position);
             }
             else//Else if there is no enemy, go to path
@@ -32,7 +33,8 @@ public class CreepMove : StateMachineBehaviour
                 animator.SetFloat("targetDistance", agent.remainingDistance);
                 if (creep.currentPath != null)
                 {
-                    agent.SetDestination(creep.currentPath.position);
+                    if (agent != null)
+                        agent.SetDestination(creep.currentPath.position);
                 }
 
                 //if (animator.GetFloat("targetDistance") >= 20)

@@ -115,9 +115,7 @@ public class Health : MonoBehaviour
         {
             isAlive = false;
             OnDeathEvent.Invoke(this);
-        //    Debug.Log("Check Health");
-            //OnDeath.Invoke();
-
+            Debug.Log("Invoke Stuff");
         }
     }
 
