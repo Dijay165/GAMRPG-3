@@ -37,7 +37,7 @@ public class Creep : Unit
         if (health != null)
         {
             health.OnDeathEvent.AddListener(DestroyUnit);
-            Debug.Log("Listen");
+           // Debug.Log("Listen");
         }
             
 

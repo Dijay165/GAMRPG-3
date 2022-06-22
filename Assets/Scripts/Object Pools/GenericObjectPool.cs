@@ -32,6 +32,7 @@ public class GenericObjectPool<T> : MonoBehaviour where T : MonoBehaviour
             flexibleMaxAmount
             );
 
+     //   Debug.Log("Loaded" + gameObject.name);
     }
 
     T CreateObject()

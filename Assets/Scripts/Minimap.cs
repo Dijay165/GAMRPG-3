@@ -5,7 +5,7 @@ using UnityEngine.UI;
 using UnityEngine.EventSystems;
 public class Minimap : MonoBehaviour, IPointerDownHandler
 {
-
+    public Vector3 offset = new Vector3(-600,1000,-600);
     public void OnPointerDown(PointerEventData data)
     {
         Vector2 localCursor;
@@ -45,7 +45,7 @@ public class Minimap : MonoBehaviour, IPointerDownHandler
         float worldPositionX = (xpos /250f ) *5000f;
         float worldPositionY = (ypos / 250f) * 5000f;
         //Debug.Log("Pos: " + xpos + " = " + worldPositionX + "," + ypos + " = " + worldPositionY);
-        CameraManager.instance.cam.transform.parent.transform.position = new Vector3(worldPositionX, 1500, worldPositionY);
+        CameraManager.instance.cam.transform.parent.transform.position = new Vector3(worldPositionX, 1500, worldPositionY) + offset;
 
     }
    

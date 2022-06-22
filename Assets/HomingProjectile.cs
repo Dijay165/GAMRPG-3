@@ -13,16 +13,16 @@ public class HomingProjectile : MonoBehaviour
 
     private void Start()
     {
-     
+        if (target.transform == null)
+        {
+            Destroy(gameObject);
+        }
     }
 
 
     private void Update()
     {
-        if (target.transform != null)
-        {
-            Destroy(gameObject);
-        }
+     
     }
 
     public IEnumerator SendHoming()
