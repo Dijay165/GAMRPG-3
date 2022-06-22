@@ -10,7 +10,7 @@ public class Player : MonoBehaviour
 
     private void OnEnable()
     {
-        Debug.Log("OnStart");
+      //  Debug.Log("OnStart");
         Health health = GetComponent<Health>();
 
         //PoolableObject healthOverheadUIObject = ObjectPoolsManager.GetPool(typeof(HealthOverheadUI)).pool.Get();
@@ -23,6 +23,6 @@ public class Player : MonoBehaviour
         health.OnHealthModifyEvent.AddListener(healthOverheadUI.OnHealthChanged);
         health.OnDeathEvent.AddListener(healthOverheadUI.OnHealthDied);
 
-        Debug.Log("OnEnd");
+   //     Debug.Log("OnEnd");
     }
 }

@@ -83,6 +83,7 @@ GameObject:
   - component: {fileID: 4572755454175287971}
   - component: {fileID: 1065081250371773840}
   - component: {fileID: 318895596024721446}
+  - component: {fileID: -6797513444139051269}
   m_Layer: 0
   m_Name: Siege Creep
   m_TagString: Untagged
@@ -120,7 +121,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 59eb483532ed36b41ab5d6f465746404, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  unitStat: {fileID: 0}
+  unitStat: {fileID: 11400000, guid: 9bb58c1cb67e8bb44aab53587d0bb5b7, type: 2}
   unitFaction: 0
 --- !u!114 &8175241187461250606
 MonoBehaviour:
@@ -164,7 +165,7 @@ BoxCollider:
   m_GameObject: {fileID: 1418954211154683660}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
@@ -186,7 +187,7 @@ NavMeshAgent:
   m_AutoTraverseOffMeshLink: 1
   m_AutoBraking: 1
   m_AutoRepath: 1
-  m_Height: 2
+  m_Height: 0.7
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
@@ -253,6 +254,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   icon: {fileID: 0}
   currentTarget: {fileID: 0}
+  health: {fileID: 0}
   agent: {fileID: 0}
   currentPath: {fileID: 0}
   paths: []
@@ -262,6 +264,28 @@ MonoBehaviour:
   attackRate: 3
   animator: {fileID: 0}
   enemies: []
+--- !u!114 &-6797513444139051269
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1418954211154683660}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1745d2ceb585d8f4e84d4c8cc99f97f9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  skillPoints: 0
+  strength: 0
+  agility: 0
+  intelligence: 0
+  armor: 0
+  magicResistance: 0
+  attackDamage: 41
+  attackSpeed: 0
+  attackRange: 0
+  movementSpeed: 0
 --- !u!1 &2018598144595978279
 GameObject:
   m_ObjectHideFlags: 0
