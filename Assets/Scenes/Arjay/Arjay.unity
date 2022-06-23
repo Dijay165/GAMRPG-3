@@ -200,6 +200,8 @@ MonoBehaviour:
   attackSpeed: 0
   attackRange: 0
   movementSpeed: 0
+  health: 0
+  portraitImage: {fileID: 0}
 --- !u!114 &6952722
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -338,6 +340,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   unitStat: {fileID: 11400000, guid: 545ae41fadf85ea4998106309ce23962, type: 2}
+  attributes: {fileID: 0}
   unitFaction: 0
 --- !u!95 &6952731
 Animator:
@@ -1435,7 +1438,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7707079398533038956, guid: 57e104c6c231289419c570f90731a795, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 2158.6628
+      value: 2347.6628
       objectReference: {fileID: 0}
     - target: {fileID: 7707079398533038956, guid: 57e104c6c231289419c570f90731a795, type: 3}
       propertyPath: m_LocalPosition.y
@@ -1443,7 +1446,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7707079398533038956, guid: 57e104c6c231289419c570f90731a795, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 1714.4854
+      value: 1541.4503
       objectReference: {fileID: 0}
     - target: {fileID: 7707079398533038956, guid: 57e104c6c231289419c570f90731a795, type: 3}
       propertyPath: m_LocalRotation.w
@@ -18678,15 +18681,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5390408170497754680, guid: 968377a139c7b2e4888b26df4b44cd87, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 1934
+      value: 2123
       objectReference: {fileID: 0}
     - target: {fileID: 5390408170497754680, guid: 968377a139c7b2e4888b26df4b44cd87, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 5.3569336
+      value: 100.9
       objectReference: {fileID: 0}
     - target: {fileID: 5390408170497754680, guid: 968377a139c7b2e4888b26df4b44cd87, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 1923.035
+      value: 1750
       objectReference: {fileID: 0}
     - target: {fileID: 5390408170497754680, guid: 968377a139c7b2e4888b26df4b44cd87, type: 3}
       propertyPath: m_LocalRotation.w
@@ -19207,10 +19210,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 299919904}
     m_Modifications:
-    - target: {fileID: 788445809, guid: d8faacfa67b8d4af8b5a81028390f02b, type: 3}
-      propertyPath: maxHealth
-      value: 100
-      objectReference: {fileID: 0}
     - target: {fileID: 1371393305, guid: d8faacfa67b8d4af8b5a81028390f02b, type: 3}
       propertyPath: unitStat
       value: 
@@ -21277,15 +21276,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1943815634921720861, guid: 0f2469a9ae9ab18489f7db02c46bac58, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 2422
+      value: 2611
       objectReference: {fileID: 0}
     - target: {fileID: 1943815634921720861, guid: 0f2469a9ae9ab18489f7db02c46bac58, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.00000047683716
+      value: 94.7
       objectReference: {fileID: 0}
     - target: {fileID: 1943815634921720861, guid: 0f2469a9ae9ab18489f7db02c46bac58, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 1642
+      value: 1468.965
       objectReference: {fileID: 0}
     - target: {fileID: 1943815634921720861, guid: 0f2469a9ae9ab18489f7db02c46bac58, type: 3}
       propertyPath: m_LocalRotation.w
@@ -22051,8 +22050,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+    rgba: 4278190080
+  m_fontColor: {r: 0, g: 0, b: 0, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -24822,15 +24821,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1800019259760000438, guid: bd3888a400b98484cbd53d9fcc13e24e, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 2100.886
+      value: 2289.886
       objectReference: {fileID: 0}
     - target: {fileID: 1800019259760000438, guid: bd3888a400b98484cbd53d9fcc13e24e, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.000034213066
+      value: 98.6
       objectReference: {fileID: 0}
     - target: {fileID: 1800019259760000438, guid: bd3888a400b98484cbd53d9fcc13e24e, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 2230
+      value: 2056.9648
       objectReference: {fileID: 0}
     - target: {fileID: 1800019259760000438, guid: bd3888a400b98484cbd53d9fcc13e24e, type: 3}
       propertyPath: m_LocalRotation.w
@@ -25044,15 +25043,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4147275252921541088, guid: a8a223a329626504285c6b7f6f017b97, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 2302.1348
+      value: 2491.1348
       objectReference: {fileID: 0}
     - target: {fileID: 4147275252921541088, guid: a8a223a329626504285c6b7f6f017b97, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -4
+      value: 93.5
       objectReference: {fileID: 0}
     - target: {fileID: 4147275252921541088, guid: a8a223a329626504285c6b7f6f017b97, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 1699
+      value: 1245
       objectReference: {fileID: 0}
     - target: {fileID: 4147275252921541088, guid: a8a223a329626504285c6b7f6f017b97, type: 3}
       propertyPath: m_LocalRotation.w
@@ -36416,7 +36415,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2274897985163185749, guid: bfd322a5282b97144a68cfe84c29febe, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 2112.2
+      value: 2301.2
       objectReference: {fileID: 0}
     - target: {fileID: 2274897985163185749, guid: bfd322a5282b97144a68cfe84c29febe, type: 3}
       propertyPath: m_LocalPosition.y
@@ -36424,7 +36423,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2274897985163185749, guid: bfd322a5282b97144a68cfe84c29febe, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 2115
+      value: 1801
       objectReference: {fileID: 0}
     - target: {fileID: 2274897985163185749, guid: bfd322a5282b97144a68cfe84c29febe, type: 3}
       propertyPath: m_LocalRotation.w
@@ -47118,6 +47117,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   unitStat: {fileID: 11400000, guid: 545ae41fadf85ea4998106309ce23962, type: 2}
+  attributes: {fileID: 0}
   unitFaction: 0
 --- !u!135 &5001893671019957703
 SphereCollider:
@@ -47300,6 +47300,8 @@ MonoBehaviour:
   attackSpeed: 0
   attackRange: 0
   movementSpeed: 0
+  health: 0
+  portraitImage: {fileID: 0}
 --- !u!1 &5001893671166649560
 GameObject:
   m_ObjectHideFlags: 0
@@ -108257,12 +108259,14 @@ MonoBehaviour:
   strength: 0
   agility: 0
   intelligence: 0
-  armor: 0
+  armor: 20
   magicResistance: 0
-  attackDamage: 0
-  attackSpeed: 0
-  attackRange: 0
-  movementSpeed: 0
+  attackDamage: 10
+  attackSpeed: 1.7
+  attackRange: 200
+  movementSpeed: 350
+  health: 0
+  portraitImage: {fileID: 21300000, guid: 3799a035592f73a47aca09799b697d29, type: 3}
 --- !u!114 &8915489909188169918
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -108346,7 +108350,7 @@ MonoBehaviour:
   invulnerable: 0
   currentHealth: 0
   minHealth: 0
-  maxHealth: 0
+  maxHealth: 100
 --- !u!135 &8915489909188169923
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -108401,6 +108405,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   unitStat: {fileID: 11400000, guid: 545ae41fadf85ea4998106309ce23962, type: 2}
+  attributes: {fileID: 0}
   unitFaction: 0
 --- !u!114 &8915489909188169927
 MonoBehaviour:

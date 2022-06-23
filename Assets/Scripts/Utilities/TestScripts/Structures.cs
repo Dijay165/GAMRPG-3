@@ -41,6 +41,7 @@ public class Structures : MonoBehaviour
 
     public void OnSelectStructure()
     {
+        Debug.Log("OnSelectTower");
         debugManager.structure = gameObject;
     }
 

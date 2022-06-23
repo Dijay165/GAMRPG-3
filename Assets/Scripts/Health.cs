@@ -16,7 +16,7 @@ public class Health : MonoBehaviour
     private bool isAlive;
     [SerializeField] private float currentHealth;
     [SerializeField] private float minHealth;
-    [SerializeField] private float maxHealth;
+     public float maxHealth;
 
     public Death OnDeathEvent = new Death();
   //  public Action OnDeath;
@@ -32,8 +32,10 @@ public class Health : MonoBehaviour
         
         playersParent = transform;
         team = (int)GetComponent<TestStatsHolder>().unitFaction;
-        maxHealth = GetComponent<TestStatsHolder>().unitStat.healthPoints;
+
+        // maxHealth = GetComponent<TestStatsHolder>().attributes.health;
         InitializeValues();
+        maxHealth = GetComponent<TestStatsHolder>().attributes.health;
     }
 
     private void OnEnable()

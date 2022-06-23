@@ -21,6 +21,7 @@ public class UnitSelectionUI : MonoBehaviour
 
 
     UnitStat unit;
+    Attributes attributes;
 
     public void OnEnable()
     {
@@ -38,17 +39,31 @@ public class UnitSelectionUI : MonoBehaviour
     {
         GameObject player = GameObject.FindGameObjectWithTag("Player");
         unit = player.GetComponent<TestStatsHolder>().unitStat;
+        attributes = player.GetComponent<Attributes>();
     }
-    public void ChangeInfo(UnitStat unitStat)
+    //public void ChangeInfo(UnitStat unitStat)
+    //{
+    //    Events.OnUnitSelect.Invoke();
+        
+    //    if (unitStat != null)
+    //    {
+    //        attackText.text = unitStat.attack.ToString();
+    //        defenseText.text = unitStat.defense.ToString();
+    //        moveSpeedText.text = unitStat.moveSpeed.ToString();
+    //        healthPointText.text = unitStat.healthPoints.ToString();
+    //    }
+    //}
+    public void ChangeAttributeUI(Attributes unitStat)
     {
         Events.OnUnitSelect.Invoke();
-        
+      //  Debug.Log("Touched");
         if (unitStat != null)
         {
-            attackText.text = unitStat.attack.ToString();
-            defenseText.text = unitStat.defense.ToString();
-            moveSpeedText.text = unitStat.moveSpeed.ToString();
-            healthPointText.text = unitStat.healthPoints.ToString();
+            attackText.text = unitStat.attackDamage.ToString();
+            defenseText.text = unitStat.armor.ToString();
+            moveSpeedText.text = unitStat.movementSpeed.ToString();
+            healthPointText.text = unitStat.health.ToString();
+            characterPortrait.sprite = unitStat.portraitImage;
         }
     }
 
@@ -63,11 +78,11 @@ public class UnitSelectionUI : MonoBehaviour
     public void PlayerInfo()
     {
 
-        attackText.text = unit.attack.ToString();
-        defenseText.text = unit.defense.ToString();
-        moveSpeedText.text = unit.moveSpeed.ToString();
-        healthPointText.text = unit.healthPoints.ToString();
-        characterPortrait.sprite = unit.portraitImage;
+        attackText.text = attributes.attackDamage.ToString();
+        defenseText.text = attributes.armor.ToString();
+        moveSpeedText.text = attributes.movementSpeed.ToString();
+        healthPointText.text = attributes.health.ToString();
+        characterPortrait.sprite = attributes.portraitImage;
     }
 
 }

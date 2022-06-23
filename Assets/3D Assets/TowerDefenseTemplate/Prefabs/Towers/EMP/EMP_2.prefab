@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 2006759774174617894}
   - component: {fileID: 8830081746614289503}
   - component: {fileID: 8922848427992051963}
+  - component: {fileID: 5490749478847402204}
   m_Layer: 0
   m_Name: EMP_2
   m_TagString: Untagged
@@ -56,7 +57,7 @@ MonoBehaviour:
   invulnerable: 0
   currentHealth: 0
   minHealth: 0
-  maxHealth: 0
+  maxHealth: 100
 --- !u!114 &1371393305
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -70,6 +71,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   unitStat: {fileID: 11400000, guid: d6750346963de0840911385da16d176a, type: 2}
+  attributes: {fileID: 0}
   unitFaction: 0
 --- !u!114 &1371393306
 MonoBehaviour:
@@ -140,6 +142,32 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   icon: {fileID: 8176847129870774413}
+  currentTarget: {fileID: 0}
+  health: {fileID: 0}
+--- !u!114 &5490749478847402204
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1018291631365572}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1745d2ceb585d8f4e84d4c8cc99f97f9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  skillPoints: 0
+  strength: 0
+  agility: 0
+  intelligence: 0
+  armor: 0
+  magicResistance: 0
+  attackDamage: 0
+  attackSpeed: 0
+  attackRange: 0
+  movementSpeed: 0
+  health: 0
+  portraitImage: {fileID: 0}
 --- !u!1 &1228855972254258
 GameObject:
   m_ObjectHideFlags: 0

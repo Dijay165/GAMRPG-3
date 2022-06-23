@@ -12,6 +12,7 @@ public class SelectUnit : MonoBehaviour
     // Start is called before the first frame update
     private TestStatsHolder testStatsHolder;
     private UnitSelectionUI selectionUI;
+    Attributes attributes;
  //   TargetedDamager targetedDamager;
 
 
@@ -24,6 +25,7 @@ public class SelectUnit : MonoBehaviour
         cam = Camera.main;
         selectionUI = GameObject.Find("UnitSelection").GetComponent<UnitSelectionUI>();
         testStatsHolder = GetComponent<TestStatsHolder>();
+        attributes = GetComponent<Attributes>();
        // targetedDamager = GetComponent<TargetedDamager>();
     }
 
@@ -49,9 +51,14 @@ public class SelectUnit : MonoBehaviour
             {
                 if (raycastHit.transform == transform)
                 {
-                    if(testStatsHolder != null)
+                    if(attributes != null)
                     {
-                        selectionUI.ChangeInfo(testStatsHolder.unitStat);
+                   //     Debug.Log("not null");
+                        selectionUI.ChangeAttributeUI(testStatsHolder.attributes);
+                    }
+                    else
+                    {
+                     //   Debug.Log("null");
                     }
                  
 
@@ -59,7 +66,8 @@ public class SelectUnit : MonoBehaviour
                     //Debug.Log("Test");
                     if(gameObject.TryGetComponent(out Structures structures))
                     {
-//                        Events.OnTowerDied.Invoke();
+                        //                        Events.OnTowerDied.Invoke();
+                     //   Debug.Log("IsTower");
                         structures.OnSelectStructure();
                       //  targetedDamager.targetHealth = structures.health;
                         

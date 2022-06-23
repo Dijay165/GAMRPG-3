@@ -16,13 +16,17 @@ public class TargetedDamager : MonoBehaviour
     public float attackSpeed = 1.7f;
 
     MOBAMovement mOBAMovement;
+
+    Attributes attributes;
     
     void Start()
     {
         team = (int)GetComponent<TestStatsHolder>().unitFaction;
         anim = GetComponent<Animator>();
-
+        attributes = GetComponent<Attributes>();
         mOBAMovement = GetComponent<MOBAMovement>();
+        damageAmount = attributes.attackDamage;
+        attackSpeed = attributes.attackSpeed;
     }
 
     private void Update()
