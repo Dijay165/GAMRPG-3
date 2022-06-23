@@ -238,6 +238,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 99251a9f22bf4ce4ab4bb2e54339fb39, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  unit: {fileID: 0}
+  attributes: {fileID: 0}
   firePoint: {fileID: 1226717476}
   prefab: {fileID: 5940412195069052108, guid: 2ae24c998d7529049b0c3795b72cf5f2, type: 3}
 --- !u!114 &318895596024721446
@@ -283,7 +285,7 @@ MonoBehaviour:
   armor: 0
   magicResistance: 0
   attackDamage: 41
-  attackSpeed: 0
+  attackSpeed: 3
   attackRange: 0
   movementSpeed: 0
 --- !u!1 &2018598144595978279

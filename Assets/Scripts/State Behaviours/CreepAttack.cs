@@ -7,6 +7,7 @@ public class CreepAttack : StateMachineBehaviour
     Creep creep;
     public NavMeshAgent agent;
     int damage;
+    Damager damager; 
 
     // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
@@ -14,6 +15,10 @@ public class CreepAttack : StateMachineBehaviour
         creep = animator.gameObject.GetComponent<Creep>();
 
         agent = animator.gameObject.GetComponent<NavMeshAgent>();
+
+        damager = animator.gameObject.GetComponent<Damager>();
+
+        animator.speed = damager.attributes.attackSpeed;
         //if (creep.gameObject.activeSelf)
         //{
         //    damage = creep.gameObject.GetComponent<Attributes>().attackDamage;
@@ -40,10 +45,10 @@ public class CreepAttack : StateMachineBehaviour
 
 
     // OnStateExit is called when a transition ends and the state machine finishes evaluating this state
-    //override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
-    //{
-    //    
-    //}
+    override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
+    {
+        animator.speed = 1;
+    }
 
     // OnStateMove is called right after Animator.OnAnimatorMove()
     //override public void OnStateMove(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)

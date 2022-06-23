@@ -206,6 +206,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f704b2f691a95684fbe335a3abc45158, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  unit: {fileID: 0}
+  attributes: {fileID: 0}
 --- !u!114 &695369996818386632
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -249,7 +251,7 @@ MonoBehaviour:
   armor: 0
   magicResistance: 0
   attackDamage: 40
-  attackSpeed: 0
+  attackSpeed: 1
   attackRange: 0
   movementSpeed: 0
 --- !u!1 &2161905593900652940

@@ -36420,7 +36420,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2274897985163185749, guid: bfd322a5282b97144a68cfe84c29febe, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 3.56
+      value: 101
       objectReference: {fileID: 0}
     - target: {fileID: 2274897985163185749, guid: bfd322a5282b97144a68cfe84c29febe, type: 3}
       propertyPath: m_LocalPosition.z
@@ -38077,22 +38077,6 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 126
   m_CollisionDetection: 0
---- !u!208 &1924741744
-NavMeshObstacle:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1924741738}
-  m_Enabled: 0
-  serializedVersion: 3
-  m_Shape: 1
-  m_Extents: {x: 118.35, y: 91.5, z: 118.95}
-  m_MoveThreshold: 0.1
-  m_Carve: 0
-  m_CarveOnlyStationary: 1
-  m_Center: {x: -2.7, y: 109.8, z: -1.07}
-  m_TimeToStationary: 0.5
 --- !u!1 &1930812231
 GameObject:
   m_ObjectHideFlags: 0
@@ -106356,7 +106340,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8856365321302112780}
   m_LocalRotation: {x: -0, y: -0.24622683, z: -0, w: 0.96921223}
-  m_LocalPosition: {x: 1718, y: -24, z: 2074}
+  m_LocalPosition: {x: 1718, y: 101, z: 2074}
   m_LocalScale: {x: 34.68814, y: 34.68814, z: 34.68814}
   m_ConstrainProportionsScale: 0
   m_Children:

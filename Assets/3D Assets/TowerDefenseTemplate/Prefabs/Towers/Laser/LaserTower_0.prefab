@@ -140,6 +140,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   icon: {fileID: 252143906332641596}
+  currentTarget: {fileID: 0}
+  health: {fileID: 0}
 --- !u!1 &1213524718981924
 GameObject:
   m_ObjectHideFlags: 0
