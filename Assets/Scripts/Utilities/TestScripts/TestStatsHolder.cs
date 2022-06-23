@@ -9,10 +9,15 @@ public class TestStatsHolder : MonoBehaviour
     public Attributes attributes;
     public Faction unitFaction;
 
+    private void Awake()
+    {
+        attributes = GetComponent<Attributes>();
+    }
     public void Intialization()
     {
+        
         unitStat.faction = unitFaction;
-        attributes = GetComponent<Attributes>();
+      
     }
     private void Start()
     {

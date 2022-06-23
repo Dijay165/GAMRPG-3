@@ -284,12 +284,12 @@ MonoBehaviour:
   strength: 0
   agility: 0
   intelligence: 0
-  armor: 0
+  armor: 10
   magicResistance: 0
   attackDamage: 41
   attackSpeed: 3
   attackRange: 0
-  movementSpeed: 0
+  movementSpeed: 325
   health: 0
   portraitImage: {fileID: 21300000, guid: 0dbf8feb25e8ef144a8606e127360886, type: 3}
 --- !u!114 &4899416835741030305

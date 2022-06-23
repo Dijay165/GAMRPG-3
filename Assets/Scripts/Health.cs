@@ -27,7 +27,8 @@ public class Health : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
- 
+
+        //float maxHp = GetComponent<TestStatsHolder>().attributes.health;
         isAlive = true;
         
         playersParent = transform;
@@ -35,7 +36,7 @@ public class Health : MonoBehaviour
 
         // maxHealth = GetComponent<TestStatsHolder>().attributes.health;
         InitializeValues();
-        maxHealth = GetComponent<TestStatsHolder>().attributes.health;
+        //maxHealth = maxHp;
     }
 
     private void OnEnable()
