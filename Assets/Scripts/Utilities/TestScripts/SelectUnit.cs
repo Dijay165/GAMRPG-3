@@ -55,13 +55,8 @@ public class SelectUnit : MonoBehaviour
                     {
                    //     Debug.Log("not null");
                         selectionUI.ChangeAttributeUI(testStatsHolder.attributes);
+                        FactionColor(testStatsHolder);
                     }
-                    else
-                    {
-                     //   Debug.Log("null");
-                    }
-                 
-
                     //Events.OnTowerDied.Invoke();
                     //Debug.Log("Test");
                     if(gameObject.TryGetComponent(out Structures structures))
@@ -81,6 +76,22 @@ public class SelectUnit : MonoBehaviour
     {
        // Debug.Log("Current");
         //selectionUI.ChangeInfo(testStatsHolder.unitStat);
+
+       
+    }
+
+    void FactionColor(TestStatsHolder testStatsHolder)
+    {
+        if(testStatsHolder.unitFaction == Faction.Radiant)
+        {
+            Debug.Log("Radiant");
+            selectionUI.characterPortrait.color = Color.white;
+        }
+        else
+        {
+            Debug.Log("Dire");
+            selectionUI.characterPortrait.color = Color.red;
+        }
     }
 
 

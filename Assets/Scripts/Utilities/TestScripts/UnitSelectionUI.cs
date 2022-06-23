@@ -20,7 +20,7 @@ public class UnitSelectionUI : MonoBehaviour
     public Image characterPortrait;
 
 
-    UnitStat unit;
+    //UnitStat unit;
     Attributes attributes;
 
     public void OnEnable()
@@ -38,7 +38,7 @@ public class UnitSelectionUI : MonoBehaviour
     private void Start()
     {
         GameObject player = GameObject.FindGameObjectWithTag("Player");
-        unit = player.GetComponent<TestStatsHolder>().unitStat;
+       // unit = player.GetComponent<TestStatsHolder>().unitStat;
         attributes = player.GetComponent<Attributes>();
     }
     //public void ChangeInfo(UnitStat unitStat)
@@ -64,6 +64,7 @@ public class UnitSelectionUI : MonoBehaviour
             moveSpeedText.text = unitStat.movementSpeed.ToString();
             healthPointText.text = unitStat.health.ToString();
             characterPortrait.sprite = unitStat.portraitImage;
+           
         }
     }
 
@@ -82,7 +83,20 @@ public class UnitSelectionUI : MonoBehaviour
         defenseText.text = attributes.armor.ToString();
         moveSpeedText.text = attributes.movementSpeed.ToString();
         healthPointText.text = attributes.health.ToString();
+        characterPortrait.color = Color.white;
         characterPortrait.sprite = attributes.portraitImage;
+
     }
 
+    public void FactionPortrait(UnitStat unitStat)
+    {
+        if(unitStat.faction == Faction.Radiant)
+        {
+            characterPortrait.color = Color.white;
+        }
+        else
+        {
+            characterPortrait.color = Color.red;
+        }
+    }
 }

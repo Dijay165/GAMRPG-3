@@ -167,7 +167,7 @@ MonoBehaviour:
   attackRange: 0
   movementSpeed: 0
   health: 0
-  portraitImage: {fileID: 0}
+  portraitImage: {fileID: 21300000, guid: 6d5657c19bd04094f950583befbe2f65, type: 3}
 --- !u!1 &1213524718981924
 GameObject:
   m_ObjectHideFlags: 0
