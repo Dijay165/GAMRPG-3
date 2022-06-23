@@ -16,8 +16,7 @@ public class FocusHeroController : MonoBehaviour
 
     private void Start()
     {
-        Events.OnPlayerSelect.Invoke();
-        CameraManager.instance.cam.transform.parent.transform.position = new Vector3(PlayerManager.instance.player.transform.position.x + 
+        CameraManager.instance.cam.transform.parent.transform.position = new Vector3(PlayerManager.instance.player.transform.position.x +
             offset.x, offset.y, PlayerManager.instance.player.transform.position.z + offset.z);
     }
     void Update()

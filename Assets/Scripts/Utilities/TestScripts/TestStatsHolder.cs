@@ -13,6 +13,7 @@ public class TestStatsHolder : MonoBehaviour
     {
         attributes = GetComponent<Attributes>();
     }
+
     public void Intialization()
     {
         

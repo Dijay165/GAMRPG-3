@@ -14,7 +14,7 @@ public class Health : MonoBehaviour
     [HideInInspector] public bool invulnerable = false;
      int team;
     private bool isAlive;
-    [SerializeField] private float currentHealth;
+    public float currentHealth;
     [SerializeField] private float minHealth;
      public float maxHealth;
 
@@ -35,14 +35,15 @@ public class Health : MonoBehaviour
         team = (int)GetComponent<TestStatsHolder>().unitFaction;
 
         // maxHealth = GetComponent<TestStatsHolder>().attributes.health;
-        InitializeValues();
+        
         //maxHealth = maxHp;
     }
 
     private void OnEnable()
     {
-        
+        InitializeValues();
     }
+
     public void InitializeValues()
     {
         isAlive = true;
@@ -78,7 +79,8 @@ public class Health : MonoBehaviour
     {
         if (isAlive)
         {
-            currentHealth += p_healthModifer;
+            currentHealth += Mathf.Clamp(p_healthModifer, 0, maxHealth);
+            // currentHealth += p_healthModifer;
             if (currentHealth > maxHealth)
             {
                 currentHealth = maxHealth;
@@ -95,7 +97,8 @@ public class Health : MonoBehaviour
 
         if (isAlive)
         {
-            currentHealth -= p_healthModifer;
+            currentHealth -= Mathf.Clamp(p_healthModifer, 0, maxHealth);
+         //   currentHealth -= p_healthModifer;
             if (currentHealth < minHealth)
             {
                 currentHealth = minHealth;

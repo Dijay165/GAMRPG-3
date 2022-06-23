@@ -18,25 +18,20 @@ public class Attributes : MonoBehaviour
     public float attackRange;
 
     public float movementSpeed;
-    public float health;
+    public float maxHp;
+    public float currentHp;
 
     public Sprite portraitImage;
     
     public Action OnAttributesUpdated;
 
-    private Health hp;
-    
+    public Health hp;
+
     // Start is called before the first frame update
-    void Start()
+
+    private void Awake()
     {
-        //450 + (20 * Strength)
         hp = GetComponent<Health>();
-        health = hp.maxHealth;
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }

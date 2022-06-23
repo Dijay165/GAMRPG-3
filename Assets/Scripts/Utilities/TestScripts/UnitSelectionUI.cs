@@ -16,7 +16,9 @@ public class UnitSelectionUI : MonoBehaviour
     public TextMeshProUGUI attackText;
     public TextMeshProUGUI defenseText;
     public TextMeshProUGUI moveSpeedText;
-    public TextMeshProUGUI healthPointText;
+    public TextMeshProUGUI maxHealthText;
+    public TextMeshProUGUI currentHealthText;
+    public Slider slider;
     public Image characterPortrait;
 
 
@@ -40,7 +42,12 @@ public class UnitSelectionUI : MonoBehaviour
         GameObject player = GameObject.FindGameObjectWithTag("Player");
        // unit = player.GetComponent<TestStatsHolder>().unitStat;
         attributes = player.GetComponent<Attributes>();
+        PlayerInfo();
+        //slider.value = attributes.currentHp;
+        //slider.maxValue = attributes.maxHp;
+        //   currentHealthText.text = attributes.hp.maxHealth.ToString();
     }
+
     //public void ChangeInfo(UnitStat unitStat)
     //{
     //    Events.OnUnitSelect.Invoke();
@@ -59,11 +66,16 @@ public class UnitSelectionUI : MonoBehaviour
       //  Debug.Log("Touched");
         if (unitStat != null)
         {
+            slider.value = unitStat.hp.currentHealth;
+            slider.maxValue = unitStat.hp.maxHealth;
             attackText.text = unitStat.attackDamage.ToString();
             defenseText.text = unitStat.armor.ToString();
             moveSpeedText.text = unitStat.movementSpeed.ToString();
-            healthPointText.text = unitStat.health.ToString();
+            currentHealthText.text = unitStat.hp.currentHealth.ToString();
+            maxHealthText.text = unitStat.hp.maxHealth.ToString();
             characterPortrait.sprite = unitStat.portraitImage;
+          
+           
            
         }
     }
@@ -73,16 +85,18 @@ public class UnitSelectionUI : MonoBehaviour
         attackText.text = "";
         defenseText.text = "";
         moveSpeedText.text = "";
-        healthPointText.text = "";
+        maxHealthText.text = "";
     }
 
     public void PlayerInfo()
     {
-
+        slider.value = attributes.hp.currentHealth;
+        slider.maxValue = attributes.hp.maxHealth;
         attackText.text = attributes.attackDamage.ToString();
         defenseText.text = attributes.armor.ToString();
         moveSpeedText.text = attributes.movementSpeed.ToString();
-        healthPointText.text = attributes.health.ToString();
+        currentHealthText.text = attributes.hp.currentHealth.ToString();
+        maxHealthText.text = attributes.hp.maxHealth.ToString();
         characterPortrait.color = Color.white;
         characterPortrait.sprite = attributes.portraitImage;
 
