@@ -84,6 +84,7 @@ GameObject:
   - component: {fileID: 1065081250371773840}
   - component: {fileID: 318895596024721446}
   - component: {fileID: -6797513444139051269}
+  - component: {fileID: -164551829293610232}
   m_Layer: 0
   m_Name: Siege Creep
   m_TagString: Untagged
@@ -201,7 +202,7 @@ Animator:
   m_GameObject: {fileID: 1418954211154683660}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 707b944f06051734793367fc0c69bc07, type: 2}
+  m_Controller: {fileID: 9100000, guid: 78d9ed9b6ef304b479b49f2c10a11a9b, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -256,6 +257,8 @@ MonoBehaviour:
   currentTarget: {fileID: 0}
   health: {fileID: 0}
   agent: {fileID: 0}
+  obstacle: {fileID: 0}
+  carvingMoveThreshold: 0.1
   currentPath: {fileID: 0}
   paths: []
   layerMask: 256
@@ -286,6 +289,22 @@ MonoBehaviour:
   attackSpeed: 0
   attackRange: 0
   movementSpeed: 0
+--- !u!208 &-164551829293610232
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1418954211154683660}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 0.5, y: 0.5, z: 0.5}
+  m_MoveThreshold: 0.1
+  m_Carve: 0
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0, y: 0, z: 0}
+  m_TimeToStationary: 0.5
 --- !u!1 &2018598144595978279
 GameObject:
   m_ObjectHideFlags: 0

@@ -56,15 +56,15 @@ public class MOBAMovement : MonoBehaviour
                 
                 if (hit.transform.gameObject.TryGetComponent(out Structures structures))
                 {
-                 if (statsHolder.unitFaction != structures.statsHolder.unitFaction)
-                 {
-                    targetedDamager.targetHealth = structures.health;
-                    Debug.Log("Can Target");
-                 }
-                else
-                {
-                    Debug.Log("Cannot Target");
-                }
+                    if (statsHolder.unitFaction != structures.statsHolder.unitFaction)
+                    {
+                        targetedDamager.targetHealth = structures.health;
+                        Debug.Log("Can Target");
+                    }
+                    else
+                    {
+                        Debug.Log("Cannot Target");
+                    }
                  
                 }
             

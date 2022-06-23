@@ -30,7 +30,7 @@ public class HomingProjectile : MonoBehaviour
         //Iirc using while in a coroutine is bad practice
         if(target.transform != null)
         {
-            while (Vector3.Distance(target.transform.position, transform.position) > 0.3f)
+            while (Vector3.Distance(target.transform.position, transform.position) > 50f)
             {
                 Vector3 direction = target.position - transform.position;
                 transform.position += (direction).normalized * speed * Time.deltaTime;

@@ -1,19 +1,24 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.AI;
 public class MeleeCreep : Creep
 {
-    //private void Start()
-    //{
-    //    if(health != null)
-    //      health.OnDeathEvent.AddListener(DestroyUnit);
-    //}
-    //private void OnDisable()
-    //{
-    //    if (health != null)
-    //        health.OnDeathEvent.RemoveListener(DestroyUnit);
-    //}
+    protected override void InitializeValues()
+    {
+        base.InitializeValues();
 
-   
+
+    }
+    protected override void DeinitializeValues()
+    {
+        base.DeinitializeValues();
+
+        //MeleeCreepPool.pool.Release(this);
+        Debug.Log("Destroy");
+        //HealthOverheadUIPool.pool.Release(this);
+        Destroy(gameObject);
+    }
+
+
 }

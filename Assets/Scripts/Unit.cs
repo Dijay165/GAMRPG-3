@@ -2,14 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Unit : MonoBehaviour
+public abstract class Unit : MonoBehaviour
 {
     public SpriteRenderer icon;
     protected int team;
     public Health currentTarget;
 
     public Health health;
-
+    private HealthOverheadUI healthOverheadUI;
 
     public void AssignTeam()
     {
@@ -43,9 +43,27 @@ public class Unit : MonoBehaviour
     {
         AssignTeam();
        
-        HealthOverheadUI healthOverheadUI = HealthOverheadUIPool.pool.Get();
+        healthOverheadUI = HealthOverheadUIPool.pool.Get();
         healthOverheadUI.SetHealthBarData(transform, UIManager.instance.overheadUI);
         health.OnHealthModifyEvent.AddListener(healthOverheadUI.OnHealthChanged);
         health.OnDeathEvent.AddListener(healthOverheadUI.OnHealthDied);
+
+       
+        health.OnDeathEvent.AddListener(UnitDeath);
+
+
+    }
+
+    protected virtual void DeinitializeValues()
+    {
+
+        health.OnHealthModifyEvent.RemoveListener(healthOverheadUI.OnHealthChanged);
+        health.OnDeathEvent.RemoveListener(healthOverheadUI.OnHealthDied);
+    }
+
+    public virtual void UnitDeath(Health objectHealth = null)
+    {
+        DeinitializeValues();
+       
     }
 }

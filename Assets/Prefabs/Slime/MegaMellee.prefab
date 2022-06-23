@@ -53,6 +53,7 @@ GameObject:
   - component: {fileID: 695369996818386633}
   - component: {fileID: 695369996818386632}
   - component: {fileID: 2163277990956777852}
+  - component: {fileID: -3884378849776890639}
   m_Layer: 0
   m_Name: MegaMellee
   m_TagString: Untagged
@@ -169,7 +170,7 @@ Animator:
   m_GameObject: {fileID: 1275084573514684071}
   m_Enabled: 1
   m_Avatar: {fileID: 9000000, guid: eb340672e17c0af4089e561b61cdc548, type: 3}
-  m_Controller: {fileID: 9100000, guid: 707b944f06051734793367fc0c69bc07, type: 2}
+  m_Controller: {fileID: 9100000, guid: 78d9ed9b6ef304b479b49f2c10a11a9b, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -222,6 +223,8 @@ MonoBehaviour:
   currentTarget: {fileID: 0}
   health: {fileID: 0}
   agent: {fileID: 0}
+  obstacle: {fileID: 0}
+  carvingMoveThreshold: 0.1
   currentPath: {fileID: 0}
   paths: []
   layerMask: 256
@@ -252,6 +255,22 @@ MonoBehaviour:
   attackSpeed: 0
   attackRange: 0
   movementSpeed: 0
+--- !u!208 &-3884378849776890639
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1275084573514684071}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 0.5, y: 0.5, z: 0.5}
+  m_MoveThreshold: 0.1
+  m_Carve: 0
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0, y: 0, z: 0}
+  m_TimeToStationary: 0.5
 --- !u!1 &2161905593900652940
 GameObject:
   m_ObjectHideFlags: 0

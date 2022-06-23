@@ -27,8 +27,7 @@ public class CreepAttack : StateMachineBehaviour
         agent.isStopped = true;
         creep.gameObject.GetComponent<Damager>().DamageTarget();
         
-        animator.SetBool("isAttacking", false);
-
+        animator.SetTrigger("isIdle");
 
     }
 
