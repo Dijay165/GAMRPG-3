@@ -37,11 +37,16 @@ public class UnitSelectionUI : MonoBehaviour
         Events.OnPlayerSelect.RemoveListener(PlayerInfo);
     }
 
-    private void Start()
+    private void Awake()
     {
         GameObject player = GameObject.FindGameObjectWithTag("Player");
-       // unit = player.GetComponent<TestStatsHolder>().unitStat;
+        // unit = player.GetComponent<TestStatsHolder>().unitStat;
         attributes = player.GetComponent<Attributes>();
+       
+    }
+    private void Start()
+    {
+  
         PlayerInfo();
         //slider.value = attributes.currentHp;
         //slider.maxValue = attributes.maxHp;
@@ -63,6 +68,7 @@ public class UnitSelectionUI : MonoBehaviour
     public void ChangeAttributeUI(Attributes unitStat)
     {
         Events.OnUnitSelect.Invoke();
+        Debug.Log("Touched");
       //  Debug.Log("Touched");
         if (unitStat != null)
         {

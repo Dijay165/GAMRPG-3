@@ -84,12 +84,12 @@ public class SelectUnit : MonoBehaviour
     {
         if(testStatsHolder.unitFaction == Faction.Radiant)
         {
-            Debug.Log("Radiant");
+           // Debug.Log("Radiant");
             selectionUI.characterPortrait.color = Color.white;
         }
         else
         {
-            Debug.Log("Dire");
+            //Debug.Log("Dire");
             selectionUI.characterPortrait.color = Color.red;
         }
     }
