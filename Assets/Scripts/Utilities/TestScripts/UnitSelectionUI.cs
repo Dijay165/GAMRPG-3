@@ -72,8 +72,11 @@ public class UnitSelectionUI : MonoBehaviour
       //  Debug.Log("Touched");
         if (unitStat != null)
         {
-            slider.value = unitStat.hp.currentHealth;
+            Debug.Log(unitStat.hp.currentHealth);
+            Debug.Log(slider.value);
             slider.maxValue = unitStat.hp.maxHealth;
+            slider.value = unitStat.hp.currentHealth;
+            
             attackText.text = unitStat.attackDamage.ToString();
             defenseText.text = unitStat.armor.ToString();
             moveSpeedText.text = unitStat.movementSpeed.ToString();
@@ -96,8 +99,9 @@ public class UnitSelectionUI : MonoBehaviour
 
     public void PlayerInfo()
     {
-        slider.value = attributes.hp.currentHealth;
         slider.maxValue = attributes.hp.maxHealth;
+        slider.value = attributes.hp.currentHealth;
+
         attackText.text = attributes.attackDamage.ToString();
         defenseText.text = attributes.armor.ToString();
         moveSpeedText.text = attributes.movementSpeed.ToString();
