@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 1716755606}
   - component: {fileID: 1716755607}
   - component: {fileID: 3144587810365715528}
+  - component: {fileID: 7157312353549900143}
   m_Layer: 0
   m_Name: LaserTower_0
   m_TagString: Untagged
@@ -114,6 +115,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   unitStat: {fileID: 11400000, guid: 01ee7a4e66616a14b94ca92ef60c9def, type: 2}
+  attributes: {fileID: 0}
   unitFaction: 0
 --- !u!114 &1716755607
 MonoBehaviour:
@@ -140,6 +142,32 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   icon: {fileID: 252143906332641596}
+  currentTarget: {fileID: 0}
+  health: {fileID: 0}
+--- !u!114 &7157312353549900143
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1161251386251526}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1745d2ceb585d8f4e84d4c8cc99f97f9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  skillPoints: 0
+  strength: 0
+  agility: 0
+  intelligence: 0
+  armor: 0
+  magicResistance: 0
+  attackDamage: 0
+  attackSpeed: 0
+  attackRange: 0
+  movementSpeed: 0
+  health: 0
+  portraitImage: {fileID: 21300000, guid: 6d5657c19bd04094f950583befbe2f65, type: 3}
 --- !u!1 &1213524718981924
 GameObject:
   m_ObjectHideFlags: 0

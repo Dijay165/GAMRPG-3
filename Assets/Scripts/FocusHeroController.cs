@@ -13,6 +13,13 @@ public class FocusHeroController : MonoBehaviour
     private Vector3 offset;
 
     // Update is called once per frame
+
+    private void Start()
+    {
+        Events.OnPlayerSelect.Invoke();
+        CameraManager.instance.cam.transform.parent.transform.position = new Vector3(PlayerManager.instance.player.transform.position.x +
+            offset.x, offset.y, PlayerManager.instance.player.transform.position.z + offset.z);
+    }
     void Update()
     {
         if (Input.GetKeyDown(assignedKey))
@@ -28,7 +35,8 @@ public class FocusHeroController : MonoBehaviour
             {
                 currentPressedAmount = 0;
                 Events.OnPlayerSelect.Invoke();
-                CameraManager.instance.cam.transform.parent.transform.position = new Vector3(PlayerManager.instance.player.transform.position.x + offset.x, offset.y, PlayerManager.instance.player.transform.position.z + offset.z);
+                CameraManager.instance.cam.transform.parent.transform.position = new Vector3(PlayerManager.instance.player.transform.position.x 
+                    + offset.x, offset.y, PlayerManager.instance.player.transform.position.z + offset.z);
             }
             else
             {

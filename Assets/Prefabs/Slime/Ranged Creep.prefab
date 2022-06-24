@@ -266,7 +266,7 @@ GameObject:
   - component: {fileID: 3425606162125774020}
   - component: {fileID: 1412513994201766906}
   - component: {fileID: 8986504102246069141}
-  - component: {fileID: -2520097057315696479}
+  - component: {fileID: 4100486458861487288}
   m_Layer: 0
   m_Name: Ranged Creep
   m_TagString: Untagged
@@ -305,6 +305,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   unitStat: {fileID: 11400000, guid: 9bb58c1cb67e8bb44aab53587d0bb5b7, type: 2}
+  attributes: {fileID: 0}
   unitFaction: 0
 --- !u!114 &4277530869777000197
 MonoBehaviour:
@@ -348,7 +349,7 @@ BoxCollider:
   m_GameObject: {fileID: 7043307993562831318}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 0
+  m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
@@ -384,7 +385,7 @@ Animator:
   m_GameObject: {fileID: 7043307993562831318}
   m_Enabled: 1
   m_Avatar: {fileID: 9000000, guid: eb340672e17c0af4089e561b61cdc548, type: 3}
-  m_Controller: {fileID: 9100000, guid: 78d9ed9b6ef304b479b49f2c10a11a9b, type: 2}
+  m_Controller: {fileID: 9100000, guid: 707b944f06051734793367fc0c69bc07, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -421,6 +422,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 99251a9f22bf4ce4ab4bb2e54339fb39, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  unit: {fileID: 0}
+  attributes: {fileID: 0}
   firePoint: {fileID: 4426887922208799611}
   prefab: {fileID: 5940412195069052108, guid: 2ae24c998d7529049b0c3795b72cf5f2, type: 3}
 --- !u!114 &1412513994201766906
@@ -439,8 +442,6 @@ MonoBehaviour:
   currentTarget: {fileID: 0}
   health: {fileID: 0}
   agent: {fileID: 0}
-  obstacle: {fileID: 0}
-  carvingMoveThreshold: 0.1
   currentPath: {fileID: 0}
   paths: []
   layerMask: 256
@@ -465,28 +466,26 @@ MonoBehaviour:
   strength: 0
   agility: 0
   intelligence: 0
-  armor: 0
+  armor: 10
   magicResistance: 0
   attackDamage: 24
-  attackSpeed: 0
+  attackSpeed: 1
   attackRange: 0
-  movementSpeed: 0
---- !u!208 &-2520097057315696479
-NavMeshObstacle:
+  movementSpeed: 325
+  health: 0
+  portraitImage: {fileID: 21300000, guid: dd351c4cf6d7d2f4286da9bd44319de1, type: 3}
+--- !u!114 &4100486458861487288
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7043307993562831318}
   m_Enabled: 1
-  serializedVersion: 3
-  m_Shape: 1
-  m_Extents: {x: 0.5, y: 0.5, z: 0.5}
-  m_MoveThreshold: 0.1
-  m_Carve: 0
-  m_CarveOnlyStationary: 1
-  m_Center: {x: 0, y: 0, z: 0}
-  m_TimeToStationary: 0.5
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7c3d457f7f78c7a43abe4111be03762d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &7929845305589618429
 GameObject:
   m_ObjectHideFlags: 0
