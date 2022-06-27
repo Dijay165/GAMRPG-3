@@ -94,7 +94,7 @@ public class Health : MonoBehaviour
     }
     public void SubtractHealth(float p_healthModifer)
     {
-
+        Events.OnPlayerSelect.Invoke();
         if (isAlive)
         {
             currentHealth -= Mathf.Clamp(p_healthModifer, 0, maxHealth);
