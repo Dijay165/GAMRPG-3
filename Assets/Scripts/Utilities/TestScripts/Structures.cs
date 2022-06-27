@@ -40,7 +40,7 @@ public class Structures : Unit
 
     public void OnSelectStructure()
     {
-        Debug.Log("OnSelectTower");
+      //  Debug.Log("OnSelectTower");
         debugManager.structure = gameObject;
     }
 

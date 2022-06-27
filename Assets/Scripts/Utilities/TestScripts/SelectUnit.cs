@@ -29,15 +29,6 @@ public class SelectUnit : MonoBehaviour
        // targetedDamager = GetComponent<TargetedDamager>();
     }
 
-    private void OnEnable()
-    {
-        Events.OnUnitSelect.AddListener(CurrentUnitStatus);
-    }
-
-    private void OnDisable()
-    {
-        Events.OnUnitSelect.RemoveListener(CurrentUnitStatus);
-    }
 
     // Update is called once per frame
     void Update()
@@ -55,8 +46,14 @@ public class SelectUnit : MonoBehaviour
                     {
                         //     Debug.Log("not null");
                         selectionUI.border.gameObject.SetActive(true);
-                        selectionUI.ChangeAttributeUI(testStatsHolder.attributes);
+                    //    selectionUI.ChangeAttributeUI(testStatsHolder.attributes);
+                        Events.OnUnitSelect.Invoke(testStatsHolder.attributes);
                         FactionColor(testStatsHolder);
+                    }
+                    else
+                    {
+                        Debug.Log("No Attributes");
+                        selectionUI.border.SetActive(false);
                     }
                     //Events.OnTowerDied.Invoke();
                     //Debug.Log("Test");
@@ -69,10 +66,6 @@ public class SelectUnit : MonoBehaviour
                         
                     }
                 }
-            }
-            else
-            {
-                selectionUI.border.SetActive(false);
             }
         }
     }

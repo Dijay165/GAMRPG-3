@@ -16,7 +16,7 @@ public static class Events
 
     
 
-    public static readonly Evt OnUnitSelect = new Evt();
+    public static readonly Evt<Attributes> OnUnitSelect = new Evt<Attributes>();
 
     public static readonly Evt OnTowerDied = new Evt();
 
@@ -25,6 +25,8 @@ public static class Events
     public static readonly Evt OnResetInfoUI = new Evt();
 
     public static readonly Evt OnPlayerSelect = new Evt();
+
+    public static readonly Evt<float> OnMiniUIUpdate = new Evt<float>();
 
     //To create an event with parameters, please follow this format. 
     //public static readonly Evt<int> OnTakeDamage = new Evt<int>();

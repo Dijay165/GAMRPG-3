@@ -15,17 +15,38 @@ public class MiniSelectionUI : MonoBehaviour
     public TextMeshProUGUI currentHealthText;
     public Slider slider;
     public Image characterPortrait;
-    public GameObject border; 
+    public GameObject border;
 
+
+    private void OnEnable()
+    {
+        Events.OnUnitSelect.AddListener(ChangeAttributeUI);
+    }
+
+    private void OnDisable()
+    {
+        Events.OnUnitSelect.RemoveListener(ChangeAttributeUI);
+    }
+
+    private void Update()
+    {
+        if(GameManager.instance.lastUnitSelect != null)
+        {
+            ChangeAttributeUI(GameManager.instance.lastUnitSelect);
+        }
+    }
 
     public void ChangeAttributeUI(Attributes unitStat)
     {
-        Events.OnUnitSelect.Invoke();
-        Debug.Log("Touched");
+        // Events.OnUnitSelect.Invoke();
+
+        GameManager.instance.lastUnitSelect = unitStat;
+      //  Debug.Log("Touched");
         if (unitStat != null)
         {
-            Debug.Log(unitStat.hp.currentHealth);
-            Debug.Log(slider.value);
+           
+         //   Debug.Log(unitStat.hp.currentHealth);
+           // Debug.Log(slider.value);
             slider.maxValue = unitStat.hp.maxHealth;
             slider.value = unitStat.hp.currentHealth;
 
@@ -38,4 +59,6 @@ public class MiniSelectionUI : MonoBehaviour
 
         }
     }
+
+
 }

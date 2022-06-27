@@ -34,9 +34,21 @@ public class Health : MonoBehaviour
         playersParent = transform;
         team = (int)GetComponent<TestStatsHolder>().unitFaction;
 
+    
+
         // maxHealth = GetComponent<TestStatsHolder>().attributes.health;
         
         //maxHealth = maxHp;
+    }
+
+    private void Awake()
+    {
+        Events.OnMiniUIUpdate.AddListener(SubtractHealth);
+    }
+
+    private void OnDisable()
+    {
+        Events.OnMiniUIUpdate.RemoveListener(SubtractHealth);
     }
 
     private void OnEnable()
@@ -95,8 +107,10 @@ public class Health : MonoBehaviour
     public void SubtractHealth(float p_healthModifer)
     {
         Events.OnPlayerSelect.Invoke();
+      
         if (isAlive)
         {
+            ///  Events.OnMiniUIUpdate.Invoke(0f);
             currentHealth -= Mathf.Clamp(p_healthModifer, 0, maxHealth);
          //   currentHealth -= p_healthModifer;
             if (currentHealth < minHealth)

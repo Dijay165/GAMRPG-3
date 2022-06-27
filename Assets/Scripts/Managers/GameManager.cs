@@ -6,7 +6,10 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
     public float gameTime = 0;
+    public Attributes lastUnitSelect;
     [NonReorderable] public List<TeamData> teams = new List<TeamData>();
+
+    
 
     //Invoke event when nexus is destoryed, when called end the game. 
     private void Awake()

@@ -37,7 +37,7 @@ public class HomingProjectile : MonoBehaviour
                 transform.LookAt(target.transform);
                 yield return null;
             }
-            Debug.Log(gameObject.name + " - " + damage + " - " + targetUnit.gameObject.name);
+          //  Debug.Log(gameObject.name + " - " + damage + " - " + targetUnit.gameObject.name);
             targetUnit.SubtractHealth(damage);
             Destroy(gameObject);
         }

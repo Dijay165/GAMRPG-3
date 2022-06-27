@@ -28,7 +28,7 @@ public class TowerDetection : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log(other.name);
+      //  Debug.Log(other.name);
         if (targetUnit == null)
         {
             if (other.gameObject.TryGetComponent<TestStatsHolder>(out TestStatsHolder otherTarget))
