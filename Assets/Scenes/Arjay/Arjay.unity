@@ -1990,7 +1990,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &211727831
 RectTransform:
   m_ObjectHideFlags: 0
@@ -12668,13 +12668,14 @@ GameObject:
   - component: {fileID: 1780401949}
   - component: {fileID: 1780401948}
   - component: {fileID: 1780401947}
+  - component: {fileID: 1780401951}
   m_Layer: 5
-  m_Name: SelectUnit
+  m_Name: MiniUnitSelection
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1780401947
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12757,6 +12758,26 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &1780401951
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1780401946}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0b749ef7a65271844a193f45365638ea, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attackText: {fileID: 1839580222}
+  defenseText: {fileID: 371049002}
+  moveSpeedText: {fileID: 713943073}
+  maxHealthText: {fileID: 1441989514}
+  currentHealthText: {fileID: 1459318472}
+  slider: {fileID: 1315790670}
+  characterPortrait: {fileID: 1226203645}
+  border: {fileID: 211727830}
 --- !u!1 &1788878514
 GameObject:
   m_ObjectHideFlags: 0

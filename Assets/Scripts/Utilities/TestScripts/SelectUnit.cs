@@ -11,7 +11,7 @@ public class SelectUnit : MonoBehaviour
 {
     // Start is called before the first frame update
     private TestStatsHolder testStatsHolder;
-    private UnitSelectionUI selectionUI;
+    private MiniSelectionUI selectionUI;
     Attributes attributes;
  //   TargetedDamager targetedDamager;
 
@@ -23,7 +23,7 @@ public class SelectUnit : MonoBehaviour
     void Start()
     {
         cam = Camera.main;
-        selectionUI = GameObject.Find("UnitSelection").GetComponent<UnitSelectionUI>();
+        selectionUI = GameObject.Find("MiniUnitSelection").GetComponent<MiniSelectionUI>();
         testStatsHolder = GetComponent<TestStatsHolder>();
         attributes = GetComponent<Attributes>();
        // targetedDamager = GetComponent<TargetedDamager>();
@@ -53,7 +53,8 @@ public class SelectUnit : MonoBehaviour
                 {
                     if(attributes != null)
                     {
-                   //     Debug.Log("not null");
+                        //     Debug.Log("not null");
+                        selectionUI.border.gameObject.SetActive(true);
                         selectionUI.ChangeAttributeUI(testStatsHolder.attributes);
                         FactionColor(testStatsHolder);
                     }
@@ -68,6 +69,10 @@ public class SelectUnit : MonoBehaviour
                         
                     }
                 }
+            }
+            else
+            {
+                selectionUI.border.SetActive(false);
             }
         }
     }

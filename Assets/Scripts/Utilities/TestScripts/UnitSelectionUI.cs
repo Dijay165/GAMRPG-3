@@ -48,46 +48,9 @@ public class UnitSelectionUI : MonoBehaviour
     {
   
         PlayerInfo();
-        //slider.value = attributes.currentHp;
-        //slider.maxValue = attributes.maxHp;
-        //   currentHealthText.text = attributes.hp.maxHealth.ToString();
     }
 
-    //public void ChangeInfo(UnitStat unitStat)
-    //{
-    //    Events.OnUnitSelect.Invoke();
-        
-    //    if (unitStat != null)
-    //    {
-    //        attackText.text = unitStat.attack.ToString();
-    //        defenseText.text = unitStat.defense.ToString();
-    //        moveSpeedText.text = unitStat.moveSpeed.ToString();
-    //        healthPointText.text = unitStat.healthPoints.ToString();
-    //    }
-    //}
-    public void ChangeAttributeUI(Attributes unitStat)
-    {
-        Events.OnUnitSelect.Invoke();
-        Debug.Log("Touched");
-      //  Debug.Log("Touched");
-        if (unitStat != null)
-        {
-            Debug.Log(unitStat.hp.currentHealth);
-            Debug.Log(slider.value);
-            slider.maxValue = unitStat.hp.maxHealth;
-            slider.value = unitStat.hp.currentHealth;
-            
-            attackText.text = unitStat.attackDamage.ToString();
-            defenseText.text = unitStat.armor.ToString();
-            moveSpeedText.text = unitStat.movementSpeed.ToString();
-            currentHealthText.text = unitStat.hp.currentHealth.ToString();
-            maxHealthText.text = unitStat.hp.maxHealth.ToString();
-            characterPortrait.sprite = unitStat.portraitImage;
-          
-           
-           
-        }
-    }
+   
 
     public void ResetInfo()
     {
@@ -101,7 +64,6 @@ public class UnitSelectionUI : MonoBehaviour
     {
         slider.maxValue = attributes.hp.maxHealth;
         slider.value = attributes.hp.currentHealth;
-
         attackText.text = attributes.attackDamage.ToString();
         defenseText.text = attributes.armor.ToString();
         moveSpeedText.text = attributes.movementSpeed.ToString();
