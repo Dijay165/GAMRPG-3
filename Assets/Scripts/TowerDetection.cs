@@ -20,9 +20,15 @@ public class TowerDetection : MonoBehaviour
 
     private void Update()
     {
-        if(targetUnit != null)
+        if (targetUnit != null)
         {
-             StartCoroutine(towerAttack.Attack());
+            if(Time.time >= delay)
+            {
+                //  towerAttack.Attack();
+                StartCoroutine(towerAttack.Attack());
+                delay = Time.time + 1f / towerAttack.attackSpeed;
+            }
+
         }
     }
 
@@ -39,7 +45,9 @@ public class TowerDetection : MonoBehaviour
                     Debug.Log("Yes");
                     targetUnit = otherTarget;
                     towerAttack.unit.currentTarget = otherTarget.attributes.hp;
-                   // StartCoroutine(towerAttack.Attack());
+
+                    // StartCoroutine(towerAttack.Attack());
+                  //  towerAttack.animator.SetTrigger("Attack");
                 }
                 else
                 {

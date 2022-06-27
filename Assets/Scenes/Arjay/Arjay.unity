@@ -13822,7 +13822,28 @@ MonoBehaviour:
   statsHolder: {fileID: 0}
   firePoint: {fileID: 1157629420}
   prefab: {fileID: 5940412195069052108, guid: 2ae24c998d7529049b0c3795b72cf5f2, type: 3}
-  attackSpeed: 3
+  attackSpeed: 1
+  animator: {fileID: 0}
+--- !u!95 &1846914698
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1012443585}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: ca833f1aba0c89f4499f1432e86829ff, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &1850245125
 GameObject:
   m_ObjectHideFlags: 0
