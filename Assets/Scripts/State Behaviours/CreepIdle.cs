@@ -14,21 +14,16 @@ public class CreepIdle : StateMachineBehaviour
 
         agent = animator.gameObject.GetComponent<NavMeshAgent>();
 
-        agent.enabled = false;
-        creep.obstacle.enabled = true;
+        agent.enabled = true;
+        creep.obstacle.enabled = false;
 
-        if (creep.runningUpdateTarget != null)
-        {
-            creep.StopCoroutine(creep.runningUpdateTarget);
-        }
-        creep.runningUpdateTarget = creep.Co_Detection();
-        creep.StartCoroutine(creep.runningUpdateTarget);
-     
-    }
-
-    override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
-    {
-       
+        //if (creep.runningUpdateTarget != null)
+        //{
+        //    creep.StopCoroutine(creep.runningUpdateTarget);
+        //}
+        //creep.runningUpdateTarget = creep.Co_Detection();
+        //creep.StartCoroutine(creep.runningUpdateTarget);
 
     }
+
 }
