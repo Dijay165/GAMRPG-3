@@ -32,6 +32,7 @@ public class RangedDamager : Damager
         else
         {
             Destroy(gameObject);
+            return;
         }
 
        

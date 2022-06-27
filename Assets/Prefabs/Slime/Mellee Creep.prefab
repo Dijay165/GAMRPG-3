@@ -172,6 +172,7 @@ GameObject:
   - component: {fileID: 132704296402765267}
   - component: {fileID: 7228419342817421869}
   - component: {fileID: 6330604963128932072}
+  - component: {fileID: 5114719521212182243}
   m_Layer: 0
   m_Name: Mellee Creep
   m_TagString: Untagged
@@ -328,6 +329,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   unit: {fileID: 0}
   attributes: {fileID: 0}
+  statsHolder: {fileID: 0}
 --- !u!114 &132704296402765267
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -344,6 +346,8 @@ MonoBehaviour:
   currentTarget: {fileID: 0}
   health: {fileID: 0}
   agent: {fileID: 0}
+  obstacle: {fileID: 0}
+  carvingMoveThreshold: 0.1
   currentPath: {fileID: 0}
   paths: []
   layerMask: 256
@@ -374,8 +378,10 @@ MonoBehaviour:
   attackSpeed: 1
   attackRange: 0
   movementSpeed: 325
-  health: 0
+  maxHp: 0
+  currentHp: 0
   portraitImage: {fileID: 21300000, guid: 1fa4ddd6e60bcf849a896114cc94a7d4, type: 3}
+  hp: {fileID: 0}
 --- !u!114 &6330604963128932072
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -388,6 +394,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7c3d457f7f78c7a43abe4111be03762d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!208 &5114719521212182243
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4721253483830942850}
+  m_Enabled: 0
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 0.5, y: 0.5, z: 0.5}
+  m_MoveThreshold: 0.1
+  m_Carve: 0
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0, y: 0, z: 0}
+  m_TimeToStationary: 0.5
 --- !u!1 &5636219751343395753
 GameObject:
   m_ObjectHideFlags: 0

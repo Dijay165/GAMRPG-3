@@ -200,6 +200,10 @@ MonoBehaviour:
   attackSpeed: 0
   attackRange: 0
   movementSpeed: 0
+  maxHp: 0
+  currentHp: 0
+  portraitImage: {fileID: 0}
+  hp: {fileID: 0}
 --- !u!114 &6952722
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -338,6 +342,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   unitStat: {fileID: 11400000, guid: 545ae41fadf85ea4998106309ce23962, type: 2}
+  attributes: {fileID: 0}
   unitFaction: 0
 --- !u!95 &6952731
 Animator:
@@ -1305,6 +1310,14 @@ PrefabInstance:
       propertyPath: m_Color.r
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3144587810365715528, guid: 6f6de38bc4946428ab2a1d468039753e, type: 3}
+      propertyPath: requiredBuildingsDeadForToBeVulnerable.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3144587810365715528, guid: 6f6de38bc4946428ab2a1d468039753e, type: 3}
+      propertyPath: requiredBuildingsDeadForToBeVulnerable.Array.data[0]
+      value: 
+      objectReference: {fileID: 1612738819}
     - target: {fileID: 7258400321219153387, guid: 6f6de38bc4946428ab2a1d468039753e, type: 3}
       propertyPath: m_LocalRotation.w
       value: -0.4404485
@@ -1334,6 +1347,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4123545054233330, guid: 6f6de38bc4946428ab2a1d468039753e, type: 3}
   m_PrefabInstance: {fileID: 69265317}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &69265319 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1289839867, guid: 6f6de38bc4946428ab2a1d468039753e, type: 3}
+  m_PrefabInstance: {fileID: 69265317}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 842992566}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b2ee099bcef3156419938abf98198822, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &77144912
 GameObject:
   m_ObjectHideFlags: 0
@@ -18557,6 +18581,18 @@ PrefabInstance:
       propertyPath: m_Color.r
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 8922848427992051963, guid: d8faacfa67b8d4af8b5a81028390f02b, type: 3}
+      propertyPath: requiredBuildingsDeadForToBeVulnerable.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8922848427992051963, guid: d8faacfa67b8d4af8b5a81028390f02b, type: 3}
+      propertyPath: requiredBuildingsDeadForToBeVulnerable.Array.data[0]
+      value: 
+      objectReference: {fileID: 1570788271}
+    - target: {fileID: 8922848427992051963, guid: d8faacfa67b8d4af8b5a81028390f02b, type: 3}
+      propertyPath: requiredBuildingsDeadForToBeVulnerable.Array.data[1]
+      value: 
+      objectReference: {fileID: 807196927}
     m_RemovedComponents:
     - {fileID: 114572677471174774, guid: d8faacfa67b8d4af8b5a81028390f02b, type: 3}
     - {fileID: 114748026888339944, guid: d8faacfa67b8d4af8b5a81028390f02b, type: 3}
@@ -19404,6 +19440,22 @@ PrefabInstance:
       propertyPath: m_Center.z
       value: -987.6
       objectReference: {fileID: 0}
+    - target: {fileID: 8922848427992051963, guid: d8faacfa67b8d4af8b5a81028390f02b, type: 3}
+      propertyPath: requiredBuildingsDeadForToBeVulnerable.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8922848427992051963, guid: d8faacfa67b8d4af8b5a81028390f02b, type: 3}
+      propertyPath: requiredBuildingsDeadForToBeVulnerable.Array.data[0]
+      value: 
+      objectReference: {fileID: 1846914684}
+    - target: {fileID: 8922848427992051963, guid: d8faacfa67b8d4af8b5a81028390f02b, type: 3}
+      propertyPath: requiredBuildingsDeadForToBeVulnerable.Array.data[1]
+      value: 
+      objectReference: {fileID: 1612738819}
+    - target: {fileID: 8922848427992051963, guid: d8faacfa67b8d4af8b5a81028390f02b, type: 3}
+      propertyPath: requiredBuildingsDeadForToBeVulnerable.Array.data[2]
+      value: 
+      objectReference: {fileID: 69265319}
     m_RemovedComponents:
     - {fileID: 114572677471174774, guid: d8faacfa67b8d4af8b5a81028390f02b, type: 3}
     - {fileID: 114748026888339944, guid: d8faacfa67b8d4af8b5a81028390f02b, type: 3}
@@ -20626,6 +20678,22 @@ PrefabInstance:
       propertyPath: m_Color.r
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3144587810365715528, guid: 6f6de38bc4946428ab2a1d468039753e, type: 3}
+      propertyPath: requiredBuildingsDeadForToBeVulnerable.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3144587810365715528, guid: 6f6de38bc4946428ab2a1d468039753e, type: 3}
+      propertyPath: requiredBuildingsDeadForToBeVulnerable.Array.data[0]
+      value: 
+      objectReference: {fileID: 1846914684}
+    - target: {fileID: 3144587810365715528, guid: 6f6de38bc4946428ab2a1d468039753e, type: 3}
+      propertyPath: requiredBuildingsDeadForToBeVulnerable.Array.data[1]
+      value: 
+      objectReference: {fileID: 1612738819}
+    - target: {fileID: 3144587810365715528, guid: 6f6de38bc4946428ab2a1d468039753e, type: 3}
+      propertyPath: requiredBuildingsDeadForToBeVulnerable.Array.data[2]
+      value: 
+      objectReference: {fileID: 69265319}
     - target: {fileID: 7258400321219153387, guid: 6f6de38bc4946428ab2a1d468039753e, type: 3}
       propertyPath: m_LocalRotation.w
       value: -0.3726881
@@ -20655,6 +20723,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4123545054233330, guid: 6f6de38bc4946428ab2a1d468039753e, type: 3}
   m_PrefabInstance: {fileID: 807196925}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &807196927 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1289839867, guid: 6f6de38bc4946428ab2a1d468039753e, type: 3}
+  m_PrefabInstance: {fileID: 807196925}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1037190643}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b2ee099bcef3156419938abf98198822, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &812704568
 GameObject:
   m_ObjectHideFlags: 0
@@ -21297,6 +21376,26 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4123545054233330, guid: 6f6de38bc4946428ab2a1d468039753e, type: 3}
   m_PrefabInstance: {fileID: 947397485}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &947397487 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1161251386251526, guid: 6f6de38bc4946428ab2a1d468039753e, type: 3}
+  m_PrefabInstance: {fileID: 947397485}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &947397488
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 947397487}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 308a1e4f89f50d24e9c994c475771f88, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  detector: {fileID: 0}
+  auraRadius: 900
+  armorAmount: 3
 --- !u!1001 &959122149
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -25819,6 +25918,22 @@ PrefabInstance:
       propertyPath: m_Color.r
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3144587810365715528, guid: 6f6de38bc4946428ab2a1d468039753e, type: 3}
+      propertyPath: requiredBuildingsDeadForToBeVulnerable.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 3144587810365715528, guid: 6f6de38bc4946428ab2a1d468039753e, type: 3}
+      propertyPath: requiredBuildingsDeadForToBeVulnerable.Array.data[0]
+      value: 
+      objectReference: {fileID: 1846914684}
+    - target: {fileID: 3144587810365715528, guid: 6f6de38bc4946428ab2a1d468039753e, type: 3}
+      propertyPath: requiredBuildingsDeadForToBeVulnerable.Array.data[1]
+      value: 
+      objectReference: {fileID: 1612738819}
+    - target: {fileID: 3144587810365715528, guid: 6f6de38bc4946428ab2a1d468039753e, type: 3}
+      propertyPath: requiredBuildingsDeadForToBeVulnerable.Array.data[2]
+      value: 
+      objectReference: {fileID: 69265319}
     - target: {fileID: 7258400321219153387, guid: 6f6de38bc4946428ab2a1d468039753e, type: 3}
       propertyPath: m_LocalRotation.w
       value: -0.3726881
@@ -25848,6 +25963,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4123545054233330, guid: 6f6de38bc4946428ab2a1d468039753e, type: 3}
   m_PrefabInstance: {fileID: 1570788269}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1570788271 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1289839867, guid: 6f6de38bc4946428ab2a1d468039753e, type: 3}
+  m_PrefabInstance: {fileID: 1570788269}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1337099423}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b2ee099bcef3156419938abf98198822, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!54 &1570788275
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -26117,6 +26243,14 @@ PrefabInstance:
       propertyPath: m_Color.r
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3144587810365715528, guid: 6f6de38bc4946428ab2a1d468039753e, type: 3}
+      propertyPath: requiredBuildingsDeadForToBeVulnerable.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3144587810365715528, guid: 6f6de38bc4946428ab2a1d468039753e, type: 3}
+      propertyPath: requiredBuildingsDeadForToBeVulnerable.Array.data[0]
+      value: 
+      objectReference: {fileID: 1846914684}
     - target: {fileID: 7258400321219153387, guid: 6f6de38bc4946428ab2a1d468039753e, type: 3}
       propertyPath: m_LocalRotation.w
       value: -0.4404485
@@ -26146,6 +26280,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4123545054233330, guid: 6f6de38bc4946428ab2a1d468039753e, type: 3}
   m_PrefabInstance: {fileID: 1612738817}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1612738819 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1289839867, guid: 6f6de38bc4946428ab2a1d468039753e, type: 3}
+  m_PrefabInstance: {fileID: 1612738817}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1060627748}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b2ee099bcef3156419938abf98198822, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!54 &1612738823
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -31453,7 +31598,9 @@ MonoBehaviour:
   attackText: {fileID: 2076662681}
   defenseText: {fileID: 1476123350}
   moveSpeedText: {fileID: 126266873}
-  healthPointText: {fileID: 1075472372}
+  maxHealthText: {fileID: 0}
+  currentHealthText: {fileID: 0}
+  slider: {fileID: 0}
   characterPortrait: {fileID: 1873137220}
 --- !u!1 &1739258215
 GameObject:
@@ -37153,6 +37300,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4123545054233330, guid: 6f6de38bc4946428ab2a1d468039753e, type: 3}
   m_PrefabInstance: {fileID: 1846914682}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1846914684 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1289839867, guid: 6f6de38bc4946428ab2a1d468039753e, type: 3}
+  m_PrefabInstance: {fileID: 1846914682}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1012443585}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b2ee099bcef3156419938abf98198822, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!54 &1846914688
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -47066,6 +47224,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   unitStat: {fileID: 11400000, guid: 545ae41fadf85ea4998106309ce23962, type: 2}
+  attributes: {fileID: 0}
   unitFaction: 0
 --- !u!135 &5001893671019957703
 SphereCollider:
@@ -47248,6 +47407,10 @@ MonoBehaviour:
   attackSpeed: 0
   attackRange: 0
   movementSpeed: 0
+  maxHp: 0
+  currentHp: 0
+  portraitImage: {fileID: 0}
+  hp: {fileID: 0}
 --- !u!1 &5001893671166649560
 GameObject:
   m_ObjectHideFlags: 0
@@ -108213,6 +108376,10 @@ MonoBehaviour:
   attackSpeed: 0
   attackRange: 0
   movementSpeed: 0
+  maxHp: 0
+  currentHp: 0
+  portraitImage: {fileID: 0}
+  hp: {fileID: 0}
 --- !u!114 &8915489909188169918
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -108351,6 +108518,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   unitStat: {fileID: 11400000, guid: 545ae41fadf85ea4998106309ce23962, type: 2}
+  attributes: {fileID: 0}
   unitFaction: 0
 --- !u!114 &8915489909188169927
 MonoBehaviour:

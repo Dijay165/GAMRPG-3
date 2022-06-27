@@ -33,15 +33,20 @@ public abstract class Creep : Unit
 
 
     // Start is called before the first frame update
+
+    private void Awake()
+    {
+        agent = GetComponent<NavMeshAgent>();
+            obstacle = GetComponent<NavMeshObstacle>();
+    }
     protected override void Start()
     {
         base.Start();
 
-        agent = GetComponent<NavMeshAgent>();
-        obstacle = GetComponent<NavMeshObstacle>();
+    
 
        
-        obstacle.carveOnlyStationary = false;
+       obstacle.carveOnlyStationary = false;
         obstacle.carving = true;
 
         agent.updatePosition = true;

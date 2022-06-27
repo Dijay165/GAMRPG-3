@@ -11,7 +11,7 @@ public class HealthModify : UnityEvent<bool, float, float> { }
 public class Health : MonoBehaviour
 {
     public Transform playersParent;
-    [HideInInspector] public bool invulnerable = false;
+    public bool invulnerable = false;
      int team;
     private bool isAlive;
     public float currentHealth;
