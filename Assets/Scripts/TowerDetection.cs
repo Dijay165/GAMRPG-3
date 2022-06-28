@@ -12,6 +12,7 @@ public class TowerDetection : MonoBehaviour
     private TowerAttack towerAttack;
     public GameObject towerHead;
     float delay = 0f;
+    public float turnSpeed;
 
     private void Awake()
     {
@@ -24,8 +25,12 @@ public class TowerDetection : MonoBehaviour
         if (targetUnit != null)
         {
 
-            Vector2 dir = targetUnit.transform.position - transform.position;
+            Vector3 dir = targetUnit.transform.position - transform.position;
 
+            //          Quaternion lookRotation = Quaternion.LookRotation(dir);
+            //Vector3 rotation = Quaternion.Lerp(towerHead.transform.rotation, lookRotation, Time.deltaTime * turnSpeed).eulerAngles;
+
+            /// towerHead.transform.rotation = Quaternion.Euler(0f, rotation.y, 0f);
             float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
             Quaternion rotation = Quaternion.AngleAxis(angle, Vector3.forward);
             towerHead.transform.rotation = Quaternion.Slerp(towerHead.transform.rotation, rotation, 360 * Time.deltaTime);
