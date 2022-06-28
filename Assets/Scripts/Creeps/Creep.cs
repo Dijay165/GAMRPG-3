@@ -35,20 +35,20 @@ public abstract class Creep : Unit
 
     public float test;
     // Start is called before the first frame update
+    TestStatsHolder testStatsHolder;
 
+    public SkinnedMeshRenderer skinnedMeshRenderer;
+
+    public Material redFace;
     private void Awake()
     {
         agent = GetComponent<NavMeshAgent>();
             obstacle = GetComponent<NavMeshObstacle>();
+        testStatsHolder = GetComponent<TestStatsHolder>();
     }
     protected override void Start()
     {
         
-    
-
-    
-
-       
        obstacle.carveOnlyStationary = false;
         obstacle.carving = true;
 
@@ -63,13 +63,25 @@ public abstract class Creep : Unit
         //    // Debug.Log("Listen");
         //}
 
+        if (testStatsHolder.unitFaction == Faction.Dire)
+        {
+            //$$anonymous$$aterial[] mats = skeleton.materials;
+            Material[] mats = skinnedMeshRenderer.materials;
+            mats[0] = redFace;
+            skinnedMeshRenderer.materials = mats;
+           // Debug.Log("Change Face");
+        }
+
+
         base.Start();
 
     }
 
     private void OnEnable()
     {
-       // StartCoroutine(Co_Detection()); 
+        // StartCoroutine(Co_Detection()); 
+
+       
     }
 
     protected override void InitializeValues()

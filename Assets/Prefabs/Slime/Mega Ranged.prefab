@@ -204,6 +204,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   unitStat: {fileID: 11400000, guid: 9bb58c1cb67e8bb44aab53587d0bb5b7, type: 2}
+  attributes: {fileID: 0}
   unitFaction: 0
 --- !u!114 &3581430179668853200
 MonoBehaviour:
@@ -320,6 +321,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 99251a9f22bf4ce4ab4bb2e54339fb39, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  unit: {fileID: 0}
+  attributes: {fileID: 0}
+  statsHolder: {fileID: 0}
   firePoint: {fileID: 314278830131420649}
   prefab: {fileID: 5940412195069052108, guid: 2ae24c998d7529049b0c3795b72cf5f2, type: 3}
 --- !u!114 &6783607742798335259
@@ -350,6 +354,8 @@ MonoBehaviour:
   animator: {fileID: 0}
   enemies: []
   test: 0
+  skinnedMeshRenderer: {fileID: 4147275254690885895}
+  redFace: {fileID: 2100000, guid: 5815b5e5740af5149b199e7573d59794, type: 2}
 --- !u!114 &-276126547279088970
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -372,6 +378,10 @@ MonoBehaviour:
   attackSpeed: 0
   attackRange: 0
   movementSpeed: 0
+  maxHp: 0
+  currentHp: 0
+  portraitImage: {fileID: 0}
+  hp: {fileID: 0}
 --- !u!208 &-6175177739505886256
 NavMeshObstacle:
   m_ObjectHideFlags: 0

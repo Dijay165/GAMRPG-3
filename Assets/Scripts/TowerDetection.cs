@@ -52,7 +52,7 @@ public class TowerDetection : MonoBehaviour
                 bool isAttack = CanAttack(otherTarget);
                 if (isAttack)
                 {
-                    Debug.Log("Yes");
+                  //  Debug.Log("Yes");
                     targetUnit = otherTarget;
                     towerAttack.unit.currentTarget = otherTarget.attributes.hp;
 
@@ -61,7 +61,7 @@ public class TowerDetection : MonoBehaviour
                 }
                 else
                 {
-                    Debug.Log("No");
+                  //  Debug.Log("No");
                     return;
                 }
             }
@@ -82,12 +82,12 @@ public class TowerDetection : MonoBehaviour
         bool canAttack = false;
         if (structure.unitFaction != target.unitFaction)
         {
-            Debug.Log("CanAttack");
+           // Debug.Log("CanAttack");
             canAttack = true;
         }
         else
         {
-            Debug.Log("CannotAttack");
+          //  Debug.Log("CannotAttack");
             canAttack = false;
         }
         return canAttack;
