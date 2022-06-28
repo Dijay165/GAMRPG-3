@@ -11,7 +11,8 @@ public class HealthModify : UnityEvent<bool, float, float> { }
 public class Health : MonoBehaviour
 {
     public Transform playersParent;
-    [HideInInspector] public bool invulnerable = false;
+    //[HideInInspector] 
+    public bool invulnerable = false;
      int team;
     private bool isAlive;
     [SerializeField] private float currentHealth;
@@ -92,13 +93,17 @@ public class Health : MonoBehaviour
 
         if (isAlive)
         {
-            currentHealth -= p_healthModifer;
-            if (currentHealth < minHealth)
+            if (!invulnerable)
             {
-                currentHealth = minHealth;
+                currentHealth -= p_healthModifer;
+                if (currentHealth < minHealth)
+                {
+                    currentHealth = minHealth;
+                }
+                //Check is alive
+                CheckHealth();
             }
-            //Check is alive
-            CheckHealth();
+         
     
         }
 

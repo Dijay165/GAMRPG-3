@@ -25,21 +25,10 @@ public class SpawnManager : MonoBehaviour
         StartCoroutine(Co_SpawnWave());
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        //GameManager.instance.gameTime += Time.deltaTime;
-        //waveTimer += Time.deltaTime;
-        //SpawnWave();
-        //StartCoroutine(Co_SpawnWave());
-
-    }
+ 
     IEnumerator Co_SpawnWave()
     {
-        //if (GameManager.instance.gameTime < spawnTime) //less than spawn time
-        //{
-        //    return;
-        //}
+     
         
 
         for (int teamIndex = 0; teamIndex < GameManager.instance.teams.Count; teamIndex++)//For each team
@@ -92,87 +81,39 @@ public class SpawnManager : MonoBehaviour
             }
 
         }
-        //waveTimer = 0;
+       
         waveCounter++;
         yield return new WaitForSeconds(spawnTime);
         StartCoroutine(Co_SpawnWave());
        
     }
-    //void SpawnWave()
-    //{
-    //    //if (GameManager.instance.gameTime < spawnTime) //less than spawn time
-    //    //{
-    //    //    return;
-    //    //}
-    //    if (waveTimer >= waveTime)
-    //    {
-
-    //        for (int teamIndex = 0; teamIndex < GameManager.instance.teams.Count; teamIndex++)//For each team
-    //        {
-    //            for (int laneIndex = 0; laneIndex < GameManager.instance.teams[teamIndex].lanes.Count; laneIndex++)// For each team's lanes
-    //            {
-    //                int otherTeam = teamIndex == 0 ? 1 : 0; //If p_team variable is equals to 0, make value 1, else (if its 1) make value 0
-
-
-    //                //Melee Creep
-    //                if (GameManager.instance.teams[otherTeam].lanes[laneIndex].meleeBarracksIsAlive) //If enemy team's barracks is dead spawn mega Creep
-    //                {
-    //                    SpawnCreep<MeleeCreep>(teamIndex, laneIndex, amountOfMeleeCreep);
-    //                }
-    //                else//If enemy team's barracks is alive spawn normal Creep
-    //                {
-    //                    SpawnCreep<MegaMeleeCreep>(teamIndex, laneIndex, amountOfMeleeCreep); //Mega melee creep make
-    //                }
-
-    //                //Range Creep
-    //                if (GameManager.instance.teams[otherTeam].lanes[laneIndex].rangeBarracksIsAlive) //If enemy team's barracks is dead spawn mega Creep
-    //                {
-    //                    SpawnCreep<RangeCreep>(teamIndex, laneIndex, amountOfRangeCreep);
-    //                }
-    //                else//If enemy team's barracks is alive spawn normal Creep
-    //                {
-    //                    SpawnCreep<MegaRangeCreep>(teamIndex, laneIndex, amountOfRangeCreep);
-    //                }
-
-    //                //Siege Creep
-    //                if (waveCounter % siegeCreepWaveAmount == 0)
-    //                {
-    //                    amountOfSiegeCreep = 1;
-    //                    if (GameManager.instance.gameTime >= doubleSiegeCreepTime)
-    //                    {
-    //                        amountOfSiegeCreep = 2;
-    //                    }
-
-    //                    if (GameManager.instance.teams[otherTeam].lanes[laneIndex].rangeBarracksIsAlive) //If enemy team's barracks is dead spawn mega Creep
-    //                    {
-    //                        SpawnCreep<SiegeCreep>(teamIndex, laneIndex, amountOfSiegeCreep);
-    //                    }
-    //                    else//If enemy team's barracks is alive spawn normal Creep
-    //                    {
-    //                        SpawnCreep<MegaSiegeCreep>(teamIndex, laneIndex, amountOfSiegeCreep);
-    //                    }
-    //                }
-
-
-    //            }
-
-    //        }
-    //        waveTimer = 0;
-    //        waveCounter++;
-    //    }
-    //    else
-    //    {
-    //        return;
-    //    }
-    //}
+ 
+    public static void UpdateBarracksState(Barracks p_barracks)
+    {
+        for (int teamIndex = 0; teamIndex < GameManager.instance.teams.Count; teamIndex++)//For each team
+        {
+            for (int laneIndex = 0; laneIndex < GameManager.instance.teams[teamIndex].lanes.Count; laneIndex++)// For each team's lanes
+            {
+                for (int buildingIndex = 0; buildingIndex < GameManager.instance.teams[teamIndex].lanes[laneIndex].buildings.Count; buildingIndex++)// For each team's lanes
+                {
+                    Debug.Log(GameManager.instance.teams[teamIndex].lanes[laneIndex].buildings[buildingIndex].name+" bnames IT");
+                    if (p_barracks.gameObject == GameManager.instance.teams[teamIndex].lanes[laneIndex].buildings[buildingIndex].gameObject)
+                    {
+                        Debug.Log("GOT IT");
+                        GameManager.instance.teams[teamIndex].lanes[laneIndex].meleeBarracksIsAlive = false;
+                        GameManager.instance.teams[teamIndex].lanes[laneIndex].rangeBarracksIsAlive = false;
+                        p_barracks.gameObject.SetActive(false);
+                    }
+                }
+            }
+        }
+    }
 
     void SpawnCreep<T>(int p_team, int p_lane, int p_amount = 1) where T: MonoBehaviour
     {
         
             StartCoroutine(Co_SpawnCreep<T>( p_team,  p_lane,  p_amount));
-            
-            
-        
+           
     }
 
     IEnumerator Co_SpawnCreep<T>(int p_team, int p_lane, int p_amount = 1) where T : MonoBehaviour
@@ -189,21 +130,17 @@ public class SpawnManager : MonoBehaviour
                 newCreep.currentWaypoint = newCreep.waypoints[2].transform;
                 newCreep.transform.position = (GameManager.instance.teams[p_team].lanes[p_lane].creepSpawnPoint.transform.position);
                 newCreep.GetComponent<TestStatsHolder>().unitFaction = (Faction)p_team;
-                //NavMeshHit hit;
-                //if (NavMesh.SamplePosition(, out hit,2f,0f))
-                //{
+              
                 Animator anim = newCreep.GetComponent<Animator>();
                 NavMeshAgent nav = newCreep.GetComponent<NavMeshAgent>();
                 nav.Warp(new Vector3(newCreep.transform.position.x, 0f, newCreep.transform.position.z));// newCreep.transform.position);
                 nav.enabled = false;
                 nav.enabled = true;
                 anim.SetInteger("pathCount", 2);
-                //newCreep.GetComponent<NavMeshAgent>().SetDestination(newCreep.paths[anim.GetInteger("pathCount")].transform.position);
-                //anim.SetFloat("targetDistance", nav.remainingDistance);
-                //}
+              
 
             }
-            yield return new WaitForSeconds(5f);
+            yield return new WaitForSeconds(0.5f);
         }
     }
 }

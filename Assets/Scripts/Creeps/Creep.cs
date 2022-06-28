@@ -26,24 +26,18 @@ public abstract class Creep : Unit
     public float attackRate;
 
     public IEnumerator runningUpdateDestination;
-    //public IEnumerator runningUpdateEnemyTarget;
     public IEnumerator runningUpdateWaypoint;
-    //public Health currentEnemyTarget;
 
     public Animator animator;
     public List<Health> enemies = new List<Health>();
 
     public float test;
     // Start is called before the first frame update
-    protected override void Start()
+    protected void Awake()
     {
-        
-    
-
         agent = GetComponent<NavMeshAgent>();
         obstacle = GetComponent<NavMeshObstacle>();
 
-       
         obstacle.carveOnlyStationary = false;
         obstacle.carving = true;
 
@@ -51,27 +45,17 @@ public abstract class Creep : Unit
         agent.updateRotation = false;
         animator = GetComponent<Animator>();
 
-        //if (health != null)
-        //{
-        //    health.OnDeathEvent.AddListener(UnitDeath);
-
-        //    // Debug.Log("Listen");
-        //}
-
-        base.Start();
-
     }
 
     private void OnEnable()
     {
-       // StartCoroutine(Co_Detection()); 
+
     }
 
     protected override void InitializeValues()
     {
         base.InitializeValues();
-        //obstacle = GetComponent<NavMeshObstacle>();
-        //agent = GetComponent<NavMeshAgent>();
+
         obstacle.enabled = false;
         agent.enabled = true;
         if (agent.isOnNavMesh == false)
@@ -80,19 +64,21 @@ public abstract class Creep : Unit
             agent.enabled = false;
             agent.enabled = true;
         }
-       
-        //transform.position.x, 0.5f,transform.position.zagent.Warp(new Vector3(transform.position.x, 0.5f,transform.position.z));
+  
         StartCoroutine(Co_Load());
 
     }
 
+    protected override void DeinitializeValues()
+    {
+        base.DeinitializeValues();
+        obstacle.enabled = false;
+        agent.enabled = false;
+    }
+
     IEnumerator Co_Load()
     {
-        if (agent.isOnNavMesh == true)
-        {
-           // Debug.Log("true");
-            //agent.SetDestination(paths[animator.GetInteger("pathCount")].transform.position);
-        }
+   
         yield return new WaitForSeconds(1f);
         animator.SetTrigger("isIdle");
         if (runningUpdateDestination != null)
@@ -112,12 +98,7 @@ public abstract class Creep : Unit
         StartCoroutine(runningUpdateWaypoint);
 
     }
-    protected override void DeinitializeValues()
-    {
-        base.DeinitializeValues();
-        obstacle.enabled = false;
-        agent.enabled = false;
-    }
+
     public IEnumerator Co_Detection()
     {
         yield return new WaitForSeconds(1f);
@@ -156,22 +137,18 @@ public abstract class Creep : Unit
         if (currentTarget != null)
         {
             //check if current target is within attack radius
-            if (Vector2.Distance(t, cp) <= attackRadius) //if within attack radius
+            if (Vector2.Distance(t, cp) <= attackRadius) //if within attack radius it will start attacking
             {
 
-                //  Debug.Log(gameObject.name + " - " + currentTarget.gameObject.name);
-               // Debug.Log(t + " - " + cp + " - " + " - " + attackRadius + gameObject.name + " isAttacking");
                 animator.SetTrigger("isAttacking");
                 animator.SetBool("isFollowingPath", false);
-                //it will start attacking
+             
             }
-            else
+            else   //it isnt within attack radius
             {
-                //it isnt within attack radius
+              
                 destination = currentTarget.transform;
                 animator.SetTrigger("isMoving");
-
-                //animator.SetBool("isFollowingPath", true);
 
             }
         }
@@ -180,7 +157,6 @@ public abstract class Creep : Unit
            
             if (destination != null)
             {
-                //Debug.Log("EMERGENCY");
                 animator.SetTrigger("isMoving");
             }
          
@@ -223,7 +199,6 @@ public abstract class Creep : Unit
 
         enemies.Clear();
         //Detected enemy list
-        //Debug.Log("IT WORKS");
         Collider[] hitColliders = Physics.OverlapSphere(transform.position, detectionRadius);
         foreach (var hitCollider in hitColliders)
         {
@@ -232,11 +207,7 @@ public abstract class Creep : Unit
             {
                 if (hitCollider.gameObject.GetComponent<Health>()) 
                 {
-                   // Debug.Log(gameObject.name + " - " + hitCollider.gameObject.name);
-                    //Debug.Log("CREEP DETECTED " + hitCollider.gameObject.name);
                     Health hitHealth = hitCollider.gameObject.GetComponent<Health>();
-                    //check if it is already in target list, if not in target list, add it
-
                     if (hitHealth.invulnerable == false) //add it if it isnt invulnerable
                     {
 
@@ -282,11 +253,6 @@ public abstract class Creep : Unit
 
         }
 
-        //else       //if enemy is not within its detection radius, it does not see enemy
-        //{
-
-        //}
-
 
     }
 
@@ -296,82 +262,42 @@ public abstract class Creep : Unit
 
         currentTarget = null;
         DetectEnemies();
-       // Debug.Log(gameObject.name + "  phase 1a");
         if (enemies.Count > 0) // AT LEAST 1 ENEMY FOUND
         {
-            //Because the list was organizest nearest to furthest before coming here, we'll just choose the next index
+            //Because the list was organized nearest to furthest before coming here, we'll just choose the next index
             currentTarget = enemies[0];
             currentTarget.OnDeathEvent.AddListener(DeregisterDeath);
-           // Debug.Log(gameObject.name + "  phase 2aD");
             CheckDistanceFromTarget();
-            //CheckDistanceFromTarget();
-            //animator.SetBool("isFollowingPath", false);
-            //animator.SetTrigger("isAttacking");
-
-
-            //enemies.RemoveAt(0);
+ 
         }
         else // NO ENEMIES FOUND
         {
-            //currentTarget = null;
-
-            //animator.SetBool("isFollowingPath", true);
-           // Debug.Log(gameObject.name + "  phase 1b");
             if (agent != null)
             {
               
-                //test = agent.remainingDistance; //DELETE
-                //If there is a current Enemy target, prioritize chasing it
-                //if (currentTarget != null)
-                //{
-
-                //    destination = currentPath;
-                //    //agent.SetDestination(currentPath.position);
-                //    animator.SetTrigger("isMoving");
-                //    //agent.SetDestination(currentTarget.transform.position);
-                //}
-                //else//Else if there is no enemy, go to path
-                //{
-                //animator.SetFloat("targetDistance", agent.remainingDistance);
-
                 if (currentWaypoint != null)
                 {
-                  //  Debug.Log(gameObject.name + "  phase 2a");
-                    if (agent.isOnNavMesh == false)
-                    {
-                        //Debug.Log("false");
-                        agent.Warp(new Vector3(transform.position.x, 0f, transform.position.z));
-                        agent.enabled = false;
-                        agent.enabled = true;
-                 
-                    }
-                    if (agent.isOnNavMesh == true)
-                    {
-                        test = agent.remainingDistance; //DELETE
-                      //  Debug.Log(gameObject.name + " NO TARGETS THUS FOLLOWING PATH true");
-                        destination = currentWaypoint;
-                        //agent.SetDestination(currentPath.position);
-                        animator.SetBool("isFollowingPath", true);
-                        animator.SetTrigger("isMoving");
-                    }
+                    destination = currentWaypoint;
                        
+                    animator.SetBool("isFollowingPath", true);
+                    animator.SetTrigger("isMoving");
+ 
                 }
                 else
                 {
-                   // Debug.Log(gameObject.name + "  phase 2b");
+                  
                     if (destination != null)
                     {
                         animator.SetTrigger("isMoving");
                     }
                     else
                     {
-                       // Debug.Log(gameObject.name + " ISIDLING");
+                       
                         animator.SetTrigger("isIdle");
                     }
                        
                 }
 
-                //}
                
             }
         }
@@ -379,43 +305,19 @@ public abstract class Creep : Unit
 
     public IEnumerator Co_UpdateWaypoint()
     {
-        //if (animator.GetBool("isFollowingPath")) //&& agent.remainingDistance <= attackRadius
-        //{
-            //Debug.Log(gameObject.name + "  TEST");
-            Vector2 currPath = new Vector2(currentWaypoint.transform.position.x,currentWaypoint.transform.position.z);
-            Vector2 currPos = new Vector2(transform.position.x, transform.position.z);
-            if (Vector2.Distance(currPath, currPos) < 110f)
+        
+        Vector2 currPath = new Vector2(currentWaypoint.transform.position.x,currentWaypoint.transform.position.z);
+        Vector2 currPos = new Vector2(transform.position.x, transform.position.z);
+        if (Vector2.Distance(currPath, currPos) < 110f)
+        {
+            if (animator.GetInteger("pathCount") + 1 < waypoints.Count)
             {
-                if (animator.GetInteger("pathCount") + 1 < waypoints.Count)
-                {
 
-                    animator.SetInteger("pathCount", animator.GetInteger("pathCount") + 1);
-                    currentWaypoint = waypoints[animator.GetInteger("pathCount")].transform;
-                    //if (agent.isOnNavMesh == false)
-                    //{
-                    //    agent.Warp(new Vector3(transform.position.x, 0f, transform.position.z));
-                    //    agent.enabled = false;
-                    //    agent.enabled = true;
-                    //}
-                    //if (agent.isOnNavMesh == true)
-                    //{
-                    //    Debug.Log("new true");
-                    //    destination = paths[animator.GetInteger("pathCount")].transform;
-                    //    //agent.SetDestination(paths[animator.GetInteger("pathCount")].transform.position);
-                    //    animator.SetTrigger("isMoving");
-                    //}
-
-                    //animator.SetFloat("targetDistance", agent.remainingDistance);
-
-
-                }
-
-
-
-
+                animator.SetInteger("pathCount", animator.GetInteger("pathCount") + 1);
+                currentWaypoint = waypoints[animator.GetInteger("pathCount")].transform;
             }
-            
-        //}
+        }
+ 
         yield return new WaitForSeconds(1f);
         if (runningUpdateWaypoint != null)
         {

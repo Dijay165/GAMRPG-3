@@ -5,7 +5,7 @@ using UnityEngine;
 public class RangedDamager : Damager
 {
     [SerializeField] private Transform firePoint;
-    [SerializeField] private HomingProjectile prefab;
+   // [SerializeField] private HomingProjectile prefab;
     public override void DamageTarget()
     {
         int damage = 0;
@@ -18,21 +18,13 @@ public class RangedDamager : Damager
         {
             if (unit.currentTarget.gameObject.activeSelf)
             {
-                HomingProjectile newInstance = Instantiate(prefab);
+                HomingProjectile newInstance = ProjectilePool.pool.Get();// Instantiate(prefab);
                 newInstance.transform.position = firePoint.position;
-                newInstance.targetUnit = unit.currentTarget;
-                newInstance.damage = damage;
-                newInstance.target = unit.currentTarget.transform;
-                newInstance.Homing();
+                newInstance.InitializeValues(unit.currentTarget,damage,250);
 
-                //unit.currentTarget.gameObject.GetComponent<Health>().SubtractHealth(damage);
-                //Debug.Log(unit.gameObject.name + " - " + damage + " - " + unit.currentTarget.gameObject.name);
             }
         }
-        else
-        {
-            Destroy(gameObject);
-        }
+    
 
        
     }
