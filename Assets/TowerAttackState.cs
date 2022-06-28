@@ -1,47 +1,26 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.AI;
-public class CreepAttack : StateMachineBehaviour
-{
-    Creep creep;
-    public NavMeshAgent agent;
-    int damage;
-    Damager damager; 
 
+public class TowerAttackState : StateMachineBehaviour
+{
     // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
+
+    TowerAttack towerAttack;
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        creep = animator.gameObject.GetComponent<Creep>();
+        towerAttack = animator.GetComponent<TowerAttack>();
 
-        agent = animator.gameObject.GetComponent<NavMeshAgent>();
-
-        damager = animator.gameObject.GetComponent<Damager>();
-
-        animator.speed = damager.attributes.attackSpeed;
-        //if (creep.gameObject.activeSelf)
-        //{
-        //    damage = creep.gameObject.GetComponent<Attributes>().attackDamage;
-        //}
-
-        //if (creep.currentTarget.gameObject.activeSelf)
-        //{
-        //    creep.currentTarget.gameObject.GetComponent<Health>().SubtractHealth(damage);
-        //    Debug.Log(creep.gameObject.name + " - " + damage + " - " + creep.currentTarget.gameObject.name);
-        //}
-        //agent.isStopped = true;
-        creep.gameObject.GetComponent<Damager>().DamageTarget();
-        
-        //animator.SetTrigger("isIdle");
-
+        animator.speed = towerAttack.attackSpeed;
+       // towerAttack.AttackFunc();
+       // towerAttack.Attack();
     }
 
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
-    override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
-    {
-
-    }
-
+    //override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
+    //{
+    //    
+    //}
 
     // OnStateExit is called when a transition ends and the state machine finishes evaluating this state
     override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)

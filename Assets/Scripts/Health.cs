@@ -11,12 +11,12 @@ public class HealthModify : UnityEvent<bool, float, float> { }
 public class Health : MonoBehaviour
 {
     public Transform playersParent;
-    [HideInInspector] public bool invulnerable = false;
+    public bool invulnerable = false;
      int team;
     private bool isAlive;
-    [SerializeField] private float currentHealth;
+    public float currentHealth;
     [SerializeField] private float minHealth;
-    [SerializeField] private float maxHealth;
+     public float maxHealth;
 
     public Death OnDeathEvent = new Death();
   //  public Action OnDeath;
@@ -27,19 +27,35 @@ public class Health : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
- 
+
+        //float maxHp = GetComponent<TestStatsHolder>().attributes.health;
         isAlive = true;
         
         playersParent = transform;
         team = (int)GetComponent<TestStatsHolder>().unitFaction;
-        maxHealth = GetComponent<TestStatsHolder>().unitStat.healthPoints;
-        InitializeValues();
+
+    
+
+        // maxHealth = GetComponent<TestStatsHolder>().attributes.health;
+        
+        //maxHealth = maxHp;
+    }
+
+    private void Awake()
+    {
+        Events.OnMiniUIUpdate.AddListener(SubtractHealth);
+    }
+
+    private void OnDisable()
+    {
+        Events.OnMiniUIUpdate.RemoveListener(SubtractHealth);
     }
 
     private void OnEnable()
     {
-        
+        InitializeValues();
     }
+
     public void InitializeValues()
     {
         isAlive = true;
@@ -75,7 +91,8 @@ public class Health : MonoBehaviour
     {
         if (isAlive)
         {
-            currentHealth += p_healthModifer;
+            currentHealth += Mathf.Clamp(p_healthModifer, 0, maxHealth);
+            // currentHealth += p_healthModifer;
             if (currentHealth > maxHealth)
             {
                 currentHealth = maxHealth;
@@ -89,10 +106,13 @@ public class Health : MonoBehaviour
     }
     public void SubtractHealth(float p_healthModifer)
     {
-
+        Events.OnPlayerSelect.Invoke();
+      
         if (isAlive)
         {
-            currentHealth -= p_healthModifer;
+            ///  Events.OnMiniUIUpdate.Invoke(0f);
+            currentHealth -= Mathf.Clamp(p_healthModifer, 0, maxHealth);
+         //   currentHealth -= p_healthModifer;
             if (currentHealth < minHealth)
             {
                 currentHealth = minHealth;

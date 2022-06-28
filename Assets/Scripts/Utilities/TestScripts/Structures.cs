@@ -2,20 +2,19 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Structures : MonoBehaviour
+public class Structures : Unit
 {
     // Start is called before the first frame update
 
     private DebugManager debugManager;
-    [HideInInspector]
-    public Health health;
+ 
 
     public TestStatsHolder statsHolder;
 
     private void Start()
     {
+        base.Start();
         debugManager = GameObject.Find("DebugManager").GetComponent<DebugManager>();
-        health = GetComponent<Health>();
         statsHolder = GetComponent<TestStatsHolder>();
 
         if (health != null)
@@ -41,6 +40,7 @@ public class Structures : MonoBehaviour
 
     public void OnSelectStructure()
     {
+      //  Debug.Log("OnSelectTower");
         debugManager.structure = gameObject;
     }
 

@@ -59,11 +59,11 @@ public class MOBAMovement : MonoBehaviour
                     if (statsHolder.unitFaction != structures.statsHolder.unitFaction)
                     {
                         targetedDamager.targetHealth = structures.health;
-                        Debug.Log("Can Target");
+                   //     Debug.Log("Can Target");
                     }
                     else
                     {
-                        Debug.Log("Cannot Target");
+                     //   Debug.Log("Cannot Target");
                     }
                  
                 }

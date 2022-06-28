@@ -16,11 +16,14 @@ public class UnitSelectionUI : MonoBehaviour
     public TextMeshProUGUI attackText;
     public TextMeshProUGUI defenseText;
     public TextMeshProUGUI moveSpeedText;
-    public TextMeshProUGUI healthPointText;
+    public TextMeshProUGUI maxHealthText;
+    public TextMeshProUGUI currentHealthText;
+    public Slider slider;
     public Image characterPortrait;
 
 
-    UnitStat unit;
+    //UnitStat unit;
+    Attributes attributes;
 
     public void OnEnable()
     {
@@ -34,40 +37,52 @@ public class UnitSelectionUI : MonoBehaviour
         Events.OnPlayerSelect.RemoveListener(PlayerInfo);
     }
 
-    private void Start()
+    private void Awake()
     {
         GameObject player = GameObject.FindGameObjectWithTag("Player");
-        unit = player.GetComponent<TestStatsHolder>().unitStat;
+        // unit = player.GetComponent<TestStatsHolder>().unitStat;
+        attributes = player.GetComponent<Attributes>();
+       
     }
-    public void ChangeInfo(UnitStat unitStat)
+    private void Start()
     {
-        Events.OnUnitSelect.Invoke();
-        
-        if (unitStat != null)
-        {
-            attackText.text = unitStat.attack.ToString();
-            defenseText.text = unitStat.defense.ToString();
-            moveSpeedText.text = unitStat.moveSpeed.ToString();
-            healthPointText.text = unitStat.healthPoints.ToString();
-        }
+  
+        PlayerInfo();
     }
+
+   
 
     public void ResetInfo()
     {
         attackText.text = "";
         defenseText.text = "";
         moveSpeedText.text = "";
-        healthPointText.text = "";
+        maxHealthText.text = "";
     }
 
     public void PlayerInfo()
     {
+        slider.maxValue = attributes.hp.maxHealth;
+        slider.value = attributes.hp.currentHealth;
+        attackText.text = attributes.attackDamage.ToString();
+        defenseText.text = attributes.armor.ToString();
+        moveSpeedText.text = attributes.movementSpeed.ToString();
+        currentHealthText.text = attributes.hp.currentHealth.ToString();
+        maxHealthText.text = attributes.hp.maxHealth.ToString();
+        characterPortrait.color = Color.white;
+        characterPortrait.sprite = attributes.portraitImage;
 
-        attackText.text = unit.attack.ToString();
-        defenseText.text = unit.defense.ToString();
-        moveSpeedText.text = unit.moveSpeed.ToString();
-        healthPointText.text = unit.healthPoints.ToString();
-        characterPortrait.sprite = unit.portraitImage;
     }
 
+    public void FactionPortrait(UnitStat unitStat)
+    {
+        if(unitStat.faction == Faction.Radiant)
+        {
+            characterPortrait.color = Color.white;
+        }
+        else
+        {
+            characterPortrait.color = Color.red;
+        }
+    }
 }
