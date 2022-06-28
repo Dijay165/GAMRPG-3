@@ -13803,7 +13803,7 @@ Rigidbody:
   m_UseGravity: 0
   m_IsKinematic: 1
   m_Interpolate: 0
-  m_Constraints: 126
+  m_Constraints: 14
   m_CollisionDetection: 0
 --- !u!114 &1846914697
 MonoBehaviour:
@@ -15268,6 +15268,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attackRange: 700
+  towerHead: {fileID: 2067423277}
 --- !u!135 &2019779438
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -15407,6 +15408,24 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2041833063}
   m_CullTransparentMesh: 1
+--- !u!1 &2067423277 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1213524718981924, guid: 6f6de38bc4946428ab2a1d468039753e, type: 3}
+  m_PrefabInstance: {fileID: 1846914682}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &2067423283
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2067423277}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5bf9b7f857eb9764baf4c2270e273f0f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  target: {fileID: 8856365321302112780}
 --- !u!1 &2069337110
 GameObject:
   m_ObjectHideFlags: 0
@@ -45906,7 +45925,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8856365321302112780}
   m_LocalRotation: {x: -0, y: -0.24622683, z: -0, w: 0.96921223}
-  m_LocalPosition: {x: 2136, y: 70, z: 2638}
+  m_LocalPosition: {x: 2070, y: 70, z: 2603}
   m_LocalScale: {x: 34.68814, y: 34.68814, z: 34.68814}
   m_ConstrainProportionsScale: 0
   m_Children:

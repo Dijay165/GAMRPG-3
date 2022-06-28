@@ -10,6 +10,7 @@ public class TowerDetection : MonoBehaviour
     public float attackRange = 700f;
     private TestStatsHolder targetUnit;
     private TowerAttack towerAttack;
+    public GameObject towerHead;
     float delay = 0f;
 
     private void Awake()
@@ -22,7 +23,14 @@ public class TowerDetection : MonoBehaviour
     {
         if (targetUnit != null)
         {
-            if(Time.time >= delay)
+
+            Vector2 dir = targetUnit.transform.position - transform.position;
+
+            float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
+            Quaternion rotation = Quaternion.AngleAxis(angle, Vector3.forward);
+            towerHead.transform.rotation = Quaternion.Slerp(towerHead.transform.rotation, rotation, 360 * Time.deltaTime);
+
+            if (Time.time >= delay)
             {
                 //  towerAttack.Attack();
                 StartCoroutine(towerAttack.Attack());
@@ -30,6 +38,8 @@ public class TowerDetection : MonoBehaviour
             }
 
         }
+
+        
     }
 
     private void OnTriggerEnter(Collider other)
