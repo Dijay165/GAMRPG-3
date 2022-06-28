@@ -36,8 +36,8 @@ public class Health : MonoBehaviour
 
     
 
-         maxHealth = GetComponent<TestStatsHolder>().unitStat.healthPoints;
-        InitializeValues();
+        // maxHealth = GetComponent<TestStatsHolder>().unitStat.healthPoints;
+
         //maxHealth = maxHp;
     }
 
@@ -49,6 +49,11 @@ public class Health : MonoBehaviour
     private void OnDisable()
     {
         Events.OnMiniUIUpdate.RemoveListener(SubtractHealth);
+    }
+
+    private void OnEnable()
+    {
+        InitializeValues();
     }
 
     public void InitializeValues()
