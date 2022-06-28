@@ -20,6 +20,7 @@ GameObject:
   - component: {fileID: 3335908978100030235}
   - component: {fileID: 6710016875383326029}
   - component: {fileID: 6274662858447819624}
+  - component: {fileID: 2108196292867123247}
   m_Layer: 0
   m_Name: LaserTower_0
   m_TagString: Untagged
@@ -88,7 +89,7 @@ CapsuleCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1161251386251526}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 0
   m_Radius: 170
   m_Height: 5.35
@@ -223,6 +224,22 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 203.88599, y: 203.6516, z: 197.6355}
   m_Center: {x: -1.0650635, y: 103.275795, z: -0.9505615}
+--- !u!54 &2108196292867123247
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1161251386251526}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 94
+  m_CollisionDetection: 1
 --- !u!1 &1213524718981924
 GameObject:
   m_ObjectHideFlags: 0
@@ -779,7 +796,7 @@ SphereCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5108453858726767838}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Radius: 0.5
@@ -813,7 +830,7 @@ Transform:
   m_GameObject: {fileID: 6699331831681805663}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 215, z: 0}
-  m_LocalScale: {x: 600, y: 600, z: 600}
+  m_LocalScale: {x: 907.2511, y: 907.2511, z: 907.2511}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 4123545054233330}

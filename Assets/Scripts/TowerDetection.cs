@@ -25,49 +25,51 @@ public class TowerDetection : MonoBehaviour
         if (targetUnit != null)
         {
 
-            //Vector3 dir = targetUnit.transform.position - transform.position;
-            //float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
-            //Quaternion rotation = Quaternion.AngleAxis(angle, Vector3.forward);
-            //towerHead.transform.rotation = Quaternion.Slerp(towerHead.transform.rotation, rotation, 360 * Time.deltaTime);
-
-            Vector3 targetDirection = targetUnit.transform.position - transform.position;
-
-            Vector3 newDirection = Vector3.RotateTowards(transform.forward, targetDirection, 360, 0.0f);
-
-            towerHead.transform.rotation = Quaternion.LookRotation(newDirection);
-
-            if (Time.time >= delay)
+            float distance = Vector3.Distance(transform.position, targetUnit.transform.position);
+          //  Debug.Log(distance);
+            if (distance < attackRange)
             {
-                //  towerAttack.Attack();
-                StartCoroutine(towerAttack.Attack());
-                delay = Time.time + 1f / towerAttack.attackSpeed;
-            }
+            //    Debug.Log("distance");
+                Vector3 targetDirection = targetUnit.transform.position - transform.position;
 
+                Vector3 newDirection = Vector3.RotateTowards(transform.forward, targetDirection, 360, 0.0f);
+
+                towerHead.transform.rotation = Quaternion.LookRotation(newDirection);
+
+                if (Time.time >= delay)
+                {
+                    //  towerAttack.Attack();
+                    StartCoroutine(towerAttack.Attack());
+                    delay = Time.time + 1f / towerAttack.attackSpeed;
+                }
+            }
+            else
+            {
+                Debug.Log("Too Far");
+            }
         }
 
-        
+
     }
 
     private void OnTriggerEnter(Collider other)
     {
-      //  Debug.Log(other.name);
+        // OnTrigger detection
+
+      
         if (targetUnit == null)
         {
             if (other.gameObject.TryGetComponent<TestStatsHolder>(out TestStatsHolder otherTarget))
             {
+                Debug.Log("Hascollide" + gameObject.name);
                 bool isAttack = CanAttack(otherTarget);
                 if (isAttack)
                 {
-                  //  Debug.Log("Yes");
                     targetUnit = otherTarget;
                     towerAttack.unit.currentTarget = otherTarget.attributes.hp;
-
-                    // StartCoroutine(towerAttack.Attack());
-                  //  towerAttack.animator.SetTrigger("Attack");
                 }
                 else
                 {
-                  //  Debug.Log("No");
                     return;
                 }
             }
@@ -83,6 +85,10 @@ public class TowerDetection : MonoBehaviour
     }
 
 
+    private void OnTriggerExit(Collider other)
+    {
+        
+    }
     public bool CanAttack(TestStatsHolder target)
     {
         bool canAttack = false;
