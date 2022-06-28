@@ -25,15 +25,16 @@ public class TowerDetection : MonoBehaviour
         if (targetUnit != null)
         {
 
-            Vector3 dir = targetUnit.transform.position - transform.position;
+            //Vector3 dir = targetUnit.transform.position - transform.position;
+            //float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
+            //Quaternion rotation = Quaternion.AngleAxis(angle, Vector3.forward);
+            //towerHead.transform.rotation = Quaternion.Slerp(towerHead.transform.rotation, rotation, 360 * Time.deltaTime);
 
-            //          Quaternion lookRotation = Quaternion.LookRotation(dir);
-            //Vector3 rotation = Quaternion.Lerp(towerHead.transform.rotation, lookRotation, Time.deltaTime * turnSpeed).eulerAngles;
+            Vector3 targetDirection = targetUnit.transform.position - transform.position;
 
-            /// towerHead.transform.rotation = Quaternion.Euler(0f, rotation.y, 0f);
-            float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
-            Quaternion rotation = Quaternion.AngleAxis(angle, Vector3.forward);
-            towerHead.transform.rotation = Quaternion.Slerp(towerHead.transform.rotation, rotation, 360 * Time.deltaTime);
+            Vector3 newDirection = Vector3.RotateTowards(transform.forward, targetDirection, 360, 0.0f);
+
+            towerHead.transform.rotation = Quaternion.LookRotation(newDirection);
 
             if (Time.time >= delay)
             {
