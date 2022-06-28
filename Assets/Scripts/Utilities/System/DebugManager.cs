@@ -70,5 +70,7 @@ public class DebugManager : MonoBehaviour
     public void RestoreHealth()
     {
         //Click any unit and then if this button is pressed, the healthpoints of the unit will be filled. 
+        Health health = GameManager.instance.lastUnitSelect.hp;
+        health.AddHealth(100f);
     }
 }

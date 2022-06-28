@@ -209,6 +209,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   unitStat: {fileID: 11400000, guid: 9bb58c1cb67e8bb44aab53587d0bb5b7, type: 2}
+  attributes: {fileID: 0}
   unitFaction: 0
 --- !u!114 &3370601766904226936
 MonoBehaviour:
@@ -325,6 +326,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f704b2f691a95684fbe335a3abc45158, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  unit: {fileID: 0}
+  attributes: {fileID: 0}
+  statsHolder: {fileID: 0}
 --- !u!114 &132704296402765267
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -372,9 +376,13 @@ MonoBehaviour:
   armor: 0
   magicResistance: 0
   attackDamage: 21
-  attackSpeed: 0
+  attackSpeed: 1
   attackRange: 0
   movementSpeed: 0
+  maxHp: 0
+  currentHp: 0
+  portraitImage: {fileID: 0}
+  hp: {fileID: 0}
 --- !u!208 &1213145073375681043
 NavMeshObstacle:
   m_ObjectHideFlags: 0
