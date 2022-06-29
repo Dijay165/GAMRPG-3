@@ -415,6 +415,7 @@ GameObject:
   - component: {fileID: 7193864837406473068}
   - component: {fileID: 7193864837406473067}
   - component: {fileID: -268582041083851338}
+  - component: {fileID: 1800648492942552694}
   m_Layer: 0
   m_Name: MegaSiege Creep
   m_TagString: Untagged
@@ -540,7 +541,6 @@ MonoBehaviour:
   attributes: {fileID: 0}
   statsHolder: {fileID: 0}
   firePoint: {fileID: 2604751439361793647}
-  prefab: {fileID: 5940412195069052108, guid: 2ae24c998d7529049b0c3795b72cf5f2, type: 3}
 --- !u!114 &7193864837406473071
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -647,3 +647,15 @@ NavMeshObstacle:
   m_CarveOnlyStationary: 1
   m_Center: {x: 0, y: 0.5, z: 0}
   m_TimeToStationary: 0.5
+--- !u!114 &1800648492942552694
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8055485629282258745}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7c3d457f7f78c7a43abe4111be03762d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

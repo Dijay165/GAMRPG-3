@@ -34,11 +34,15 @@ public class MiniSelectionUI : MonoBehaviour
         {
             ChangeAttributeUI(GameManager.instance.lastUnitSelect);
         }
+        else
+        {
+            border.gameObject.SetActive(false);
+        }
     }
 
     public void ChangeAttributeUI(Attributes unitStat)
     {
-        // Events.OnUnitSelect.Invoke();
+        // Events.OnUnitSelect.Invoke(unitStat);
 
         GameManager.instance.lastUnitSelect = unitStat;
       //  Debug.Log("Touched");

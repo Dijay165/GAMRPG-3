@@ -172,6 +172,7 @@ GameObject:
   - component: {fileID: 132704296402765267}
   - component: {fileID: 7228419342817421869}
   - component: {fileID: 1213145073375681043}
+  - component: {fileID: 4529298332656540021}
   m_Layer: 0
   m_Name: Mellee Creep
   m_TagString: Untagged
@@ -401,6 +402,18 @@ NavMeshObstacle:
   m_CarveOnlyStationary: 1
   m_Center: {x: 0, y: 0.5, z: 0}
   m_TimeToStationary: 0.5
+--- !u!114 &4529298332656540021
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4721253483830942850}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7c3d457f7f78c7a43abe4111be03762d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5636219751343395753
 GameObject:
   m_ObjectHideFlags: 0

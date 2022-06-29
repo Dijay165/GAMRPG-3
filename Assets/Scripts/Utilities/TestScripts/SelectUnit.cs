@@ -46,7 +46,6 @@ public class SelectUnit : MonoBehaviour
                     {
                         //     Debug.Log("not null");
                         selectionUI.border.gameObject.SetActive(true);
-                    //    selectionUI.ChangeAttributeUI(testStatsHolder.attributes);
                         Events.OnUnitSelect.Invoke(testStatsHolder.attributes);
                         FactionColor(testStatsHolder);
                     }

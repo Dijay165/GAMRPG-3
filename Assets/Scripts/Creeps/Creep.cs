@@ -32,11 +32,16 @@ public abstract class Creep : Unit
     public List<Health> enemies = new List<Health>();
 
     public float test;
+
+    private TestStatsHolder testStatsHolder;
+    public SkinnedMeshRenderer skinnedMeshRenderer;
+    public Material redFace;
     // Start is called before the first frame update
     protected void Awake()
     {
         agent = GetComponent<NavMeshAgent>();
         obstacle = GetComponent<NavMeshObstacle>();
+        testStatsHolder = GetComponent<TestStatsHolder>();
 
         obstacle.carveOnlyStationary = false;
         obstacle.carving = true;
@@ -47,9 +52,15 @@ public abstract class Creep : Unit
 
     }
 
-    private void OnEnable()
+    protected override void Start()
     {
-
+        if(testStatsHolder.unitFaction == Faction.Dire)
+        {
+            Material[] mats = skinnedMeshRenderer.materials;
+            mats[0] = redFace;
+            skinnedMeshRenderer.materials = mats;
+        }
+        base.Start();
     }
 
     protected override void InitializeValues()
