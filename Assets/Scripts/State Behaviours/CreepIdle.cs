@@ -5,17 +5,16 @@ using UnityEngine.AI;
 public class CreepIdle : StateMachineBehaviour
 {
     Creep creep;
-    public NavMeshAgent agent;
+ 
 
     // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         creep = animator.gameObject.GetComponent<Creep>();
-
-        agent = animator.gameObject.GetComponent<NavMeshAgent>();
-
-        agent.enabled = true;
-        creep.obstacle.enabled = false;
+        NavMeshAgent agent = creep.agent;
+  
+        agent.enabled = false;
+        creep.obstacle.enabled = true;
 
         //if (creep.runningUpdateTarget != null)
         //{

@@ -2,8 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(Health))]
 public abstract class Unit : MonoBehaviour
 {
+    protected bool isInUse;
     public SpriteRenderer icon;
     protected int team;
     public Health currentTarget;
@@ -53,7 +55,7 @@ public abstract class Unit : MonoBehaviour
 
        
         health.OnDeathEvent.AddListener(UnitDeath);
-
+        isInUse = true;
 
     }
 
@@ -62,6 +64,9 @@ public abstract class Unit : MonoBehaviour
 
         health.OnHealthModifyEvent.RemoveListener(healthOverheadUI.OnHealthChanged);
         health.OnDeathEvent.RemoveListener(healthOverheadUI.OnHealthDied);
+        //health.OnDeathEvent.RemoveAllListeners();
+
+        isInUse = false;
     }
 
     public virtual void UnitDeath(Health objectHealth = null)

@@ -7,18 +7,11 @@ public class MeleeCreep : Creep
     protected override void InitializeValues()
     {
         base.InitializeValues();
-
-
     }
     protected override void DeinitializeValues()
     {
         base.DeinitializeValues();
-
-        //MeleeCreepPool.pool.Release(this);
-        Debug.Log("Destroy");
-        //HealthOverheadUIPool.pool.Release(this);
         Destroy(gameObject);
+        //MeleeCreepPool.pool.Release(this);
     }
-
-
 }
