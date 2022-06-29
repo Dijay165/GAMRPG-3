@@ -15,7 +15,7 @@ public class Player : MonoBehaviour
 
         //PoolableObject healthOverheadUIObject = ObjectPoolsManager.GetPool(typeof(HealthOverheadUI)).pool.Get();
 
-        HealthOverheadUI newHealthOverheadUI = HealthOverheadUIPool.pool.Get() as HealthOverheadUI;
+        HealthOverheadUI newHealthOverheadUI = HealthOverheadUIPool.pool.Get();
         healthOverheadUI = newHealthOverheadUI;
         //healthOverheadUI = healthOverheadUIObject.GetComponent<HealthOverheadUI>();
 

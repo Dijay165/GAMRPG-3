@@ -25,7 +25,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ae2a00f0b18b35f4ba0f3a9f7e8f1d2c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  agent: {fileID: 0}
 --- !u!114 &-6424958393447988623
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -38,7 +37,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ae2a00f0b18b35f4ba0f3a9f7e8f1d2c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  agent: {fileID: 0}
 --- !u!114 &-6273225223299448023
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -132,7 +130,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: c41d5e41f39576c44ac5e4a7099c97bd, type: 2}
+  m_Motion: {fileID: 7400000, guid: b7de90dbb2136ee4bbab065b5dc625fd, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -150,7 +148,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fedef8144b168b04c95c4550c500aaa2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  agent: {fileID: 0}
 --- !u!91 &9100000
 AnimatorController:
   m_ObjectHideFlags: 0
@@ -246,7 +243,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fedef8144b168b04c95c4550c500aaa2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  agent: {fileID: 0}
 --- !u!1102 &2369194245869665519
 AnimatorState:
   serializedVersion: 6

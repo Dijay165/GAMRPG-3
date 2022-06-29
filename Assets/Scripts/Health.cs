@@ -34,7 +34,7 @@ public class Health : MonoBehaviour
         playersParent = transform;
         team = (int)GetComponent<TestStatsHolder>().unitFaction;
 
-    
+        isAlive = true;
 
         // maxHealth = GetComponent<TestStatsHolder>().unitStat.healthPoints;
 
@@ -53,13 +53,14 @@ public class Health : MonoBehaviour
 
     private void OnEnable()
     {
-        InitializeValues();
+    //    InitializeValues();
+        currentHealth = maxHealth;
     }
 
     public void InitializeValues()
     {
-        isAlive = true;
-        currentHealth = maxHealth;
+      
+        
     }
     public bool CompareTeam(int p_inflictingTeam)
     {
