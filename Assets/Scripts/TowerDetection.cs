@@ -43,10 +43,6 @@ public class TowerDetection : MonoBehaviour
                     delay = Time.time + 1f / towerAttack.attackSpeed;
                 }
             }
-            else
-            {
-                Debug.Log("Too Far");
-            }
         }
 
 
