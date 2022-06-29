@@ -202,7 +202,7 @@ Animator:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1418954211154683660}
   m_Enabled: 1
-  m_Avatar: {fileID: 0}
+  m_Avatar: {fileID: 9000000, guid: eb340672e17c0af4089e561b61cdc548, type: 3}
   m_Controller: {fileID: 9100000, guid: 78d9ed9b6ef304b479b49f2c10a11a9b, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
@@ -295,7 +295,7 @@ MonoBehaviour:
   magicResistance: 0
   attackDamage: 41
   attackSpeed: 0
-  attackRange: 0
+  attackRange: 1
   movementSpeed: 0
   maxHp: 0
   currentHp: 0
