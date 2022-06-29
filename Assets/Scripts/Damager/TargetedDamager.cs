@@ -16,13 +16,17 @@ public class TargetedDamager : MonoBehaviour
     public float attackSpeed = 1.7f;
 
     MOBAMovement mOBAMovement;
+
+    Attributes attributes;
     
     void Start()
     {
         team = (int)GetComponent<TestStatsHolder>().unitFaction;
         anim = GetComponent<Animator>();
-
+        attributes = GetComponent<Attributes>();
         mOBAMovement = GetComponent<MOBAMovement>();
+        damageAmount = attributes.attackDamage;
+        attackSpeed = attributes.attackSpeed;
     }
 
     private void Update()
@@ -32,7 +36,7 @@ public class TargetedDamager : MonoBehaviour
             float distance = Vector3.Distance(mOBAMovement.agent.transform.position, targetHealth.playersParent.position);
             if (distance < range)
             {
-                Debug.Log("In Distance");
+             //  Debug.Log("In Distance");
 
 
                 StartCoroutine(MeleeAttack());
@@ -60,7 +64,7 @@ public class TargetedDamager : MonoBehaviour
 
     public IEnumerator MeleeAttack()
     {
-        Debug.Log("Atack");
+        //Debug.Log("Atack");
         anim.SetTrigger("Basic Attack");
         yield return new WaitForSeconds(attackSpeed / ((100 + attackSpeed) * 0.01f));
     }
