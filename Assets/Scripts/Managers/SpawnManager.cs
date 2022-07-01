@@ -130,7 +130,8 @@ public class SpawnManager : MonoBehaviour
                
                 newCreep.transform.position = (GameManager.instance.teams[p_team].lanes[p_lane].creepSpawnPoint.transform.position);
                 newCreep.unitFaction = (Faction)p_team;
-                newCreep.GetComponent<Health>().ResetValues();
+                
+                
                 Animator anim = newCreep.GetComponent<Animator>();
                 NavMeshAgent nav = newCreep.GetComponent<NavMeshAgent>();
                 nav.Warp(new Vector3(newCreep.transform.position.x, 0f, newCreep.transform.position.z));// newCreep.transform.position);

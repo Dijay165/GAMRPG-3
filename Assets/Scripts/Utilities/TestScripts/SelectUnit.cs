@@ -11,9 +11,11 @@ public class SelectUnit : MonoBehaviour
 {
     // Start is called before the first frame update
    // private TestStatsHolder testStatsHolder;
-    private UnitSelectionUI selectionUI;
+    //private UnitSelectionUI selectionUI;
     //   TargetedDamager targetedDamager;
     Unit unit;
+    private MiniSelectionUI miniSelectionUI;
+    Attributes attributes;
 
     private Camera cam;
     private Ray ray;
@@ -22,25 +24,16 @@ public class SelectUnit : MonoBehaviour
     void Awake()
     {
         cam = Camera.main;
-        selectionUI = GameObject.Find("UnitSelection").GetComponent<UnitSelectionUI>();
-      
+        //selectionUI = GameObject.Find("UnitSelection").GetComponent<UnitSelectionUI>();
+        miniSelectionUI = GameObject.Find("MiniUnitSelection").GetComponent<MiniSelectionUI>();
         if (TryGetComponent<Unit>(out Unit unit))
         {
             this.unit = unit;
         }
-       
-       // targetedDamager = GetComponent<TargetedDamager>();
+ 
+        // targetedDamager = GetComponent<TargetedDamager>();
     }
 
-    private void OnEnable()
-    {
-        Events.OnUnitSelect.AddListener(CurrentUnitStatus);
-    }
-
-    private void OnDisable()
-    {
-        Events.OnUnitSelect.RemoveListener(CurrentUnitStatus);
-    }
 
     // Update is called once per frame
     void Update()
@@ -56,15 +49,22 @@ public class SelectUnit : MonoBehaviour
                 {
                     if(unit != null)
                     {
-                        selectionUI.ChangeInfo(unit);
+                        miniSelectionUI.border.gameObject.SetActive(true);
+                        Events.OnUnitSelect.Invoke(unit);
+                        FactionColor(unit);
+               
                     }
-                 
-
+                    else
+                    {
+                        Debug.Log("No Attributes");
+                        miniSelectionUI.border.SetActive(false);
+                    }
                     //Events.OnTowerDied.Invoke();
                     //Debug.Log("Test");
-                    if(gameObject.TryGetComponent(out Structures structures))
+                    if (gameObject.TryGetComponent(out Structures structures))
                     {
-//                        Events.OnTowerDied.Invoke();
+                        //                        Events.OnTowerDied.Invoke();
+                     //   Debug.Log("IsTower");
                         structures.OnSelectStructure();
                       //  targetedDamager.targetHealth = structures.health;
                         
@@ -78,6 +78,22 @@ public class SelectUnit : MonoBehaviour
     {
        // Debug.Log("Current");
         //selectionUI.ChangeInfo(testStatsHolder.unitStat);
+
+       
+    }
+
+    void FactionColor(Unit unit)
+    {
+        if(unit.unitFaction == Faction.Radiant)
+        {
+           // Debug.Log("Radiant");
+            miniSelectionUI.characterPortrait.color = Color.white;
+        }
+        else
+        {
+            //Debug.Log("Dire");
+            miniSelectionUI.characterPortrait.color = Color.red;
+        }
     }
 
 

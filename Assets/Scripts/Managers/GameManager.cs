@@ -6,10 +6,15 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
     public float gameTime = 0;
+    public Unit lastUnitSelect;
     [NonReorderable] public List<TeamData> teams = new List<TeamData>();
+
+    
+
+    //Invoke event when nexus is destoryed, when called end the game. 
     private void Awake()
     {
-        instance = instance ? instance : this;
+        instance = instance ? instance : this; ///wow 
     }
 
   
@@ -30,9 +35,8 @@ public class GameManager : MonoBehaviour
             newPath.Add(instance.teams[otherTeam].lanes[p_lane].wayPoints[i]);
 
         }
-
-
-
         return newPath;
     }
+
+    //Wincondition function here. Time.timescale = 0; UI Victory screen will be shown  
 }

@@ -32,6 +32,9 @@ public abstract class Creep : Unit
     public List<Health> enemies = new List<Health>();
 
     public float test;
+
+    public SkinnedMeshRenderer skinnedMeshRenderer;
+    public Material redFace;
     // Start is called before the first frame update
     protected override void Awake()
     {
@@ -51,7 +54,15 @@ public abstract class Creep : Unit
     protected override void OnEnable()
     {
         base.OnEnable();
-        
+
+        // urgent
+        if (unitFaction == Faction.Dire)
+        {
+            Material[] mats = skinnedMeshRenderer.materials;
+            mats[0] = redFace;
+            skinnedMeshRenderer.materials = mats;
+        }
+
     }
 
     protected override void InitializeValues()

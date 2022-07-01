@@ -28,6 +28,7 @@ public class Unit : MonoBehaviour
             else
             {
                 icon.color = new Color32(255, 0, 0, 255);
+                
             }
         } 
     }
@@ -68,7 +69,8 @@ public class Unit : MonoBehaviour
        
         health.OnDeathEvent.AddListener(Death);
         isInUse = true;
-
+        GetComponent<Attributes>().ResetValues();
+        GetComponent<Health>().ResetValues();
     }
 
     protected virtual void DeinitializeValues()
@@ -86,4 +88,6 @@ public class Unit : MonoBehaviour
         DeinitializeValues();
         Debug.Log(gameObject.name+" Unit dea");
     }
+
+  
 }

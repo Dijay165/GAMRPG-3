@@ -4,16 +4,23 @@ using UnityEngine;
 
 public class Damager : MonoBehaviour
 {
-    protected Unit unit;
-    protected Attributes attributes;
+    [HideInInspector]
+    public Unit unit;
+    [HideInInspector]
+    public Attributes attributes;
 
-    private void Start()
+
+    private void Awake()
     {
         unit = GetComponent<Unit>();
         attributes = GetComponent<Attributes>();
+  
     }
+
     public virtual void DamageTarget()
     {
         //unit.currentTarget.SubtractHealth(10);
     }
+
+   
 }

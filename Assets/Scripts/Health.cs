@@ -11,13 +11,12 @@ public class HealthModify : UnityEvent<bool, float, float> { }
 public class Health : MonoBehaviour
 {
     public Transform playersParent;
-    //[HideInInspector] 
     public bool invulnerable = false;
     int team;
     private bool isAlive;
-    [SerializeField] private float currentHealth;
+    public float currentHealth;
     [SerializeField] private float minHealth;
-    [SerializeField] private float maxHealth;
+     public float maxHealth;
 
     public Death OnDeathEvent = new Death();
     public HealthModify OnHealthModifyEvent = new HealthModify();
@@ -32,7 +31,13 @@ public class Health : MonoBehaviour
     {
 
         playersParent = transform;
+        Events.OnMiniUIUpdate.AddListener(SubtractHealth);
         ResetValues();
+    }
+
+    private void OnDisable()
+    {
+        Events.OnMiniUIUpdate.RemoveListener(SubtractHealth);
     }
 
 
@@ -95,7 +100,8 @@ public class Health : MonoBehaviour
     {
         if (isAlive)
         {
-            currentHealth += p_healthModifer;
+            currentHealth += Mathf.Clamp(p_healthModifer, 0, maxHealth);
+            // currentHealth += p_healthModifer;
             if (currentHealth > maxHealth)
             {
                 currentHealth = maxHealth;
@@ -109,20 +115,19 @@ public class Health : MonoBehaviour
     }
     public void SubtractHealth(float p_healthModifer)
     {
-
+        Events.OnPlayerSelect.Invoke();
+      
         if (isAlive)
         {
-            if (!invulnerable)
+            ///  Events.OnMiniUIUpdate.Invoke(0f);
+            currentHealth -= Mathf.Clamp(p_healthModifer, 0, maxHealth);
+         //   currentHealth -= p_healthModifer;
+            if (currentHealth < minHealth)
             {
-                currentHealth -= p_healthModifer;
-                if (currentHealth < minHealth)
-                {
-                    currentHealth = minHealth;
-                }
-                //Check is alive
-                CheckHealth();
+                currentHealth = minHealth;
             }
-         
+            //Check is alive
+            CheckHealth();
     
         }
 

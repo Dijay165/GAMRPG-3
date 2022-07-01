@@ -35,11 +35,8 @@ public class Attributes : MonoBehaviour
     public float movementSpeed;
 
     public Action OnAttributesUpdated;
-    // Start is called before the first frame update
-    void Start()
-    {
-        //450 + (20 * Strength)
-    }
+
+   
     public void ResetValues()
     {
       

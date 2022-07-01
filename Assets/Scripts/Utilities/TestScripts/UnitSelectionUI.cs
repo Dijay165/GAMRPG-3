@@ -16,7 +16,9 @@ public class UnitSelectionUI : MonoBehaviour
     public TextMeshProUGUI attackText;
     public TextMeshProUGUI defenseText;
     public TextMeshProUGUI moveSpeedText;
-    public TextMeshProUGUI healthPointText;
+    public TextMeshProUGUI maxHealthText;
+    public TextMeshProUGUI currentHealthText;
+    public Slider slider;
     public Image characterPortrait;
 
 
@@ -26,6 +28,7 @@ public class UnitSelectionUI : MonoBehaviour
     {
         Events.OnResetInfoUI.AddListener(ResetInfo);
         Events.OnPlayerSelect.AddListener(PlayerInfo);
+        StartCoroutine(Temporary());
     }
 
     private void OnDisable()
@@ -34,7 +37,9 @@ public class UnitSelectionUI : MonoBehaviour
         Events.OnPlayerSelect.RemoveListener(PlayerInfo);
     }
 
-    private void Start()
+
+
+    private void Awake()
     {
         GameObject player = GameObject.FindGameObjectWithTag("Player");
    
@@ -44,15 +49,28 @@ public class UnitSelectionUI : MonoBehaviour
             playerUnit = unit;
         }
     }
+
+    //delete this please when fixed
+
+    IEnumerator Temporary()
+    {
+        yield return new WaitForSeconds(0.6f);
+        PlayerInfo();
+    }
     public void ChangeInfo(Unit unit)
     {
-        Events.OnUnitSelect.Invoke();
+        Events.OnUnitSelect.Invoke(unit);
         
         if (unit != null)
         {
+           
+            characterPortrait.sprite = unit.unitStat.portraitImage;
+            
             if (unit.TryGetComponent<Health>(out Health health))
             {
-                healthPointText.text = health.GetHealth().ToString();
+                //healthPointText.text = health.GetHealth().ToString();
+                slider.maxValue = health.maxHealth;
+                slider.value = health.currentHealth;
             }
             if (unit.TryGetComponent<Attributes>(out Attributes attributes))
             {
@@ -63,25 +81,29 @@ public class UnitSelectionUI : MonoBehaviour
         }
     }
 
+   
+
     public void ResetInfo()
     {
         attackText.text = "";
         defenseText.text = "";
         moveSpeedText.text = "";
-        healthPointText.text = "";
+        maxHealthText.text = "";
     }
 
     public void PlayerInfo()
     {
         if (playerUnit != null)
         {
-            if (playerUnit.TryGetComponent<UnitStat>(out UnitStat unitStat))
-            {
-                characterPortrait.sprite = unitStat.portraitImage;
-            }
+            
+            characterPortrait.sprite = playerUnit.unitStat.portraitImage;
+            
             if (playerUnit.TryGetComponent<Health>(out Health health))
             {
-                healthPointText.text = health.GetHealth().ToString();
+                currentHealthText.text = health.GetHealth().ToString();
+                maxHealthText.text = health.maxHealth.ToString();
+                slider.maxValue = health.maxHealth;
+                slider.value = health.currentHealth;
             }
             if (playerUnit.TryGetComponent<Attributes>(out Attributes attributes))
             {
@@ -94,4 +116,15 @@ public class UnitSelectionUI : MonoBehaviour
        
     }
 
+    public void FactionPortrait(Health unitStat)
+    {
+        if(unitStat.CompareTeam(Faction.Radiant))
+        {
+            characterPortrait.color = Color.white;
+        }
+        else
+        {
+            characterPortrait.color = Color.red;
+        }
+    }
 }
