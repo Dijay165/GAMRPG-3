@@ -30,46 +30,9 @@ public class CreepMove : StateMachineBehaviour
 
         }
   
-        //if (creep.runningUpdateTarget != null)
-        //{
-        //    creep.StopCoroutine(creep.runningUpdateTarget);
-        //    creep.runningUpdateTarget = null;
-        //}
-        //creep.runningUpdateTarget = creep.Co_Detection();
-        //creep.StartCoroutine(creep.runningUpdateTarget);
-
-        //if (creep.runningUpdateDestination != null)
-        //{
-        //    Debug.Log("Disable");
-        //    creep.StopCoroutine(creep.runningUpdateDestination);
-        //    creep.runningUpdateDestination = null;
-        //}
-        //if (creep.currentTarget != null)
-        //{
-
-        //    creep.runningUpdateDestination = FollowTarget(creep.destination);
-        //    creep.StartCoroutine(creep.runningUpdateDestination);
-        //}
-
 
     }
 
-    //private IEnumerator FollowTarget(Transform target)
-    //{
-    //    Vector3 previousTargetPosition = new Vector3(float.PositiveInfinity, float.PositiveInfinity);
-    //    while (Vector3.SqrMagnitude(creep.transform.position - target.position) > 0.1f)
-    //    {
-    //        // did target move more than at least a minimum amount since last destination set?
-    //        if (Vector3.SqrMagnitude(previousTargetPosition - target.position) > 0.1f)
-    //        {
-    //            agent.SetDestination(target.position);
-    //            previousTargetPosition = target.position;
-    //        }
-    //        yield return new WaitForSeconds(10f);
-    //    }
-    //    yield return null;
-    //}
-  
 
    
 }

@@ -9,7 +9,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8955322500898459853}
-  - component: {fileID: 1362355708}
   - component: {fileID: 1362355707}
   - component: {fileID: 1362355706}
   - component: {fileID: 1362355705}
@@ -19,6 +18,7 @@ GameObject:
   - component: {fileID: 1362355701}
   - component: {fileID: 1362355700}
   - component: {fileID: 1362355699}
+  - component: {fileID: 3816243909398107508}
   m_Layer: 0
   m_Name: Slime_01_King
   m_TagString: Untagged
@@ -44,20 +44,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1362355708
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 873531700701352353}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 59eb483532ed36b41ab5d6f465746404, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  unitStat: {fileID: 11400000, guid: 9bb58c1cb67e8bb44aab53587d0bb5b7, type: 2}
-  unitFaction: 0
 --- !u!114 &1362355707
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -112,15 +98,20 @@ MonoBehaviour:
   icon: {fileID: 0}
   currentTarget: {fileID: 0}
   health: {fileID: 0}
+  unitFaction: 0
+  unitStat: {fileID: 0}
   agent: {fileID: 0}
-  currentPath: {fileID: 0}
-  paths: []
+  obstacle: {fileID: 0}
+  currentWaypoint: {fileID: 0}
+  destination: {fileID: 0}
+  waypoints: []
   layerMask: 256
   detectionRadius: 750
   attackRadius: 690
   attackRate: 3
   animator: {fileID: 0}
   enemies: []
+  test: 0
 --- !u!114 &1362355704
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -134,7 +125,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   firePoint: {fileID: 5183733700652826871}
-  prefab: {fileID: 5940412195069052108, guid: 2ae24c998d7529049b0c3795b72cf5f2, type: 3}
 --- !u!114 &1362355703
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -221,6 +211,22 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!208 &3816243909398107508
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 873531700701352353}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 0.5, y: 0.5, z: 0.5}
+  m_MoveThreshold: 0.1
+  m_Carve: 0
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0, y: 0, z: 0}
+  m_TimeToStationary: 0.5
 --- !u!1 &2555473679859470979
 GameObject:
   m_ObjectHideFlags: 0

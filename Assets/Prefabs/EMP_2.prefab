@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 4064439936423624}
   - component: {fileID: 788445809}
-  - component: {fileID: 1371393305}
   - component: {fileID: 1371393306}
   - component: {fileID: 1371393307}
   - component: {fileID: 2006759774174617894}
@@ -57,20 +56,6 @@ MonoBehaviour:
   currentHealth: 0
   minHealth: 0
   maxHealth: 0
---- !u!114 &1371393305
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1018291631365572}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 59eb483532ed36b41ab5d6f465746404, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  unitStat: {fileID: 11400000, guid: d6750346963de0840911385da16d176a, type: 2}
-  unitFaction: 0
 --- !u!114 &1371393306
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -95,8 +80,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d42ae0f970e31d6419841f83a85e76eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  icon: {fileID: 0}
+  currentTarget: {fileID: 0}
   health: {fileID: 0}
-  statsHolder: {fileID: 0}
+  unitFaction: 0
+  unitStat: {fileID: 0}
+  requiredBuildingsDeadForToBeVulnerable: []
 --- !u!54 &2006759774174617894
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -140,6 +129,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   icon: {fileID: 8176847129870774413}
+  currentTarget: {fileID: 0}
+  health: {fileID: 0}
+  unitFaction: 0
+  unitStat: {fileID: 0}
+  requiredBuildingsDeadForToBeVulnerable: []
 --- !u!1 &1228855972254258
 GameObject:
   m_ObjectHideFlags: 0

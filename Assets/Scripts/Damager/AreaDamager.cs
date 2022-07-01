@@ -7,7 +7,7 @@ public class AreaDamager : MonoBehaviour
     private bool temporaryGizmos = false;
     [SerializeField] private int team;
     [SerializeField] private float damageAmount;
-    [SerializeField] private float range = 150f;
+    //[SerializeField] private float range = 150f;
 
     [SerializeField] private Transform weapon;
     [SerializeField] private Vector3 offset;

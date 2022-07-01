@@ -127,10 +127,10 @@ public class SpawnManager : MonoBehaviour
             {
                 Creep newCreep = genericObject as Creep;
                 newCreep.waypoints = GameManager.MakePath(p_team, p_lane);
-                newCreep.currentWaypoint = newCreep.waypoints[2].transform;
+               
                 newCreep.transform.position = (GameManager.instance.teams[p_team].lanes[p_lane].creepSpawnPoint.transform.position);
-                newCreep.GetComponent<TestStatsHolder>().unitFaction = (Faction)p_team;
-              
+                newCreep.unitFaction = (Faction)p_team;
+                newCreep.GetComponent<Health>().ResetValues();
                 Animator anim = newCreep.GetComponent<Animator>();
                 NavMeshAgent nav = newCreep.GetComponent<NavMeshAgent>();
                 nav.Warp(new Vector3(newCreep.transform.position.x, 0f, newCreep.transform.position.z));// newCreep.transform.position);

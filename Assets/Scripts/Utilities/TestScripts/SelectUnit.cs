@@ -10,20 +10,25 @@ using System;
 public class SelectUnit : MonoBehaviour
 {
     // Start is called before the first frame update
-    private TestStatsHolder testStatsHolder;
+   // private TestStatsHolder testStatsHolder;
     private UnitSelectionUI selectionUI;
- //   TargetedDamager targetedDamager;
-
+    //   TargetedDamager targetedDamager;
+    Unit unit;
 
     private Camera cam;
     private Ray ray;
     RaycastHit raycastHit;
 
-    void Start()
+    void Awake()
     {
         cam = Camera.main;
         selectionUI = GameObject.Find("UnitSelection").GetComponent<UnitSelectionUI>();
-        testStatsHolder = GetComponent<TestStatsHolder>();
+      
+        if (TryGetComponent<Unit>(out Unit unit))
+        {
+            this.unit = unit;
+        }
+       
        // targetedDamager = GetComponent<TargetedDamager>();
     }
 
@@ -49,9 +54,9 @@ public class SelectUnit : MonoBehaviour
             {
                 if (raycastHit.transform == transform)
                 {
-                    if(testStatsHolder != null)
+                    if(unit != null)
                     {
-                        selectionUI.ChangeInfo(testStatsHolder.unitStat);
+                        selectionUI.ChangeInfo(unit);
                     }
                  
 

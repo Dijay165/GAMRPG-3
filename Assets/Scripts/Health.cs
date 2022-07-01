@@ -7,48 +7,67 @@ using UnityEngine.Events;
 
 public class Death : UnityEvent<Health> { }
 public class HealthModify : UnityEvent<bool, float, float> { }
-[RequireComponent(typeof(TestStatsHolder))]
+
 public class Health : MonoBehaviour
 {
     public Transform playersParent;
     //[HideInInspector] 
     public bool invulnerable = false;
-     int team;
+    int team;
     private bool isAlive;
     [SerializeField] private float currentHealth;
     [SerializeField] private float minHealth;
     [SerializeField] private float maxHealth;
 
     public Death OnDeathEvent = new Death();
-  //  public Action OnDeath;
     public HealthModify OnHealthModifyEvent = new HealthModify();
 
-
-
-    // Start is called before the first frame update
-    void Start()
+    public float GetHealth()
     {
- 
-        isAlive = true;
-        
-        playersParent = transform;
-        team = (int)GetComponent<TestStatsHolder>().unitFaction;
-        maxHealth = GetComponent<TestStatsHolder>().unitStat.healthPoints;
-        InitializeValues();
+        return currentHealth;
     }
 
-    private void OnEnable()
+    // Start is called before the first frame update
+    void Awake()
     {
-        
+
+        playersParent = transform;
+        ResetValues();
+    }
+
+
+    public void ResetValues()
+    {
+        if (TryGetComponent<Unit>(out Unit unit))
+        {
+            team = (int)unit.unitFaction;
+            maxHealth = (int)unit.unitStat.startingMaxHP;
+        }
+        InitializeValues();
     }
     public void InitializeValues()
     {
+
         isAlive = true;
         currentHealth = maxHealth;
+
     }
-    public bool CompareTeam(int p_inflictingTeam)
+    public virtual bool CompareTeam(int p_inflictingTeam)
     {
         if (p_inflictingTeam == team)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+
+    }
+
+    public virtual bool CompareTeam(Faction p_inflictingTeam)
+    {
+        if (p_inflictingTeam == (Faction) team)
         {
             return true;
         }

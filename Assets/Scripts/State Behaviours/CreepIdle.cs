@@ -16,13 +16,7 @@ public class CreepIdle : StateMachineBehaviour
         agent.enabled = false;
         creep.obstacle.enabled = true;
 
-        //if (creep.runningUpdateTarget != null)
-        //{
-        //    creep.StopCoroutine(creep.runningUpdateTarget);
-        //}
-        //creep.runningUpdateTarget = creep.Co_Detection();
-        //creep.StartCoroutine(creep.runningUpdateTarget);
-
+      
     }
 
 }

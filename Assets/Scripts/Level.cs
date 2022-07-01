@@ -24,6 +24,15 @@ public class Level : MonoBehaviour
     public Action OnLevelUp;
     
     public Hitbox LevelTrigger;
+    int team;
+    private void Awake()
+    {
+        if (TryGetComponent<Unit>(out Unit unit))
+        {
+            team = (int)unit.unitFaction;
+    
+        }
+    }
 
     //FORMULA 
     //BountyXP = (100XP + 0.13 × DeadHeroXP) / n + StreakXP
@@ -44,16 +53,15 @@ public class Level : MonoBehaviour
 
     public void TriggerEnteredFunction(Collider hit)
     {
-        if (hit.gameObject.GetComponent<Health>())
+        if (TryGetComponent<Health>(out Health hitHealth))
         {
-
-            Health hitHealth = hit.gameObject.GetComponent<Health>();
+            
             //check if it is already in target list, if not in target list, add it
 
             if (hitHealth.invulnerable == false) //add it if it isnt invulnerable
             {
                
-                if (hitHealth.GetComponent<TestStatsHolder>().unitFaction != GetComponent<TestStatsHolder>().unitFaction)
+                if (!hitHealth.CompareTeam(team))
                 {
                     if (hit.gameObject.GetComponent<Level>() != null)
                     {
@@ -88,7 +96,7 @@ public class Level : MonoBehaviour
             if (hitHealth.invulnerable == false) //add it if it isnt invulnerable
             {
 
-                if (hitHealth.GetComponent<TestStatsHolder>().unitFaction != GetComponent<TestStatsHolder>().unitFaction)
+                if (!hitHealth.CompareTeam(team))
                 {
 
                     if (hit.gameObject.GetComponent<Level>() != null)

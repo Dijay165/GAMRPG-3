@@ -20,7 +20,7 @@ public class UnitSelectionUI : MonoBehaviour
     public Image characterPortrait;
 
 
-    UnitStat unit;
+    Unit playerUnit; //TEMPORARY MAKE THIS EVENT
 
     public void OnEnable()
     {
@@ -37,18 +37,29 @@ public class UnitSelectionUI : MonoBehaviour
     private void Start()
     {
         GameObject player = GameObject.FindGameObjectWithTag("Player");
-        unit = player.GetComponent<TestStatsHolder>().unitStat;
+   
+        if (player.TryGetComponent<Unit>(out Unit unit))
+        {
+     
+            playerUnit = unit;
+        }
     }
-    public void ChangeInfo(UnitStat unitStat)
+    public void ChangeInfo(Unit unit)
     {
         Events.OnUnitSelect.Invoke();
         
-        if (unitStat != null)
+        if (unit != null)
         {
-            attackText.text = unitStat.attack.ToString();
-            defenseText.text = unitStat.defense.ToString();
-            moveSpeedText.text = unitStat.moveSpeed.ToString();
-            healthPointText.text = unitStat.healthPoints.ToString();
+            if (unit.TryGetComponent<Health>(out Health health))
+            {
+                healthPointText.text = health.GetHealth().ToString();
+            }
+            if (unit.TryGetComponent<Attributes>(out Attributes attributes))
+            {
+                attackText.text = attributes.attackDamage.ToString();
+                defenseText.text = attributes.armor.ToString();
+                moveSpeedText.text = attributes.movementSpeed.ToString();
+            } 
         }
     }
 
@@ -62,12 +73,25 @@ public class UnitSelectionUI : MonoBehaviour
 
     public void PlayerInfo()
     {
-
-        attackText.text = unit.attack.ToString();
-        defenseText.text = unit.defense.ToString();
-        moveSpeedText.text = unit.moveSpeed.ToString();
-        healthPointText.text = unit.healthPoints.ToString();
-        characterPortrait.sprite = unit.portraitImage;
+        if (playerUnit != null)
+        {
+            if (playerUnit.TryGetComponent<UnitStat>(out UnitStat unitStat))
+            {
+                characterPortrait.sprite = unitStat.portraitImage;
+            }
+            if (playerUnit.TryGetComponent<Health>(out Health health))
+            {
+                healthPointText.text = health.GetHealth().ToString();
+            }
+            if (playerUnit.TryGetComponent<Attributes>(out Attributes attributes))
+            {
+                attackText.text = attributes.attackDamage.ToString();
+                defenseText.text = attributes.armor.ToString();
+                moveSpeedText.text = attributes.movementSpeed.ToString();
+                
+            }
+        }
+       
     }
 
 }

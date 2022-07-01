@@ -17,9 +17,13 @@ public class TargetedDamager : MonoBehaviour
 
     MOBAMovement mOBAMovement;
     
-    void Start()
+    void Awake()
     {
-        team = (int)GetComponent<TestStatsHolder>().unitFaction;
+        if (TryGetComponent<Unit>(out Unit unit))
+        {
+            team = (int)unit.unitFaction;
+   
+        }
         anim = GetComponent<Animator>();
 
         mOBAMovement = GetComponent<MOBAMovement>();

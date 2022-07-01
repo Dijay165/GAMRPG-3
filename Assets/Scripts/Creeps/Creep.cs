@@ -10,7 +10,7 @@ public abstract class Creep : Unit
     public NavMeshAgent agent;
     public NavMeshObstacle obstacle;
 
-    [SerializeField] private float carvingMoveThreshold = 0.1f;
+    //[SerializeField] private float carvingMoveThreshold = 0.1f;
 
     private float lastMoveTime;
     private Vector3 lastPosition;
@@ -33,23 +33,25 @@ public abstract class Creep : Unit
 
     public float test;
     // Start is called before the first frame update
-    protected void Awake()
+    protected override void Awake()
     {
+        base.Awake();
         agent = GetComponent<NavMeshAgent>();
+        agent.updatePosition = true;
+        agent.updateRotation = false;
+    
         obstacle = GetComponent<NavMeshObstacle>();
-
         obstacle.carveOnlyStationary = false;
         obstacle.carving = true;
 
-        agent.updatePosition = true;
-        agent.updateRotation = false;
         animator = GetComponent<Animator>();
 
     }
 
-    private void OnEnable()
+    protected override void OnEnable()
     {
-
+        base.OnEnable();
+        
     }
 
     protected override void InitializeValues()
@@ -64,7 +66,7 @@ public abstract class Creep : Unit
             agent.enabled = false;
             agent.enabled = true;
         }
-  
+        currentWaypoint = waypoints[2].transform;
         StartCoroutine(Co_Load());
 
     }
@@ -211,7 +213,7 @@ public abstract class Creep : Unit
                     if (hitHealth.invulnerable == false) //add it if it isnt invulnerable
                     {
 
-                        if (!hitHealth.CompareTeam(team))
+                        if (!hitHealth.CompareTeam(unitFaction))
                         {
 
                             enemies.Add(hitHealth);

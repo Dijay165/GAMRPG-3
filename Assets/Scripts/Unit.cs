@@ -3,27 +3,25 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(Health))]
-public abstract class Unit : MonoBehaviour
+public class Unit : MonoBehaviour
 {
     protected bool isInUse;
     public SpriteRenderer icon;
-    protected int team;
     public Health currentTarget;
 
-    public Health health;
-    private HealthOverheadUI healthOverheadUI;
+    [HideInInspector]public Health health;
+    protected HealthOverheadUI healthOverheadUI;
 
-    public void AssignTeam()
+    [SerializeField] public Faction unitFaction;
+    [SerializeField] public UnitStat unitStat;
+
+    public virtual void AssignTeam()
     {
-        TestStatsHolder testStatsHolder = GetComponent<TestStatsHolder>();
-        team = (int)testStatsHolder.unitFaction;
-
-  
         if (icon != null)
         {
-            icon.sprite = testStatsHolder.unitStat.iconImage;
+            icon.sprite = unitStat.iconImage;
 
-            if (testStatsHolder.unitFaction == Faction.Radiant)
+            if (unitFaction == Faction.Radiant)
             {
                 icon.color = new Color32(0, 255, 0, 255);
             }
@@ -31,16 +29,33 @@ public abstract class Unit : MonoBehaviour
             {
                 icon.color = new Color32(255, 0, 0, 255);
             }
-        }
-          
-        
-    }
-    protected virtual void Start()
-    {
-        health = GetComponent<Health>();
-        InitializeValues();
+        } 
     }
 
+    protected virtual void OnEnable()
+    {
+        StartCoroutine(Co_Load());
+    }
+
+    protected virtual void OnDisable()
+    {
+        DeinitializeValues();
+    }
+    protected virtual void Awake()
+    {
+        health = GetComponent<Health>();
+        if (TryGetComponent<Unit>(out Unit unit))
+        {
+            unitStat = unit.unitStat;
+        }
+        
+    }
+
+    IEnumerator Co_Load()
+    {
+        yield return new WaitForSeconds(0.5f);
+        InitializeValues();
+    }
     protected virtual void InitializeValues()
     {
         AssignTeam();
@@ -51,14 +66,14 @@ public abstract class Unit : MonoBehaviour
         health.OnDeathEvent.AddListener(healthOverheadUI.OnHealthDied);
 
        
-        health.OnDeathEvent.AddListener(UnitDeath);
+        health.OnDeathEvent.AddListener(Death);
         isInUse = true;
 
     }
 
     protected virtual void DeinitializeValues()
     {
-
+      
         health.OnHealthModifyEvent.RemoveListener(healthOverheadUI.OnHealthChanged);
         health.OnDeathEvent.RemoveListener(healthOverheadUI.OnHealthDied);
         //health.OnDeathEvent.RemoveAllListeners();
@@ -66,9 +81,9 @@ public abstract class Unit : MonoBehaviour
         isInUse = false;
     }
 
-    public virtual void UnitDeath(Health objectHealth = null)
+    public virtual void Death(Health objectHealth = null)
     {
         DeinitializeValues();
-       
+        Debug.Log(gameObject.name+" Unit dea");
     }
 }

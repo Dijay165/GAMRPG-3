@@ -13,18 +13,23 @@ public class MOBAMovement : MonoBehaviour
 
     TargetedDamager targetedDamager;
 
-    TestStatsHolder statsHolder;
+    Faction unitFaction;
 
-  //  public Vector3 lastSavedLocation;
+    //  public Vector3 lastSavedLocation;
 
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         agent = GetComponent<NavMeshAgent>();
         anim = GetComponent<Animator>();
 
         targetedDamager = GetComponent<TargetedDamager>();
-        statsHolder = GetComponent<TestStatsHolder>();
+        if (TryGetComponent<Unit>(out Unit unit))
+        {
+            unitFaction = unit.unitFaction;
+
+        }
+
     }
 
     // Update is called once per frame
@@ -54,11 +59,11 @@ public class MOBAMovement : MonoBehaviour
                 
                 //Tempt for structure only, make this dynamic 
                 
-                if (hit.transform.gameObject.TryGetComponent(out Structures structures))
+                if (hit.transform.gameObject.TryGetComponent(out Health health))
                 {
-                    if (statsHolder.unitFaction != structures.statsHolder.unitFaction)
+                    if (!health.CompareTeam(unitFaction))
                     {
-                        targetedDamager.targetHealth = structures.health;
+                        targetedDamager.targetHealth = health;
                         Debug.Log("Can Target");
                     }
                     else

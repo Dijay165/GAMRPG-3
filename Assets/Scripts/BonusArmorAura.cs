@@ -5,6 +5,7 @@ using UnityEngine;
 public class BonusArmorAura : MonoBehaviour
 {
     //public AttributeModifier attributeModifier;
+    public Faction unitFaction;
     public SphereCollider detector;
     public float auraRadius = 900;
     public int armorAmount = 3; //5 for tier 2 3 4
@@ -14,62 +15,23 @@ public class BonusArmorAura : MonoBehaviour
         detector.radius = auraRadius;
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        //Collider[] hitColliders = Physics.OverlapSphere(transform.position, auraRadius);
-        ////if enemy is within its detection radius, it sees enemy
-        //foreach (var hitCollider in hitColliders)
-        //{
-            
-           
-        //    Debug.Log("MODIFIER DETE " + hitCollider.gameObject.transform.root.gameObject.name);
-        //    GameObject potentialHero = hitCollider.gameObject.transform.root.gameObject;
-        //    if (potentialHero.GetComponent<Attributes>())
-        //    {
-        //        Debug.Log("hero DETE");
-        //        //AttributeModifier newModifier = Instantiate(attributeModifier, potentialHero.transform);
-        //        //newModifier.armorAmount = armorAmount;
-        //        //newModifier.ApplyModification();
-        //        if (potentialHero.GetComponent <AttributeModifier>() == null)
-        //        {
-        //            AttributeModifier newModifier = potentialHero.AddComponent<AttributeModifier>();
-        //            newModifier.armorAmount = armorAmount;
-        //            newModifier.ApplyModification();
-        //            Debug.Log("MODIFIER APPLIED");
-        //        }
-                
-
-
-        //    }
-
-
-        //}
-
-   
-    }
 
     public void OnTriggerEnter(Collider other)
     {
         GameObject potentialHero = other.gameObject.transform.root.gameObject;
 
         //hero only
-        if (potentialHero.GetComponent<TestStatsHolder>() != null)
+        if (TryGetComponent<Unit>(out Unit unit))
         {
-            Health hitHealth = potentialHero.GetComponent<Health>();
-            if (hitHealth != null)
+      
+            if (potentialHero.TryGetComponent<Health>(out Health hitHealth))
             {
-                if (potentialHero.GetComponent<TestStatsHolder>().unitFaction != GetComponent<TestStatsHolder>().unitFaction)
+                if (!hitHealth.CompareTeam(unitFaction))
                 {
-                   
-                    //Debug.Log("MODIFIER DETE " + other.gameObject.transform.root.gameObject.name);
-
+   
                     if (potentialHero.GetComponent<Attributes>())
                     {
-                      //  Debug.Log("hero DETE");
-                        //AttributeModifier newModifier = Instantiate(attributeModifier, potentialHero.transform);
-                        //newModifier.armorAmount = armorAmount;
-                        //newModifier.ApplyModification();
+ 
                         if (potentialHero.GetComponent<AttributeModifier>() == null)
                         {
                             AttributeModifier newModifier = potentialHero.AddComponent<AttributeModifier>();
@@ -84,37 +46,7 @@ public class BonusArmorAura : MonoBehaviour
                 }
             }
         }
-        
-        //Health hitHealth = potentialHero.GetComponent<Health>();
-        //if (hitHealth != null)
-        //{
-        //    if (hitHealth.CompareTeam(gameObject.GetComponent<Health>().team))
-        //    {
-        //        Debug.Log("MODIFIER DETE " + other.gameObject.transform.root.gameObject.name);
-
-        //        if (potentialHero.GetComponent<Attributes>())
-        //        {
-        //            Debug.Log("hero DETE");
-        //            //AttributeModifier newModifier = Instantiate(attributeModifier, potentialHero.transform);
-        //            //newModifier.armorAmount = armorAmount;
-        //            //newModifier.ApplyModification();
-        //            if (potentialHero.GetComponent<AttributeModifier>() == null)
-        //            {
-        //                AttributeModifier newModifier = potentialHero.AddComponent<AttributeModifier>();
-        //                newModifier.armorAmount = armorAmount;
-        //                newModifier.ApplyModification();
-        //                Debug.Log("MODIFIER APPLIED");
-        //            }
-
-
-
-        //        }
-        //    }
-        //}
-
-
-
-
+ 
     }
 
     public void OnTriggerExit(Collider other)
@@ -126,10 +58,6 @@ public class BonusArmorAura : MonoBehaviour
         GameObject potentialHero = other.gameObject.transform.root.gameObject;
         if (potentialHero.GetComponent<Attributes>())
         {
-            //Debug.Log("hero DETE");
-            //AttributeModifier newModifier = Instantiate(attributeModifier, potentialHero.transform);
-            //newModifier.armorAmount = armorAmount;
-            //newModifier.ApplyModification();
             if (potentialHero.GetComponent<AttributeModifier>() != null)
             {
                 Destroy(potentialHero.GetComponent<AttributeModifier>());
