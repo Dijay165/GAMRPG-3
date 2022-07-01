@@ -24,11 +24,16 @@ public class UnitSelectionUI : MonoBehaviour
 
     Unit playerUnit; //TEMPORARY MAKE THIS EVENT
 
+    public void Start()
+    {
+        StartCoroutine(Temporary());
+    }
+
     public void OnEnable()
     {
         Events.OnResetInfoUI.AddListener(ResetInfo);
         Events.OnPlayerSelect.AddListener(PlayerInfo);
-        StartCoroutine(Temporary());
+        
     }
 
     private void OnDisable()
