@@ -59,6 +59,7 @@ public abstract class Creep : Unit
             mats[0] = redFace;
             skinnedMeshRenderer.materials = mats;
         }
+        agent.speed = unitStat.startingMovementSpeed;
     }
 
     protected override void OnEnable()
@@ -68,6 +69,13 @@ public abstract class Creep : Unit
         // urgent
        
 
+    }
+
+    private void Update()
+    {
+        FaceTarget();
+
+        //transform
     }
 
     protected override void InitializeValues()
@@ -160,13 +168,15 @@ public abstract class Creep : Unit
 
                 animator.SetTrigger("isAttacking");
                 animator.SetBool("isFollowingPath", false);
-             
+                agent.speed = 0;
+
             }
             else   //it isnt within attack radius
             {
               
                 destination = currentTarget.transform;
                 animator.SetTrigger("isMoving");
+                agent.speed = unitStat.startingMovementSpeed;
 
             }
         }
@@ -347,5 +357,13 @@ public abstract class Creep : Unit
     }
 
     
+    public void FaceTarget()
+    {
+        var turnTowardNavSteeringTarget = agent.steeringTarget;
 
+        Vector3 direction = (turnTowardNavSteeringTarget - transform.position).normalized;
+        Quaternion lookRotation = Quaternion.LookRotation(new Vector3(direction.x, 0, direction.z));
+        transform.rotation = Quaternion.Slerp(transform.rotation, lookRotation, Time.deltaTime * 5);
+
+    }
 }

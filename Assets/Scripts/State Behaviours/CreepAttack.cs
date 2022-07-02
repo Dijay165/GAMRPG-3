@@ -19,21 +19,11 @@ public class CreepAttack : StateMachineBehaviour
         damager = animator.gameObject.GetComponent<Damager>();
 
         animator.speed = damager.attributes.attackSpeed;
-        //if (creep.gameObject.activeSelf)
-        //{
-        //    damage = creep.gameObject.GetComponent<Attributes>().attackDamage;
-        //}
-
-        //if (creep.currentTarget.gameObject.activeSelf)
-        //{
-        //    creep.currentTarget.gameObject.GetComponent<Health>().SubtractHealth(damage);
-        //    Debug.Log(creep.gameObject.name + " - " + damage + " - " + creep.currentTarget.gameObject.name);
-        //}
-        //agent.isStopped = true;
+       
         creep.gameObject.GetComponent<Damager>().DamageTarget();
-        
-        //animator.SetTrigger("isIdle");
 
+
+        creep.FaceTarget();
     }
 
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
@@ -47,6 +37,7 @@ public class CreepAttack : StateMachineBehaviour
     override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         animator.speed = 1;
+     
     }
 
     // OnStateMove is called right after Animator.OnAnimatorMove()
