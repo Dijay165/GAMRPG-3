@@ -51,17 +51,22 @@ public abstract class Creep : Unit
 
     }
 
-    protected override void OnEnable()
+    private void Start()
     {
-        base.OnEnable();
-
-        // urgent
         if (unitFaction == Faction.Dire)
         {
             Material[] mats = skinnedMeshRenderer.materials;
             mats[0] = redFace;
             skinnedMeshRenderer.materials = mats;
         }
+    }
+
+    protected override void OnEnable()
+    {
+        base.OnEnable();
+
+        // urgent
+       
 
     }
 

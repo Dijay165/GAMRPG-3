@@ -140,8 +140,8 @@ MonoBehaviour:
   animator: {fileID: 0}
   enemies: []
   test: 0
-  skinnedMeshRenderer: {fileID: 0}
-  redFace: {fileID: 0}
+  skinnedMeshRenderer: {fileID: 598153722911064025}
+  redFace: {fileID: 2100000, guid: 5815b5e5740af5149b199e7573d59794, type: 2}
 --- !u!114 &8175241187461250606
 MonoBehaviour:
   m_ObjectHideFlags: 0
