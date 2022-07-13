@@ -348,6 +348,8 @@ MonoBehaviour:
   health: {fileID: 0}
   unitFaction: 0
   unitStat: {fileID: 0}
+  detection: {fileID: 0}
+  collideDetect: {fileID: 0}
   requiredBuildingsDeadForToBeVulnerable:
   - {fileID: 732474730}
 --- !u!208 &18752185
@@ -1468,6 +1470,10 @@ PrefabInstance:
       propertyPath: requiredBuildingsDeadForToBeVulnerable.Array.data[2]
       value: 
       objectReference: {fileID: 1508795184}
+    - target: {fileID: 6455781348988950185, guid: 6f6de38bc4946428ab2a1d468039753e, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7258400321219153387, guid: 6f6de38bc4946428ab2a1d468039753e, type: 3}
       propertyPath: m_LocalRotation.w
       value: 0.89820796
@@ -1479,6 +1485,10 @@ PrefabInstance:
     - target: {fileID: 7258400321219153387, guid: 6f6de38bc4946428ab2a1d468039753e, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
       value: -52.153
+      objectReference: {fileID: 0}
+    - target: {fileID: 7481084867391267975, guid: 6f6de38bc4946428ab2a1d468039753e, type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 114381954249791234, guid: 6f6de38bc4946428ab2a1d468039753e, type: 3}
@@ -1532,6 +1542,17 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 126
   m_CollisionDetection: 0
+--- !u!114 &150655182 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1289839867, guid: 6f6de38bc4946428ab2a1d468039753e, type: 3}
+  m_PrefabInstance: {fileID: 150655177}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 150655179}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b2ee099bcef3156419938abf98198822, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &179249910
 GameObject:
   m_ObjectHideFlags: 0
@@ -3209,6 +3230,14 @@ PrefabInstance:
       propertyPath: unitFaction
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3144587810365715528, guid: 6f6de38bc4946428ab2a1d468039753e, type: 3}
+      propertyPath: requiredBuildingsDeadForToBeVulnerable.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3144587810365715528, guid: 6f6de38bc4946428ab2a1d468039753e, type: 3}
+      propertyPath: requiredBuildingsDeadForToBeVulnerable.Array.data[0]
+      value: 
+      objectReference: {fileID: 1758434625}
     - target: {fileID: 4304392440088621900, guid: 6f6de38bc4946428ab2a1d468039753e, type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
@@ -3527,23 +3556,16 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3144587810365715528, guid: 6f6de38bc4946428ab2a1d468039753e, type: 3}
       propertyPath: requiredBuildingsDeadForToBeVulnerable.Array.size
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3144587810365715528, guid: 6f6de38bc4946428ab2a1d468039753e, type: 3}
+      propertyPath: requiredBuildingsDeadForToBeVulnerable.Array.data[0]
+      value: 
+      objectReference: {fileID: 1030421006}
     m_RemovedComponents:
     - {fileID: 1289839868, guid: 6f6de38bc4946428ab2a1d468039753e, type: 3}
     - {fileID: 1716755606, guid: 6f6de38bc4946428ab2a1d468039753e, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 6f6de38bc4946428ab2a1d468039753e, type: 3}
---- !u!114 &306701834 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 1289839867, guid: 6f6de38bc4946428ab2a1d468039753e, type: 3}
-  m_PrefabInstance: {fileID: 306701833}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 306701835}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b2ee099bcef3156419938abf98198822, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &306701835 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1161251386251526, guid: 6f6de38bc4946428ab2a1d468039753e, type: 3}
@@ -4891,16 +4913,20 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3144587810365715528, guid: 6f6de38bc4946428ab2a1d468039753e, type: 3}
       propertyPath: requiredBuildingsDeadForToBeVulnerable.Array.size
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3144587810365715528, guid: 6f6de38bc4946428ab2a1d468039753e, type: 3}
       propertyPath: requiredBuildingsDeadForToBeVulnerable.Array.data[0]
       value: 
-      objectReference: {fileID: 1758434625}
+      objectReference: {fileID: 1479848497}
     - target: {fileID: 3144587810365715528, guid: 6f6de38bc4946428ab2a1d468039753e, type: 3}
       propertyPath: requiredBuildingsDeadForToBeVulnerable.Array.data[1]
       value: 
       objectReference: {fileID: 267384674}
+    - target: {fileID: 6455781348988950185, guid: 6f6de38bc4946428ab2a1d468039753e, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7258400321219153387, guid: 6f6de38bc4946428ab2a1d468039753e, type: 3}
       propertyPath: m_LocalRotation.w
       value: -0.4404485
@@ -4916,6 +4942,10 @@ PrefabInstance:
     - target: {fileID: 7258400321219153387, guid: 6f6de38bc4946428ab2a1d468039753e, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
       value: -232.265
+      objectReference: {fileID: 0}
+    - target: {fileID: 7481084867391267975, guid: 6f6de38bc4946428ab2a1d468039753e, type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 114381954249791234, guid: 6f6de38bc4946428ab2a1d468039753e, type: 3}
@@ -5126,6 +5156,10 @@ PrefabInstance:
       propertyPath: requiredBuildingsDeadForToBeVulnerable.Array.data[1]
       value: 
       objectReference: {fileID: 562336099}
+    - target: {fileID: 6455781348988950185, guid: 6f6de38bc4946428ab2a1d468039753e, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7258400321219153387, guid: 6f6de38bc4946428ab2a1d468039753e, type: 3}
       propertyPath: m_LocalRotation.w
       value: 0.69923925
@@ -5137,6 +5171,10 @@ PrefabInstance:
     - target: {fileID: 7258400321219153387, guid: 6f6de38bc4946428ab2a1d468039753e, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
       value: -91.268
+      objectReference: {fileID: 0}
+    - target: {fileID: 7481084867391267975, guid: 6f6de38bc4946428ab2a1d468039753e, type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 114381954249791234, guid: 6f6de38bc4946428ab2a1d468039753e, type: 3}
@@ -5703,6 +5741,30 @@ PrefabInstance:
       propertyPath: unitFaction
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 8922848427992051963, guid: d8faacfa67b8d4af8b5a81028390f02b, type: 3}
+      propertyPath: requiredBuildingsDeadForToBeVulnerable.Array.size
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8922848427992051963, guid: d8faacfa67b8d4af8b5a81028390f02b, type: 3}
+      propertyPath: requiredBuildingsDeadForToBeVulnerable.Array.data[0]
+      value: 
+      objectReference: {fileID: 1479848497}
+    - target: {fileID: 8922848427992051963, guid: d8faacfa67b8d4af8b5a81028390f02b, type: 3}
+      propertyPath: requiredBuildingsDeadForToBeVulnerable.Array.data[1]
+      value: 
+      objectReference: {fileID: 1093494337}
+    - target: {fileID: 8922848427992051963, guid: d8faacfa67b8d4af8b5a81028390f02b, type: 3}
+      propertyPath: requiredBuildingsDeadForToBeVulnerable.Array.data[2]
+      value: 
+      objectReference: {fileID: 18752181}
+    - target: {fileID: 8922848427992051963, guid: d8faacfa67b8d4af8b5a81028390f02b, type: 3}
+      propertyPath: requiredBuildingsDeadForToBeVulnerable.Array.data[3]
+      value: 
+      objectReference: {fileID: 680526523}
+    - target: {fileID: 8922848427992051963, guid: d8faacfa67b8d4af8b5a81028390f02b, type: 3}
+      propertyPath: requiredBuildingsDeadForToBeVulnerable.Array.data[4]
+      value: 
+      objectReference: {fileID: 1013053302}
     m_RemovedComponents:
     - {fileID: 114572677471174774, guid: d8faacfa67b8d4af8b5a81028390f02b, type: 3}
     - {fileID: 114748026888339944, guid: d8faacfa67b8d4af8b5a81028390f02b, type: 3}
@@ -5738,6 +5800,8 @@ MonoBehaviour:
   health: {fileID: 0}
   unitFaction: 0
   unitStat: {fileID: 0}
+  detection: {fileID: 0}
+  collideDetect: {fileID: 0}
   requiredBuildingsDeadForToBeVulnerable: []
 --- !u!208 &557613500
 NavMeshObstacle:
@@ -6814,6 +6878,10 @@ PrefabInstance:
       propertyPath: requiredBuildingsDeadForToBeVulnerable.Array.data[2]
       value: 
       objectReference: {fileID: 1508795184}
+    - target: {fileID: 6455781348988950185, guid: 6f6de38bc4946428ab2a1d468039753e, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7258400321219153387, guid: 6f6de38bc4946428ab2a1d468039753e, type: 3}
       propertyPath: m_LocalRotation.w
       value: 0.89820796
@@ -6825,6 +6893,10 @@ PrefabInstance:
     - target: {fileID: 7258400321219153387, guid: 6f6de38bc4946428ab2a1d468039753e, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
       value: -52.153
+      objectReference: {fileID: 0}
+    - target: {fileID: 7481084867391267975, guid: 6f6de38bc4946428ab2a1d468039753e, type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 114381954249791234, guid: 6f6de38bc4946428ab2a1d468039753e, type: 3}
@@ -6878,6 +6950,17 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 126
   m_CollisionDetection: 0
+--- !u!114 &622856310 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1289839867, guid: 6f6de38bc4946428ab2a1d468039753e, type: 3}
+  m_PrefabInstance: {fileID: 622856305}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 622856307}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b2ee099bcef3156419938abf98198822, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &637360699
 GameObject:
   m_ObjectHideFlags: 0
@@ -7498,6 +7581,30 @@ PrefabInstance:
       propertyPath: statsHolder
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 8922848427992051963, guid: d8faacfa67b8d4af8b5a81028390f02b, type: 3}
+      propertyPath: requiredBuildingsDeadForToBeVulnerable.Array.size
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8922848427992051963, guid: d8faacfa67b8d4af8b5a81028390f02b, type: 3}
+      propertyPath: requiredBuildingsDeadForToBeVulnerable.Array.data[0]
+      value: 
+      objectReference: {fileID: 1655366662}
+    - target: {fileID: 8922848427992051963, guid: d8faacfa67b8d4af8b5a81028390f02b, type: 3}
+      propertyPath: requiredBuildingsDeadForToBeVulnerable.Array.data[1]
+      value: 
+      objectReference: {fileID: 1093049224}
+    - target: {fileID: 8922848427992051963, guid: d8faacfa67b8d4af8b5a81028390f02b, type: 3}
+      propertyPath: requiredBuildingsDeadForToBeVulnerable.Array.data[2]
+      value: 
+      objectReference: {fileID: 954233845}
+    - target: {fileID: 8922848427992051963, guid: d8faacfa67b8d4af8b5a81028390f02b, type: 3}
+      propertyPath: requiredBuildingsDeadForToBeVulnerable.Array.data[3]
+      value: 
+      objectReference: {fileID: 150655182}
+    - target: {fileID: 8922848427992051963, guid: d8faacfa67b8d4af8b5a81028390f02b, type: 3}
+      propertyPath: requiredBuildingsDeadForToBeVulnerable.Array.data[4]
+      value: 
+      objectReference: {fileID: 622856310}
     m_RemovedComponents:
     - {fileID: 0}
     - {fileID: 1371393305, guid: d8faacfa67b8d4af8b5a81028390f02b, type: 3}
@@ -7529,6 +7636,8 @@ MonoBehaviour:
   health: {fileID: 0}
   unitFaction: 0
   unitStat: {fileID: 0}
+  detection: {fileID: 0}
+  collideDetect: {fileID: 0}
   requiredBuildingsDeadForToBeVulnerable: []
 --- !u!208 &679598509
 NavMeshObstacle:
@@ -7689,6 +7798,10 @@ PrefabInstance:
       propertyPath: requiredBuildingsDeadForToBeVulnerable.Array.data[1]
       value: 
       objectReference: {fileID: 1479848497}
+    - target: {fileID: 6455781348988950185, guid: 6f6de38bc4946428ab2a1d468039753e, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7258400321219153387, guid: 6f6de38bc4946428ab2a1d468039753e, type: 3}
       propertyPath: m_LocalRotation.w
       value: -0.3726881
@@ -7704,6 +7817,10 @@ PrefabInstance:
     - target: {fileID: 7258400321219153387, guid: 6f6de38bc4946428ab2a1d468039753e, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
       value: -223.763
+      objectReference: {fileID: 0}
+    - target: {fileID: 7481084867391267975, guid: 6f6de38bc4946428ab2a1d468039753e, type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 114381954249791234, guid: 6f6de38bc4946428ab2a1d468039753e, type: 3}
@@ -7757,6 +7874,17 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 126
   m_CollisionDetection: 0
+--- !u!114 &680526523 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1289839867, guid: 6f6de38bc4946428ab2a1d468039753e, type: 3}
+  m_PrefabInstance: {fileID: 680526518}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 680526520}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b2ee099bcef3156419938abf98198822, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &680609695
 GameObject:
   m_ObjectHideFlags: 0
@@ -19862,6 +19990,8 @@ MonoBehaviour:
   health: {fileID: 0}
   unitFaction: 0
   unitStat: {fileID: 0}
+  detection: {fileID: 0}
+  collideDetect: {fileID: 0}
   requiredBuildingsDeadForToBeVulnerable:
   - {fileID: 512404764}
 --- !u!208 &954233847
@@ -24983,6 +25113,10 @@ PrefabInstance:
       propertyPath: requiredBuildingsDeadForToBeVulnerable.Array.data[0]
       value: 
       objectReference: {fileID: 259911906}
+    - target: {fileID: 6455781348988950185, guid: 6f6de38bc4946428ab2a1d468039753e, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7258400321219153387, guid: 6f6de38bc4946428ab2a1d468039753e, type: 3}
       propertyPath: m_LocalRotation.w
       value: 0.99998116
@@ -24994,6 +25128,10 @@ PrefabInstance:
     - target: {fileID: 7258400321219153387, guid: 6f6de38bc4946428ab2a1d468039753e, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
       value: -0.704
+      objectReference: {fileID: 0}
+    - target: {fileID: 7481084867391267975, guid: 6f6de38bc4946428ab2a1d468039753e, type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 114381954249791234, guid: 6f6de38bc4946428ab2a1d468039753e, type: 3}
@@ -25280,6 +25418,10 @@ PrefabInstance:
       propertyPath: requiredBuildingsDeadForToBeVulnerable.Array.data[1]
       value: 
       objectReference: {fileID: 1479848497}
+    - target: {fileID: 6455781348988950185, guid: 6f6de38bc4946428ab2a1d468039753e, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7258400321219153387, guid: 6f6de38bc4946428ab2a1d468039753e, type: 3}
       propertyPath: m_LocalRotation.w
       value: -0.3726881
@@ -25295,6 +25437,10 @@ PrefabInstance:
     - target: {fileID: 7258400321219153387, guid: 6f6de38bc4946428ab2a1d468039753e, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
       value: -223.763
+      objectReference: {fileID: 0}
+    - target: {fileID: 7481084867391267975, guid: 6f6de38bc4946428ab2a1d468039753e, type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 114381954249791234, guid: 6f6de38bc4946428ab2a1d468039753e, type: 3}
@@ -25348,6 +25494,17 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 126
   m_CollisionDetection: 0
+--- !u!114 &1013053302 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1289839867, guid: 6f6de38bc4946428ab2a1d468039753e, type: 3}
+  m_PrefabInstance: {fileID: 1013053297}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1013053299}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b2ee099bcef3156419938abf98198822, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1014405271
 GameObject:
   m_ObjectHideFlags: 0
@@ -25682,7 +25839,11 @@ PrefabInstance:
     - target: {fileID: 3144587810365715528, guid: 6f6de38bc4946428ab2a1d468039753e, type: 3}
       propertyPath: requiredBuildingsDeadForToBeVulnerable.Array.data[0]
       value: 
-      objectReference: {fileID: 306701834}
+      objectReference: {fileID: 1508795184}
+    - target: {fileID: 6455781348988950185, guid: 6f6de38bc4946428ab2a1d468039753e, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7258400321219153387, guid: 6f6de38bc4946428ab2a1d468039753e, type: 3}
       propertyPath: m_LocalRotation.w
       value: 0.89820796
@@ -25694,6 +25855,10 @@ PrefabInstance:
     - target: {fileID: 7258400321219153387, guid: 6f6de38bc4946428ab2a1d468039753e, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
       value: -52.153
+      objectReference: {fileID: 0}
+    - target: {fileID: 7481084867391267975, guid: 6f6de38bc4946428ab2a1d468039753e, type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 114381954249791234, guid: 6f6de38bc4946428ab2a1d468039753e, type: 3}
@@ -26289,6 +26454,8 @@ MonoBehaviour:
   health: {fileID: 0}
   unitFaction: 0
   unitStat: {fileID: 0}
+  detection: {fileID: 0}
+  collideDetect: {fileID: 0}
   requiredBuildingsDeadForToBeVulnerable:
   - {fileID: 1692431593}
 --- !u!208 &1093049226
@@ -26532,6 +26699,8 @@ MonoBehaviour:
   health: {fileID: 0}
   unitFaction: 0
   unitStat: {fileID: 0}
+  detection: {fileID: 0}
+  collideDetect: {fileID: 0}
   requiredBuildingsDeadForToBeVulnerable:
   - {fileID: 1917111675}
 --- !u!208 &1093494339
@@ -33188,6 +33357,10 @@ PrefabInstance:
       propertyPath: requiredBuildingsDeadForToBeVulnerable.Array.data[0]
       value: 
       objectReference: {fileID: 562336099}
+    - target: {fileID: 6455781348988950185, guid: 6f6de38bc4946428ab2a1d468039753e, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7258400321219153387, guid: 6f6de38bc4946428ab2a1d468039753e, type: 3}
       propertyPath: m_LocalRotation.w
       value: 0.69923925
@@ -33199,6 +33372,10 @@ PrefabInstance:
     - target: {fileID: 7258400321219153387, guid: 6f6de38bc4946428ab2a1d468039753e, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
       value: -91.268
+      objectReference: {fileID: 0}
+    - target: {fileID: 7481084867391267975, guid: 6f6de38bc4946428ab2a1d468039753e, type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 114381954249791234, guid: 6f6de38bc4946428ab2a1d468039753e, type: 3}
@@ -33519,6 +33696,18 @@ PrefabInstance:
       propertyPath: unitFaction
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 8922848427992051963, guid: d8faacfa67b8d4af8b5a81028390f02b, type: 3}
+      propertyPath: requiredBuildingsDeadForToBeVulnerable.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8922848427992051963, guid: d8faacfa67b8d4af8b5a81028390f02b, type: 3}
+      propertyPath: requiredBuildingsDeadForToBeVulnerable.Array.data[0]
+      value: 
+      objectReference: {fileID: 1013053302}
+    - target: {fileID: 8922848427992051963, guid: d8faacfa67b8d4af8b5a81028390f02b, type: 3}
+      propertyPath: requiredBuildingsDeadForToBeVulnerable.Array.data[1]
+      value: 
+      objectReference: {fileID: 680526523}
     m_RemovedComponents:
     - {fileID: 114572677471174774, guid: d8faacfa67b8d4af8b5a81028390f02b, type: 3}
     - {fileID: 114748026888339944, guid: d8faacfa67b8d4af8b5a81028390f02b, type: 3}
@@ -33565,6 +33754,8 @@ MonoBehaviour:
   health: {fileID: 0}
   unitFaction: 0
   unitStat: {fileID: 0}
+  detection: {fileID: 0}
+  collideDetect: {fileID: 0}
   requiredBuildingsDeadForToBeVulnerable:
   - {fileID: 499171696}
 --- !u!208 &1479848499
@@ -33716,16 +33907,20 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3144587810365715528, guid: 6f6de38bc4946428ab2a1d468039753e, type: 3}
       propertyPath: requiredBuildingsDeadForToBeVulnerable.Array.size
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3144587810365715528, guid: 6f6de38bc4946428ab2a1d468039753e, type: 3}
       propertyPath: requiredBuildingsDeadForToBeVulnerable.Array.data[0]
       value: 
-      objectReference: {fileID: 306701834}
+      objectReference: {fileID: 1655366662}
     - target: {fileID: 3144587810365715528, guid: 6f6de38bc4946428ab2a1d468039753e, type: 3}
       propertyPath: requiredBuildingsDeadForToBeVulnerable.Array.data[1]
       value: 
       objectReference: {fileID: 1030421006}
+    - target: {fileID: 6455781348988950185, guid: 6f6de38bc4946428ab2a1d468039753e, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7258400321219153387, guid: 6f6de38bc4946428ab2a1d468039753e, type: 3}
       propertyPath: m_LocalRotation.w
       value: 0.89820796
@@ -33737,6 +33932,10 @@ PrefabInstance:
     - target: {fileID: 7258400321219153387, guid: 6f6de38bc4946428ab2a1d468039753e, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
       value: -52.153
+      objectReference: {fileID: 0}
+    - target: {fileID: 7481084867391267975, guid: 6f6de38bc4946428ab2a1d468039753e, type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 114381954249791234, guid: 6f6de38bc4946428ab2a1d468039753e, type: 3}
@@ -34017,6 +34216,10 @@ PrefabInstance:
       propertyPath: requiredBuildingsDeadForToBeVulnerable.Array.data[0]
       value: 
       objectReference: {fileID: 665948716}
+    - target: {fileID: 6455781348988950185, guid: 6f6de38bc4946428ab2a1d468039753e, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7258400321219153387, guid: 6f6de38bc4946428ab2a1d468039753e, type: 3}
       propertyPath: m_LocalRotation.w
       value: -0.73136556
@@ -34032,6 +34235,10 @@ PrefabInstance:
     - target: {fileID: 7258400321219153387, guid: 6f6de38bc4946428ab2a1d468039753e, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
       value: -274.002
+      objectReference: {fileID: 0}
+    - target: {fileID: 7481084867391267975, guid: 6f6de38bc4946428ab2a1d468039753e, type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 114381954249791234, guid: 6f6de38bc4946428ab2a1d468039753e, type: 3}
@@ -35339,16 +35546,16 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8922848427992051963, guid: d8faacfa67b8d4af8b5a81028390f02b, type: 3}
       propertyPath: requiredBuildingsDeadForToBeVulnerable.Array.size
-      value: 3
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 8922848427992051963, guid: d8faacfa67b8d4af8b5a81028390f02b, type: 3}
       propertyPath: requiredBuildingsDeadForToBeVulnerable.Array.data[0]
       value: 
-      objectReference: {fileID: 306701834}
+      objectReference: {fileID: 622856310}
     - target: {fileID: 8922848427992051963, guid: d8faacfa67b8d4af8b5a81028390f02b, type: 3}
       propertyPath: requiredBuildingsDeadForToBeVulnerable.Array.data[1]
       value: 
-      objectReference: {fileID: 1030421006}
+      objectReference: {fileID: 150655182}
     - target: {fileID: 8922848427992051963, guid: d8faacfa67b8d4af8b5a81028390f02b, type: 3}
       propertyPath: requiredBuildingsDeadForToBeVulnerable.Array.data[2]
       value: 
@@ -35399,6 +35606,8 @@ MonoBehaviour:
   health: {fileID: 0}
   unitFaction: 0
   unitStat: {fileID: 0}
+  detection: {fileID: 0}
+  collideDetect: {fileID: 0}
   requiredBuildingsDeadForToBeVulnerable:
   - {fileID: 1508795184}
 --- !u!114 &1655366664
@@ -35418,6 +35627,8 @@ MonoBehaviour:
   health: {fileID: 0}
   unitFaction: 0
   unitStat: {fileID: 0}
+  detection: {fileID: 0}
+  collideDetect: {fileID: 0}
   requiredBuildingsDeadForToBeVulnerable:
   - {fileID: 1508795184}
 --- !u!208 &1655366665
@@ -36022,6 +36233,10 @@ PrefabInstance:
       propertyPath: requiredBuildingsDeadForToBeVulnerable.Array.data[1]
       value: 
       objectReference: {fileID: 259911906}
+    - target: {fileID: 6455781348988950185, guid: 6f6de38bc4946428ab2a1d468039753e, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7258400321219153387, guid: 6f6de38bc4946428ab2a1d468039753e, type: 3}
       propertyPath: m_LocalRotation.w
       value: 0.99998116
@@ -36033,6 +36248,10 @@ PrefabInstance:
     - target: {fileID: 7258400321219153387, guid: 6f6de38bc4946428ab2a1d468039753e, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
       value: -0.704
+      objectReference: {fileID: 0}
+    - target: {fileID: 7481084867391267975, guid: 6f6de38bc4946428ab2a1d468039753e, type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 114381954249791234, guid: 6f6de38bc4946428ab2a1d468039753e, type: 3}
@@ -41498,7 +41717,11 @@ PrefabInstance:
     - target: {fileID: 3144587810365715528, guid: 6f6de38bc4946428ab2a1d468039753e, type: 3}
       propertyPath: requiredBuildingsDeadForToBeVulnerable.Array.data[0]
       value: 
-      objectReference: {fileID: 267384674}
+      objectReference: {fileID: 499171696}
+    - target: {fileID: 6455781348988950185, guid: 6f6de38bc4946428ab2a1d468039753e, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7258400321219153387, guid: 6f6de38bc4946428ab2a1d468039753e, type: 3}
       propertyPath: m_LocalRotation.w
       value: -0.4404485
@@ -41514,6 +41737,10 @@ PrefabInstance:
     - target: {fileID: 7258400321219153387, guid: 6f6de38bc4946428ab2a1d468039753e, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
       value: -232.265
+      objectReference: {fileID: 0}
+    - target: {fileID: 7481084867391267975, guid: 6f6de38bc4946428ab2a1d468039753e, type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 114381954249791234, guid: 6f6de38bc4946428ab2a1d468039753e, type: 3}
@@ -47632,6 +47859,10 @@ PrefabInstance:
       propertyPath: requiredBuildingsDeadForToBeVulnerable.Array.data[1]
       value: 
       objectReference: {fileID: 665948716}
+    - target: {fileID: 6455781348988950185, guid: 6f6de38bc4946428ab2a1d468039753e, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7258400321219153387, guid: 6f6de38bc4946428ab2a1d468039753e, type: 3}
       propertyPath: m_LocalRotation.w
       value: -0.73136556
@@ -47647,6 +47878,10 @@ PrefabInstance:
     - target: {fileID: 7258400321219153387, guid: 6f6de38bc4946428ab2a1d468039753e, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
       value: -274.002
+      objectReference: {fileID: 0}
+    - target: {fileID: 7481084867391267975, guid: 6f6de38bc4946428ab2a1d468039753e, type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 114381954249791234, guid: 6f6de38bc4946428ab2a1d468039753e, type: 3}

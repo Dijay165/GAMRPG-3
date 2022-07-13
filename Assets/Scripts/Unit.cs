@@ -78,6 +78,7 @@ public class Unit : MonoBehaviour
       
         health.OnHealthModifyEvent.RemoveListener(healthOverheadUI.OnHealthChanged);
         health.OnDeathEvent.RemoveListener(healthOverheadUI.OnHealthDied);
+       
         //health.OnDeathEvent.RemoveAllListeners();
 
         isInUse = false;

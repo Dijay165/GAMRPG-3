@@ -9,11 +9,18 @@ public class Structures : Unit
 
     private DebugManager debugManager;
 
+  //  public GameObject towerDetectGO;
+
+    public TowerDetection detection;
+
+    public Collider collideDetect;
+
     protected override void Awake()
     {
         base.Awake();
         debugManager = GameObject.Find("DebugManager").GetComponent<DebugManager>();
         RequiredBuildingsDestroyedCounter = requiredBuildingsDeadForToBeVulnerable.Count;
+
         if (RequiredBuildingsDestroyedCounter == 0)
         {
             GetComponent<Health>().invulnerable = false;
@@ -32,6 +39,16 @@ public class Structures : Unit
     {
         base.OnEnable();
         Events.OnTowerDied.AddListener(OnSelectStructure);
+
+
+        if(gameObject.GetComponentInChildren<TowerDetection>() != null)
+        {
+            detection = gameObject.GetComponentInChildren<TowerDetection>();
+
+            collideDetect = detection.gameObject.GetComponent<Collider>();
+
+        }
+       
         //StartCoroutine(Co_Delay());
     }
 
@@ -54,6 +71,7 @@ public class Structures : Unit
     {
         Debug.Log("Death");
         DeinitializeValues();
+
         Destroy(gameObject);
     }
 
