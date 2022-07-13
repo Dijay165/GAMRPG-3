@@ -139,19 +139,14 @@ public abstract class Creep : Unit
   
     }
 
-    bool Condi()
+    bool IsInRange()
     {
         Vector2 t = new Vector2(currentTarget.transform.position.x, currentTarget.transform.position.z);
         Vector2 cp = new Vector2(transform.position.x, transform.position.z);
-        if (Vector2.Distance(t, cp) <= detectionRadius) //if within attack radius
-        {
-            return true;
-        }
-        else
-        {
-            return false;
-        }
-           
+
+
+        return Vector2.Distance(t, cp) <= detectionRadius;
+           //return vector 2 dist tcp, <= cp 
     }
 
     void CheckDistanceFromTarget()
@@ -198,13 +193,13 @@ public abstract class Creep : Unit
         //check if current target still within range
         if (currentTarget != null)
         {
-            if (Condi() == true) //if within attack radius
+            if (IsInRange() == true) //if within attack radius
             {
                 CheckDistanceFromTarget();
             }
        
         
-            else if (Condi() == false)// not within detection radius anymore
+            else if (IsInRange() == false)// not within detection radius anymore
             {
                 NewCurrentTarget();
             }
@@ -238,13 +233,10 @@ public abstract class Creep : Unit
                     Health hitHealth = hitCollider.gameObject.GetComponent<Health>();
                     if (hitHealth.invulnerable == false) //add it if it isnt invulnerable
                     {
-
                         if (!hitHealth.CompareTeam(unitFaction))
                         {
-
                             enemies.Add(hitHealth);
-
-                            //organize
+                            //organize, RULE OF THUMB; IF THREE NESTED IF, WE CAN REFRACTOR
                             if (enemies.Count > 2)
                             {
                                 for (int i = 0; i < enemies.Count; i++)
@@ -266,22 +258,11 @@ public abstract class Creep : Unit
                                     }
                                 }
                             }
-
                         }
-
-
                     }
-
-
-
                 }
             }
-            
-
-
         }
-
-
     }
 
     void NewCurrentTarget(Health objectHealth = null)

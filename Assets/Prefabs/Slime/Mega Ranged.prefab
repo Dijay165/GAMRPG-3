@@ -238,8 +238,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4147275252921541088}
-  - component: {fileID: 6783607742798335259}
   - component: {fileID: 3581430179668853200}
+  - component: {fileID: 6783607742798335259}
   - component: {fileID: 5062193489933160578}
   - component: {fileID: 2306071005335114381}
   - component: {fileID: 4134421114082294647}
@@ -276,6 +276,23 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3581430179668853200
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4147275252921541089}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b2ee099bcef3156419938abf98198822, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playersParent: {fileID: 0}
+  invulnerable: 0
+  currentHealth: 0
+  minHealth: 0
+  maxHealth: 475
 --- !u!114 &6783607742798335259
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -307,23 +324,6 @@ MonoBehaviour:
   test: 0
   skinnedMeshRenderer: {fileID: 4147275254690885895}
   redFace: {fileID: 2100000, guid: 5815b5e5740af5149b199e7573d59794, type: 2}
---- !u!114 &3581430179668853200
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4147275252921541089}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b2ee099bcef3156419938abf98198822, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  playersParent: {fileID: 0}
-  invulnerable: 0
-  currentHealth: 0
-  minHealth: 0
-  maxHealth: 475
 --- !u!54 &5062193489933160578
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -470,7 +470,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4147275252921541089}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7c3d457f7f78c7a43abe4111be03762d, type: 3}
   m_Name: 
