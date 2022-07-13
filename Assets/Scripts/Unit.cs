@@ -86,7 +86,7 @@ public class Unit : MonoBehaviour
     public virtual void Death(Health objectHealth = null)
     {
         DeinitializeValues();
-        Debug.Log(gameObject.name+" Unit dea");
+     //   Debug.Log(gameObject.name+" Unit dea");
     }
 
   
