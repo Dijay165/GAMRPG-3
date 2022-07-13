@@ -9,11 +9,11 @@ public class Structures : Unit
 
     private DebugManager debugManager;
 
-  //  public GameObject towerDetectGO;
+    public GameObject towerDetectGO;
 
-    public TowerDetection detection;
+   // public TowerDetection detection;
 
-    public Collider collideDetect;
+    //public Collider collideDetect;
 
     protected override void Awake()
     {
@@ -21,14 +21,14 @@ public class Structures : Unit
         debugManager = GameObject.Find("DebugManager").GetComponent<DebugManager>();
         RequiredBuildingsDestroyedCounter = requiredBuildingsDeadForToBeVulnerable.Count;
 
-        if (RequiredBuildingsDestroyedCounter == 0)
-        {
-            GetComponent<Health>().invulnerable = false;
-        }
-        else
-        {
-            GetComponent<Health>().invulnerable = true;
-        }
+        //if (RequiredBuildingsDestroyedCounter == 0)
+        //{
+        //    GetComponent<Health>().invulnerable = false;
+        //}
+        //else
+        //{
+        //    GetComponent<Health>().invulnerable = true;
+        //}
         for (int i = 0; i < requiredBuildingsDeadForToBeVulnerable.Count; i++)
         {
             requiredBuildingsDeadForToBeVulnerable[i].OnDeathEvent.AddListener(ReduceRequirement);
@@ -39,16 +39,7 @@ public class Structures : Unit
     {
         base.OnEnable();
         Events.OnTowerDied.AddListener(OnSelectStructure);
-
-
-        if(gameObject.GetComponentInChildren<TowerDetection>() != null)
-        {
-            detection = gameObject.GetComponentInChildren<TowerDetection>();
-
-            collideDetect = detection.gameObject.GetComponent<Collider>();
-
-        }
-       
+  
         //StartCoroutine(Co_Delay());
     }
 
@@ -70,6 +61,7 @@ public class Structures : Unit
     public override void Death(Health objectHealth = null)
     {
         Debug.Log("Death");
+        TowerDied();
         DeinitializeValues();
 
         Destroy(gameObject);
@@ -83,7 +75,19 @@ public class Structures : Unit
         RequiredBuildingsDestroyedCounter--;
         if (RequiredBuildingsDestroyedCounter == 0)
         {
-            GetComponent<Health>().invulnerable = false;
+            GetComponent<Health>().invulnerable = false;   
+        }
+    }
+
+    void TowerDied()
+    {
+        Debug.Log("Tower Died");
+        foreach(var towerDetection in requiredBuildingsDeadForToBeVulnerable)
+        {
+            towerDetection.gameObject.GetComponent<Health>().invulnerable = false;
+            towerDetection.gameObject.GetComponentInChildren<TowerDetection>().enabled = true;
+            towerDetection.gameObject.GetComponentInChildren<SphereCollider>().enabled = true;
+            // do collider next
         }
     }
 
