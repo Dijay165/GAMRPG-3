@@ -5,7 +5,7 @@ using UnityEngine.Events;
 public class HomingProjectile : MonoBehaviour
 {
    
-    [SerializeField] private int damage;
+    [SerializeField] private float damage;
     [SerializeField] private float speed;
 
 
@@ -22,7 +22,7 @@ public class HomingProjectile : MonoBehaviour
     {
         bc = bc ? bc : GetComponent<BoxCollider>();
     }
-    public void InitializeValues(Health p_targetHealth, int p_damage, float p_speed)
+    public void InitializeValues(Health p_targetHealth, float p_damage, float p_speed)
     {
         targetHealth = p_targetHealth;
         targetTransform = p_targetHealth.transform;

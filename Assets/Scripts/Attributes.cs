@@ -25,10 +25,10 @@ public class Attributes : MonoBehaviour
     public int agility;
     public int intelligence;
 
-    public int armor;
+    public float armor;
     public int magicResistance;
 
-    public int attackDamage;
+    public float attackDamage;
     public float attackSpeed;
     public float attackRange;
 
@@ -38,15 +38,16 @@ public class Attributes : MonoBehaviour
 
     public Action OnAttributesUpdated;
 
-   
+    public float bonusArmor;
+
     public void ResetValues()
     {
-      
+
         if (TryGetComponent<Unit>(out Unit unit))
         {
             skillPoints = 0;
 
-            defaultStrength = unit.unitStat.startingStrength; 
+            defaultStrength = unit.unitStat.startingStrength;
             defaultAgility = unit.unitStat.startingAgility;
             defaultIntelligence = unit.unitStat.startingIntelligence;
 
@@ -61,7 +62,9 @@ public class Attributes : MonoBehaviour
 
             weaponType = unit.unitStat.weaponType;
             armorType = unit.unitStat.armorType;
-          
+
+            armor = defaultArmor + bonusArmor;
+
         }
         InitializeValues();
     }
@@ -80,7 +83,52 @@ public class Attributes : MonoBehaviour
         attackRange = defaultAttackRange;
 
         movementSpeed = defaultMovementSpeed;
-   
+
 
     }
-}
+
+
+    public static Dictionary<WeaponType, Dictionary<ArmorType, Func<float, float>>> damageTypes = new Dictionary<WeaponType, Dictionary<ArmorType, Func<float, float>>>() {
+            {WeaponType.Basic, new Dictionary<ArmorType, Func<float, float>> {
+                { ArmorType.Basic, baseDamage => { return baseDamage * 2f; }},
+                { ArmorType.Fortified, baseDamage => { return baseDamage * 500f; }},
+                { ArmorType.Hero, baseDamage => { return baseDamage * 500f; }}
+            }},
+            {
+                WeaponType.Hero, new Dictionary<ArmorType, Func<float, float>> {
+                 { ArmorType.Basic, baseDamage => { return baseDamage * 2f; }},
+                { ArmorType.Fortified, baseDamage => { return baseDamage * 500f; }},
+                { ArmorType.Hero, baseDamage => { return baseDamage * 500f; }}
+            }},
+            { 
+              WeaponType.Pierce, new Dictionary<ArmorType, Func<float, float>> {
+                 { ArmorType.Basic, baseDamage => { return baseDamage * 2f; }},
+                { ArmorType.Fortified, baseDamage => { return baseDamage * 500f; }},
+                { ArmorType.Hero, baseDamage => { return baseDamage * 500f; }}
+            }},
+        { 
+              WeaponType.Siege, new Dictionary<ArmorType, Func<float, float>> {
+                 { ArmorType.Basic, baseDamage => { return baseDamage * 2f; }},
+                { ArmorType.Fortified, baseDamage => { return baseDamage * 500f; }},
+                { ArmorType.Hero, baseDamage => { return baseDamage * 500f; }}
+            }},
+        };
+    };
+
+
+
+
+
+
+
+
+    //public static Dictionary<WeaponType, Dictionary<ArmorType, Func<float, float>>> damageTypes = new Dictionary<WeaponType, Dictionary<ArmorType, Func<float, float>>>()
+    //{
+    //    {
+    //        WeaponType.Basic, new Dictionary<ArmorType, Func<float, float>>
+    //        {
+    //           ArmorType.Basic, ArmorType.Fortified => {
+    //        } 
+    //    }
+    //};
+

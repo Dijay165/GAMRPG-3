@@ -148,5 +148,10 @@ public class Health : MonoBehaviour
         }
     }
 
-   
+    public float DamageReductionChecker(float attacker, float defender)
+    {
+       float totalDamage = attacker * defender;
+
+        return totalDamage;
+    }
 }

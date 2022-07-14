@@ -8,7 +8,7 @@ public class RangedDamager : Damager
    // [SerializeField] private HomingProjectile prefab;
     public override void DamageTarget()
     {
-        int damage = 0;
+        float damage = 0;
         if (gameObject.activeSelf)
         {
             damage = attributes.attackDamage;
