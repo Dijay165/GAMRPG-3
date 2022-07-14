@@ -18,6 +18,9 @@ public class HomingProjectile : MonoBehaviour
     Vector3 direction;
     IEnumerator runningDecay;
 
+    public WeaponType weaponType;
+    public ArmorType armorType;
+
     private void Awake()
     {
         bc = bc ? bc : GetComponent<BoxCollider>();
@@ -61,8 +64,10 @@ public class HomingProjectile : MonoBehaviour
 
                 }
                 else
-                { 
-                    targetHealth.SubtractHealth(damage);
+                {
+                    //CalcDamage.
+                    float modifiedDamage = targetHealth.CalcDamage(damage, weaponType, targetHealth.gameObject.GetComponent<Attributes>().armorType);
+                    targetHealth.SubtractHealth(modifiedDamage);
                     DeinitializeValues();
 
                 }

@@ -8,10 +8,13 @@ public class RangedDamager : Damager
    // [SerializeField] private HomingProjectile prefab;
     public override void DamageTarget()
     {
-        float damage = 0;
+        float modifiedDamage = 0;
         if (gameObject.activeSelf)
         {
-            damage = attributes.attackDamage;
+            modifiedDamage  = unit.currentTarget.gameObject.GetComponent<Health>().CalcDamage(attributes.attackDamage,
+                   attributes.weaponType, unit.currentTarget.gameObject.GetComponent<Attributes>().armorType);
+
+            Debug.Log( gameObject.name + " Modified Damage " + modifiedDamage);
         }
 
         if(unit.currentTarget != null)
@@ -20,7 +23,8 @@ public class RangedDamager : Damager
             {
                 HomingProjectile newInstance = ProjectilePool.pool.Get();// Instantiate(prefab);
                 newInstance.transform.position = firePoint.position;
-                newInstance.InitializeValues(unit.currentTarget,damage,250);
+
+                newInstance.InitializeValues(unit.currentTarget,modifiedDamage,250);
 
             }
         }

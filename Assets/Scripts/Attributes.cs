@@ -88,31 +88,7 @@ public class Attributes : MonoBehaviour
     }
 
 
-    public static Dictionary<WeaponType, Dictionary<ArmorType, Func<float, float>>> damageTypes = new Dictionary<WeaponType, Dictionary<ArmorType, Func<float, float>>>() {
-            {WeaponType.Basic, new Dictionary<ArmorType, Func<float, float>> {
-                { ArmorType.Basic, baseDamage => { return baseDamage * 2f; }},
-                { ArmorType.Fortified, baseDamage => { return baseDamage * 500f; }},
-                { ArmorType.Hero, baseDamage => { return baseDamage * 500f; }}
-            }},
-            {
-                WeaponType.Hero, new Dictionary<ArmorType, Func<float, float>> {
-                 { ArmorType.Basic, baseDamage => { return baseDamage * 2f; }},
-                { ArmorType.Fortified, baseDamage => { return baseDamage * 500f; }},
-                { ArmorType.Hero, baseDamage => { return baseDamage * 500f; }}
-            }},
-            { 
-              WeaponType.Pierce, new Dictionary<ArmorType, Func<float, float>> {
-                 { ArmorType.Basic, baseDamage => { return baseDamage * 2f; }},
-                { ArmorType.Fortified, baseDamage => { return baseDamage * 500f; }},
-                { ArmorType.Hero, baseDamage => { return baseDamage * 500f; }}
-            }},
-        { 
-              WeaponType.Siege, new Dictionary<ArmorType, Func<float, float>> {
-                 { ArmorType.Basic, baseDamage => { return baseDamage * 2f; }},
-                { ArmorType.Fortified, baseDamage => { return baseDamage * 500f; }},
-                { ArmorType.Hero, baseDamage => { return baseDamage * 500f; }}
-            }},
-        };
+   
     };
 
 
@@ -122,13 +98,15 @@ public class Attributes : MonoBehaviour
 
 
 
-    //public static Dictionary<WeaponType, Dictionary<ArmorType, Func<float, float>>> damageTypes = new Dictionary<WeaponType, Dictionary<ArmorType, Func<float, float>>>()
-    //{
-    //    {
-    //        WeaponType.Basic, new Dictionary<ArmorType, Func<float, float>>
-    //        {
-    //           ArmorType.Basic, ArmorType.Fortified => {
-    //        } 
-    //    }
-    //};
+
+
+//public static Dictionary<WeaponType, Dictionary<ArmorType, Func<float, float>>> damageTypes = new Dictionary<WeaponType, Dictionary<ArmorType, Func<float, float>>>()
+//{
+//    {
+//        WeaponType.Basic, new Dictionary<ArmorType, Func<float, float>>
+//        {
+//           ArmorType.Basic, ArmorType.Fortified => {
+//        } 
+//    }
+//};
 

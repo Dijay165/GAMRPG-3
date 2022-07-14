@@ -63,7 +63,9 @@ public class TargetedDamager : MonoBehaviour
 
     public void DamageTarget()
     {
-        targetHealth.SubtractHealth(damageAmount);
+        
+        float modifiedDamage = targetHealth.CalcDamage(damageAmount, attributes.weaponType, targetHealth.gameObject.GetComponent<Attributes>().armorType);
+        targetHealth.SubtractHealth(modifiedDamage);
     }
 
     public IEnumerator MeleeAttack()

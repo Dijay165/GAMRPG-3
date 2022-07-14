@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 //using System;
 using UnityEngine.Events;
+using System;
 
 public class Death : UnityEvent<Health> { }
 public class HealthModify : UnityEvent<bool, float, float> { }
@@ -147,11 +148,46 @@ public class Health : MonoBehaviour
            // Debug.Log("Invoke Stuff");
         }
     }
+   
 
-    public float DamageReductionChecker(float attacker, float defender)
+    public static Dictionary<WeaponType, Dictionary<ArmorType, Func<float, float>>> damageTypes = new Dictionary<WeaponType, Dictionary<ArmorType, Func<float, float>>>() {
+            {WeaponType.Basic, new Dictionary<ArmorType, Func<float, float>> {
+                { ArmorType.Basic, baseDamage => { return baseDamage * 1f; }},
+                { ArmorType.Fortified, baseDamage => { return baseDamage * 0.70f; }},
+                { ArmorType.Hero, baseDamage => { return baseDamage * 0.75f; }}
+            }},
+            {
+                WeaponType.Hero, new Dictionary<ArmorType, Func<float, float>> {
+                 { ArmorType.Basic, baseDamage => { return baseDamage * 1f; }},
+                { ArmorType.Fortified, baseDamage => { return baseDamage * 0.5f; }},
+                { ArmorType.Hero, baseDamage => { return baseDamage * 1f; }}
+            }},
+            {
+              WeaponType.Pierce, new Dictionary<ArmorType, Func<float, float>> {
+                 { ArmorType.Basic, baseDamage => { return baseDamage * 1.5f; }},
+                { ArmorType.Fortified, baseDamage => { return baseDamage * 0.35f; }},
+                { ArmorType.Hero, baseDamage => { return baseDamage * 0.5f; }}
+            }},
+        {
+              WeaponType.Siege, new Dictionary<ArmorType, Func<float, float>> {
+                 { ArmorType.Basic, baseDamage => { return baseDamage * 1f; }},
+                { ArmorType.Fortified, baseDamage => { return baseDamage * 0.5f; }},
+                { ArmorType.Hero, baseDamage => { return baseDamage * 1f; }}
+            }},
+        };
+
+    public float CalcDamage(float baseDamage, WeaponType damageType, ArmorType armorType)
     {
-       float totalDamage = attacker * defender;
-
-        return totalDamage;
+        Dictionary<ArmorType, Func<float, float>> damageTypeDictionary = damageTypes[damageType];
+        if (damageTypeDictionary.ContainsKey(armorType))
+        {
+            Debug.Log("Works??");
+            return damageTypeDictionary[armorType](baseDamage);
+        }
+        else
+        {
+            Debug.Log("Not Works??");
+            return baseDamage;
+        }
     }
 }
