@@ -8,7 +8,7 @@ public class TowerDetection : MonoBehaviour
 
     private Health structureHealth;
     public float attackRange = 700f;
-    private Unit targetUnit;
+    public List<Unit> targetUnit;
     private TowerAttack towerAttack;
     public GameObject towerHead;
     float delay = 0f;
@@ -22,15 +22,21 @@ public class TowerDetection : MonoBehaviour
 
     private void Update()
     {
-        if (targetUnit != null)
+        if (targetUnit.Count > 0)
         {
+            if (targetUnit[0] == null)
+            {
+                targetUnit.RemoveAt(0);
+                return;
+            }
+              
 
-            float distance = Vector3.Distance(transform.position, targetUnit.transform.position);
+            float distance = Vector3.Distance(transform.position, targetUnit[0].transform.position);
           //  Debug.Log(distance);
             if (distance < attackRange)
             {
             //    Debug.Log("distance");
-                Vector3 targetDirection = targetUnit.transform.position - transform.position;
+                Vector3 targetDirection = targetUnit[0].transform.position - transform.position;
 
                 Vector3 newDirection = Vector3.RotateTowards(transform.forward, targetDirection, 360, 0.0f);
 
@@ -51,17 +57,14 @@ public class TowerDetection : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         // OnTrigger detection
-
-      
-        if (targetUnit == null)
-        {
             if (other.gameObject.TryGetComponent<Unit>(out Unit otherTargetUnit))
             {
-                Debug.Log("Hascollide" + gameObject.name);
                 bool isAttack = CanAttack(otherTargetUnit);
                 if (isAttack)
                 {
-                    targetUnit = otherTargetUnit;
+                    targetUnit.Add(otherTargetUnit);
+                    targetUnit[0] = otherTargetUnit;
+
                     towerAttack.unit.currentTarget = otherTargetUnit.health;
                 }
                 else
@@ -73,18 +76,8 @@ public class TowerDetection : MonoBehaviour
             {
                 return;
             }
-        }
-        else
-        {
-            return;
-        }
     }
 
-
-    private void OnTriggerExit(Collider other)
-    {
-        
-    }
     public bool CanAttack(Unit targetUnit)
     {
         bool canAttack = false;

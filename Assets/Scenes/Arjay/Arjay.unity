@@ -8270,6 +8270,10 @@ PrefabInstance:
       propertyPath: requiredBuildingsDeadForToBeVulnerable.Array.data[1]
       value: 
       objectReference: {fileID: 2144567527}
+    - target: {fileID: 6455781348988950185, guid: 6f6de38bc4946428ab2a1d468039753e, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7258400321219153387, guid: 6f6de38bc4946428ab2a1d468039753e, type: 3}
       propertyPath: m_LocalRotation.w
       value: 0.065629624
@@ -8281,6 +8285,10 @@ PrefabInstance:
     - target: {fileID: 7258400321219153387, guid: 6f6de38bc4946428ab2a1d468039753e, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
       value: -172.474
+      objectReference: {fileID: 0}
+    - target: {fileID: 7481084867391267975, guid: 6f6de38bc4946428ab2a1d468039753e, type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 114381954249791234, guid: 6f6de38bc4946428ab2a1d468039753e, type: 3}
@@ -42133,6 +42141,10 @@ PrefabInstance:
       propertyPath: requiredBuildingsDeadForToBeVulnerable.Array.data[0]
       value: 
       objectReference: {fileID: 2144567527}
+    - target: {fileID: 6455781348988950185, guid: 6f6de38bc4946428ab2a1d468039753e, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7258400321219153387, guid: 6f6de38bc4946428ab2a1d468039753e, type: 3}
       propertyPath: m_LocalRotation.w
       value: 0.02163171
@@ -42144,6 +42156,10 @@ PrefabInstance:
     - target: {fileID: 7258400321219153387, guid: 6f6de38bc4946428ab2a1d468039753e, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
       value: -177.521
+      objectReference: {fileID: 0}
+    - target: {fileID: 7481084867391267975, guid: 6f6de38bc4946428ab2a1d468039753e, type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 114381954249791234, guid: 6f6de38bc4946428ab2a1d468039753e, type: 3}
