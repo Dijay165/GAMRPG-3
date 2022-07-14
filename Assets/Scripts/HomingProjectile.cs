@@ -21,9 +21,12 @@ public class HomingProjectile : MonoBehaviour
     public WeaponType weaponType;
     public ArmorType armorType;
 
+    Attributes attributes;
+
     private void Awake()
     {
         bc = bc ? bc : GetComponent<BoxCollider>();
+        attributes = GetComponent<Attributes>();
     }
     public void InitializeValues(Health p_targetHealth, float p_damage, float p_speed)
     {
@@ -38,6 +41,7 @@ public class HomingProjectile : MonoBehaviour
     public void DeinitializeValues()
     {
         isInUse = false;
+        
         ProjectilePool.pool.Release(this);
     }
 
