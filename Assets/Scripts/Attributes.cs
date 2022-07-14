@@ -33,6 +33,8 @@ public class Attributes : MonoBehaviour
     public float attackRange;
 
     public float movementSpeed;
+    public WeaponType weaponType;
+    public ArmorType armorType;
 
     public Action OnAttributesUpdated;
 
@@ -56,8 +58,9 @@ public class Attributes : MonoBehaviour
             defaultAttackRange = unit.unitStat.startingAttackRange;
 
             defaultMovementSpeed = unit.unitStat.startingMovementSpeed;
-         
-         
+
+            weaponType = unit.unitStat.weaponType;
+            armorType = unit.unitStat.armorType;
           
         }
         InitializeValues();

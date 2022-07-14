@@ -8,6 +8,21 @@ public enum Faction
     Dire
 }
 
+public enum WeaponType
+{
+    Basic,
+    Pierce,
+    Siege, 
+    Hero
+}
+
+public enum ArmorType
+{
+    Basic,
+    Fortified,
+    Hero
+}
+
 [CreateAssetMenu(fileName = "Unit Stats", menuName = "New Stats")]
 public class UnitStat : ScriptableObject
 {
@@ -29,5 +44,9 @@ public class UnitStat : ScriptableObject
     public float startingAttackRange;
 
     public float startingMovementSpeed;
+    public WeaponType weaponType;
+    public ArmorType armorType;
+
+
 
 }
