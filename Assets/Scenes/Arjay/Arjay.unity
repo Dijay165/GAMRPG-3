@@ -4558,7 +4558,7 @@ GameObject:
   - component: {fileID: 478682463}
   - component: {fileID: 478682464}
   m_Layer: 0
-  m_Name: Projectile Pool
+  m_Name: Ranged Projectile Pool
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -34484,6 +34484,9 @@ MonoBehaviour:
   attackSpeed: 0
   attackRange: 0
   movementSpeed: 0
+  weaponType: 0
+  armorType: 0
+  bonusArmor: 0
 --- !u!114 &1538651797
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -35299,6 +35302,8 @@ Transform:
   - {fileID: 1764147143}
   - {fileID: 1964896782}
   - {fileID: 478682463}
+  - {fileID: 2108691744}
+  - {fileID: 1796918675}
   m_Father: {fileID: 0}
   m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -42224,6 +42229,56 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 126
   m_CollisionDetection: 0
+--- !u!1 &1796918674
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1796918675}
+  - component: {fileID: 1796918676}
+  m_Layer: 0
+  m_Name: Tower Projectile Pool
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1796918675
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1796918674}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 10000, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1622829383}
+  m_RootOrder: 10
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1796918676
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1796918674}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 985585662b8c52f429ec49f6842c0153, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isAlwaysInContainer: 1
+  container: {fileID: 1796918675}
+  prefab: {fileID: 5940412195069052108, guid: 2678dd418c601684092e9718f431f1c1, type: 3}
+  isCollectionCheck: 0
+  defaultMaxAmount: 200
+  flexibleMaxAmount: 100
 --- !u!1 &1797427410
 GameObject:
   m_ObjectHideFlags: 0
@@ -48921,6 +48976,56 @@ Transform:
   m_Father: {fileID: 1765728032}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 336.38043, y: 1.3776839, z: 269.9325}
+--- !u!1 &2108691743
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2108691744}
+  - component: {fileID: 2108691745}
+  m_Layer: 0
+  m_Name: Siege Projectile Pool
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2108691744
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2108691743}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 10000, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1622829383}
+  m_RootOrder: 9
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2108691745
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2108691743}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 985585662b8c52f429ec49f6842c0153, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isAlwaysInContainer: 1
+  container: {fileID: 2108691744}
+  prefab: {fileID: 5940412195069052108, guid: 1ac59b796a8d48340809f47f03a7e519, type: 3}
+  isCollectionCheck: 0
+  defaultMaxAmount: 200
+  flexibleMaxAmount: 100
 --- !u!1 &2109954685
 GameObject:
   m_ObjectHideFlags: 0

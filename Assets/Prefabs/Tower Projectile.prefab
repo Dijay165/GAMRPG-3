@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 5940412195069052108}
   - component: {fileID: 3215293232166182611}
   m_Layer: 0
-  m_Name: Projectile
+  m_Name: Tower Projectile
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -46,12 +46,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f92a2f5574fb35458638f11ba7b65e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  targetUnit: {fileID: 0}
-  target: {fileID: 0}
   damage: 10
   speed: 250
-  rotateSpeed: 200
   bc: {fileID: 3215293232166182611}
+  weaponType: 2
+  armorType: 1
 --- !u!65 &3215293232166182611
 BoxCollider:
   m_ObjectHideFlags: 0
