@@ -29,6 +29,7 @@ public class TargetedDamager : MonoBehaviour
         anim = GetComponent<Animator>();
         attributes = GetComponent<Attributes>();
         mOBAMovement = GetComponent<MOBAMovement>();
+        attributes.ResetValues();
         damageAmount = attributes.attackDamage;
         attackSpeed = attributes.attackSpeed;
     }

@@ -64,7 +64,7 @@ public class MOBAMovement : MonoBehaviour
                     if (!health.CompareTeam(unitFaction))
                     {
                         targetedDamager.targetHealth = health;
-                        Debug.Log("Can Target");
+                       // Debug.Log("Can Target");
                     }
                     else
                     {

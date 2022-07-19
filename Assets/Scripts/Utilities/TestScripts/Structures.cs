@@ -61,7 +61,7 @@ public class Structures : Unit
     public override void Death(Health objectHealth = null)
     {
         Debug.Log("Death");
-        TowerDied();
+       // TowerDied();
         DeinitializeValues();
 
         Destroy(gameObject);
@@ -84,11 +84,20 @@ public class Structures : Unit
         Debug.Log("Tower Died");
         foreach(var towerDetection in requiredBuildingsDeadForToBeVulnerable)
         {
-            towerDetection.gameObject.GetComponent<Health>().invulnerable = false;
-            towerDetection.gameObject.GetComponentInChildren<TowerDetection>().enabled = true;
-            towerDetection.gameObject.GetComponentInChildren<SphereCollider>().enabled = true;
+            if (towerDetection.gameObject.GetComponent<Health>() != null)
+            {
+                towerDetection.gameObject.GetComponent<Health>().invulnerable = false;
+            }
+       
+            if (towerDetection.gameObject.GetComponentInChildren<TowerDetection>() != null)
+            {
+                towerDetection.gameObject.GetComponentInChildren<TowerDetection>().enabled = true;
+                towerDetection.gameObject.GetComponentInChildren<SphereCollider>().enabled = true;
+            }
+           
             // do collider next
         }
+       
     }
 
 }

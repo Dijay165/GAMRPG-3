@@ -32,9 +32,14 @@ public class Health : MonoBehaviour
     {
 
         playersParent = transform;
-        Events.OnMiniUIUpdate.AddListener(SubtractHealth);
+        
         ResetValues();
     }
+    private void OnEnable()
+    {
+        Events.OnMiniUIUpdate.AddListener(SubtractHealth);
+    }
+
 
     private void OnDisable()
     {
@@ -143,9 +148,9 @@ public class Health : MonoBehaviour
         }
         else
         {
-            isAlive = false;
             OnDeathEvent.Invoke(this);
-           // Debug.Log("Invoke Stuff");
+            isAlive = false;
+            Debug.Log("Invoke Stuff");
         }
     }
    
@@ -181,12 +186,12 @@ public class Health : MonoBehaviour
         Dictionary<ArmorType, Func<float, float>> damageTypeDictionary = damageTypes[damageType];
         if (damageTypeDictionary.ContainsKey(armorType))
         {
-            Debug.Log("Works??");
+        //    Debug.Log("Works??");
             return damageTypeDictionary[armorType](baseDamage);
         }
         else
         {
-            Debug.Log("Not Works??");
+            //Debug.Log("Not Works??");
             return baseDamage;
         }
     }
