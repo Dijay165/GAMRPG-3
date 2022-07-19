@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class GameManager : MonoBehaviour
 {
@@ -8,6 +9,7 @@ public class GameManager : MonoBehaviour
     public float gameTime = 0;
     public Unit lastUnitSelect;
     public GameObject gameOverUI;
+    public TextMeshProUGUI winnerText;
     [NonReorderable] public List<TeamData> teams = new List<TeamData>();
 
     
@@ -52,8 +54,10 @@ public class GameManager : MonoBehaviour
 
     //Wincondition function here. Time.timescale = 0; UI Victory screen will be shown  
 
-    public void WinCondition()
+    public void WinCondition(Unit unit)
     {
+
+        winnerText.text = unit.unitFaction.ToString(); 
         gameOverUI.SetActive(true);
         Time.timeScale = 0;
 

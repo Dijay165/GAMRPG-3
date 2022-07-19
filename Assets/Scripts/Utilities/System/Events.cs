@@ -10,7 +10,7 @@ using UnityEngine;
 public static class Events
 {
     // To create an event with no parameters, please follow this format. 
-    public static readonly Evt OnGameOver = new Evt();
+  
 
     public static readonly Evt OnUnitDied = new Evt();
 
@@ -27,6 +27,8 @@ public static class Events
     public static readonly Evt OnNexusDestroy = new Evt();
 
     public static readonly Evt<float> OnMiniUIUpdate = new Evt<float>();
+
+    public static readonly Evt<Unit> OnGameOver = new Evt<Unit>();
 
     //To create an event with parameters, please follow this format. 
     //public static readonly Evt<int> OnTakeDamage = new Evt<int>();

@@ -36,6 +36,7 @@ public class Attributes : MonoBehaviour
     public WeaponType weaponType;
     public ArmorType armorType;
 
+
     public Action OnAttributesUpdated;
 
     public float bonusArmor;

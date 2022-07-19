@@ -16,7 +16,7 @@ public class RangedDamager : Damager
                 modifiedDamage = unit.currentTarget.gameObject.GetComponent<Health>().CalcDamage(attributes.attackDamage,
                        attributes.weaponType, unit.currentTarget.gameObject.GetComponent<Attributes>().armorType);
 
-                Debug.Log(gameObject.name + " Modified Damage " + modifiedDamage);
+              //  Debug.Log(gameObject.name + " Modified Damage " + modifiedDamage);
             }
 
             if (unit.currentTarget.gameObject.activeSelf)
