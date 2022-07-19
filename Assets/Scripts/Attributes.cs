@@ -94,20 +94,3 @@ public class Attributes : MonoBehaviour
 
 
 
-
-
-
-
-
-
-
-//public static Dictionary<WeaponType, Dictionary<ArmorType, Func<float, float>>> damageTypes = new Dictionary<WeaponType, Dictionary<ArmorType, Func<float, float>>>()
-//{
-//    {
-//        WeaponType.Basic, new Dictionary<ArmorType, Func<float, float>>
-//        {
-//           ArmorType.Basic, ArmorType.Fortified => {
-//        } 
-//    }
-//};
-

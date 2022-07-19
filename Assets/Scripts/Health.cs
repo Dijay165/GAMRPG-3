@@ -34,6 +34,8 @@ public class Health : MonoBehaviour
         playersParent = transform;
         
         ResetValues();
+
+      
     }
     private void OnEnable()
     {
@@ -122,12 +124,18 @@ public class Health : MonoBehaviour
     public void SubtractHealth(float p_healthModifer)
     {
         Events.OnPlayerSelect.Invoke();
-      
+
+        
         if (isAlive)
         {
             ///  Events.OnMiniUIUpdate.Invoke(0f);
             currentHealth -= Mathf.Clamp(p_healthModifer, 0, maxHealth);
-         //   currentHealth -= p_healthModifer;
+            //   currentHealth -= p_healthModifer;
+
+            DamageOverhead damageOverhead = DamagedOverheadPool.pool.Get();
+            damageOverhead.lookAt = gameObject.transform;
+            damageOverhead.DamageText(p_healthModifer);
+
             if (currentHealth < minHealth)
             {
                 currentHealth = minHealth;
@@ -150,7 +158,7 @@ public class Health : MonoBehaviour
         {
             OnDeathEvent.Invoke(this);
             isAlive = false;
-            Debug.Log("Invoke Stuff");
+         //   Debug.Log("Invoke Stuff");
         }
     }
    

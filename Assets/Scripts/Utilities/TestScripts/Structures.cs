@@ -60,7 +60,7 @@ public class Structures : Unit
 
     public override void Death(Health objectHealth = null)
     {
-        Debug.Log("Death");
+      //  Debug.Log("Death");
        // TowerDied();
         DeinitializeValues();
 

@@ -7,15 +7,38 @@ using DG.Tweening;
 public class DamageOverhead : MonoBehaviour
 {
     public TextMeshProUGUI damageText;
-    public Transform position; 
+ //   public Transform position;
+    public Transform lookAt;
+    public Vector3 offset;
+
+    Camera cam;
+
+    private void Start()
+    {
+        cam = Camera.main;
+    }
 
     private void OnEnable()
     {
-      //  DamageTextAnimation();
+        //  DamageTextAnimation();
+
+       
     }
 
 
-    void DamageText(float damage)
+    private void Update()
+    {
+        if(lookAt != null)
+        {
+            Vector3 pos = cam.WorldToScreenPoint(lookAt.position + offset);
+
+            if (transform.position != pos)
+                transform.position = pos;
+        }
+      
+    }
+
+    public void DamageText(float damage)
     {   
         damageText.text = damage.ToString();
         DamageTextAnimation();
