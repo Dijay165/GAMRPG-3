@@ -24,6 +24,8 @@ public static class Events
 
     public static readonly Evt OnPlayerSelect = new Evt();
 
+    public static readonly Evt OnNexusDestroy = new Evt();
+
     public static readonly Evt<float> OnMiniUIUpdate = new Evt<float>();
 
     //To create an event with parameters, please follow this format. 

@@ -7,6 +7,7 @@ public class GameManager : MonoBehaviour
     public static GameManager instance;
     public float gameTime = 0;
     public Unit lastUnitSelect;
+    public GameObject gameOverUI;
     [NonReorderable] public List<TeamData> teams = new List<TeamData>();
 
     
@@ -15,9 +16,20 @@ public class GameManager : MonoBehaviour
     private void Awake()
     {
         instance = instance ? instance : this; ///wow 
+
+      
     }
 
-  
+    private void OnEnable()
+    {
+        Events.OnGameOver.AddListener(WinCondition);
+    }
+
+    private void OnDisable()
+    {
+        Events.OnGameOver.RemoveListener(WinCondition);
+    }
+
 
     public static List<GameObject> MakePath(int p_team, int p_lane)
     {
@@ -39,4 +51,12 @@ public class GameManager : MonoBehaviour
     }
 
     //Wincondition function here. Time.timescale = 0; UI Victory screen will be shown  
+
+    public void WinCondition()
+    {
+        gameOverUI.SetActive(true);
+        Time.timeScale = 0;
+
+    }
+
 }

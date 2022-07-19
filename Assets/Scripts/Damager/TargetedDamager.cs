@@ -72,6 +72,6 @@ public class TargetedDamager : MonoBehaviour
     {
         //Debug.Log("Atack");
         anim.SetTrigger("Basic Attack");
-        yield return new WaitForSeconds(attackSpeed / ((100 + attackSpeed) * 0.01f));
+        yield return new WaitForSeconds(attackSpeed);
     }
 }
