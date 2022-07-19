@@ -1630,6 +1630,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1406163810295369208, guid: 6f6de38bc4946428ab2a1d468039753e, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3144587810365715528, guid: 6f6de38bc4946428ab2a1d468039753e, type: 3}
       propertyPath: unitStat
       value: 
@@ -1654,6 +1658,10 @@ PrefabInstance:
       propertyPath: requiredBuildingsDeadForToBeVulnerable.Array.data[2]
       value: 
       objectReference: {fileID: 1508795184}
+    - target: {fileID: 3734767506193386923, guid: 6f6de38bc4946428ab2a1d468039753e, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6455781348988950185, guid: 6f6de38bc4946428ab2a1d468039753e, type: 3}
       propertyPath: m_Enabled
       value: 0
@@ -1672,6 +1680,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7481084867391267975, guid: 6f6de38bc4946428ab2a1d468039753e, type: 3}
       propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8741863090609212019, guid: 6f6de38bc4946428ab2a1d468039753e, type: 3}
+      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents:
@@ -3772,6 +3784,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1406163810295369208, guid: 6f6de38bc4946428ab2a1d468039753e, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3144587810365715528, guid: 6f6de38bc4946428ab2a1d468039753e, type: 3}
       propertyPath: unitStat
       value: 
@@ -3788,6 +3804,14 @@ PrefabInstance:
       propertyPath: requiredBuildingsDeadForToBeVulnerable.Array.data[0]
       value: 
       objectReference: {fileID: 1030421006}
+    - target: {fileID: 3734767506193386923, guid: 6f6de38bc4946428ab2a1d468039753e, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8741863090609212019, guid: 6f6de38bc4946428ab2a1d468039753e, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 1289839868, guid: 6f6de38bc4946428ab2a1d468039753e, type: 3}
     - {fileID: 1716755606, guid: 6f6de38bc4946428ab2a1d468039753e, type: 3}
@@ -7100,6 +7124,10 @@ PrefabInstance:
       propertyPath: m_Materials.Array.size
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1406163810295369208, guid: 6f6de38bc4946428ab2a1d468039753e, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3144587810365715528, guid: 6f6de38bc4946428ab2a1d468039753e, type: 3}
       propertyPath: unitStat
       value: 
@@ -7124,6 +7152,10 @@ PrefabInstance:
       propertyPath: requiredBuildingsDeadForToBeVulnerable.Array.data[2]
       value: 
       objectReference: {fileID: 1508795184}
+    - target: {fileID: 3734767506193386923, guid: 6f6de38bc4946428ab2a1d468039753e, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6455781348988950185, guid: 6f6de38bc4946428ab2a1d468039753e, type: 3}
       propertyPath: m_Enabled
       value: 0
@@ -7142,6 +7174,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7481084867391267975, guid: 6f6de38bc4946428ab2a1d468039753e, type: 3}
       propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8741863090609212019, guid: 6f6de38bc4946428ab2a1d468039753e, type: 3}
+      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents:
@@ -26425,6 +26461,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1406163810295369208, guid: 6f6de38bc4946428ab2a1d468039753e, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3144587810365715528, guid: 6f6de38bc4946428ab2a1d468039753e, type: 3}
       propertyPath: unitStat
       value: 
@@ -26441,6 +26481,10 @@ PrefabInstance:
       propertyPath: requiredBuildingsDeadForToBeVulnerable.Array.data[0]
       value: 
       objectReference: {fileID: 1508795184}
+    - target: {fileID: 3734767506193386923, guid: 6f6de38bc4946428ab2a1d468039753e, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6455781348988950185, guid: 6f6de38bc4946428ab2a1d468039753e, type: 3}
       propertyPath: m_Enabled
       value: 0
@@ -26459,6 +26503,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7481084867391267975, guid: 6f6de38bc4946428ab2a1d468039753e, type: 3}
       propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8741863090609212019, guid: 6f6de38bc4946428ab2a1d468039753e, type: 3}
+      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents:
@@ -34777,6 +34825,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1406163810295369208, guid: 6f6de38bc4946428ab2a1d468039753e, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3144587810365715528, guid: 6f6de38bc4946428ab2a1d468039753e, type: 3}
       propertyPath: unitStat
       value: 
@@ -34797,6 +34849,10 @@ PrefabInstance:
       propertyPath: requiredBuildingsDeadForToBeVulnerable.Array.data[1]
       value: 
       objectReference: {fileID: 1030421006}
+    - target: {fileID: 3734767506193386923, guid: 6f6de38bc4946428ab2a1d468039753e, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6455781348988950185, guid: 6f6de38bc4946428ab2a1d468039753e, type: 3}
       propertyPath: m_Enabled
       value: 0
@@ -34815,6 +34871,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7481084867391267975, guid: 6f6de38bc4946428ab2a1d468039753e, type: 3}
       propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8741863090609212019, guid: 6f6de38bc4946428ab2a1d468039753e, type: 3}
+      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents:

@@ -10,13 +10,14 @@ public class Ancient : Structures
     private void Start()
     {
         oppositeFaction = GetComponent<Unit>();
-        EnemyFaction();
+   //     EnemyFaction();
     }
 
     public override void Death(Health objectHealth = null)
     {
         // base.Death(objectHealth);
-        Events.OnGameOver.Invoke(this);
+        EnemyFaction();
+        Events.OnGameOver.Invoke(oppositeFaction);
     }
 
     public void EnemyFaction()
