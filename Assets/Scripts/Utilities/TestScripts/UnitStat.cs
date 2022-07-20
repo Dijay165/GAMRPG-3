@@ -26,7 +26,8 @@ public enum ArmorType
 [CreateAssetMenu(fileName = "Unit Stats", menuName = "New Stats")]
 public class UnitStat : ScriptableObject
 {
-    
+
+    public int startingLevel;
     public Sprite portraitImage;
     public Sprite iconImage;
 

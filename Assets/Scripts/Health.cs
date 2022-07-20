@@ -129,12 +129,26 @@ public class Health : MonoBehaviour
         if (isAlive)
         {
             ///  Events.OnMiniUIUpdate.Invoke(0f);
-            currentHealth -= Mathf.Clamp(p_healthModifer, 0, maxHealth);
+           
             //   currentHealth -= p_healthModifer;
 
             DamageOverhead damageOverhead = DamagedOverheadPool.pool.Get();
             damageOverhead.lookAt = gameObject.transform;
-            damageOverhead.DamageText(p_healthModifer);
+
+            //float mitigations = gameObject.GetComponent<Attributes>().totalArmor / 
+            //    (p_healthModifer * (400 * gameObject.GetComponent<Attributes>().level));
+
+            float mitigations = gameObject.GetComponent<Attributes>().totalArmor  / p_healthModifer + (p_healthModifer *
+                gameObject.GetComponent<Attributes>().level);
+
+
+
+            damageOverhead.DamageText(mitigations);
+
+            currentHealth -= Mathf.Clamp(mitigations, 0, maxHealth);
+
+            Debug.Log(mitigations);
+
 
             if (currentHealth < minHealth)
             {

@@ -4,6 +4,7 @@ using UnityEngine;
 using System;
 public class Attributes : MonoBehaviour
 {
+    public int level;
     public int skillPoints;
 
     private int defaultStrength;
@@ -41,6 +42,8 @@ public class Attributes : MonoBehaviour
 
     public float bonusArmor;
 
+    public float totalArmor;
+
     public void ResetValues()
     {
 
@@ -64,14 +67,18 @@ public class Attributes : MonoBehaviour
             weaponType = unit.unitStat.weaponType;
             armorType = unit.unitStat.armorType;
 
-        
+
+            level = unit.unitStat.startingLevel;
+
+
+
 
         }
         InitializeValues();
     }
     public void InitializeValues()
     {
-
+       
         strength = defaultStrength;
         agility = defaultAgility;
         intelligence = defaultIntelligence;
@@ -85,7 +92,7 @@ public class Attributes : MonoBehaviour
 
         movementSpeed = defaultMovementSpeed;
 
-        bonusArmor = defaultArmor + armor;
+        totalArmor = armor + bonusArmor;
     }
 
 

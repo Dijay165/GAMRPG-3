@@ -10,16 +10,16 @@ public class AttributeModifier : MonoBehaviour
     public void ApplyModification()
     {
         hasBuff = true;
-        Debug.Log("Old Armor: " + gameObject.GetComponent<Attributes>().bonusArmor + gameObject.name);
+      //  Debug.Log("Old Armor: " + gameObject.GetComponent<Attributes>().totalArmor + gameObject.name);
 
-        gameObject.GetComponent<Attributes>().bonusArmor += armorAmount;
+        gameObject.GetComponent<Attributes>().totalArmor += armorAmount;
 
-        Debug.Log(" New Armor: " + gameObject.GetComponent<Attributes>().bonusArmor + gameObject.name);
+       // Debug.Log(" New Armor: " + gameObject.GetComponent<Attributes>().totalArmor + gameObject.name);
     }
 
     public void VoidModification()
     {
         hasBuff = false;
-        gameObject.GetComponent<Attributes>().bonusArmor -= armorAmount;
+        gameObject.GetComponent<Attributes>().totalArmor -= armorAmount;
     }
 }
