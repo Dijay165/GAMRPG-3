@@ -147,7 +147,7 @@ public class Health : MonoBehaviour
 
             currentHealth -= Mathf.Clamp(mitigations, 0, maxHealth);
 
-            Debug.Log(mitigations);
+            ///Debug.Log(mitigations);
 
 
             if (currentHealth < minHealth)

@@ -3518,7 +3518,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8741863090609212019, guid: 6f6de38bc4946428ab2a1d468039753e, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 0}
@@ -3843,7 +3843,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8741863090609212019, guid: 6f6de38bc4946428ab2a1d468039753e, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 0}
@@ -35481,6 +35481,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1745d2ceb585d8f4e84d4c8cc99f97f9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  level: 0
   skillPoints: 0
   strength: 0
   agility: 0
@@ -35494,6 +35495,7 @@ MonoBehaviour:
   weaponType: 0
   armorType: 0
   bonusArmor: 0
+  totalArmor: 0
 --- !u!114 &1538651797
 MonoBehaviour:
   m_ObjectHideFlags: 0

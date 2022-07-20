@@ -24,18 +24,11 @@ public class TowerDetection : MonoBehaviour
     {
         if (targetUnit.Count > 0)
         {
-            if (targetUnit[0] == null)
-            {
-                targetUnit.RemoveAt(0);
-                return;
-            }
-              
-
+            RemoveNull();
             float distance = Vector3.Distance(transform.position, targetUnit[0].transform.position);
-          //  Debug.Log(distance);
             if (distance < attackRange)
             {
-            //    Debug.Log("distance");
+                //    Debug.Log("distance");
                 Vector3 targetDirection = targetUnit[0].transform.position - transform.position;
 
                 Vector3 newDirection = Vector3.RotateTowards(transform.forward, targetDirection, 360, 0.0f);
@@ -50,8 +43,7 @@ public class TowerDetection : MonoBehaviour
                 }
             }
         }
-
-
+           
     }
 
     private void OnTriggerEnter(Collider other)
@@ -59,11 +51,11 @@ public class TowerDetection : MonoBehaviour
         // OnTrigger detection
             if (other.gameObject.TryGetComponent<Unit>(out Unit otherTargetUnit))
             {
+              //  Debug.Log("Has Enter");
                 bool isAttack = CanAttack(otherTargetUnit);
                 if (isAttack)
                 {
                     targetUnit.Add(otherTargetUnit);
-                    targetUnit[0] = otherTargetUnit;
 
                     towerAttack.unit.currentTarget = otherTargetUnit.health;
                 }
@@ -77,7 +69,6 @@ public class TowerDetection : MonoBehaviour
                 return;
             }
     }
-
     public bool CanAttack(Unit targetUnit)
     {
         bool canAttack = false;
@@ -94,4 +85,15 @@ public class TowerDetection : MonoBehaviour
         return canAttack;
     }
 
+
+    public void RemoveNull()
+    {
+        for(int i = 0; i < targetUnit.Count; i++)
+        {
+            if(targetUnit[i] == null)
+            {
+                targetUnit.RemoveAt(i);
+            }
+        }
+    }
 }

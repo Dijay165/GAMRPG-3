@@ -11,8 +11,13 @@ public class BonusArmorAura : MonoBehaviour
     public int armorAmount = 3; //5 for tier 2 3 4
     public List<GameObject> potentialHero;
     // Start is called before the first frame update
-   
 
+
+
+    private void Update()
+    {
+        
+    }
     public void OnTriggerEnter(Collider other)
     {
 
