@@ -54,7 +54,7 @@ public class Unit : MonoBehaviour
 
     IEnumerator Co_Load()
     {
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(0.1f);
         InitializeValues();
     }
     protected virtual void InitializeValues()

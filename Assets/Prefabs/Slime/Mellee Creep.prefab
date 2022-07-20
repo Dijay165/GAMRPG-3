@@ -256,6 +256,7 @@ GameObject:
   - component: {fileID: 7228419342817421869}
   - component: {fileID: 1213145073375681043}
   - component: {fileID: 9200355910207843734}
+  - component: {fileID: 1130508700482429863}
   m_Layer: 0
   m_Name: Mellee Creep
   m_TagString: Untagged
@@ -353,7 +354,7 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4721253483830942850}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 0.5, y: 1, z: 0.5}
@@ -451,6 +452,9 @@ MonoBehaviour:
   attackSpeed: 0
   attackRange: 0
   movementSpeed: 0
+  weaponType: 0
+  armorType: 0
+  bonusArmor: 0
 --- !u!208 &1213145073375681043
 NavMeshObstacle:
   m_ObjectHideFlags: 0
@@ -479,6 +483,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7c3d457f7f78c7a43abe4111be03762d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1130508700482429863
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4721253483830942850}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a19e518a829f7164190977d47d046cfc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  armorAmount: 0
+  hasBuff: 0
 --- !u!1 &5636219751343395753
 GameObject:
   m_ObjectHideFlags: 0

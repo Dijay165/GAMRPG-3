@@ -64,7 +64,7 @@ public class Attributes : MonoBehaviour
             weaponType = unit.unitStat.weaponType;
             armorType = unit.unitStat.armorType;
 
-            armor = defaultArmor + bonusArmor;
+        
 
         }
         InitializeValues();
@@ -85,7 +85,7 @@ public class Attributes : MonoBehaviour
 
         movementSpeed = defaultMovementSpeed;
 
-
+        bonusArmor = defaultArmor + armor;
     }
 
 
