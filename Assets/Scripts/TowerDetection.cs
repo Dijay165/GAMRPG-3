@@ -13,6 +13,7 @@ public class TowerDetection : MonoBehaviour
     public GameObject towerHead;
     float delay = 0f;
     public float turnSpeed;
+    int randTarget;
 
     private void Awake()
     {
@@ -25,23 +26,34 @@ public class TowerDetection : MonoBehaviour
         if (targetUnit.Count > 0)
         {
             RemoveNull();
-            float distance = Vector3.Distance(transform.position, targetUnit[0].transform.position);
-            if (distance < attackRange)
+        
+            if(targetUnit[0] != null)
             {
-                //    Debug.Log("distance");
-                Vector3 targetDirection = targetUnit[0].transform.position - transform.position;
+                float distance = Vector3.Distance(transform.position, targetUnit[0].transform.position);
 
-                Vector3 newDirection = Vector3.RotateTowards(transform.forward, targetDirection, 360, 0.0f);
-
-                towerHead.transform.rotation = Quaternion.LookRotation(newDirection);
-
-                if (Time.time >= delay)
+                if (distance < attackRange)
                 {
-                    //  towerAttack.Attack();
-                    StartCoroutine(towerAttack.Attack());
-                    delay = Time.time + 1f / towerAttack.attackSpeed;
+                    //    Debug.Log("distance");
+                    Vector3 targetDirection = targetUnit[0].transform.position - transform.position;
+
+                    Vector3 newDirection = Vector3.RotateTowards(transform.forward, targetDirection, 360, 0.0f);
+
+                    towerHead.transform.rotation = Quaternion.LookRotation(newDirection);
+
+                    if (Time.time >= delay)
+                    {
+                        //  towerAttack.Attack();
+                        StartCoroutine(towerAttack.Attack());
+                        delay = Time.time + 1f / towerAttack.attackSpeed;
+                    }
                 }
             }
+            else
+            {
+                targetUnit.RemoveAt(0);
+                return;
+            }
+           
         }
            
     }
@@ -88,12 +100,16 @@ public class TowerDetection : MonoBehaviour
 
     public void RemoveNull()
     {
-        for(int i = 0; i < targetUnit.Count; i++)
-        {
-            if(targetUnit[i] == null)
+
+        for (int i = 0; i < targetUnit.Count - 1; i++)
             {
-                targetUnit.RemoveAt(i);
+                if (targetUnit[i] == null)
+                {
+                    targetUnit.RemoveAt(i);
+                }
             }
-        }
+
+    //    randTarget = Random.Range(0, targetUnit.Count - 1);
+      //  Debug.Log(gameObject.name + " : Tower " + " randTarg " + randTarget);
     }
 }
