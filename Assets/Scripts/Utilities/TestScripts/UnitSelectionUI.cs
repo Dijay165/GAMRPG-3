@@ -18,6 +18,8 @@ public class UnitSelectionUI : MonoBehaviour
     public TextMeshProUGUI moveSpeedText;
     public TextMeshProUGUI maxHealthText;
     public TextMeshProUGUI currentHealthText;
+    public TextMeshProUGUI healthRegenText;
+    public TextMeshProUGUI manaRegenText;
     public Slider slider;
     public Image characterPortrait;
 
@@ -26,7 +28,7 @@ public class UnitSelectionUI : MonoBehaviour
 
     public void Start()
     {
-        StartCoroutine(Temporary());
+      //  StartCoroutine(Temporary());
     }
 
     public void OnEnable()
@@ -55,12 +57,11 @@ public class UnitSelectionUI : MonoBehaviour
         }
     }
 
-    //delete this please when fixed
 
-    IEnumerator Temporary()
+    //Can be improved
+    private void Update()
     {
-        yield return new WaitForSeconds(0.6f);
-        PlayerInfo();
+        PlayerInfo();   
     }
     public void ChangeInfo(Unit unit)
     {
@@ -82,6 +83,8 @@ public class UnitSelectionUI : MonoBehaviour
                 attackText.text = attributes.attackDamage.ToString();
                 defenseText.text = attributes.armor.ToString();
                 moveSpeedText.text = attributes.movementSpeed.ToString();
+                healthRegenText.text = attributes.healthRegen.ToString();
+                manaRegenText.text = attributes.manaRegen.ToString();
             } 
         }
     }
@@ -93,7 +96,10 @@ public class UnitSelectionUI : MonoBehaviour
         attackText.text = "";
         defenseText.text = "";
         moveSpeedText.text = "";
+        healthRegenText.text = "";
+        manaRegenText.text = "";
         maxHealthText.text = "";
+
     }
 
     public void PlayerInfo()
@@ -115,7 +121,9 @@ public class UnitSelectionUI : MonoBehaviour
                 attackText.text = attributes.attackDamage.ToString();
                 defenseText.text = attributes.armor.ToString();
                 moveSpeedText.text = attributes.movementSpeed.ToString();
-                
+                healthRegenText.text = "+ " + attributes.healthRegen.ToString();
+                manaRegenText.text = "+ " + attributes.manaRegen.ToString();
+
             }
         }
        

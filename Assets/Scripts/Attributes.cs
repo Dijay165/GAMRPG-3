@@ -5,6 +5,7 @@ using System;
 public class Attributes : MonoBehaviour
 {
     public int level;
+    public float defaultMana;
     public int skillPoints;
 
     private int defaultStrength;
@@ -33,6 +34,8 @@ public class Attributes : MonoBehaviour
     public float attackSpeed;
     public float attackRange;
 
+    public float mana;
+
     public float movementSpeed;
     public WeaponType weaponType;
     public ArmorType armorType;
@@ -43,6 +46,12 @@ public class Attributes : MonoBehaviour
     public float bonusArmor;
 
     public float totalArmor;
+
+    public float defaultHealthRegen;
+    public float defaultManaRegen;
+
+    public float healthRegen;
+    public float manaRegen;
 
     public void ResetValues()
     {
@@ -67,7 +76,9 @@ public class Attributes : MonoBehaviour
             weaponType = unit.unitStat.weaponType;
             armorType = unit.unitStat.armorType;
 
-
+            defaultManaRegen = unit.unitStat.manaRegeneration;
+            defaultHealthRegen = unit.unitStat.healthRegeneration;
+            defaultMana = unit.unitStat.startingMaxMana;
             level = unit.unitStat.startingLevel;
 
 
@@ -80,6 +91,9 @@ public class Attributes : MonoBehaviour
     {
        
         strength = defaultStrength;
+        mana = defaultMana;
+        manaRegen = defaultManaRegen;
+        healthRegen = defaultHealthRegen;
         agility = defaultAgility;
         intelligence = defaultIntelligence;
 
@@ -93,6 +107,7 @@ public class Attributes : MonoBehaviour
         movementSpeed = defaultMovementSpeed;
 
         totalArmor = armor + bonusArmor;
+      
     }
 
 

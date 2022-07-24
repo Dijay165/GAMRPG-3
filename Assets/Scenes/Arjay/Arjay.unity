@@ -35568,6 +35568,7 @@ GameObject:
   - component: {fileID: 1538651795}
   - component: {fileID: 1538651794}
   - component: {fileID: 1538651807}
+  - component: {fileID: 1538651808}
   m_Layer: 7
   m_Name: Wizard_True
   m_TagString: Player
@@ -35618,6 +35619,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   level: 0
+  defaultMana: 0
   skillPoints: 0
   strength: 0
   agility: 0
@@ -35627,11 +35629,16 @@ MonoBehaviour:
   attackDamage: 0
   attackSpeed: 0
   attackRange: 0
+  mana: 0
   movementSpeed: 0
   weaponType: 0
   armorType: 0
   bonusArmor: 0
   totalArmor: 0
+  defaultHealthRegen: 0
+  defaultManaRegen: 0
+  healthRegen: 0
+  manaRegen: 0
 --- !u!114 &1538651797
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -35713,6 +35720,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playersParent: {fileID: 0}
   invulnerable: 0
+  isAlive: 0
   currentHealth: 0
   minHealth: 0
   maxHealth: 0
@@ -35814,6 +35822,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   armorAmount: 0
   hasBuff: 0
+--- !u!114 &1538651808
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1538651793}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8da60ca9de2fb7d4da815f1925aca1a5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1544690825
 GameObject:
   m_ObjectHideFlags: 0
@@ -36180,6 +36200,8 @@ MonoBehaviour:
   moveSpeedText: {fileID: 114394320}
   maxHealthText: {fileID: 1753773474}
   currentHealthText: {fileID: 440871789}
+  healthRegenText: {fileID: 1935450912}
+  manaRegenText: {fileID: 1191044634}
   slider: {fileID: 1751095599}
   characterPortrait: {fileID: 1014405272}
 --- !u!114 &1598158635

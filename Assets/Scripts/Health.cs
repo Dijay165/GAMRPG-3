@@ -14,7 +14,7 @@ public class Health : MonoBehaviour
     public Transform playersParent;
     public bool invulnerable = false;
     int team;
-    private bool isAlive;
+    [HideInInspector]public bool isAlive;
     public float currentHealth;
     [SerializeField] private float minHealth;
      public float maxHealth;
@@ -56,6 +56,7 @@ public class Health : MonoBehaviour
         {
             team = (int)unit.unitFaction;
             maxHealth = (int)unit.unitStat.startingMaxHP;
+            healthRegen = unit.unitStat.healthRegeneration;
         }
         InitializeValues();
     }
@@ -64,6 +65,7 @@ public class Health : MonoBehaviour
 
         isAlive = true;
         currentHealth = maxHealth;
+
 
     }
     public virtual bool CompareTeam(int p_inflictingTeam)
@@ -109,6 +111,7 @@ public class Health : MonoBehaviour
     {
         if (isAlive)
         {
+           // Debug.Log("restore health");
             currentHealth += Mathf.Clamp(p_healthModifer, 0, maxHealth);
             // currentHealth += p_healthModifer;
             if (currentHealth > maxHealth)
