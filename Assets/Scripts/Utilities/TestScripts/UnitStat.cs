@@ -32,6 +32,7 @@ public class UnitStat : ScriptableObject
     public Sprite iconImage;
 
     public float startingMaxHP;
+    public float startingMaxMana;
 
     public int startingStrength;
     public int startingAgility;
@@ -40,11 +41,16 @@ public class UnitStat : ScriptableObject
     public int startingArmor;
     public int startingMagicResistance;
 
+
     public int startingAttackDamage;
     public float startingAttackSpeed;
     public float startingAttackRange;
 
     public float startingMovementSpeed;
+
+    public float healthRegeneration;
+    public float manaRegeneration;
+
     public WeaponType weaponType;
     public ArmorType armorType;
 

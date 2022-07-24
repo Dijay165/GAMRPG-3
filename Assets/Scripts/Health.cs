@@ -18,6 +18,7 @@ public class Health : MonoBehaviour
     public float currentHealth;
     [SerializeField] private float minHealth;
      public float maxHealth;
+    public float healthRegen;
 
     public Death OnDeathEvent = new Death();
     public HealthModify OnHealthModifyEvent = new HealthModify();
@@ -215,6 +216,14 @@ public class Health : MonoBehaviour
         {
             //Debug.Log("Not Works??");
             return baseDamage;
+        }
+    }
+
+    public void HealthRegeneration()
+    {
+        if (isAlive)
+        {
+            currentHealth += healthRegen;
         }
     }
 }
