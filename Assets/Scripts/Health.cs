@@ -154,6 +154,20 @@ public class Health : MonoBehaviour
 
     }
 
+    public float MagicResistance(float damage)
+    {
+        float mitigations = 0;
+        mitigations = Mathf.CeilToInt(gameObject.GetComponent<Attributes>().magicResistance / damage + (damage *
+              gameObject.GetComponent<Attributes>().level));
+
+        float totalResistanceMod = 1 * (1 - gameObject.GetComponent<Attributes>().magicResistance) * (1 - gameObject.GetComponent<Attributes>().magicResistance);
+        float reductionMode = 1 * (1 + mitigations) * (1 + mitigations);
+        float finalResistance = 1 - (totalResistanceMod * reductionMode);
+        float damageModFromMR = 1 - finalResistance;
+
+        return damageModFromMR;
+    }
+
     public float findDamage(AttackType attacker, float damage)
     {
         float mitigations = 0;

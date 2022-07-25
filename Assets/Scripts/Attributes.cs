@@ -29,6 +29,7 @@ public class Attributes : MonoBehaviour
 
     public float armor;
     public int magicResistance;
+    public float magicAttack;
 
     public float attackDamage;
     public float attackSpeed;
@@ -39,6 +40,7 @@ public class Attributes : MonoBehaviour
     public float movementSpeed;
     public WeaponType weaponType;
     public ArmorType armorType;
+    public AttackType attackType;
 
 
     public Action OnAttributesUpdated;

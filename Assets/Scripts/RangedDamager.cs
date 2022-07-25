@@ -13,8 +13,19 @@ public class RangedDamager : Damager
             float modifiedDamage = 0;
             if (gameObject.activeSelf)
             {
-                modifiedDamage = unit.currentTarget.gameObject.GetComponent<Health>().CalcDamage(attributes.attackDamage,
-                       attributes.weaponType, unit.currentTarget.gameObject.GetComponent<Attributes>().armorType);
+
+                if(attributes.attackType == AttackType.Physical)
+                {
+                    modifiedDamage = unit.currentTarget.gameObject.GetComponent<Health>().CalcDamage(attributes.attackDamage,
+                      attributes.weaponType, unit.currentTarget.gameObject.GetComponent<Attributes>().armorType);
+                }
+                else
+                {
+                    modifiedDamage = unit.currentTarget.gameObject.GetComponent<Health>().CalcDamage(gameObject.GetComponent<Health>().
+                        MagicResistance(attributes.magicAttack),
+                      attributes.weaponType, unit.currentTarget.gameObject.GetComponent<Attributes>().armorType);
+                }
+               
 
                 // unit.currentTarget.gameObject.GetComponent<Health>().
 
