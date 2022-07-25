@@ -2101,7 +2101,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0.5764706, b: 0.8078432, a: 1}
+  m_Color: {r: 0, g: 0, b: 0, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -3494,6 +3494,10 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4558138119494091737, guid: 6f6de38bc4946428ab2a1d468039753e, type: 3}
       propertyPath: m_LocalScale.z
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6455781348988950185, guid: 6f6de38bc4946428ab2a1d468039753e, type: 3}
+      propertyPath: m_Enabled
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6699450538534414472, guid: 6f6de38bc4946428ab2a1d468039753e, type: 3}
@@ -6473,7 +6477,7 @@ GameObject:
   - component: {fileID: 580926203}
   - component: {fileID: 580926202}
   m_Layer: 5
-  m_Name: CurrentHelath
+  m_Name: CurrentMana
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -35569,6 +35573,8 @@ GameObject:
   - component: {fileID: 1538651794}
   - component: {fileID: 1538651807}
   - component: {fileID: 1538651808}
+  - component: {fileID: 1538651810}
+  - component: {fileID: 1538651809}
   m_Layer: 7
   m_Name: Wizard_True
   m_TagString: Player
@@ -35834,6 +35840,34 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8da60ca9de2fb7d4da815f1925aca1a5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1538651809
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1538651793}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c20d47b60580ef24e8f9ac24a8aa8ce2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1538651810
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1538651793}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b32209cd6feed1744951bbf417db9432, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  minMana: 0
+  maxMana: 0
+  currentMana: 0
+  manaRegen: 0
 --- !u!1 &1544690825
 GameObject:
   m_ObjectHideFlags: 0
@@ -36202,7 +36236,10 @@ MonoBehaviour:
   currentHealthText: {fileID: 440871789}
   healthRegenText: {fileID: 1935450912}
   manaRegenText: {fileID: 1191044634}
-  slider: {fileID: 1751095599}
+  currentManaText: {fileID: 580926202}
+  maxManaText: {fileID: 1913153852}
+  sliderHealth: {fileID: 1751095599}
+  sliderMana: {fileID: 739462930}
   characterPortrait: {fileID: 1014405272}
 --- !u!114 &1598158635
 MonoBehaviour:
@@ -48908,7 +48945,7 @@ GameObject:
   - component: {fileID: 1913153853}
   - component: {fileID: 1913153852}
   m_Layer: 5
-  m_Name: MaxHealth
+  m_Name: MaxMana
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

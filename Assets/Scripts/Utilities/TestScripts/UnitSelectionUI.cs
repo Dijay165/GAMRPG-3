@@ -20,7 +20,10 @@ public class UnitSelectionUI : MonoBehaviour
     public TextMeshProUGUI currentHealthText;
     public TextMeshProUGUI healthRegenText;
     public TextMeshProUGUI manaRegenText;
-    public Slider slider;
+    public TextMeshProUGUI currentManaText;
+    public TextMeshProUGUI maxManaText;
+    public Slider sliderHealth;
+    public Slider sliderMana;
     public Image characterPortrait;
 
 
@@ -75,8 +78,8 @@ public class UnitSelectionUI : MonoBehaviour
             if (unit.TryGetComponent<Health>(out Health health))
             {
                 //healthPointText.text = health.GetHealth().ToString();
-                slider.maxValue = health.maxHealth;
-                slider.value = health.currentHealth;
+                sliderHealth.maxValue = health.maxHealth;
+                sliderHealth.value = health.currentHealth;
             }
             if (unit.TryGetComponent<Attributes>(out Attributes attributes))
             {
@@ -113,9 +116,18 @@ public class UnitSelectionUI : MonoBehaviour
             {
                 currentHealthText.text = health.GetHealth().ToString();
                 maxHealthText.text = health.maxHealth.ToString();
-                slider.maxValue = health.maxHealth;
-                slider.value = health.currentHealth;
+                sliderHealth.maxValue = health.maxHealth;
+                sliderHealth.value = health.currentHealth;
             }
+
+            if(playerUnit.TryGetComponent<Mana>(out Mana mana))
+            {
+                currentManaText.text = mana.currentMana.ToString();
+                maxManaText.text = mana.maxMana.ToString();
+                sliderMana.maxValue = mana.maxMana;
+                sliderMana.value = mana.currentMana;
+            }
+
             if (playerUnit.TryGetComponent<Attributes>(out Attributes attributes))
             {
                 attackText.text = attributes.attackDamage.ToString();
@@ -125,6 +137,8 @@ public class UnitSelectionUI : MonoBehaviour
                 manaRegenText.text = "+ " + attributes.manaRegen.ToString();
 
             }
+
+
         }
        
     }

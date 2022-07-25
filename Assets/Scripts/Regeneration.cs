@@ -7,11 +7,13 @@ public class Regeneration : MonoBehaviour
     // Start is called before the first frame update
 
     protected Health health;
-    protected float regenValue;
+    protected Mana mana;
+ 
 
     public virtual void Awake()
     {
         health = GetComponent<Health>();
+        mana = GetComponent<Mana>();
         //health.healthRegen = regenValue;
     }
 

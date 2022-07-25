@@ -2,29 +2,23 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class HealthRegeneration : Regeneration
+public class ManaRegen : Regeneration
 {
-    //   float currentHP;
     protected float regenValue;
     public override void Awake()
     {
         base.Awake();
-
     }
+
     private void Start()
     {
-   //     currentHP = health.GetHealth();
-        regenValue = health.healthRegen;
-
+        regenValue = mana.manaRegen;
         StartCoroutine(Regen());
-
     }
 
     public override void DoRegen()
     {
         base.DoRegen();
-        health.AddHealth(regenValue);
+        mana.AddMana(regenValue);
     }
-
-
 }
