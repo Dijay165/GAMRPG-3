@@ -112,7 +112,7 @@ public class Health : MonoBehaviour
         if (isAlive)
         {
            // Debug.Log("restore health");
-            currentHealth += Mathf.Clamp(p_healthModifer, 0, maxHealth);
+            currentHealth += Mathf.CeilToInt(Mathf.Clamp(p_healthModifer, 0, maxHealth));
             // currentHealth += p_healthModifer;
             if (currentHealth > maxHealth)
             {
@@ -142,8 +142,8 @@ public class Health : MonoBehaviour
             //float mitigations = gameObject.GetComponent<Attributes>().totalArmor / 
             //    (p_healthModifer * (400 * gameObject.GetComponent<Attributes>().level));
 
-            float mitigations = gameObject.GetComponent<Attributes>().totalArmor  / p_healthModifer + (p_healthModifer *
-                gameObject.GetComponent<Attributes>().level);
+            float mitigations = Mathf.CeilToInt(gameObject.GetComponent<Attributes>().totalArmor  / p_healthModifer + (p_healthModifer *
+                gameObject.GetComponent<Attributes>().level));
 
 
 
