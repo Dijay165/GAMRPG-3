@@ -132,37 +132,52 @@ public class Health : MonoBehaviour
         
         if (isAlive)
         {
-            ///  Events.OnMiniUIUpdate.Invoke(0f);
-           
-            //   currentHealth -= p_healthModifer;
 
             DamageOverhead damageOverhead = DamagedOverheadPool.pool.Get();
             damageOverhead.lookAt = gameObject.transform;
 
-            //float mitigations = gameObject.GetComponent<Attributes>().totalArmor / 
-            //    (p_healthModifer * (400 * gameObject.GetComponent<Attributes>().level));
-
+            //This is for physical armor 
             float mitigations = Mathf.CeilToInt(gameObject.GetComponent<Attributes>().totalArmor  / p_healthModifer + (p_healthModifer *
                 gameObject.GetComponent<Attributes>().level));
-
-
 
             damageOverhead.DamageText(mitigations);
 
             currentHealth -= Mathf.Clamp(mitigations, 0, maxHealth);
 
-            ///Debug.Log(mitigations);
-
-
             if (currentHealth < minHealth)
             {
                 currentHealth = minHealth;
             }
-            //Check is alive
             CheckHealth();
     
         }
 
+    }
+
+    public float findDamage(AttackType attacker, float damage)
+    {
+        float mitigations = 0;
+        if(attacker == AttackType.Physical)
+        {
+
+             mitigations = Mathf.CeilToInt(gameObject.GetComponent<Attributes>().totalArmor / damage + (damage *
+                gameObject.GetComponent<Attributes>().level));
+
+            return mitigations;
+        }
+        else
+        {
+            //Insert math formula here. 
+            mitigations = Mathf.CeilToInt(gameObject.GetComponent<Attributes>().magicResistance / damage + (damage *
+                gameObject.GetComponent<Attributes>().level));
+
+            float totalResistanceMod = 1 * (1 - gameObject.GetComponent<Attributes>().magicResistance) * (1 - gameObject.GetComponent<Attributes>().magicResistance);
+            float reductionMode = 1 * (1 + mitigations) * (1 + mitigations);
+            float finalResistance = 1 - (totalResistanceMod * reductionMode);
+            float damageModFromMR = 1 - finalResistance;
+
+            return damageModFromMR;
+        }
     }
 
     void CheckHealth()
@@ -219,14 +234,6 @@ public class Health : MonoBehaviour
         {
             //Debug.Log("Not Works??");
             return baseDamage;
-        }
-    }
-
-    public void HealthRegeneration()
-    {
-        if (isAlive)
-        {
-            currentHealth += healthRegen;
         }
     }
 }

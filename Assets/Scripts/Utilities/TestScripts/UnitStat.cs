@@ -23,6 +23,12 @@ public enum ArmorType
     Hero
 }
 
+public enum AttackType
+{
+    Physical,
+    Magical
+}
+
 [CreateAssetMenu(fileName = "Unit Stats", menuName = "New Stats")]
 public class UnitStat : ScriptableObject
 {
@@ -53,7 +59,7 @@ public class UnitStat : ScriptableObject
 
     public WeaponType weaponType;
     public ArmorType armorType;
-
+    public AttackType basicAttack;
 
 
 }
