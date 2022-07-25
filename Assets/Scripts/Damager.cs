@@ -22,5 +22,32 @@ public class Damager : MonoBehaviour
         //unit.currentTarget.SubtractHealth(10);
     }
 
-   
+    
+    public float DamageType()
+    {
+        // Debug.Log("Stuff: ");
+        float finalModifiedDamage = 0;
+        float modifiedDamage = 0;
+        switch (attributes.attackType)
+        {
+            case AttackType.Physical:
+                modifiedDamage = unit.currentTarget.gameObject.GetComponent<Health>().CalcDamage(attributes.attackDamage,
+                    attributes.weaponType, unit.currentTarget.gameObject.GetComponent<Attributes>().armorType);
+
+                finalModifiedDamage = unit.currentTarget.gameObject.GetComponent<Health>().findDamage(attributes.attackType, modifiedDamage);
+              //  Debug.Log("Physical: " + modifiedDamage);
+                break;
+
+            case AttackType.Magical:
+              
+                modifiedDamage = unit.currentTarget.gameObject.GetComponent<Health>().CalcDamage(gameObject.GetComponent<Health>().
+                       MagicResistance(attributes.magicAttack),
+                     attributes.weaponType, unit.currentTarget.gameObject.GetComponent<Attributes>().armorType);
+
+                finalModifiedDamage = unit.currentTarget.gameObject.GetComponent<Health>().findDamage(attributes.attackType, modifiedDamage);
+              //  Debug.Log("Magical: " + modifiedDamage);
+                break;
+        }
+        return finalModifiedDamage;
+    }
 }

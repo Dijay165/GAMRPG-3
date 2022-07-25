@@ -137,12 +137,12 @@ public class Health : MonoBehaviour
             damageOverhead.lookAt = gameObject.transform;
 
             //This is for physical armor 
-            float mitigations = Mathf.CeilToInt(gameObject.GetComponent<Attributes>().totalArmor  / p_healthModifer + (p_healthModifer *
-                gameObject.GetComponent<Attributes>().level));
+            //float mitigations = Mathf.CeilToInt(gameObject.GetComponent<Attributes>().totalArmor  / p_healthModifer + (p_healthModifer *
+            //    gameObject.GetComponent<Attributes>().level)); 
 
-            damageOverhead.DamageText(mitigations);
+            damageOverhead.DamageText(p_healthModifer);
 
-            currentHealth -= Mathf.Clamp(mitigations, 0, maxHealth);
+            currentHealth -= Mathf.Clamp(p_healthModifer, 0, maxHealth);
 
             if (currentHealth < minHealth)
             {
@@ -156,42 +156,38 @@ public class Health : MonoBehaviour
 
     public float MagicResistance(float damage)
     {
-        float mitigations = 0;
-        mitigations = Mathf.CeilToInt(gameObject.GetComponent<Attributes>().magicResistance / damage + (damage *
-              gameObject.GetComponent<Attributes>().level));
+        //  float mitigations = 0;
 
-        float totalResistanceMod = 1 * (1 - gameObject.GetComponent<Attributes>().magicResistance) * (1 - gameObject.GetComponent<Attributes>().magicResistance);
-        float reductionMode = 1 * (1 + mitigations) * (1 + mitigations);
+
+        float totalResistanceMod = 1 * (damage - gameObject.GetComponent<Attributes>().totalMagicResistance) * (damage - gameObject.GetComponent<Attributes>().totalMagicResistance);
+        float reductionMode = 1 * (damage + gameObject.GetComponent<Attributes>().magicAttack) * (damage + gameObject.GetComponent<Attributes>().magicAttack);
         float finalResistance = 1 - (totalResistanceMod * reductionMode);
-        float damageModFromMR = 1 - finalResistance;
+        float damageModFromMR = damage - finalResistance;
 
-        return damageModFromMR;
+        ///Debug.Log("Magic Resistance");
+       return damageModFromMR;
     }
 
     public float findDamage(AttackType attacker, float damage)
     {
         float mitigations = 0;
-        if(attacker == AttackType.Physical)
+
+        switch (attacker)
         {
+            case AttackType.Physical:
+                mitigations = Mathf.CeilToInt(gameObject.GetComponent<Attributes>().totalArmor / damage + (damage *
+              gameObject.GetComponent<Attributes>().level));
+                break;
+            case AttackType.Magical:
 
-             mitigations = Mathf.CeilToInt(gameObject.GetComponent<Attributes>().totalArmor / damage + (damage *
-                gameObject.GetComponent<Attributes>().level));
+                mitigations = Mathf.CeilToInt(gameObject.GetComponent<Attributes>().magicResistance / damage + (damage *
+               gameObject.GetComponent<Attributes>().level));
 
-            return mitigations;
+
+                break;
         }
-        else
-        {
-            //Insert math formula here. 
-            mitigations = Mathf.CeilToInt(gameObject.GetComponent<Attributes>().magicResistance / damage + (damage *
-                gameObject.GetComponent<Attributes>().level));
+        return mitigations;
 
-            float totalResistanceMod = 1 * (1 - gameObject.GetComponent<Attributes>().magicResistance) * (1 - gameObject.GetComponent<Attributes>().magicResistance);
-            float reductionMode = 1 * (1 + mitigations) * (1 + mitigations);
-            float finalResistance = 1 - (totalResistanceMod * reductionMode);
-            float damageModFromMR = 1 - finalResistance;
-
-            return damageModFromMR;
-        }
     }
 
     void CheckHealth()

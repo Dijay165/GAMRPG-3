@@ -48,6 +48,8 @@ public class Attributes : MonoBehaviour
     public float bonusArmor;
 
     public float totalArmor;
+    public float bonusMagicResistance;
+    public float totalMagicResistance;
 
     public float defaultHealthRegen;
     public float defaultManaRegen;
@@ -83,7 +85,9 @@ public class Attributes : MonoBehaviour
             defaultMana = unit.unitStat.startingMaxMana;
             level = unit.unitStat.startingLevel;
 
-
+            //magicAttack = defaultAttackDamage;
+            magicAttack = unit.unitStat.startingMagicAttack;
+            attackType = unit.unitStat.attackType;
 
 
         }
@@ -109,7 +113,7 @@ public class Attributes : MonoBehaviour
         movementSpeed = defaultMovementSpeed;
 
         totalArmor = armor + bonusArmor;
-      
+        totalMagicResistance = magicResistance + bonusMagicResistance;
     }
 
 

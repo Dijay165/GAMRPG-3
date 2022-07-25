@@ -51,7 +51,7 @@ public class UnitStat : ScriptableObject
     public int startingAttackDamage;
     public float startingAttackSpeed;
     public float startingAttackRange;
-
+    public float startingMagicAttack;
     public float startingMovementSpeed;
 
     public float healthRegeneration;
@@ -59,7 +59,7 @@ public class UnitStat : ScriptableObject
 
     public WeaponType weaponType;
     public ArmorType armorType;
-    public AttackType basicAttack;
+    public AttackType attackType;
 
 
 }
