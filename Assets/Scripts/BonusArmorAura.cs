@@ -5,130 +5,123 @@ using UnityEngine;
 public class BonusArmorAura : MonoBehaviour
 {
     //public AttributeModifier attributeModifier;
-    public Faction unitFaction;
+    [SerializeField] Unit unit;
     //public SphereCollider detector;
-    public float auraRadius = 900;
-    public int armorAmount = 3; //5 for tier 2 3 4
-    public List<GameObject> potentialHero;
+    [SerializeField] float auraRadius = 900;
+    [SerializeField] int armorAmount = 3; //5 for tier 2 3 4
+    [SerializeField] List<GameObject> potentialHero;
     // Start is called before the first frame update
 
-
+    private void Awake()
+    {
+        unit = unit ? unit : GetComponent<Unit>();
+    }
 
     private void Update()
     {
-        
-    }
-    public void OnTriggerEnter(Collider other)
-    {
+        Collider[] hitColliders = Physics.OverlapSphere(transform.position, auraRadius);
 
 
-
-        if (other.gameObject.GetComponent<Unit>() != null)
+        for (int i = 0; i < hitColliders.Length; i++)
         {
-            potentialHero.Add(other.gameObject);
-           // potentialHero = other.gameObject.transform.root.gameObject;
-            //  Debug.Log("Am unit");
-            //////hero only
-
-
-            foreach(GameObject obj in potentialHero)
+            if (hitColliders[i].gameObject.layer == LayerMask.NameToLayer("Unit")
+            && hitColliders[i].gameObject.CompareTag("Player"))
             {
-
-                if(obj.TryGetComponent<Health>(out Health hitHealth))
+             
+                if (hitColliders[i].gameObject.GetComponent<Unit>() != null)
                 {
-                    if (obj.GetComponent<AttributeModifier>() != null)
+              
+                    if (potentialHero.Count > 0)
                     {
-
-                        if (hitHealth.CompareTeam(unitFaction))
+                        for (int ii = 0; ii < potentialHero.Count;)
                         {
-                            AttributeModifier newModifier = obj.GetComponent<AttributeModifier>();
-
-                            if (!newModifier.hasBuff)
+                            if (potentialHero[ii] == hitColliders[i].gameObject)
                             {
-                                newModifier.armorAmount = armorAmount;
-                                newModifier.ApplyModification();
-                               // Debug.Log("MODIFIER APPLIED " + gameObject.name);
+                                break;
+                            }
+                            ii++;
+                            if (ii >= potentialHero.Count)
+                            {
+                                if (hitColliders[i].gameObject.TryGetComponent<Health>(out Health hitHealth))
+                                {
+                                    if (hitHealth.CompareTeam(unit.unitFaction))
+                                    {
+                                        potentialHero.Add(hitColliders[i].gameObject);
+                                    }
+                                }
                             }
                         }
-                       
+                    }
+                    else
+                    {
+                        
+                        if (hitColliders[i].gameObject.TryGetComponent<Health>(out Health hitHealth))
+                        {
+                            if (hitHealth.CompareTeam(unit.unitFaction))
+                            {
+                                potentialHero.Add(hitColliders[i].gameObject);
+                            }
+                        }
+                        
+                    }
+                   
+
+
+                }
+            }
+        }
+
+        for (int i = 0; i < potentialHero.Count; i++)
+        {
+            if (potentialHero[i] != null)
+            {
+                if (potentialHero[i].TryGetComponent(out AttributeModifier attributeModifier))
+                {
+                    float distance = Vector3.Distance(transform.position, potentialHero[i].transform.position);
+
+                    if (distance < auraRadius)
+                    {
+
+                        if (!attributeModifier.hasBuff)
+                        {
+                            attributeModifier.armorAmount = armorAmount;
+                            attributeModifier.ApplyModification();
+                            // Debug.Log("MODIFIER APPLIED " + gameObject.name);
+                        }
+
+
+
 
                     }
+                    else
+                    {
+                        if (attributeModifier.hasBuff)
+                        {
+                            attributeModifier.armorAmount = armorAmount;
+                            attributeModifier.VoidModification();
+                            // Debug.Log("MODIFIER APPLIED " + gameObject.name);
+                        }
+                        potentialHero.Remove(potentialHero[i]);
+                    }
                 }
-                 
+               
+                
+            }
+            else
+            {
+                potentialHero.Remove(potentialHero[i]);
             }
 
-            //if (potentialHero.TryGetComponent<Unit>(out Unit unit))
-            //{
-            //    Debug.Log("Unit");
-            //    if (potentialHero.TryGetComponent<Health>(out Health hitHealth))
-            //    {
-            //        Debug.Log("Hithealth");
-            //        if (hitHealth.CompareTeam(unitFaction))
-            //        {
-            //            Debug.Log("Unitfaction");
 
-
-            //            if (potentialHero.GetComponent<AttributeModifier>() != null)
-            //                {
-            //                    AttributeModifier newModifier = potentialHero.GetComponent<AttributeModifier>();
-            //                if (!newModifier.hasBuff)
-            //                {
-            //                    newModifier.armorAmount = armorAmount;
-            //                    newModifier.ApplyModification();
-            //                    Debug.Log("MODIFIER APPLIED");
-            //                }
-                               
-            //                }
-            //        }
-            //    }
-            //}
         }
 
     }
 
-    public void OnTriggerExit(Collider other)
+
+    private void OnDrawGizmosSelected()
     {
-
-        if (other.gameObject.GetComponent<Unit>() != null)
-        {
-            potentialHero.Remove(other.gameObject);
-
-            if (other.TryGetComponent<Health>(out Health hitHealth))
-            {
-                if (other.GetComponent<AttributeModifier>() != null)
-                {
-
-                    if (hitHealth.CompareTeam(unitFaction))
-                    {
-                        AttributeModifier newModifier = other.GetComponent<AttributeModifier>();
-
-                        newModifier.armorAmount = armorAmount;
-                        newModifier.VoidModification();
-                    }
-                }
-            }
-        }
-
-            //Debug.Log("MODIFIER DETE " + other.gameObject.transform.root.gameObject.name);
-            //GameObject potentialHero = other.gameObject.transform.root.gameObject;
-            //if (potentialHero.GetComponent<Attributes>())
-            //{
-            //  //  Attributes attributes = potentialHero.GetComponent<Attributes>();
-            //    if (potentialHero.GetComponent<AttributeModifier>() != null)
-            //    {
-            //        AttributeModifier newModifier = potentialHero.GetComponent<AttributeModifier>();
-
-            //        newModifier.VoidModification();
-
-            //    }
-            //}
-
-        }
-
-    //private void OnDrawGizmosSelected()
-    //{
-    //    Gizmos.color = Color.red;
-    // //Use the same vars you use to draw your Overlap SPhere to draw your Wire Sphere.
-    //      Gizmos.DrawWireSphere(transform.position, auraRadius);
-    //}
+        Gizmos.color = Color.red;
+        //Use the same vars you use to draw your Overlap SPhere to draw your Wire Sphere.
+        Gizmos.DrawWireSphere(transform.position, auraRadius);
+    }
 }

@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3491397793678119118}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Bone
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -55,7 +55,7 @@ GameObject:
   - component: {fileID: -3884378849776890639}
   - component: {fileID: -4752928479681188677}
   - component: {fileID: 6257604352832169882}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: MegaMellee
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -111,6 +111,7 @@ MonoBehaviour:
   test: 0
   skinnedMeshRenderer: {fileID: 922411435948292484}
   redFace: {fileID: 2100000, guid: 4ae0951617653ad40a3f2bbec1c456e1, type: 2}
+  attackTime: 0
 --- !u!114 &695369996818386633
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -139,9 +140,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playersParent: {fileID: 0}
   invulnerable: 0
+  isAlive: 0
   currentHealth: 0
   minHealth: 0
   maxHealth: 700
+  healthRegen: 0
 --- !u!54 &7256834816770793406
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -240,19 +243,34 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1745d2ceb585d8f4e84d4c8cc99f97f9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  level: 0
+  defaultMana: 0
   skillPoints: 0
+  baseAttackSpeed: 0
+  agiFlatModifiers: 0
   strength: 0
   agility: 0
   intelligence: 0
   armor: 0
   magicResistance: 0
+  magicAttack: 0
   attackDamage: 40
-  attackSpeed: 0
+  totalAttackSpeed: 0
   attackRange: 0
+  bonusAttackSpeed: 0
+  mana: 0
   movementSpeed: 0
   weaponType: 0
   armorType: 0
+  attackType: 0
   bonusArmor: 0
+  totalArmor: 0
+  bonusMagicResistance: 0
+  totalMagicResistance: 0
+  defaultHealthRegen: 0
+  defaultManaRegen: 0
+  healthRegen: 0
+  manaRegen: 0
 --- !u!208 &-3884378849776890639
 NavMeshObstacle:
   m_ObjectHideFlags: 0
@@ -304,7 +322,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8584001912829378790}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Bone.003_L_end
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -419,7 +437,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4549490273995631921}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Bone.003_R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -453,7 +471,7 @@ GameObject:
   - component: {fileID: 2356005025816732687}
   - component: {fileID: 1665748587765066666}
   - component: {fileID: 3528881238725664608}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: VikingHelmet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -534,7 +552,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2695408700488630838}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Rig
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -566,7 +584,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3467692970567215288}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Bone.003_L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -599,7 +617,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6906120520383147248}
   - component: {fileID: 922411435948292484}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Slime_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -687,7 +705,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1736234832266494582}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Bone.003_R_end
   m_TagString: Untagged
   m_Icon: {fileID: 0}

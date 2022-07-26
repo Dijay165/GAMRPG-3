@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3477973274520921199}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Rig
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -41,7 +41,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 9095317282723667589}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Bone
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -75,7 +75,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7582091435990219001}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Bone.003_L
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -108,7 +108,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3598078434179015239}
   - component: {fileID: 8778109979415584371}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Slime_01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -196,7 +196,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2604751439361793647}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Firepoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -229,7 +229,7 @@ GameObject:
   - component: {fileID: 3584338472764586480}
   - component: {fileID: 437406946592110165}
   - component: {fileID: 2446875188226802335}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Crown
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -394,7 +394,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5748075382495498460}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Bone.003_R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -426,7 +426,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5099674956803121662}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Bone.003_R_end
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -457,7 +457,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5720336644604763371}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Bone.003_L_end
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -500,7 +500,7 @@ GameObject:
   - component: {fileID: -268582041083851338}
   - component: {fileID: -2529363437634863894}
   - component: {fileID: -6011004024904576231}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: MegaSiege Creep
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -557,6 +557,7 @@ MonoBehaviour:
   test: 0
   skinnedMeshRenderer: {fileID: 8778109979415584371}
   redFace: {fileID: 2100000, guid: 4ae0951617653ad40a3f2bbec1c456e1, type: 2}
+  attackTime: 0
 --- !u!114 &7193864837406473059
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -571,9 +572,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playersParent: {fileID: 0}
   invulnerable: 0
+  isAlive: 0
   currentHealth: 0
   minHealth: 0
   maxHealth: 875
+  healthRegen: 0
 --- !u!195 &7193864837406473058
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -623,19 +626,34 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1745d2ceb585d8f4e84d4c8cc99f97f9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  level: 0
+  defaultMana: 0
   skillPoints: 0
+  baseAttackSpeed: 0
+  agiFlatModifiers: 0
   strength: 0
   agility: 0
   intelligence: 0
   armor: 0
   magicResistance: 0
+  magicAttack: 0
   attackDamage: 57
-  attackSpeed: 0
+  totalAttackSpeed: 0
   attackRange: 0
+  bonusAttackSpeed: 0
+  mana: 0
   movementSpeed: 0
   weaponType: 0
   armorType: 0
+  attackType: 0
   bonusArmor: 0
+  totalArmor: 0
+  bonusMagicResistance: 0
+  totalMagicResistance: 0
+  defaultHealthRegen: 0
+  defaultManaRegen: 0
+  healthRegen: 0
+  manaRegen: 0
 --- !u!54 &7193864837406473070
 Rigidbody:
   m_ObjectHideFlags: 0
