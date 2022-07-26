@@ -35,6 +35,9 @@ public abstract class Creep : Unit
 
     public SkinnedMeshRenderer skinnedMeshRenderer;
     public Material redFace;
+    public float attackTime;
+
+    
     // Start is called before the first frame update
     protected override void Awake()
     {
@@ -75,6 +78,7 @@ public abstract class Creep : Unit
     {
         FaceTarget();
 
+        Debug.Log(attackTime);
         //transform
     }
 
@@ -84,6 +88,10 @@ public abstract class Creep : Unit
 
         obstacle.enabled = false;
         agent.enabled = true;
+
+       
+
+
         if (agent.isOnNavMesh == false)
         {
             agent.Warp(new Vector3(transform.position.x, 0f,transform.position.z));
@@ -92,6 +100,13 @@ public abstract class Creep : Unit
         }
         currentWaypoint = waypoints[2].transform;
         StartCoroutine(Co_Load());
+
+
+        if (TryGetComponent<Attributes>(out Attributes unit))
+        {
+            attackRate = (unit.baseAttackSpeed + unit.totalAttackSpeed + unit.agiFlatModifiers) / (100 * unit.baseAttackSpeed);
+            attackTime = 1 / attackRate;
+        }
 
     }
 
