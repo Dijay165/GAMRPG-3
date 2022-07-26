@@ -18,7 +18,7 @@ public class CreepAttack : StateMachineBehaviour
 
         damager = animator.gameObject.GetComponent<Damager>();
 
-        animator.speed = damager.attributes.attackSpeed;
+        animator.speed = damager.attributes.totalAttackSpeed;
        
         creep.gameObject.GetComponent<Damager>().DamageTarget();
 

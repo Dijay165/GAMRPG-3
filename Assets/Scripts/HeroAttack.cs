@@ -12,7 +12,7 @@ public class HeroAttack : StateMachineBehaviour
      
         targetedDamager = animator.GetComponent<TargetedDamager>();
         //  animator.speed = targetedDamager.attackSpeed / ((100 + targetedDamager.attackSpeed) * 0.01f);
-        animator.speed = targetedDamager.attackSpeed;
+        animator.speed = targetedDamager.attackTime;
        // Debug.Log(targetedDamager.attackSpeed);
     }
 

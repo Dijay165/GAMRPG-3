@@ -13,7 +13,9 @@ public class TargetedDamager : MonoBehaviour
 
     Animator anim;
 
-    public float attackSpeed = 1.7f;
+    float attackRate;
+
+    public float attackTime; 
 
     MOBAMovement mOBAMovement;
 
@@ -31,7 +33,11 @@ public class TargetedDamager : MonoBehaviour
         mOBAMovement = GetComponent<MOBAMovement>();
         attributes.ResetValues();
         damageAmount = attributes.attackDamage;
-        attackSpeed = attributes.attackSpeed;
+        //   attackSpeed = attributes.totalAttackSpeed;
+
+        attackRate = (attributes.baseAttackSpeed + attributes.totalAttackSpeed + attributes.agiFlatModifiers) / (100 * attributes.baseAttackSpeed);
+        attackTime = 1 / attackRate;
+
     }
 
     private void Update()
@@ -47,7 +53,6 @@ public class TargetedDamager : MonoBehaviour
                 StartCoroutine(MeleeAttack());
             }
         }
-       
     }
     private void NewTarget(GameObject p_target)
     {
@@ -73,6 +78,7 @@ public class TargetedDamager : MonoBehaviour
     {
         //Debug.Log("Atack");
         anim.SetTrigger("Basic Attack");
-        yield return new WaitForSeconds(attackSpeed);
+        Debug.Log(attackTime);
+        yield return new WaitForSeconds(attackTime);
     }
 }

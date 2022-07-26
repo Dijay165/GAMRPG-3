@@ -17,9 +17,12 @@ public class Attributes : MonoBehaviour
 
     private int defaultAttackDamage;
     private float defaultAttackSpeed;
+    public float baseAttackSpeed; 
     private float defaultAttackRange;
 
     private float defaultMovementSpeed;
+
+    public float agiFlatModifiers; 
 
 
 
@@ -32,8 +35,9 @@ public class Attributes : MonoBehaviour
     public float magicAttack;
 
     public float attackDamage;
-    public float attackSpeed;
+    public float totalAttackSpeed;
     public float attackRange;
+    public float bonusAttackSpeed;
 
     public float mana;
 
@@ -89,6 +93,7 @@ public class Attributes : MonoBehaviour
             magicAttack = unit.unitStat.startingMagicAttack;
             attackType = unit.unitStat.attackType;
 
+            baseAttackSpeed = unit.unitStat.baseAttackSpeed;
 
         }
         InitializeValues();
@@ -107,8 +112,10 @@ public class Attributes : MonoBehaviour
         magicResistance = defaultMagicResistance;
 
         attackDamage = defaultAttackDamage;
-        attackSpeed = defaultAttackSpeed;
+        totalAttackSpeed = defaultAttackSpeed + bonusAttackSpeed;
         attackRange = defaultAttackRange;
+
+      
 
         movementSpeed = defaultMovementSpeed;
 

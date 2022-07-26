@@ -50,6 +50,7 @@ public class UnitStat : ScriptableObject
 
     public int startingAttackDamage;
     public float startingAttackSpeed;
+    public float baseAttackSpeed;
     public float startingAttackRange;
     public float startingMagicAttack;
     public float startingMovementSpeed;
