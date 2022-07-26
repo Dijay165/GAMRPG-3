@@ -78,7 +78,7 @@ public abstract class Creep : Unit
     {
         FaceTarget();
 
-        Debug.Log(attackTime);
+       // Debug.Log(attackTime);    
         //transform
     }
 
