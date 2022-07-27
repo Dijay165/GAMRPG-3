@@ -21,14 +21,14 @@ public class Structures : Unit
         debugManager = GameObject.Find("DebugManager").GetComponent<DebugManager>();
         RequiredBuildingsDestroyedCounter = requiredBuildingsDeadForToBeVulnerable.Count;
 
-        //if (RequiredBuildingsDestroyedCounter == 0)
-        //{
-        //    GetComponent<Health>().invulnerable = false;
-        //}
-        //else
-        //{
-        //    GetComponent<Health>().invulnerable = true;
-        //}
+        if (RequiredBuildingsDestroyedCounter == 0)
+        {
+            GetComponent<Health>().invulnerable = false;
+        }
+        else
+        {
+            GetComponent<Health>().invulnerable = true;
+        }
         for (int i = 0; i < requiredBuildingsDeadForToBeVulnerable.Count; i++)
         {
             requiredBuildingsDeadForToBeVulnerable[i].OnDeathEvent.AddListener(ReduceRequirement);

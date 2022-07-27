@@ -156,7 +156,7 @@ MonoBehaviour:
   currentTarget: {fileID: 0}
   health: {fileID: 0}
   unitFaction: 0
-  unitStat: {fileID: 0}
+  unitStat: {fileID: 11400000, guid: 1ba76c184d4fc2144bd9e6bafbd5e885, type: 2}
   requiredBuildingsDeadForToBeVulnerable: []
 --- !u!1 &1228855972254258
 GameObject:
