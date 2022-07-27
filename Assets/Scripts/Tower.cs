@@ -75,7 +75,9 @@ public class Tower : Structures
                         Vector3 targetDirection = targetUnit.transform.position - transform.position;
 
                         Vector3 newDirection = Vector3.RotateTowards(transform.forward, targetDirection, 360, 0.0f);
-
+                        //Debug.Log(newDirection);
+                        //Debug.Log(gameObject.name);
+                        //Debug.Log(towerHead);
                         towerHead.transform.rotation = Quaternion.LookRotation(newDirection);
 
 

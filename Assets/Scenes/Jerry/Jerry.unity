@@ -262,6 +262,22 @@ PrefabInstance:
       propertyPath: m_IsKinematic
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6844975425766697757, guid: d8faacfa67b8d4af8b5a81028390f02b, type: 3}
+      propertyPath: unitStat
+      value: 
+      objectReference: {fileID: 11400000, guid: 1ba76c184d4fc2144bd9e6bafbd5e885, type: 2}
+    - target: {fileID: 6844975425766697757, guid: d8faacfa67b8d4af8b5a81028390f02b, type: 3}
+      propertyPath: unitFaction
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6844975425766697757, guid: d8faacfa67b8d4af8b5a81028390f02b, type: 3}
+      propertyPath: requiredBuildingsDeadForToBeVulnerable.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6844975425766697757, guid: d8faacfa67b8d4af8b5a81028390f02b, type: 3}
+      propertyPath: requiredBuildingsDeadForToBeVulnerable.Array.data[0]
+      value: 
+      objectReference: {fileID: 732474730}
     - target: {fileID: 8176847129870774413, guid: d8faacfa67b8d4af8b5a81028390f02b, type: 3}
       propertyPath: m_Color.b
       value: 0
@@ -309,6 +325,8 @@ PrefabInstance:
     - {fileID: 136802984214141268, guid: d8faacfa67b8d4af8b5a81028390f02b, type: 3}
     - {fileID: 0}
     - {fileID: 1371393305, guid: d8faacfa67b8d4af8b5a81028390f02b, type: 3}
+    - {fileID: 8922848427992051963, guid: d8faacfa67b8d4af8b5a81028390f02b, type: 3}
+    - {fileID: 5376494774525897689, guid: d8faacfa67b8d4af8b5a81028390f02b, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: d8faacfa67b8d4af8b5a81028390f02b, type: 3}
 --- !u!114 &18752181 stripped
 MonoBehaviour:
@@ -331,25 +349,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 4064439936423624, guid: d8faacfa67b8d4af8b5a81028390f02b, type: 3}
   m_PrefabInstance: {fileID: 18752180}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &18752184
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 18752182}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ab02ee5a357482f469f4326689eca34b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  icon: {fileID: 0}
-  currentTarget: {fileID: 0}
-  health: {fileID: 0}
-  unitFaction: 0
-  unitStat: {fileID: 0}
-  requiredBuildingsDeadForToBeVulnerable:
-  - {fileID: 732474730}
 --- !u!208 &18752185
 NavMeshObstacle:
   m_ObjectHideFlags: 0
@@ -5957,7 +5956,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1018291631365572, guid: d8faacfa67b8d4af8b5a81028390f02b, type: 3}
       propertyPath: m_Name
-      value: EMP_2 (1)
+      value: Ancient
       objectReference: {fileID: 0}
     - target: {fileID: 1018291631365572, guid: d8faacfa67b8d4af8b5a81028390f02b, type: 3}
       propertyPath: m_Layer
@@ -6134,6 +6133,9 @@ PrefabInstance:
     - {fileID: 136802984214141268, guid: d8faacfa67b8d4af8b5a81028390f02b, type: 3}
     - {fileID: 0}
     - {fileID: 1371393305, guid: d8faacfa67b8d4af8b5a81028390f02b, type: 3}
+    - {fileID: 8922848427992051963, guid: d8faacfa67b8d4af8b5a81028390f02b, type: 3}
+    - {fileID: 5376494774525897689, guid: d8faacfa67b8d4af8b5a81028390f02b, type: 3}
+    - {fileID: 6844975425766697757, guid: d8faacfa67b8d4af8b5a81028390f02b, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: d8faacfa67b8d4af8b5a81028390f02b, type: 3}
 --- !u!4 &557613497 stripped
 Transform:
@@ -6177,7 +6179,7 @@ MonoBehaviour:
   currentTarget: {fileID: 0}
   health: {fileID: 0}
   unitFaction: 1
-  unitStat: {fileID: 0}
+  unitStat: {fileID: 11400000, guid: d6750346963de0840911385da16d176a, type: 2}
   requiredBuildingsDeadForToBeVulnerable:
   - {fileID: 1013053302}
   - {fileID: 680526523}
@@ -7898,7 +7900,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1018291631365572, guid: d8faacfa67b8d4af8b5a81028390f02b, type: 3}
       propertyPath: m_Name
-      value: EMP_2
+      value: Ancient
       objectReference: {fileID: 0}
     - target: {fileID: 4064439936423624, guid: d8faacfa67b8d4af8b5a81028390f02b, type: 3}
       propertyPath: m_RootOrder
@@ -7991,6 +7993,9 @@ PrefabInstance:
     m_RemovedComponents:
     - {fileID: 0}
     - {fileID: 1371393305, guid: d8faacfa67b8d4af8b5a81028390f02b, type: 3}
+    - {fileID: 8922848427992051963, guid: d8faacfa67b8d4af8b5a81028390f02b, type: 3}
+    - {fileID: 5376494774525897689, guid: d8faacfa67b8d4af8b5a81028390f02b, type: 3}
+    - {fileID: 6844975425766697757, guid: d8faacfa67b8d4af8b5a81028390f02b, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: d8faacfa67b8d4af8b5a81028390f02b, type: 3}
 --- !u!4 &679598506 stripped
 Transform:
@@ -8034,8 +8039,10 @@ MonoBehaviour:
   currentTarget: {fileID: 0}
   health: {fileID: 0}
   unitFaction: 0
-  unitStat: {fileID: 0}
-  requiredBuildingsDeadForToBeVulnerable: []
+  unitStat: {fileID: 11400000, guid: d6750346963de0840911385da16d176a, type: 2}
+  requiredBuildingsDeadForToBeVulnerable:
+  - {fileID: 622856310}
+  - {fileID: 150655182}
   oppositeFaction: {fileID: 0}
 --- !u!1001 &680526518
 PrefabInstance:
@@ -20651,6 +20658,18 @@ PrefabInstance:
       propertyPath: m_IsKinematic
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6844975425766697757, guid: d8faacfa67b8d4af8b5a81028390f02b, type: 3}
+      propertyPath: unitStat
+      value: 
+      objectReference: {fileID: 11400000, guid: 1ba76c184d4fc2144bd9e6bafbd5e885, type: 2}
+    - target: {fileID: 6844975425766697757, guid: d8faacfa67b8d4af8b5a81028390f02b, type: 3}
+      propertyPath: requiredBuildingsDeadForToBeVulnerable.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6844975425766697757, guid: d8faacfa67b8d4af8b5a81028390f02b, type: 3}
+      propertyPath: requiredBuildingsDeadForToBeVulnerable.Array.data[0]
+      value: 
+      objectReference: {fileID: 512404764}
     - target: {fileID: 8830081746614289503, guid: d8faacfa67b8d4af8b5a81028390f02b, type: 3}
       propertyPath: m_Radius
       value: 140
@@ -20674,6 +20693,8 @@ PrefabInstance:
     - {fileID: 136802984214141268, guid: d8faacfa67b8d4af8b5a81028390f02b, type: 3}
     - {fileID: 0}
     - {fileID: 1371393305, guid: d8faacfa67b8d4af8b5a81028390f02b, type: 3}
+    - {fileID: 8922848427992051963, guid: d8faacfa67b8d4af8b5a81028390f02b, type: 3}
+    - {fileID: 5376494774525897689, guid: d8faacfa67b8d4af8b5a81028390f02b, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: d8faacfa67b8d4af8b5a81028390f02b, type: 3}
 --- !u!4 &954233843 stripped
 Transform:
@@ -20696,25 +20717,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b2ee099bcef3156419938abf98198822, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &954233846
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 954233844}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ab02ee5a357482f469f4326689eca34b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  icon: {fileID: 0}
-  currentTarget: {fileID: 0}
-  health: {fileID: 0}
-  unitFaction: 0
-  unitStat: {fileID: 0}
-  requiredBuildingsDeadForToBeVulnerable:
-  - {fileID: 512404764}
 --- !u!208 &954233847
 NavMeshObstacle:
   m_ObjectHideFlags: 0
@@ -27145,6 +27147,10 @@ PrefabInstance:
       propertyPath: m_IsKinematic
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6844975425766697757, guid: d8faacfa67b8d4af8b5a81028390f02b, type: 3}
+      propertyPath: unitStat
+      value: 
+      objectReference: {fileID: 11400000, guid: 1ba76c184d4fc2144bd9e6bafbd5e885, type: 2}
     - target: {fileID: 8922848427992051963, guid: d8faacfa67b8d4af8b5a81028390f02b, type: 3}
       propertyPath: unitStat
       value: 
@@ -27164,6 +27170,8 @@ PrefabInstance:
     - {fileID: 136802984214141268, guid: d8faacfa67b8d4af8b5a81028390f02b, type: 3}
     - {fileID: 0}
     - {fileID: 1371393305, guid: d8faacfa67b8d4af8b5a81028390f02b, type: 3}
+    - {fileID: 8922848427992051963, guid: d8faacfa67b8d4af8b5a81028390f02b, type: 3}
+    - {fileID: 5376494774525897689, guid: d8faacfa67b8d4af8b5a81028390f02b, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: d8faacfa67b8d4af8b5a81028390f02b, type: 3}
 --- !u!4 &1093049222 stripped
 Transform:
@@ -27360,6 +27368,22 @@ PrefabInstance:
       propertyPath: m_IsKinematic
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6844975425766697757, guid: d8faacfa67b8d4af8b5a81028390f02b, type: 3}
+      propertyPath: unitStat
+      value: 
+      objectReference: {fileID: 11400000, guid: 1ba76c184d4fc2144bd9e6bafbd5e885, type: 2}
+    - target: {fileID: 6844975425766697757, guid: d8faacfa67b8d4af8b5a81028390f02b, type: 3}
+      propertyPath: unitFaction
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6844975425766697757, guid: d8faacfa67b8d4af8b5a81028390f02b, type: 3}
+      propertyPath: requiredBuildingsDeadForToBeVulnerable.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6844975425766697757, guid: d8faacfa67b8d4af8b5a81028390f02b, type: 3}
+      propertyPath: requiredBuildingsDeadForToBeVulnerable.Array.data[0]
+      value: 
+      objectReference: {fileID: 1917111675}
     - target: {fileID: 8176847129870774413, guid: d8faacfa67b8d4af8b5a81028390f02b, type: 3}
       propertyPath: m_Color.b
       value: 0
@@ -27407,6 +27431,8 @@ PrefabInstance:
     - {fileID: 136802984214141268, guid: d8faacfa67b8d4af8b5a81028390f02b, type: 3}
     - {fileID: 0}
     - {fileID: 1371393305, guid: d8faacfa67b8d4af8b5a81028390f02b, type: 3}
+    - {fileID: 8922848427992051963, guid: d8faacfa67b8d4af8b5a81028390f02b, type: 3}
+    - {fileID: 5376494774525897689, guid: d8faacfa67b8d4af8b5a81028390f02b, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: d8faacfa67b8d4af8b5a81028390f02b, type: 3}
 --- !u!4 &1093494335 stripped
 Transform:
@@ -34818,6 +34844,22 @@ PrefabInstance:
       propertyPath: m_IsKinematic
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6844975425766697757, guid: d8faacfa67b8d4af8b5a81028390f02b, type: 3}
+      propertyPath: unitStat
+      value: 
+      objectReference: {fileID: 11400000, guid: 1ba76c184d4fc2144bd9e6bafbd5e885, type: 2}
+    - target: {fileID: 6844975425766697757, guid: d8faacfa67b8d4af8b5a81028390f02b, type: 3}
+      propertyPath: unitFaction
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6844975425766697757, guid: d8faacfa67b8d4af8b5a81028390f02b, type: 3}
+      propertyPath: requiredBuildingsDeadForToBeVulnerable.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6844975425766697757, guid: d8faacfa67b8d4af8b5a81028390f02b, type: 3}
+      propertyPath: requiredBuildingsDeadForToBeVulnerable.Array.data[0]
+      value: 
+      objectReference: {fileID: 499171696}
     - target: {fileID: 8176847129870774413, guid: d8faacfa67b8d4af8b5a81028390f02b, type: 3}
       propertyPath: m_Color.b
       value: 0
@@ -34877,6 +34919,8 @@ PrefabInstance:
     - {fileID: 136802984214141268, guid: d8faacfa67b8d4af8b5a81028390f02b, type: 3}
     - {fileID: 0}
     - {fileID: 1371393305, guid: d8faacfa67b8d4af8b5a81028390f02b, type: 3}
+    - {fileID: 8922848427992051963, guid: d8faacfa67b8d4af8b5a81028390f02b, type: 3}
+    - {fileID: 5376494774525897689, guid: d8faacfa67b8d4af8b5a81028390f02b, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: d8faacfa67b8d4af8b5a81028390f02b, type: 3}
 --- !u!4 &1479848495 stripped
 Transform:
@@ -34899,25 +34943,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b2ee099bcef3156419938abf98198822, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &1479848498
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1479848496}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ab02ee5a357482f469f4326689eca34b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  icon: {fileID: 0}
-  currentTarget: {fileID: 0}
-  health: {fileID: 0}
-  unitFaction: 1
-  unitStat: {fileID: 0}
-  requiredBuildingsDeadForToBeVulnerable:
-  - {fileID: 499171696}
 --- !u!208 &1479848499
 NavMeshObstacle:
   m_ObjectHideFlags: 0
@@ -36784,6 +36809,18 @@ PrefabInstance:
       propertyPath: m_IsKinematic
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6844975425766697757, guid: d8faacfa67b8d4af8b5a81028390f02b, type: 3}
+      propertyPath: unitStat
+      value: 
+      objectReference: {fileID: 11400000, guid: 1ba76c184d4fc2144bd9e6bafbd5e885, type: 2}
+    - target: {fileID: 6844975425766697757, guid: d8faacfa67b8d4af8b5a81028390f02b, type: 3}
+      propertyPath: requiredBuildingsDeadForToBeVulnerable.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6844975425766697757, guid: d8faacfa67b8d4af8b5a81028390f02b, type: 3}
+      propertyPath: requiredBuildingsDeadForToBeVulnerable.Array.data[0]
+      value: 
+      objectReference: {fileID: 1508795184}
     - target: {fileID: 8830081746614289503, guid: d8faacfa67b8d4af8b5a81028390f02b, type: 3}
       propertyPath: m_Radius
       value: 140
@@ -36823,6 +36860,8 @@ PrefabInstance:
     - {fileID: 136802984214141268, guid: d8faacfa67b8d4af8b5a81028390f02b, type: 3}
     - {fileID: 0}
     - {fileID: 1371393305, guid: d8faacfa67b8d4af8b5a81028390f02b, type: 3}
+    - {fileID: 8922848427992051963, guid: d8faacfa67b8d4af8b5a81028390f02b, type: 3}
+    - {fileID: 5376494774525897689, guid: d8faacfa67b8d4af8b5a81028390f02b, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: d8faacfa67b8d4af8b5a81028390f02b, type: 3}
 --- !u!4 &1655366660 stripped
 Transform:
@@ -36845,44 +36884,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b2ee099bcef3156419938abf98198822, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &1655366663
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1655366661}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ab02ee5a357482f469f4326689eca34b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  icon: {fileID: 0}
-  currentTarget: {fileID: 0}
-  health: {fileID: 0}
-  unitFaction: 0
-  unitStat: {fileID: 0}
-  requiredBuildingsDeadForToBeVulnerable:
-  - {fileID: 1508795184}
---- !u!114 &1655366664
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1655366661}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ab02ee5a357482f469f4326689eca34b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  icon: {fileID: 0}
-  currentTarget: {fileID: 0}
-  health: {fileID: 0}
-  unitFaction: 0
-  unitStat: {fileID: 0}
-  requiredBuildingsDeadForToBeVulnerable:
-  - {fileID: 1508795184}
 --- !u!208 &1655366665
 NavMeshObstacle:
   m_ObjectHideFlags: 0
@@ -42745,7 +42746,7 @@ MonoBehaviour:
   container: {fileID: 1752803141}
   prefab: {fileID: 569862017832577074, guid: 31bae4ae65cd77d47b8492b2382b463f, type: 3}
   isCollectionCheck: 0
-  defaultMaxAmount: 200
+  defaultMaxAmount: 100
   flexibleMaxAmount: 100
 --- !u!1 &1753773471
 GameObject:
