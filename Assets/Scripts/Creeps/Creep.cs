@@ -178,7 +178,7 @@ public abstract class Creep : Unit
 
                 animator.SetTrigger("isAttacking");
                 animator.SetBool("isFollowingPath", false);
-                agent.speed = 0;
+               // agent.speed;
 
             }
             else   //it isnt within attack radius
