@@ -25,18 +25,18 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1686052005921636054}
-  m_LocalRotation: {x: 0.395496, y: 0.43820435, z: -0.105819926, w: 0.8002262}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 1666}
-  m_LocalScale: {x: 1.5272388, y: 1.5272388, z: 1.5272388}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1686052006282952365}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 46.528, y: 63.859, z: 14.93}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 140, y: 97}
-  m_SizeDelta: {x: 79.385, y: 50}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1686052005921636059
 CanvasRenderer:
@@ -144,8 +144,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1686052006282952365}
-  - component: {fileID: 1686052006282952362}
-  - component: {fileID: 1686052006282952363}
   - component: {fileID: 6623934897662624794}
   m_Layer: 5
   m_Name: DamageOverHeadUI
@@ -170,49 +168,11 @@ RectTransform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 1280, y: 720}
-  m_SizeDelta: {x: 2560, y: 1440}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 75, y: 25}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!223 &1686052006282952362
-Canvas:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1686052006282952360}
-  m_Enabled: 1
-  serializedVersion: 3
-  m_RenderMode: 2
-  m_Camera: {fileID: 0}
-  m_PlaneDistance: 100
-  m_PixelPerfect: 0
-  m_ReceivesEvents: 1
-  m_OverrideSorting: 0
-  m_OverridePixelPerfect: 0
-  m_SortingBucketNormalizedSize: 0
-  m_AdditionalShaderChannelsFlag: 25
-  m_SortingLayerID: 0
-  m_SortingOrder: 0
-  m_TargetDisplay: 0
---- !u!114 &1686052006282952363
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1686052006282952360}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dc42784cf147c0c48a680349fa168899, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_IgnoreReversedGraphics: 1
-  m_BlockingObjects: 0
-  m_BlockingMask:
-    serializedVersion: 2
-    m_Bits: 4294967295
 --- !u!114 &6623934897662624794
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -225,6 +185,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4fa98ec9aef6ded468273a734905099e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isRevealed: 0
+  unrevealTimeOut: 3
+  positionCorrection: {x: 0, y: 40}
   damageText: {fileID: 1686052005921636056}
-  lookAt: {fileID: 0}
+  startTime: 0
+  disappearTime: 0
+  currentOffset: 0
+  offsetRate: 1.5
   offset: {x: 0, y: 0, z: 0}

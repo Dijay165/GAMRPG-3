@@ -56,22 +56,25 @@ public class MOBAMovement : MonoBehaviour
 
                 agent.SetDestination(hit.point);
                 anim.SetTrigger("Turn");
-                
-                //Tempt for structure only, make this dynamic 
-                
-                if (hit.transform.gameObject.TryGetComponent(out Health health))
-                {
-                    if (!health.CompareTeam(unitFaction))
-                    {
-                        targetedDamager.targetHealth = health;
-                       // Debug.Log("Can Target");
-                    }
-                    else
-                    {
-                        Debug.Log("Cannot Target");
-                    }
+
+            //Tempt for structure only, make this dynamic 
+            targetedDamager.NewTarget(hit.transform.gameObject);
+                //if (hit.transform.gameObject.TryGetComponent(out Health health))
+                //{
+                //    if (!health.CompareTeam(unitFaction))
+                //    {
+                //        if (!health.invulnerable)
+                //        {
+                //            targetedDamager.targetHealth = health;
+                //        }
+                //       // Debug.Log("Can Target");
+                //    }
+                //    else
+                //    {
+                //        Debug.Log("Cannot Target");
+                //    }
                  
-                }
+                //}
             
         }
 

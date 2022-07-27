@@ -9,7 +9,7 @@ public class Structures : Unit
 
     private DebugManager debugManager;
 
-    public GameObject towerDetectGO;
+    //public GameObject towerDetectGO;
 
    // public TowerDetection detection;
 

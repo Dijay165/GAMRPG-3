@@ -34,6 +34,7 @@ public class AreaDamager : MonoBehaviour
 
     void DamageTarget()
     {
+  
         targetHealth.SubtractHealth(damageAmount);
     }
 
@@ -58,6 +59,7 @@ public class AreaDamager : MonoBehaviour
                 {
                     if (!foundHealthComponent.CompareTeam(team))
                     {
+               
                         foundHealthComponent.SubtractHealth(damageAmount);
                     }
                 }

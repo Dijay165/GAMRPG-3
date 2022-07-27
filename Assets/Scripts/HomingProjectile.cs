@@ -41,8 +41,8 @@ public class HomingProjectile : MonoBehaviour
     public void DeinitializeValues()
     {
         isInUse = false;
-        
-        ProjectilePool.pool.Release(this);
+        Destroy(gameObject);
+        //ProjectilePool.pool.Release(this);
     }
 
     public void DeathDeregisterEvent()
@@ -71,6 +71,7 @@ public class HomingProjectile : MonoBehaviour
                 {
                     //CalcDamage.
                     float modifiedDamage = targetHealth.CalcDamage(damage, weaponType, targetHealth.gameObject.GetComponent<Attributes>().armorType);
+   
                     targetHealth.SubtractHealth(modifiedDamage);
                     DeinitializeValues();
 

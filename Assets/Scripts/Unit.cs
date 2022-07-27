@@ -10,7 +10,7 @@ public class Unit : MonoBehaviour
     public Health currentTarget;
 
     [HideInInspector]public Health health;
-    protected HealthOverheadUI healthOverheadUI;
+    
 
     [SerializeField] public Faction unitFaction;
     [SerializeField] public UnitStat unitStat;
@@ -61,10 +61,7 @@ public class Unit : MonoBehaviour
     {
         AssignTeam();
        
-        healthOverheadUI = HealthOverheadUIPool.pool.Get();
-        healthOverheadUI.SetHealthBarData(transform, UIManager.instance.overheadUI);
-        health.OnHealthModifyEvent.AddListener(healthOverheadUI.OnHealthChanged);
-        health.OnDeathEvent.AddListener(healthOverheadUI.OnHealthDied);
+       
 
        
         health.OnDeathEvent.AddListener(Death);
@@ -75,10 +72,8 @@ public class Unit : MonoBehaviour
 
     protected virtual void DeinitializeValues()
     {
-      
-        health.OnHealthModifyEvent.RemoveListener(healthOverheadUI.OnHealthChanged);
-        health.OnDeathEvent.RemoveListener(healthOverheadUI.OnHealthDied);
-       
+
+        health.DeInitialize();
         //health.OnDeathEvent.RemoveAllListeners();
 
         isInUse = false;

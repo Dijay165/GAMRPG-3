@@ -22,7 +22,7 @@ public class Health : MonoBehaviour
 
     public Death OnDeathEvent = new Death();
     public HealthModify OnHealthModifyEvent = new HealthModify();
-
+    protected HealthOverheadUI healthOverheadUI;
     public float GetHealth()
     {
         return currentHealth;
@@ -52,6 +52,7 @@ public class Health : MonoBehaviour
 
     public void ResetValues()
     {
+       
         if (TryGetComponent<Unit>(out Unit unit))
         {
             team = (int)unit.unitFaction;
@@ -59,6 +60,13 @@ public class Health : MonoBehaviour
             healthRegen = unit.unitStat.healthRegeneration;
         }
         InitializeValues();
+    }
+    public void DeInitialize()
+    {
+      
+
+
+
     }
     public void InitializeValues()
     {
@@ -98,6 +106,7 @@ public class Health : MonoBehaviour
     {
         if (isAlive)
         {
+    
             currentHealth += p_healthModifer;
 
             Mathf.Clamp(currentHealth, minHealth, maxHealth);
@@ -111,7 +120,8 @@ public class Health : MonoBehaviour
     {
         if (isAlive)
         {
-           // Debug.Log("restore health");
+       
+            // Debug.Log("restore health");
             currentHealth += Mathf.CeilToInt(Mathf.Clamp(p_healthModifer, 0, maxHealth));
             // currentHealth += p_healthModifer;
             if (currentHealth > maxHealth)
@@ -125,29 +135,56 @@ public class Health : MonoBehaviour
 
         }
     }
+
+    public void RegisterOverheadHealthUI()
+    {
+        if (healthOverheadUI == null)
+        {
+            healthOverheadUI = HealthOverheadUIPool.pool.Get();
+            healthOverheadUI.health = this;
+            healthOverheadUI.Initialize(transform, UIManager.instance.overheadUI);
+            OnHealthModifyEvent.AddListener(healthOverheadUI.OnHealthChanged);
+            OnDeathEvent.AddListener(healthOverheadUI.OnHealthDied);
+    
+
+        }
+    }
+    public void DeregisterOverheadHealthUI()
+    {
+        if (healthOverheadUI != null)
+        {
+       
+            OnHealthModifyEvent.RemoveListener(healthOverheadUI.OnHealthChanged);
+            OnDeathEvent.RemoveListener(healthOverheadUI.OnHealthDied);
+            healthOverheadUI.health = null;
+            healthOverheadUI = null;
+
+        }
+    }
     public void SubtractHealth(float p_healthModifer)
     {
         Events.OnPlayerSelect.Invoke();
 
-        
+        RegisterOverheadHealthUI();
+
         if (isAlive)
         {
-
+     
             DamageOverhead damageOverhead = DamagedOverheadPool.pool.Get();
-            damageOverhead.lookAt = gameObject.transform;
 
             //This is for physical armor 
             //float mitigations = Mathf.CeilToInt(gameObject.GetComponent<Attributes>().totalArmor  / p_healthModifer + (p_healthModifer *
             //    gameObject.GetComponent<Attributes>().level)); 
 
             damageOverhead.DamageText(p_healthModifer);
-
+            damageOverhead.Initialize(transform, UIManager.instance.overheadUI);
             currentHealth -= Mathf.Clamp(p_healthModifer, 0, maxHealth);
 
             if (currentHealth < minHealth)
             {
                 currentHealth = minHealth;
             }
+     
             CheckHealth();
     
         }
@@ -192,10 +229,12 @@ public class Health : MonoBehaviour
 
     void CheckHealth()
     {
+        OnHealthModifyEvent.Invoke(isAlive, currentHealth, maxHealth);
         if (currentHealth > 0)
         {
             isAlive = true;
-            OnHealthModifyEvent.Invoke(isAlive, currentHealth, maxHealth);
+           
+
         }
         else
         {

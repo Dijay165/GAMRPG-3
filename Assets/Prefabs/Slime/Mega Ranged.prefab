@@ -93,7 +93,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 314278830131420649}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Firepoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -126,7 +126,7 @@ GameObject:
   - component: {fileID: 4468887648175812332}
   - component: {fileID: 696780545092837705}
   - component: {fileID: 3337028232015353219}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Sprout
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -207,7 +207,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4147275252861566289}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Bone.003_L_end
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -250,7 +250,7 @@ GameObject:
   - component: {fileID: -6175177739505886256}
   - component: {fileID: -4088243304572692980}
   - component: {fileID: 9081961192509436464}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Mega Ranged
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -291,9 +291,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playersParent: {fileID: 0}
   invulnerable: 0
+  isAlive: 0
   currentHealth: 0
   minHealth: 0
   maxHealth: 475
+  healthRegen: 0
 --- !u!114 &6783607742798335259
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -325,6 +327,7 @@ MonoBehaviour:
   test: 0
   skinnedMeshRenderer: {fileID: 4147275254690885895}
   redFace: {fileID: 2100000, guid: 5815b5e5740af5149b199e7573d59794, type: 2}
+  attackTime: 0
 --- !u!54 &5062193489933160578
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -438,19 +441,34 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1745d2ceb585d8f4e84d4c8cc99f97f9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  level: 0
+  defaultMana: 0
   skillPoints: 0
+  baseAttackSpeed: 0
+  agiFlatModifiers: 0
   strength: 0
   agility: 0
   intelligence: 0
   armor: 0
   magicResistance: 0
+  magicAttack: 0
   attackDamage: 44
-  attackSpeed: 0
+  totalAttackSpeed: 0
   attackRange: 0
+  bonusAttackSpeed: 0
+  mana: 0
   movementSpeed: 0
   weaponType: 0
   armorType: 0
+  attackType: 0
   bonusArmor: 0
+  totalArmor: 0
+  bonusMagicResistance: 0
+  totalMagicResistance: 0
+  defaultHealthRegen: 0
+  defaultManaRegen: 0
+  healthRegen: 0
+  manaRegen: 0
 --- !u!208 &-6175177739505886256
 NavMeshObstacle:
   m_ObjectHideFlags: 0
@@ -502,7 +520,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4147275253534167947}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Rig
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -534,7 +552,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4147275253841306801}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Bone.003_R_end
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -565,7 +583,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4147275254047374324}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Bone
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -599,7 +617,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4147275254690885892}
   - component: {fileID: 4147275254690885895}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Slime_03
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -687,7 +705,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4147275254720737003}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Bone.003_R
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -719,7 +737,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4147275254846644977}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Bone.003_L
   m_TagString: Untagged
   m_Icon: {fileID: 0}

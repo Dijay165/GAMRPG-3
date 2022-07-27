@@ -62,7 +62,8 @@ MonoBehaviour:
   isRevealed: 0
   unrevealTimeOut: 3
   positionCorrection: {x: 0, y: 40}
-  healthFrame: {fileID: 7325225216828138769}
+  alwaysFollow: 1
+  health: {fileID: 0}
   healthBar: {fileID: 5626466003406554470}
   delayedBar: {fileID: 3082199241307651208}
 --- !u!1 &3940990127975182478
