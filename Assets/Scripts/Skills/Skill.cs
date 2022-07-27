@@ -2,7 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public abstract class Skill : ScriptableObject
+
+[CreateAssetMenu(fileName = "Skill", menuName = "New Skill")]
+public class Skill : ScriptableObject
 {
 
     public string skillName;
@@ -27,13 +29,14 @@ public abstract class Skill : ScriptableObject
         isCooldown = false;
         isInEffect = false;
     }
-    //public virtual void Use(Unit userUnit)
-    //{
+    public virtual void CastSkill(Unit userUnit)
+    {
 
-    //    Debug.Log("ACTIVATEEEEEEEEEE" + skillName);
-    //    isCooldown = true;
+        Debug.Log("ACTIVATEEEEEEEEEE" + skillName);
+        isCooldown = true;
+        isInEffect = true;
 
-    //}
+    }
 
     public IEnumerator EffectsAnimation()
     {
