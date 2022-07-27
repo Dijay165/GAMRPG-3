@@ -28,7 +28,7 @@ public class RangedDamager : Damager
 
 
                 modifiedDamage = DamageType();
-                Debug.Log(modifiedDamage);
+               // Debug.Log(modifiedDamage);
                 // unit.currentTarget.gameObject.GetComponent<Health>().
 
                 //  Debug.Log(gameObject.name + " Modified Damage " + modifiedDamage);

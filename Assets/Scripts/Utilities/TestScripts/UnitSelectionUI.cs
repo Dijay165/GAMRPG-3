@@ -13,9 +13,15 @@ using System;
 public class UnitSelectionUI : MonoBehaviour
 {
     // Start is called before the first frame update
+    [Header("Left Section")]
     public TextMeshProUGUI attackText;
     public TextMeshProUGUI defenseText;
     public TextMeshProUGUI moveSpeedText;
+    public TextMeshProUGUI manaText;
+    public TextMeshProUGUI healthText;
+    public Image characterPortrait;
+
+    [Header("Middle Section")]
     public TextMeshProUGUI maxHealthText;
     public TextMeshProUGUI currentHealthText;
     public TextMeshProUGUI healthRegenText;
@@ -24,7 +30,18 @@ public class UnitSelectionUI : MonoBehaviour
     public TextMeshProUGUI maxManaText;
     public Slider sliderHealth;
     public Slider sliderMana;
-    public Image characterPortrait;
+
+
+    [Header("Attack Hover Section")]
+    public TextMeshProUGUI attackSpeedText;
+    public TextMeshProUGUI attackRangeText;
+    public TextMeshProUGUI magicAttackText;
+
+
+    [Header("Defense Hover Section")]
+    public TextMeshProUGUI armor;
+    public TextMeshProUGUI armorTypeText;
+    public TextMeshProUGUI magicResistText;
 
 
     Unit playerUnit; //TEMPORARY MAKE THIS EVENT
@@ -88,6 +105,7 @@ public class UnitSelectionUI : MonoBehaviour
                 moveSpeedText.text = attributes.movementSpeed.ToString();
                 healthRegenText.text = attributes.healthRegen.ToString();
                 manaRegenText.text = attributes.manaRegen.ToString();
+
             } 
         }
     }
@@ -135,6 +153,16 @@ public class UnitSelectionUI : MonoBehaviour
                 moveSpeedText.text = attributes.movementSpeed.ToString();
                 healthRegenText.text = "+ " + attributes.healthRegen.ToString();
                 manaRegenText.text = "+ " + attributes.manaRegen.ToString();
+                manaText.text = manaRegenText.text;
+                healthText.text = healthRegenText.text;
+
+                attackSpeedText.text = attributes.totalAttackSpeed.ToString();
+                attackRangeText.text = attributes.attackRange.ToString();
+                magicAttackText.text = attributes.magicAttack.ToString();
+
+                armor.text = attributes.totalArmor.ToString();
+                armorTypeText.text = attributes.armorType.ToString();
+                magicResistText.text = attributes.totalMagicResistance.ToString();
 
             }
 
