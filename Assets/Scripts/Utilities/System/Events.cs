@@ -30,6 +30,8 @@ public static class Events
 
     public static readonly Evt<Unit> OnGameOver = new Evt<Unit>();
 
+    public static readonly Evt<int> OnPlayerSkillIndex = new Evt<int>();
+
     //To create an event with parameters, please follow this format. 
     //public static readonly Evt<int> OnTakeDamage = new Evt<int>();
 

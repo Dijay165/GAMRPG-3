@@ -15,8 +15,9 @@ public abstract class Skill : ScriptableObject
     public List<float> effectDuration;
 
     public List<float> manaCost;
-    protected bool isCooldown;
-    protected bool isInEffect;
+
+    public bool isCooldown;
+    public bool isInEffect;
     // public Vector2 skillLocation;
     public Transform targetTransform;
     public float animationTime;
@@ -76,10 +77,12 @@ public abstract class Skill : ScriptableObject
 
         while (isCooldown)
         {
+            Debug.Log("isCooldown");
             yield return new WaitForSeconds(this.coolDownDuration[skillLevel]);
             isCooldown = false;
             //SkillManager.Instance.skillButtons[SkillManager.Instance.skillRef].interactable = true;
         }
+        Debug.Log("can cast again");
     }
 
 }

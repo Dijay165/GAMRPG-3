@@ -8,6 +8,12 @@ public class SkillHolder : MonoBehaviour
 
     public Job job;
     public List<KeyCode> keyCodes;
+    private void Awake()
+    {
+        // Events.OnPlayerSkillIndex.AddListener(KeyIndex);
+
+       // Events.OnPlayerSkillIndex.AddListener(KeyIndex);
+    }
     void Start()
     {
         InitializeKeys();
@@ -31,6 +37,30 @@ public class SkillHolder : MonoBehaviour
     public void KeyPressedCheckers()
     {
         for (int i = 0; i < keyCodes.Count; i++)
-            if (Input.GetKeyDown(keyCodes[i])) Debug.Log("Pressed " + keyCodes[i]);
+        {
+            if (Input.GetKeyDown(keyCodes[i]))
+            {
+                Debug.Log("Pressed " + keyCodes[i]);
+                Events.OnPlayerSkillIndex.Invoke(i);
+                CastSkill(i);
+            }
+          
+        }
+ 
+    }
+
+    public void CastSkill(int index)
+    {
+        if (!job.skills[index].isCooldown)
+        {
+            if(TryGetComponent<Unit>(out Unit unit))
+            {
+                job.skills[index].CastSkill(unit);
+                StartCoroutine(job.skills[index].CoolDownEnumerator());
+            }
+            
+        }
+       
+      
     }
 }
