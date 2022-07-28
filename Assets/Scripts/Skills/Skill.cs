@@ -3,38 +3,56 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
-[CreateAssetMenu(fileName = "Skill", menuName = "New Skill")]
-public class Skill : ScriptableObject
+
+[CreateAssetMenu(fileName = "Skill", menuName = "New Skills")]
+public abstract class Skill : ScriptableObject
 {
 
     public string skillName;
-    public float damage;
-    public GameObject effects;
-    public float coolDownDuration;
-    public float effectDuration;
-    
-    public bool isCooldown;
-    public bool isInEffect;
-    public Vector2 skillLocation;
+    public List<float> damage;
+    protected GameObject effects;
+    public List<float> coolDownDuration;
+    public List<float> effectDuration;
 
+    public List<float> manaCost;
+    protected bool isCooldown;
+    protected bool isInEffect;
+    // public Vector2 skillLocation;
+    public Transform targetTransform;
     public float animationTime;
 
     public Sprite skillIcon;
-    public bool isLooping;
-
+  //  public bool isLooping;
+    public KeyCode pressButton;
+    public bool canDispel;
+    public int skillLevel;
+    public AttackType attackType;
     
 
-    public virtual void Initialize()
+
+   
+    public virtual void Initialize(List<float> p_damage, List<float> p_coolDownDuration, 
+        List<float> p_effectDuration, List<float> p_manaCost, AttackType p_attackType, KeyCode p_pressButton)
     {
+        this.damage = p_damage;
+        this.coolDownDuration = p_coolDownDuration;
+        this.effectDuration = p_effectDuration;
+        this.manaCost = p_manaCost;
+        this.attackType = p_attackType;
+        this.pressButton = p_pressButton;
+
         isCooldown = false;
         isInEffect = false;
     }
     public virtual void CastSkill(Unit userUnit)
     {
-
-        Debug.Log("ACTIVATEEEEEEEEEE" + skillName);
-        isCooldown = true;
-        isInEffect = true;
+        if (!isCooldown)
+        {
+            Debug.Log("ACTIVATEEEEEEEEEE" + skillName);
+            isCooldown = true;
+            isInEffect = true;
+        }
+     
 
     }
 
@@ -43,7 +61,7 @@ public class Skill : ScriptableObject
 
         //  GameObject obj = Instantiate(SkillDatabase.effects, skillLocation, Quaternion.identity);
 
-        GameObject obj = Instantiate(effects, skillLocation, Quaternion.identity);
+        GameObject obj = Instantiate(effects, targetTransform.position, Quaternion.identity);
 
         yield return new WaitForSeconds(animationTime);
 
@@ -58,7 +76,7 @@ public class Skill : ScriptableObject
 
         while (isCooldown)
         {
-            yield return new WaitForSeconds(this.coolDownDuration);
+            yield return new WaitForSeconds(this.coolDownDuration[skillLevel]);
             isCooldown = false;
             //SkillManager.Instance.skillButtons[SkillManager.Instance.skillRef].interactable = true;
         }

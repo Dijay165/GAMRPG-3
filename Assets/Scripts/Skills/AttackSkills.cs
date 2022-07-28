@@ -2,17 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AttackSkills : MonoBehaviour
+//[CreateAssetMenu(fileName = "Attack Skills", menuName = "New Attack Skills")]
+public class AttackSkills : Skill
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public float castRange;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    
 }

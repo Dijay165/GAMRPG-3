@@ -2,71 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MagicMissile : MonoBehaviour
+public class MagicMissile : AttackSkills
 {
-  
-    public string skillName;
-    public float damage;
-    public GameObject effects;
-    public float coolDownDuration;
-    public float effectDuration;
-    //public SkillData SkillDatabase;
-    public bool isCooldown;
-    public bool isInEffect;
-    public Vector2 skillLocation;
 
-    public float animationTime;
 
-    public Sprite skillIcon;
-    public bool isLooping;
-
-    //public void Initialize()
-    //{
-    //    this.skillName = SkillDatabase.name;
-    //    this.coolDownDuration = SkillDatabase.coolDownDuration;
-    //    this.damage = SkillDatabase.damage;
-    //    this.effectDuration = SkillDatabase.effectDuration;
-
-    //}
-
-    public virtual void Initialize()
+    public override void Initialize(List<float> p_damage, List<float> p_coolDownDuration, List<float> p_effectDuration, List<float> p_manaCost, AttackType p_attackType, KeyCode p_pressButton)
     {
-        isCooldown = false;
-        isInEffect = false;
-    }
-    //public virtual void Use(Unit userUnit)
-    //{
-
-    //    Debug.Log("ACTIVATEEEEEEEEEE" + skillName);
-    //    isCooldown = true;
-
-    //}
-
-    public IEnumerator EffectsAnimation()
-    {
-
-        //  GameObject obj = Instantiate(SkillDatabase.effects, skillLocation, Quaternion.identity);
-
-        GameObject obj = Instantiate(effects, skillLocation, Quaternion.identity);
-
-        yield return new WaitForSeconds(animationTime);
-
-        Destroy(obj);
-
-
-
+        base.Initialize(damage, coolDownDuration, effectDuration, manaCost, attackType, KeyCode.Q);
     }
 
-    public virtual IEnumerator CoolDownEnumerator()
-    {
-
-        while (isCooldown)
-        {
-            yield return new WaitForSeconds(this.coolDownDuration);
-            isCooldown = false;
-            //SkillManager.Instance.skillButtons[SkillManager.Instance.skillRef].interactable = true;
-        }
-    }
 
 
 
