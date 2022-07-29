@@ -9,8 +9,9 @@ public abstract class Skill : ScriptableObject
 {
 
     public string skillName;
-    public List<float> damage;
     public GameObject effects;
+    public List<float> damage;
+
     public List<float> coolDownDuration;
     public List<float> effectDuration;
 
@@ -35,12 +36,18 @@ public abstract class Skill : ScriptableObject
     public virtual void Initialize(List<float> p_damage, List<float> p_coolDownDuration, 
         List<float> p_effectDuration, List<float> p_manaCost, AttackType p_attackType, KeyCode p_pressButton)
     {
-        this.damage = p_damage;
-        this.coolDownDuration = p_coolDownDuration;
-        this.effectDuration = p_effectDuration;
-        this.manaCost = p_manaCost;
-        this.attackType = p_attackType;
-        this.pressButton = p_pressButton;
+        p_damage = this.damage;
+        p_coolDownDuration = this.coolDownDuration;
+        p_effectDuration = this.effectDuration;
+        p_manaCost = this.manaCost;
+        p_attackType = this.attackType;
+        p_pressButton = this.pressButton;
+        //this.damage = p_damage;
+        //this.coolDownDuration = p_coolDownDuration;
+        //this.effectDuration = p_effectDuration;
+        //this.manaCost = p_manaCost;
+        //this.attackType = p_attackType;
+        //this.pressButton = p_pressButton;
 
         isCooldown = false;
         isInEffect = false;

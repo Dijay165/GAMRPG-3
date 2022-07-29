@@ -2,24 +2,34 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "MagicMissile", menuName = "New MagicMissile")]
+//[CreateAssetMenu(fileName = "MagicMissile", menuName = "New MagicMissile")]
 
-public class MagicMissile : AttackSkills
+public class MagicMissile : AbilityBase
 {
 
-
-    public override void Initialize(List<float> p_damage, List<float> p_coolDownDuration, List<float> p_effectDuration, List<float> p_manaCost, AttackType p_attackType, KeyCode p_pressButton)
+    private void Start()
     {
-        base.Initialize(damage, coolDownDuration, effectDuration, manaCost, attackType, KeyCode.Q);
+        Initialized();
     }
 
+    //public override void Initialize(List<float> p_damage, List<float> p_coolDownDuration, List<float> p_effectDuration, List<float> p_manaCost, AttackType p_attackType, KeyCode p_pressButton)
+    //{
+    //    base.Initialize(damage, coolDownDuration, effectDuration, manaCost, attackType, KeyCode.Q);
+    //}
 
-    public override void CastSkill(Unit userUnit)
+
+    //public override void CastSkill(Unit userUnit)
+    //{
+    //    base.CastSkill(userUnit);
+
+    //    Debug.Log("Stuff");
+
+    //}
+
+
+    public override void CastSkill(Unit target)
     {
-        base.CastSkill(userUnit);
-        
-        Debug.Log("Stuff");
-
+        base.CastSkill(target);
+        Debug.Log("Magic Missile");
     }
-
 }

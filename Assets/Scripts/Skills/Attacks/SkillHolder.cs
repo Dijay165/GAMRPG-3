@@ -7,7 +7,10 @@ public class SkillHolder : MonoBehaviour
     // Start is called before the first frame update
 
     public Job job;
+    [HideInInspector]
     public List<KeyCode> keyCodes;
+
+    public List<AbilityBase> skills;
     private void Awake()
     {
         // Events.OnPlayerSkillIndex.AddListener(KeyIndex);
@@ -16,7 +19,16 @@ public class SkillHolder : MonoBehaviour
     }
     void Start()
     {
+        //skills.Add(gameObject.GetComponents<Skill>());
+        //skills = gameObject.GetComponents<Skill>();
+        
+        foreach(AbilityBase skill in gameObject.GetComponents<AbilityBase>())
+        {
+            skills.Add(skill);
+        }
         InitializeKeys();
+
+        
     }
 
     // Update is called once per frame
@@ -28,9 +40,9 @@ public class SkillHolder : MonoBehaviour
 
     public void InitializeKeys()
     {
-        foreach(Skill skill in job.skills)
+        foreach(AbilityBase skill in skills)
         {
-            keyCodes.Add(skill.pressButton);
+            keyCodes.Add(skill.keyCode);
         }
     }
 
@@ -52,13 +64,14 @@ public class SkillHolder : MonoBehaviour
 
     public void ActivateSkill(int index)
     {
-        if (!job.skills[index].isCooldown)
+        if (!skills[index].isCooldown)
         {
             if(TryGetComponent<Unit>(out Unit unit))
             {
                 // job.skills[index].CastSkill(unit);
-                job.skills[index].CastSkill(unit);
-                StartCoroutine(job.skills[index].CoolDownEnumerator());
+                skills[index].CastSkill(unit);
+                //job.skills[index].CastSkill(unit);
+                StartCoroutine(skills[index].CoolDownEnumerator());
             }
             
         }

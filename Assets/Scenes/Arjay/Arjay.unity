@@ -38602,6 +38602,7 @@ GameObject:
   - component: {fileID: 1538651810}
   - component: {fileID: 1538651809}
   - component: {fileID: 1538651811}
+  - component: {fileID: 1538651812}
   m_Layer: 8
   m_Name: Wizard_True
   m_TagString: Player
@@ -38916,6 +38917,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   job: {fileID: 11400000, guid: e2218cfbd12a7894184db5147965df94, type: 2}
   keyCodes: 
+--- !u!114 &1538651812
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1538651793}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 45eae69747f29074db3cf12000c3af66, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  skill: {fileID: 11400000, guid: a3734c54fd4118840b60874982a49ac6, type: 2}
 --- !u!1 &1544690825
 GameObject:
   m_ObjectHideFlags: 0
