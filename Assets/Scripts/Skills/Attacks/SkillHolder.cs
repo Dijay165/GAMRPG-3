@@ -7,7 +7,6 @@ public class SkillHolder : MonoBehaviour
     // Start is called before the first frame update
 
     public Job job;
-    [HideInInspector]
     public List<KeyCode> keyCodes;
 
     public List<AbilityBase> skills;
@@ -25,10 +24,16 @@ public class SkillHolder : MonoBehaviour
         foreach(AbilityBase skill in gameObject.GetComponents<AbilityBase>())
         {
             skills.Add(skill);
+           // keyCodes.Add(skill.keyCode);
         }
+
         InitializeKeys();
 
-        
+    }
+
+    private void OnEnable()
+    {
+       
     }
 
     // Update is called once per frame
@@ -40,10 +45,12 @@ public class SkillHolder : MonoBehaviour
 
     public void InitializeKeys()
     {
-        foreach(AbilityBase skill in skills)
+
+        for (int i = 0; i < skills.Count; i++)
         {
-            keyCodes.Add(skill.keyCode);
+            keyCodes.Add(skills[i].keyCode);
         }
+
     }
 
     public void KeyPressedCheckers()
@@ -52,7 +59,7 @@ public class SkillHolder : MonoBehaviour
         {
             if (Input.GetKeyDown(keyCodes[i]))
             {
-              //  Debug.Log("Pressed " + keyCodes[i]);
+                Debug.Log("Pressed " + keyCodes[i]);
                 Events.OnPlayerSkillIndex.Invoke(i);
                 ActivateSkill(i);
 

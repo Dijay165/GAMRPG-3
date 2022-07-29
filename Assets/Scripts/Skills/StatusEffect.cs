@@ -5,14 +5,21 @@ using UnityEngine;
 public class StatusEffect : MonoBehaviour
 {
     // Start is called before the first frame update
-    void Start()
+
+    public Animator animator;
+
+    public virtual void InflictDebuff()
     {
-        
+
     }
 
-    // Update is called once per frame
-    void Update()
+    public virtual void InflictBuff()
     {
-        
+
+    }
+
+    public virtual void ResetStats()
+    {
+
     }
 }
