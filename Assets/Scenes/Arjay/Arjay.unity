@@ -777,7 +777,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 61547930}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 480242383}
+        m_TargetAssemblyTypeName: SkillManager, Assembly-CSharp
+        m_MethodName: ActivateSkill
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 1
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &61547930
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -27881,7 +27893,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 980139213}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 480242383}
+        m_TargetAssemblyTypeName: SkillManager, Assembly-CSharp
+        m_MethodName: ActivateSkill
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 3
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &980139213
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -47189,7 +47213,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1864452535}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 480242383}
+        m_TargetAssemblyTypeName: SkillManager, Assembly-CSharp
+        m_MethodName: ActivateSkill
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1864452535
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -53651,7 +53687,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2039042732}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 480242383}
+        m_TargetAssemblyTypeName: SkillManager, Assembly-CSharp
+        m_MethodName: ActivateSkill
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 2
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &2039042732
 MonoBehaviour:
   m_ObjectHideFlags: 0

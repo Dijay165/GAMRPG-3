@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[CreateAssetMenu(fileName = "MagicMissile", menuName = "New MagicMissile")]
+
 public class MagicMissile : AttackSkills
 {
 
@@ -12,6 +14,12 @@ public class MagicMissile : AttackSkills
     }
 
 
+    public override void CastSkill(Unit userUnit)
+    {
+        base.CastSkill(userUnit);
+        
+        Debug.Log("Stuff");
 
+    }
 
 }

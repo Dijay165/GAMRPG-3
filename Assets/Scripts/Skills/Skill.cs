@@ -10,7 +10,7 @@ public abstract class Skill : ScriptableObject
 
     public string skillName;
     public List<float> damage;
-    protected GameObject effects;
+    public GameObject effects;
     public List<float> coolDownDuration;
     public List<float> effectDuration;
 
@@ -18,8 +18,8 @@ public abstract class Skill : ScriptableObject
 
     public bool isCooldown;
     public bool isInEffect;
-    // public Vector2 skillLocation;
-    public Transform targetTransform;
+     public Vector3 skillLocation;
+  //  public Transform targetTransform;
     public float animationTime;
 
     public Sprite skillIcon;
@@ -49,7 +49,7 @@ public abstract class Skill : ScriptableObject
     {
         if (!isCooldown)
         {
-            Debug.Log("ACTIVATEEEEEEEEEE" + skillName);
+         //   Debug.Log("ACTIVATEEEEEEEEEE" + skillName);
             isCooldown = true;
             isInEffect = true;
         }
@@ -60,15 +60,13 @@ public abstract class Skill : ScriptableObject
     public IEnumerator EffectsAnimation()
     {
 
-        //  GameObject obj = Instantiate(SkillDatabase.effects, skillLocation, Quaternion.identity);
+         GameObject obj = Instantiate(effects, skillLocation, Quaternion.identity);
 
-        GameObject obj = Instantiate(effects, targetTransform.position, Quaternion.identity);
+    //    GameObject obj = Instantiate(effects, targetTransform.position, Quaternion.identity);
 
         yield return new WaitForSeconds(animationTime);
 
         Destroy(obj);
-
-
 
     }
 

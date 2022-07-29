@@ -40,7 +40,7 @@ public class SkillManager : MonoBehaviour
     void skillGetter(int index)
     {
         skillIndex = index;
-        Debug.Log(skillIndex);
+      //  Debug.Log(skillIndex);
     }
 
     void InitializeButtons()
@@ -53,6 +53,15 @@ public class SkillManager : MonoBehaviour
             // iconSprite[i].GetComponent<Image>().sprite = PlayerManager.instance.GetComponent<SkillHolder>().job.skills[i].skillIcon;
         }
 
+    }
+
+    public void ActivateSkill(int index)
+    {
+        if (!player.job.skills[index].isCooldown)
+        {
+            player.job.skills[index].CastSkill(player.GetComponent<Unit>());
+            StartCoroutine(player.job.skills[index].CoolDownEnumerator());
+        }
     }
 
 

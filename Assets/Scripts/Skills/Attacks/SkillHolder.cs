@@ -40,27 +40,27 @@ public class SkillHolder : MonoBehaviour
         {
             if (Input.GetKeyDown(keyCodes[i]))
             {
-                Debug.Log("Pressed " + keyCodes[i]);
+              //  Debug.Log("Pressed " + keyCodes[i]);
                 Events.OnPlayerSkillIndex.Invoke(i);
-                CastSkill(i);
+                ActivateSkill(i);
+
             }
           
         }
  
     }
 
-    public void CastSkill(int index)
+    public void ActivateSkill(int index)
     {
         if (!job.skills[index].isCooldown)
         {
             if(TryGetComponent<Unit>(out Unit unit))
             {
+                // job.skills[index].CastSkill(unit);
                 job.skills[index].CastSkill(unit);
                 StartCoroutine(job.skills[index].CoolDownEnumerator());
             }
             
         }
-       
-      
     }
 }
