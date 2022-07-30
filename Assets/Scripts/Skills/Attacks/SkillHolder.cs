@@ -10,11 +10,15 @@ public class SkillHolder : MonoBehaviour
     public List<KeyCode> keyCodes;
 
     public List<AbilityBase> skills;
+    Animator anim;
+    MOBAMovement movement;
     private void Awake()
     {
         // Events.OnPlayerSkillIndex.AddListener(KeyIndex);
 
-       // Events.OnPlayerSkillIndex.AddListener(KeyIndex);
+        // Events.OnPlayerSkillIndex.AddListener(KeyIndex);
+        anim = GetComponent<Animator>();
+        movement = GetComponent<MOBAMovement>();
     }
     void Start()
     {
@@ -59,10 +63,15 @@ public class SkillHolder : MonoBehaviour
         {
             if (Input.GetKeyDown(keyCodes[i]))
             {
-                Debug.Log("Pressed " + keyCodes[i]);
-                Events.OnPlayerSkillIndex.Invoke(i);
-                ActivateSkill(i);
+                //   Debug.Log("Pressed " + keyCodes[i]);
 
+                anim.SetTrigger("CastSkill");
+                // anim.SetBool("CastSkill", true);
+                // targetedDamager.h();
+                movement.HeroMove();
+                Events.OnPlayerSkillIndex.Invoke(i);
+                //ActivateSkill(i);
+                
             }
           
         }
@@ -71,7 +80,7 @@ public class SkillHolder : MonoBehaviour
 
     public void ActivateSkill(int index)
     {
-        if (!skills[index].isCooldown)
+        if (!skills[index].isCooldown && skills[index].canCast)
         {
             if(TryGetComponent<Unit>(out Unit unit))
             {

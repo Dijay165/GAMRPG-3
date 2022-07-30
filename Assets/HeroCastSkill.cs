@@ -2,15 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class HeroTurn : StateMachineBehaviour
+public class HeroCastSkill : StateMachineBehaviour
 {
     // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-     //   animator.ResetTrigger("Stop");
-        animator.ResetTrigger("Basic Attack");
-        //animator.ResetTrigger("Attack2");
-        animator.SetBool("PressStop", false);
+
     }
 
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
@@ -22,7 +19,7 @@ public class HeroTurn : StateMachineBehaviour
     // OnStateExit is called when a transition ends and the state machine finishes evaluating this state
     //override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     //{
-
+    //    
     //}
 
     // OnStateMove is called right after Animator.OnAnimatorMove()

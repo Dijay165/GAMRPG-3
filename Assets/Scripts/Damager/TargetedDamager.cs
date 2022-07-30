@@ -11,7 +11,7 @@ public class TargetedDamager : MonoBehaviour
 
     public Health targetHealth;
   
-    private NavMeshAgent agent;
+    public NavMeshAgent agent;
     Animator anim;
 
     float attackRate;
@@ -83,7 +83,7 @@ public class TargetedDamager : MonoBehaviour
     {
         //Debug.Log("Atack");
         anim.SetTrigger("Basic Attack");
-        Debug.Log(attackTime);
+       // Debug.Log(attackTime);
         yield return new WaitForSeconds(attackTime);
     }
 }

@@ -17,6 +17,9 @@ public class AbilityBase : MonoBehaviour
 
     public bool isCooldown;
     public bool isInEffect;
+    public bool canCast;
+    public float castRange;
+
     //[HideInInspector]
     public KeyCode keyCode;
 

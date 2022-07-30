@@ -35,7 +35,7 @@ public class MOBAMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetMouseButtonDown(1))
+        if (Input.GetMouseButtonDown(1) )
         {
             HeroMove();
         }
@@ -57,26 +57,11 @@ public class MOBAMovement : MonoBehaviour
                 agent.SetDestination(hit.point);
                 anim.SetTrigger("Turn");
 
-            //Tempt for structure only, make this dynamic 
-            targetedDamager.NewTarget(hit.transform.gameObject);
-                //if (hit.transform.gameObject.TryGetComponent(out Health health))
-                //{
-                //    if (!health.CompareTeam(unitFaction))
-                //    {
-                //        if (!health.invulnerable)
-                //        {
-                //            targetedDamager.targetHealth = health;
-                //        }
-                //       // Debug.Log("Can Target");
-                //    }
-                //    else
-                //    {
-                //        Debug.Log("Cannot Target");
-                //    }
-                 
-                //}
+                 //Tempt for structure only, make this dynamic 
+                targetedDamager.NewTarget(hit.transform.gameObject);
+         
             
-        }
+             }
 
         anim.SetFloat("Velocity X", agent.velocity.x, 0.01f, Time.deltaTime);
         anim.SetFloat("Velocity Z", agent.velocity.z, 0.01f, Time.deltaTime);

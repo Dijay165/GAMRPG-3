@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 5750892920052988608}
   - component: {fileID: 5940412195069052108}
   - component: {fileID: 3215293232166182611}
+  - component: {fileID: 8864935889354680102}
   m_Layer: 0
   m_Name: Magic Missle
   m_TagString: Untagged
@@ -46,12 +47,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f92a2f5574fb35458638f11ba7b65e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  targetUnit: {fileID: 0}
-  target: {fileID: 0}
   damage: 10
   speed: 250
-  rotateSpeed: 200
   bc: {fileID: 3215293232166182611}
+  weaponType: 0
+  armorType: 0
 --- !u!65 &3215293232166182611
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -65,6 +65,20 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 5, y: 5, z: 5}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &8864935889354680102
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5403507082968303793}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d7179695c777b3c4b90c1aae23ddec8a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetAnimator: {fileID: 0}
+  skill: {fileID: 11400000, guid: a3734c54fd4118840b60874982a49ac6, type: 2}
 --- !u!1 &5775447852874950615
 GameObject:
   m_ObjectHideFlags: 0

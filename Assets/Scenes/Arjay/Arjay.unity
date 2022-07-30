@@ -38695,6 +38695,7 @@ MonoBehaviour:
   damageAmount: 50
   range: 200
   targetHealth: {fileID: 0}
+  agent: {fileID: 0}
   attackTime: 0
 --- !u!114 &1538651798
 MonoBehaviour:
@@ -38933,6 +38934,8 @@ MonoBehaviour:
   skillLevel: 0
   isCooldown: 0
   isInEffect: 0
+  canCast: 0
+  castRange: 500
   keyCode: 0
   skill: {fileID: 11400000, guid: a3734c54fd4118840b60874982a49ac6, type: 2}
   missilePrefab: {fileID: 5403507082968303793, guid: 37a4facec3cdd41499a5cd416dfbb2ab, type: 3}

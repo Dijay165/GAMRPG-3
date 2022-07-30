@@ -6,14 +6,23 @@ public class StatusEffect : MonoBehaviour
 {
     // Start is called before the first frame update
 
-    public Animator animator;
+    protected Animator animator;
+    public Animator targetAnimator;
+    protected float duration;
+    public Skill skill;
 
-    public virtual void InflictDebuff()
+    private void Awake()
+    {
+        animator = GetComponent<Animator>();
+        duration = skill.effectDuration[skill.skillLevel];
+    }
+
+    public virtual void InflictDebuff(Animator target)
     {
 
     }
 
-    public virtual void InflictBuff()
+    public virtual void InflictBuff(Animator target)
     {
 
     }
@@ -22,4 +31,10 @@ public class StatusEffect : MonoBehaviour
     {
 
     }
+
+    public float durationGetter()
+    {
+        return duration;
+    }
+
 }
