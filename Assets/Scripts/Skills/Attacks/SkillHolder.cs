@@ -12,6 +12,8 @@ public class SkillHolder : MonoBehaviour
     public List<AbilityBase> skills;
     Animator anim;
     MOBAMovement movement;
+    [HideInInspector]
+    public int skillIDIndex;
     private void Awake()
     {
         // Events.OnPlayerSkillIndex.AddListener(KeyIndex);
@@ -65,11 +67,15 @@ public class SkillHolder : MonoBehaviour
             {
                 //   Debug.Log("Pressed " + keyCodes[i]);
 
-                anim.SetTrigger("CastSkill");
+
                 // anim.SetBool("CastSkill", true);
                 // targetedDamager.h();
+
                 movement.HeroMove();
                 Events.OnPlayerSkillIndex.Invoke(i);
+                skillIDIndex = i;
+              
+                    
                 //ActivateSkill(i);
                 
             }
@@ -78,18 +84,31 @@ public class SkillHolder : MonoBehaviour
  
     }
 
-    public void ActivateSkill(int index)
+    public void CastSkill(int index)
     {
-        if (!skills[index].isCooldown && skills[index].canCast)
-        {
+       
+        
             if(TryGetComponent<Unit>(out Unit unit))
             {
                 // job.skills[index].CastSkill(unit);
+                Debug.Log("Unit Found");
                 skills[index].CastSkill(unit);
                 //job.skills[index].CastSkill(unit);
                 StartCoroutine(skills[index].CoolDownEnumerator());
             }
-            
-        }
+            else
+            {
+                Debug.Log("Unit Not Found");
+            }
+          
+    }
+
+    public void ActivateSkill()
+    {
+        Debug.Log("Activate Skill");
+        //CastSkill(skillIDIndex);
+      
+        skills[skillIDIndex].CastSkill(gameObject.GetComponent<Unit>());
+        StartCoroutine(skills[skillIDIndex].CoolDownEnumerator());
     }
 }

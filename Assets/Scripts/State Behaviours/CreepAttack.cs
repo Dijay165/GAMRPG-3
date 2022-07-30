@@ -22,7 +22,7 @@ public class CreepAttack : StateMachineBehaviour
        
         creep.gameObject.GetComponent<Damager>().DamageTarget();
 
-
+        creep.agent.isStopped = true;
         creep.FaceTarget();
     }
 
@@ -37,7 +37,8 @@ public class CreepAttack : StateMachineBehaviour
     override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         animator.speed = 1;
-     
+        if(creep.agent != null)
+        creep.agent.isStopped = false;
     }
 
     // OnStateMove is called right after Animator.OnAnimatorMove()

@@ -1,12 +1,20 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
 public class HeroCastSkill : StateMachineBehaviour
 {
     // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
+    SkillHolder skillHolder;
+    float speed;
+    TargetedDamager targetedDamager;
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
+        targetedDamager = animator.gameObject.GetComponent<TargetedDamager>();
+        speed = targetedDamager.agent.speed;
+        //targetedDamager.agent.speed = 0;
+        targetedDamager.agent.isStopped = true;
+        skillHolder = animator.gameObject.GetComponent<SkillHolder>();
+        skillHolder.skills[skillHolder.skillIDIndex].isCooldown = true;
 
     }
 
@@ -17,10 +25,11 @@ public class HeroCastSkill : StateMachineBehaviour
     //}
 
     // OnStateExit is called when a transition ends and the state machine finishes evaluating this state
-    //override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
-    //{
-    //    
-    //}
+    override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
+    {
+        //targetedDamager.agent.speed = speed;
+        targetedDamager.agent.isStopped = false;
+    }
 
     // OnStateMove is called right after Animator.OnAnimatorMove()
     //override public void OnStateMove(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)

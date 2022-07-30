@@ -23,21 +23,33 @@ public class MagicMissile : AbilityBase
             float distance = Vector3.Distance(targetedDamager.agent.transform.position, targetedDamager.targetHealth.playersParent.position);
             if(distance < castRange)
             {
-                Debug.Log("In Range");
                 canCast = true;
+                if (!isCooldown)
+                {
+                    animator.SetTrigger("CastSkill");
+               //     Debug.Log("In Range");
+                    //animator.SetTrigger("CastSkill");
+                }
+               
                 
             }
-            else
-            {
-                Debug.Log("Not Range");
-            }
-
         }
     }
     public override void CastSkill(Unit target)
     {
         base.CastSkill(target);
-        Debug.Log("Magic Missile");
+       // Debug.Log("Magic Missile");
         GameObject obj = Instantiate(missilePrefab);
+        HomingProjectile newInstance = obj.GetComponent<HomingProjectile>();
+        newInstance.attackType = attackType;
+        newInstance.transform.position = gameObject.transform.position;
+        newInstance.InitializeValues(targetedDamager.targetHealth, damage[skillLevel], 900f);
+
+    }
+    public override IEnumerator CoolDownEnumerator()
+    {
+        Debug.Log("Stuff");
+        return base.CoolDownEnumerator();
+
     }
 }

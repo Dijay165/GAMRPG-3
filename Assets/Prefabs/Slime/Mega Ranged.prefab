@@ -429,6 +429,7 @@ MonoBehaviour:
   unit: {fileID: 0}
   attributes: {fileID: 0}
   firePoint: {fileID: 314278830131420649}
+  projectileSpeed: 200
 --- !u!114 &-276126547279088970
 MonoBehaviour:
   m_ObjectHideFlags: 0

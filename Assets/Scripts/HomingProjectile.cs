@@ -20,11 +20,13 @@ public class HomingProjectile : MonoBehaviour
 
     public WeaponType weaponType;
     public ArmorType armorType;
+    public AttackType attackType;
 
     Attributes attributes;
 
     private void Awake()
     {
+
         bc = bc ? bc : GetComponent<BoxCollider>();
         attributes = GetComponent<Attributes>();
     }

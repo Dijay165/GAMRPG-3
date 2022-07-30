@@ -179,6 +179,7 @@ MonoBehaviour:
   unit: {fileID: 0}
   attributes: {fileID: 0}
   firePoint: {fileID: 4820288120695166}
+  projectileSpeed: 750
   attackSpeed: 1
   animator: {fileID: 0}
 --- !u!114 &3081614833692483395

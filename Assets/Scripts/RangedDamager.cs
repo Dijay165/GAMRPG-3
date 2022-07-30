@@ -5,6 +5,7 @@ using UnityEngine;
 public class RangedDamager : Damager
 {
     [SerializeField] private Transform firePoint;
+    public float projectileSpeed;
    // [SerializeField] private HomingProjectile prefab;
     public override void DamageTarget()
     {
@@ -41,7 +42,7 @@ public class RangedDamager : Damager
                 newInstance.armorType = attributes.armorType;
                 newInstance.transform.position = firePoint.position;
 
-                newInstance.InitializeValues(unit.currentTarget,modifiedDamage,250);
+                newInstance.InitializeValues(unit.currentTarget,modifiedDamage, projectileSpeed);
 
             }
         }

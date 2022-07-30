@@ -38919,6 +38919,7 @@ MonoBehaviour:
   job: {fileID: 11400000, guid: e2218cfbd12a7894184db5147965df94, type: 2}
   keyCodes: 
   skills: []
+  skillIDIndex: 0
 --- !u!114 &1538651812
 MonoBehaviour:
   m_ObjectHideFlags: 0

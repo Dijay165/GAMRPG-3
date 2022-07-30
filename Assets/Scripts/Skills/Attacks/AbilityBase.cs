@@ -50,10 +50,10 @@ public class AbilityBase : MonoBehaviour
 
     public virtual IEnumerator CoolDownEnumerator()
     {
+        Debug.Log("isCooldown");
 
         while (isCooldown)
         {
-            Debug.Log("isCooldown");
             yield return new WaitForSeconds(this.coolDownDuration[skillLevel]);
             isCooldown = false;
             //SkillManager.Instance.skillButtons[SkillManager.Instance.skillRef].interactable = true;
