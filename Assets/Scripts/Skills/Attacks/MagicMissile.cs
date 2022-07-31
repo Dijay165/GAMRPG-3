@@ -45,7 +45,7 @@ public class MagicMissile : AbilityBase
         newInstance.attackType = attackType;
         newInstance.transform.position = gameObject.transform.position;
         newInstance.InitializeValues(targetedDamager.targetHealth, damage[skillLevel], 900f);
-        newInstance.gameObject.transform.SetParent(targetedDamager.targetHealth.playersParent);
+      //  newInstance.gameObject.transform.SetParent(targetedDamager.targetHealth.playersParent);
       //  isInEffect = true;
 
     }

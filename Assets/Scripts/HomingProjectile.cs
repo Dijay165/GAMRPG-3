@@ -49,20 +49,22 @@ public class HomingProjectile : MonoBehaviour
     private void OnDestroy()
     {
         // beforeDestroy?.Invoke();
-        if (canInflictStatusEffect)
-        {
-            //Insantiate status effect
-            GameObject obj = Instantiate(statusEffect, targetTransform);
-            StatusEffect status = obj.gameObject.GetComponent<StatusEffect>();
-            status.isInEffect = true;
-            status.Initialized(1f, targetTransform);
-   
-        }
+        
     }
 
     public void DeinitializeValues()
     {
         isInUse = false;
+        if (canInflictStatusEffect)
+        {
+            //Insantiate status effect
+            GameObject obj = Instantiate(statusEffect, targetTransform);
+            StatusEffect status = obj.gameObject.GetComponent<StatusEffect>();
+
+            status.isInEffect = true;
+            status.Initialized(1f, targetTransform);
+            status.gameObject.transform.SetParent(targetTransform);
+        }
 
         Destroy(gameObject);
         //ProjectilePool.pool.Release(this);

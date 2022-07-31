@@ -10,21 +10,21 @@ public class StunEffect : StatusEffect
     void Start()
     {
         unit = target.GetComponent<Unit>();
-        StartCoroutine(Debuff());
+         StartCoroutine(Debuff());
     }
 
     // Update is called once per frame
     void Update()
     {
-           
+       // StartCoroutine(Debuff());
     }
 
     public override void InflictDebuff()
     {
+     
+
+        //Debug.Log(unit.isStun);
         unit.isStun = true;
-
-        Debug.Log(unit.isStun);
-
         base.InflictDebuff();
         
 
@@ -39,8 +39,11 @@ public class StunEffect : StatusEffect
     {
        // Debug.Log("Debuff");
         InflictDebuff();
-        unit.isStun = false;
         return base.Debuff();
-        
+    }
+
+    private void OnDestroy()
+    {
+        unit.isStun = false;
     }
 }

@@ -78,7 +78,7 @@ public abstract class Creep : Unit
     {
         if (!isStun)
         {
-            agent.isStopped = false;
+            //agent.isStopped = false;
             FaceTarget();
             
         }
