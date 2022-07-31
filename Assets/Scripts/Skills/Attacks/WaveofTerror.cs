@@ -29,13 +29,6 @@ public class WaveofTerror : AbilityBase
             //     Debug.Log("In Range");
             //animator.SetTrigger("CastSkill");
         }
-        //float distance = Vector3.Distance(targetedDamager.agent.transform.position, targetedDamager.targetHealth.playersParent.position);
-        //if (distance < castRange)
-        //{
-            
-
-
-        //}
     }
 
     public override void CastSkill(Unit target)
@@ -43,6 +36,10 @@ public class WaveofTerror : AbilityBase
         base.CastSkill(target);
         Debug.Log("WaveofTerror");
         GameObject obj = Instantiate(terrorPrefab);
+        StraightProjectile straightProjectile = obj.GetComponent<StraightProjectile>();
+        straightProjectile.transform.position = gameObject.transform.position;
+
+
     }
 
 
