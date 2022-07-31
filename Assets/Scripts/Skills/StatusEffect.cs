@@ -10,6 +10,9 @@ public class StatusEffect : MonoBehaviour
     public Animator targetAnimator;
     protected float duration;
     public Skill skill;
+    public Transform target;
+
+     
 
     private void Awake()
     {
@@ -17,12 +20,18 @@ public class StatusEffect : MonoBehaviour
         duration = skill.effectDuration[skill.skillLevel];
     }
 
-    public virtual void InflictDebuff(Animator target)
+    public void Initialized(float p_duration, Transform p_target)
+    {
+        duration = p_duration;
+        target = p_target;
+    }
+
+    public virtual void InflictDebuff()
     {
 
     }
 
-    public virtual void InflictBuff(Animator target)
+    public virtual void InflictBuff()
     {
 
     }

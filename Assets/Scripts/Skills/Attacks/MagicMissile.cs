@@ -48,7 +48,7 @@ public class MagicMissile : AbilityBase
     }
     public override IEnumerator CoolDownEnumerator()
     {
-        Debug.Log("Stuff");
+       // Debug.Log("Stuff");
         return base.CoolDownEnumerator();
 
     }

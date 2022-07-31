@@ -105,7 +105,7 @@ public class SkillHolder : MonoBehaviour
 
     public void ActivateSkill()
     {
-        Debug.Log("Activate Skill");
+        //Debug.Log("Activate Skill");
         //CastSkill(skillIDIndex);
       
         skills[skillIDIndex].CastSkill(gameObject.GetComponent<Unit>());

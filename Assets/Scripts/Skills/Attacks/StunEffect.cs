@@ -8,7 +8,7 @@ public class StunEffect : StatusEffect
   
     void Start()
     {
-        
+        InflictDebuff();
     }
 
     // Update is called once per frame
@@ -17,10 +17,21 @@ public class StunEffect : StatusEffect
            
     }
 
-    public override void InflictDebuff(Animator target)
+    public override void InflictDebuff()
     {
-        base.InflictDebuff(target);
-        target.Play("StatusEffect");
+        base.InflictDebuff();
+        Debug.Log("Debuff");
+        Unit unit = target.GetComponent<Unit>();
+
+        unit.isStun = true;
+        Debug.Log(unit.isStun);
+
+     //   target.Play("StatusEffect");
         
+    }
+
+    private void OnDisable()
+    {
+      //  Debug.Log("OnDisable");
     }
 }

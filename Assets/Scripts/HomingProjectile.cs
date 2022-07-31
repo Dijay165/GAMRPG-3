@@ -9,7 +9,7 @@ public class HomingProjectile : MonoBehaviour
     [SerializeField] private float speed;
 
 
-    [SerializeField] private BoxCollider bc;
+    private BoxCollider bc;
 
     private bool isInUse;
     private Health targetHealth;
@@ -18,11 +18,17 @@ public class HomingProjectile : MonoBehaviour
     Vector3 direction;
     IEnumerator runningDecay;
 
-    public WeaponType weaponType;
-    public ArmorType armorType;
-    public AttackType attackType;
+
+    [HideInInspector] public WeaponType weaponType;
+    [HideInInspector] public ArmorType armorType;
+    [HideInInspector] public AttackType attackType;
 
     Attributes attributes;
+
+    // public UnityEvent beforeDestroy;
+    public bool canInflictStatusEffect;
+
+    public GameObject statusEffect;
 
     private void Awake()
     {
@@ -40,9 +46,22 @@ public class HomingProjectile : MonoBehaviour
         bc.enabled = false;
     }
 
+    private void OnDestroy()
+    {
+        // beforeDestroy?.Invoke();
+        if (canInflictStatusEffect)
+        {
+            //Insantiate status effect
+            GameObject obj = Instantiate(statusEffect, targetTransform);
+            StatusEffect status = obj.gameObject.GetComponent<StatusEffect>();
+            status.Initialized(1f, targetTransform);
+        }
+    }
+
     public void DeinitializeValues()
     {
         isInUse = false;
+
         Destroy(gameObject);
         //ProjectilePool.pool.Release(this);
     }

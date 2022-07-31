@@ -50,7 +50,7 @@ public class AbilityBase : MonoBehaviour
 
     public virtual IEnumerator CoolDownEnumerator()
     {
-        Debug.Log("isCooldown");
+       // Debug.Log("isCooldown");
 
         while (isCooldown)
         {
@@ -58,6 +58,6 @@ public class AbilityBase : MonoBehaviour
             isCooldown = false;
             //SkillManager.Instance.skillButtons[SkillManager.Instance.skillRef].interactable = true;
         }
-        Debug.Log("can cast again");
+        //Debug.Log("can cast again");
     }
 }

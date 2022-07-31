@@ -14,6 +14,7 @@ public class Unit : MonoBehaviour
 
     [SerializeField] public Faction unitFaction;
     [SerializeField] public UnitStat unitStat;
+    public bool isStun;
 
     public virtual void AssignTeam()
     {

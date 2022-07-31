@@ -46,12 +46,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f92a2f5574fb35458638f11ba7b65e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  targetUnit: {fileID: 0}
-  target: {fileID: 0}
   damage: 10
   speed: 250
-  rotateSpeed: 200
-  bc: {fileID: 3215293232166182611}
+  weaponType: 0
+  armorType: 0
+  attackType: 0
+  canInflictStatusEffect: 0
+  statusEffect: {fileID: 0}
 --- !u!65 &3215293232166182611
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -126,7 +127,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 0b9b69ec22bd9824dbcacaf79a566cdc, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
