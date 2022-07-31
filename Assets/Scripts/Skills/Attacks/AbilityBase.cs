@@ -37,6 +37,8 @@ public class AbilityBase : MonoBehaviour
         
     }
 
+
+    
     protected void Initialized()
     {
 
@@ -61,9 +63,15 @@ public class AbilityBase : MonoBehaviour
         while (isCooldown)
         {
             yield return new WaitForSeconds(this.coolDownDuration[skillLevel]);
+            canCast = false;
             isCooldown = false;
             //SkillManager.Instance.skillButtons[SkillManager.Instance.skillRef].interactable = true;
         }
         //Debug.Log("can cast again");
+    }
+
+    public virtual void CastCondition()
+    {
+
     }
 }

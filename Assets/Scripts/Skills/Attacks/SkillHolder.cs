@@ -65,7 +65,7 @@ public class SkillHolder : MonoBehaviour
         {
             if (Input.GetKeyDown(keyCodes[i]))
             {
-                //   Debug.Log("Pressed " + keyCodes[i]);
+                Debug.Log("Pressed " + keyCodes[i]);
 
 
                 // anim.SetBool("CastSkill", true);

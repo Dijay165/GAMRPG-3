@@ -20,22 +20,7 @@ public class MagicMissile : AbilityBase
 
     private void Update()
     {
-        if (targetedDamager.targetHealth != null)
-        {
-            float distance = Vector3.Distance(targetedDamager.agent.transform.position, targetedDamager.targetHealth.playersParent.position);
-            if(distance < castRange)
-            {
-                canCast = true;
-                if (!isCooldown)
-                {
-                    animator.SetTrigger("CastSkill");
-               //     Debug.Log("In Range");
-                    //animator.SetTrigger("CastSkill");
-                }
-               
-                
-            }
-        }
+        CastCondition();
     }
     public override void CastSkill(Unit target)
     {
@@ -56,5 +41,27 @@ public class MagicMissile : AbilityBase
        // Debug.Log("Stuff");
         return base.CoolDownEnumerator();
 
+    }
+
+
+    public override void CastCondition()
+    {
+        base.CastCondition();
+        if (targetedDamager.targetHealth != null)
+        {
+            float distance = Vector3.Distance(targetedDamager.agent.transform.position, targetedDamager.targetHealth.playersParent.position);
+            if (distance < castRange)
+            {
+                canCast = true;
+                if (!isCooldown)
+                {
+                    animator.SetTrigger("CastSkill");
+                    //     Debug.Log("In Range");
+                    //animator.SetTrigger("CastSkill");
+                }
+
+
+            }
+        }
     }
 }

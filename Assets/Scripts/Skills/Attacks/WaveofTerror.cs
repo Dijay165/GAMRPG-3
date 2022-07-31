@@ -23,22 +23,21 @@ public class WaveofTerror : AbilityBase
     // Update is called once per frame
     void Update()
     {
-        if (!isCooldown)
-        {
-            animator.SetTrigger("CastSkill");
-            //     Debug.Log("In Range");
-            //animator.SetTrigger("CastSkill");
-        }
+
+        CastCondition();
     }
 
     public override void CastSkill(Unit target)
     {
+        //  animator.SetTrigger("CastSkill");
+        
         base.CastSkill(target);
-        Debug.Log("WaveofTerror");
+        //   Debug.Log("WaveofTerror");
+        canCast = false;
         GameObject obj = Instantiate(terrorPrefab);
-        StraightProjectile straightProjectile = obj.GetComponent<StraightProjectile>();
+        StraightProjectile straightProjectile = obj.GetComponentInChildren<StraightProjectile>();
         straightProjectile.transform.position = gameObject.transform.position;
-
+        straightProjectile.Initialization(targetedDamager.targetHealth, skill.damage[skillLevel]);
 
     }
 
@@ -46,5 +45,32 @@ public class WaveofTerror : AbilityBase
     public override IEnumerator CoolDownEnumerator()
     {
         return base.CoolDownEnumerator();
+    }
+
+
+    public override void CastCondition()
+    {
+        base.CastCondition();
+
+        Debug.Log(canCast);
+        if (canCast)
+        {
+            if (Input.GetKeyDown(KeyCode.W))
+            {
+                if (!isCooldown)
+                {
+                    Debug.Log("Not cooldown");
+                    animator.SetTrigger("CastSkill");
+                }
+                else
+                {
+                    Debug.Log("Cooldown");
+                }
+            }
+        }
+        else
+        {
+            animator.ResetTrigger("CastSkill");
+        }
     }
 }

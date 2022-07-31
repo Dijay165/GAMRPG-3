@@ -11,7 +11,7 @@ public class StraightProjectile : MonoBehaviour
     [SerializeField] private float speed;
 
     private BoxCollider bc;
-
+    private Health targetHealth;
     void Start()
     {
         
@@ -23,13 +23,19 @@ public class StraightProjectile : MonoBehaviour
         transform.Translate(Vector3.forward * projectileSpeed * Time.deltaTime);
     }
 
-    public void Initialization()
+    public void Initialization(Health p_targetHealth, float p_damage)
     {
+        targetHealth = p_targetHealth;
+      
+        damage = p_damage;
 
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        
+        if(other.TryGetComponent<Unit>(out Unit unit))
+        {
+           // Debug.Log(unit.name);
+        }
     }
 }

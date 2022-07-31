@@ -9,6 +9,7 @@ public class HeroCastSkill : StateMachineBehaviour
     TargetedDamager targetedDamager;
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
+      //  Debug.Log("CastSkill");
         targetedDamager = animator.gameObject.GetComponent<TargetedDamager>();
         speed = targetedDamager.agent.speed;
         //targetedDamager.agent.speed = 0;
