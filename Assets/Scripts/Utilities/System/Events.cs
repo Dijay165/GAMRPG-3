@@ -26,7 +26,7 @@ public static class Events
 
     public static readonly Evt OnNexusDestroy = new Evt();
 
-    public static readonly Evt<float> OnMiniUIUpdate = new Evt<float>();
+    //public static readonly Evt<Unit,float> OnMiniUIUpdate = new Evt<Unit, float>();
 
     public static readonly Evt<Unit> OnGameOver = new Evt<Unit>();
 

@@ -17,8 +17,9 @@ public class Health : MonoBehaviour
     [HideInInspector]public bool isAlive;
     public float currentHealth;
     [SerializeField] private float minHealth;
-     public float maxHealth;
+    public float maxHealth;
     public float healthRegen;
+    public Unit damager;
 
     public Death OnDeathEvent = new Death();
     public HealthModify OnHealthModifyEvent = new HealthModify();
@@ -40,13 +41,13 @@ public class Health : MonoBehaviour
     }
     private void OnEnable()
     {
-        Events.OnMiniUIUpdate.AddListener(SubtractHealth);
+        //Events.OnMiniUIUpdate.AddListener(SubtractHealth);
     }
 
 
     private void OnDisable()
     {
-        Events.OnMiniUIUpdate.RemoveListener(SubtractHealth);
+        //Events.OnMiniUIUpdate.RemoveListener(SubtractHealth);
     }
 
 
@@ -161,10 +162,10 @@ public class Health : MonoBehaviour
 
         }
     }
-    public void SubtractHealth(float p_healthModifer)
+    public void SubtractHealth(Unit p_damager,float p_healthModifer)
     {
         Events.OnPlayerSelect.Invoke();
-
+        damager = p_damager;
         RegisterOverheadHealthUI();
 
         if (isAlive)
@@ -213,12 +214,12 @@ public class Health : MonoBehaviour
         {
             case AttackType.Physical:
                 mitigations = Mathf.CeilToInt(gameObject.GetComponent<Attributes>().totalArmor / damage + (damage *
-              gameObject.GetComponent<Attributes>().level));
+              gameObject.GetComponent<Level>().level));
                 break;
             case AttackType.Magical:
 
                 mitigations = Mathf.CeilToInt(gameObject.GetComponent<Attributes>().magicResistance / damage + (damage *
-               gameObject.GetComponent<Attributes>().level));
+               gameObject.GetComponent<Level>().level));
 
 
                 break;

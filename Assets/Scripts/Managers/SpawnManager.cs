@@ -18,13 +18,21 @@ public class SpawnManager : MonoBehaviour
     [SerializeField] private int siegeCreepWaveAmount = 10; //Every 10 waves
     [SerializeField] private int doubleSiegeCreepTime = 2100; // After 35 minutes (2100 seconds)
 
+    int creepWaveMultiplierCount;
+
+
     // Start is called before the first frame update
     void Start()
     {
         waveTimer = waveTime;
         StartCoroutine(Co_SpawnWave());
+        StartCoroutine(Co_CreepScaling());
     }
-
+    IEnumerator Co_CreepScaling()
+    {
+        yield return new WaitForSeconds(180f);
+        creepWaveMultiplierCount++;
+    }
  
     IEnumerator Co_SpawnWave()
     {
@@ -126,6 +134,7 @@ public class SpawnManager : MonoBehaviour
             if (genericObject is Creep)
             {
                 Creep newCreep = genericObject as Creep;
+                newCreep.attribute.InitializeValues(creepWaveMultiplierCount);
                 newCreep.waypoints = GameManager.MakePath(p_team, p_lane);
                
                 newCreep.transform.position = (GameManager.instance.teams[p_team].lanes[p_lane].creepSpawnPoint.transform.position);

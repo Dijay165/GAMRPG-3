@@ -2,7 +2,18 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
-
+[System.Serializable]
+public class HeroPerformanceData
+{
+    public Unit unit;
+    public int networth;
+    public int gold;
+    public int killstreak;
+    public int kills;
+    public int deaths;
+    public int buybackPrice;
+    public int spawnTime;
+}
 public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
@@ -11,7 +22,7 @@ public class GameManager : MonoBehaviour
     public GameObject gameOverUI;
     public TextMeshProUGUI winnerText;
     [NonReorderable] public List<TeamData> teams = new List<TeamData>();
-
+    public List<int> killStreakGoldReward;
     
 
     //Invoke event when nexus is destoryed, when called end the game. 
@@ -31,8 +42,33 @@ public class GameManager : MonoBehaviour
     {
         Events.OnGameOver.RemoveListener(WinCondition);
     }
-
-
+    public static int GetKillStreakGold(int p_killstreak)
+    {
+       
+        if (p_killstreak >= 10)
+        {
+            return instance.killStreakGoldReward[instance.killStreakGoldReward.Count - 1];
+        }
+        else
+        {
+            return instance.killStreakGoldReward[p_killstreak];
+        }
+    }
+    public static HeroPerformanceData GetHeroData(Unit hero)
+    {
+        foreach (TeamData currentTeam in instance.teams)
+        {
+            foreach (HeroPerformanceData currentHero in currentTeam.heroPerformanceData)
+            {
+                if (currentHero.unit == hero)
+                {
+                    return currentHero;
+                }
+            }
+        }
+        Debug.Log("NONE FOUND");
+        return null;
+    }
     public static List<GameObject> MakePath(int p_team, int p_lane)
     {
          List<GameObject> newPath = new List<GameObject>();

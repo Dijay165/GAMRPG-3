@@ -8,12 +8,18 @@ public class Unit : MonoBehaviour
     protected bool isInUse;
     public SpriteRenderer icon;
     public Health currentTarget;
+    public Level level;
+    public int goldReward;
+    public List<Unit> nearbyEnemyHeroes = new List<Unit>();
+
+
 
     [HideInInspector]public Health health;
-    
+
 
     [SerializeField] public Faction unitFaction;
     [SerializeField] public UnitStat unitStat;
+    [SerializeField] public Attributes attribute;
     public bool isStun;
 
     public virtual void AssignTeam()
@@ -50,6 +56,10 @@ public class Unit : MonoBehaviour
         {
             unitStat = unit.unitStat;
         }
+        if (TryGetComponent<Attributes>(out Attributes foundAttribute))
+        {
+            attribute = foundAttribute;
+        }
         
     }
 
@@ -79,12 +89,41 @@ public class Unit : MonoBehaviour
 
         isInUse = false;
     }
+    public void FindNearbyHeroes(float p_radius)
+    {
+        nearbyEnemyHeroes.Clear();
+        Collider[] hitColliders = Physics.OverlapSphere(transform.position, p_radius);
+        foreach (var hitCollider in hitColliders)
+        {
+            //if enemy is within its detection radius, it sees enemy
+            if (hitCollider.gameObject != gameObject)
+            {
+
+                if (hitCollider.gameObject.TryGetComponent(out Hero unit))
+                {
+                    if (unit.unitFaction != unitFaction)
+                    {
+                        nearbyEnemyHeroes.Add(unit);
+                    }
+                  
+                }
+
+
+
+
+            }
+        }
+    }
 
     public virtual void Death(Health objectHealth = null)
     {
         DeinitializeValues();
-     //   Debug.Log(gameObject.name+" Unit dea");
+        level.RewardExp();
+     
+      
+  
+
+
     }
 
-  
 }

@@ -14,7 +14,9 @@ public class Level : MonoBehaviour
     public float exp;
     public float maxExp;
 
+
     public List<Health> enemies = new List<Health>();
+ 
 
     public float expRadius = 1500;
 
@@ -22,18 +24,48 @@ public class Level : MonoBehaviour
     [SerializeField] private TextMeshProUGUI levelUI;
     [SerializeField] private Image expBarFill;
     public Action OnLevelUp;
-    
+    public int skillPoints;
     public Hitbox LevelTrigger;
+    Unit unit;
     int team;
     private void Awake()
     {
-        if (TryGetComponent<Unit>(out Unit unit))
+        if (TryGetComponent<Unit>(out Unit foundUnit))
         {
+            unit = foundUnit;
             team = (int)unit.unitFaction;
     
         }
     }
 
+    public void RewardExp()
+    {
+        unit.FindNearbyHeroes(expRadius);
+
+        if (unit.nearbyEnemyHeroes.Count > 0)
+        {
+            float currentExpReward = 0;
+            if (unit is Hero)
+            {
+                currentExpReward = (100 + 0.13f * exp);
+            }
+            else
+            {
+                currentExpReward = (fixedEXPReward);
+            }
+
+            currentExpReward = currentExpReward / unit.nearbyEnemyHeroes.Count;
+            foreach (Hero nearbyHero in unit.nearbyEnemyHeroes)
+            {
+              
+                nearbyHero.level.AddExp(currentExpReward);
+
+            }
+        }
+     
+        //   Debug.Log(gameObject.name+" Unit dea");
+    }
+    
     //FORMULA 
     //BountyXP = (100XP + 0.13 × DeadHeroXP) / n + StreakXP
     private void Start()
@@ -41,8 +73,8 @@ public class Level : MonoBehaviour
         if (canLevelUp)
         {
             maxExp = expPerLevel[level-1];
-            LevelTrigger.OnTriggerEnteredFunction += TriggerEnteredFunction;
-            LevelTrigger.OnTriggerExittedFunction += TriggerExittedFunction;
+            //LevelTrigger.OnTriggerEnteredFunction += TriggerEnteredFunction;
+            //LevelTrigger.OnTriggerExittedFunction += TriggerExittedFunction;
             maxLevel = expPerLevel.Count + 1;
         }
         
@@ -51,86 +83,6 @@ public class Level : MonoBehaviour
 
     }
 
-    public void TriggerEnteredFunction(Collider hit)
-    {
-        if (TryGetComponent<Health>(out Health hitHealth))
-        {
-            
-            //check if it is already in target list, if not in target list, add it
-
-            if (hitHealth.invulnerable == false) //add it if it isnt invulnerable
-            {
-               
-                if (!hitHealth.CompareTeam(team))
-                {
-                    if (hit.gameObject.GetComponent<Level>() != null)
-                    {
-                        if (!hit.gameObject.GetComponent<Level>().isFixedEXPReward)
-                        {
-                            //Register
-                            hitHealth.OnDeathEvent.AddListener(HeroDeath);
-                        }
-                        else
-                        {
-                            Debug.Log("Registered");
-                            hitHealth.OnDeathEvent.RemoveListener(CreepDeath);
-                        }
-                    }
-                   
-               
-
-                    
-                }
-            }
-        }
-    }
-
-    public void TriggerExittedFunction(Collider hit)
-    {
-        if (hit.gameObject.GetComponent<Health>())
-        {
-
-            Health hitHealth = hit.gameObject.GetComponent<Health>();
-            //check if it is already in target list, if not in target list, add it
-
-            if (hitHealth.invulnerable == false) //add it if it isnt invulnerable
-            {
-
-                if (!hitHealth.CompareTeam(team))
-                {
-
-                    if (hit.gameObject.GetComponent<Level>() != null)
-                    {
-                        if (!hit.gameObject.GetComponent<Level>().isFixedEXPReward)
-                        {
-                            //Register
-                            hitHealth.OnDeathEvent.AddListener(HeroDeath);
-                        }
-                        else
-                        {
-                            Debug.Log("Registered");
-                            hitHealth.OnDeathEvent.RemoveListener(CreepDeath);
-                        }
-                    }
-                }
-            }
-        }
-    }
-    public void HeroDeath(Health enemyHealth)
-    {
-        //(100XP + 0.13 × DeadHeroXP) / n + StreakXP
-        Debug.Log("Unit " + enemyHealth + " " + enemyHealth.gameObject.GetComponent<Level>().exp);
-        float expModifier = (100 + 0.13f * enemyHealth.gameObject.GetComponent<Level>().exp);
-        AddExp(expModifier);
-    }
-
-    public void CreepDeath(Health enemyHealth)
-    {
-        //(100XP + 0.13 × DeadHeroXP) / n + StreakXP
-        //Debug.Log("Unit " + enemyHealth.gameObject.name + " " + enemyHealth.gameObject.GetComponent<Level>().fixedEXPReward);
-        float expModifier = (enemyHealth.gameObject.GetComponent<Level>().fixedEXPReward);
-        AddExp(expModifier);
-    }
     public void AddExp(float p_expModifer)
     {
         
@@ -141,21 +93,25 @@ public class Level : MonoBehaviour
             //can still level up
             if (exp >= maxExp)
             {
+              
                 Debug.Log("Level up");
                 level++;
+                skillPoints++;
                 //Level up
                 if (level < maxLevel)
                 {
                     SetNextExpRequirement();
-
+                    
+                    
+                 
                 }
                 else //if it reached max level
                 {
                     exp = maxExp;
                 }
-                Debug.Log("work 1");
+            
                 UpdateLevelUI();
-                Debug.Log("work 2");
+           
                 //OnLevelUp.Invoke();
             }
             UpdateExpUIBar();
@@ -180,65 +136,6 @@ public class Level : MonoBehaviour
  
     }
 
-    //void CheckEnemies()
-    //{
-    //    enemies.Clear();
-    //    //Detected enemy list
-    
-    //    //RaycastHit hit;
-    //    Collider[] hitColliders = Physics.OverlapSphere(transform.position, expRadius);
-    //    foreach (var hitCollider in hitColliders)
-    //    {
-    //        //if enemy is within its detection radius, it sees enemy
-
-
-
-    //        if (hitCollider.gameObject.GetComponent<Health>())
-    //        {
-    
-    //            Health hitHealth = hitCollider.gameObject.GetComponent<Health>();
-    //            //check if it is already in target list, if not in target list, add it
-
-    //            if (hitHealth.invulnerable == false) //add it if it isnt invulnerable
-    //            {
-
-    //                if (!hitHealth.CompareTeam(gameObject.GetComponent<Health>().team))
-    //                {
-
-    //                    enemies.Add(hitHealth);
-
-    //                    //Register
-    //                    hitHealth.OnDeath += EnemyDeath;
-    //                    //organize
-    //                    if (enemies.Count > 2)
-    //                    {
-    //                        for (int i = 0; i < enemies.Count; i++)
-    //                        {
-    //                            float newEnemyDistance = Vector3.Distance(enemies[i].transform.position, transform.position);
-    //                            for (int si = 1; si < enemies.Count - 1; si++)
-    //                            {
-    //                                float currentEnemyIndexDistance = Vector3.Distance(enemies[si].transform.position, transform.position);
-    //                                if (newEnemyDistance > currentEnemyIndexDistance) //if the newly detected enemy's distance is further away than the current index of enemy in list, move to the next enemy in the list
-    //                                {
-    //                                    Health saved = enemies[i];
-    //                                    enemies[i] = enemies[si];
-    //                                    enemies[si] = saved;
-    //                                }
-    //                            }
-    //                        }
-    //                    }
-
-    //                }
-
-
-    //            }
-
-
-
-    //        }
-    //    }
-
-    //}
     void UpdateLevelUI()
     {
         if (levelUI != null)

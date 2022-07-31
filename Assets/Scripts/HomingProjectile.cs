@@ -97,7 +97,7 @@ public class HomingProjectile : MonoBehaviour
                     //CalcDamage.
                     float modifiedDamage = targetHealth.CalcDamage(damage, weaponType, targetHealth.gameObject.GetComponent<Attributes>().armorType);
    
-                    targetHealth.SubtractHealth(modifiedDamage);
+                    targetHealth.SubtractHealth(GetComponent<Unit>(), modifiedDamage);
                     DeinitializeValues();
 
                 }

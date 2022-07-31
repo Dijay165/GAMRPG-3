@@ -35,7 +35,7 @@ public class AreaDamager : MonoBehaviour
     void DamageTarget()
     {
   
-        targetHealth.SubtractHealth(damageAmount);
+        targetHealth.SubtractHealth(GetComponent<Unit>(),damageAmount);
     }
 
     private void Update()
@@ -60,7 +60,7 @@ public class AreaDamager : MonoBehaviour
                     if (!foundHealthComponent.CompareTeam(team))
                     {
                
-                        foundHealthComponent.SubtractHealth(damageAmount);
+                        foundHealthComponent.SubtractHealth(GetComponent<Unit>(), damageAmount);
                     }
                 }
             }

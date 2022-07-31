@@ -37,10 +37,23 @@ public abstract class Creep : Unit
     public Material redFace;
     public float attackTime;
 
-    
+    public override void Death(Health objectHealth = null)
+    {
+        base.Death();
+        HeroPerformanceData performanceData = GameManager.GetHeroData(health.damager);
+        if (performanceData != null)
+        {
+            performanceData.gold += goldReward;
+        }
+
+
+
+
+    }
     // Start is called before the first frame update
     protected override void Awake()
     {
+      
         base.Awake();
         agent = GetComponent<NavMeshAgent>();
         agent.updatePosition = true;

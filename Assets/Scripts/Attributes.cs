@@ -2,11 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System;
+using UnityEngine.Events;
+public class ModifyStatsEvent : UnityEvent { }
 public class Attributes : MonoBehaviour
 {
-    public int level;
+
     public float defaultMana;
-    public int skillPoints;
+  
 
     private int defaultStrength;
     private int defaultAgility;
@@ -61,12 +63,15 @@ public class Attributes : MonoBehaviour
     public float healthRegen;
     public float manaRegen;
 
+    public ModifyStatsEvent onModifyStatsEvent = new ModifyStatsEvent();
+
+  
     public void ResetValues()
     {
 
         if (TryGetComponent<Unit>(out Unit unit))
         {
-            skillPoints = 0;
+            
 
             defaultStrength = unit.unitStat.startingStrength;
             defaultAgility = unit.unitStat.startingAgility;
@@ -87,7 +92,7 @@ public class Attributes : MonoBehaviour
             defaultManaRegen = unit.unitStat.manaRegeneration;
             defaultHealthRegen = unit.unitStat.healthRegeneration;
             defaultMana = unit.unitStat.startingMaxMana;
-            level = unit.unitStat.startingLevel;
+            
 
             //magicAttack = defaultAttackDamage;
             magicAttack = unit.unitStat.startingMagicAttack;
@@ -98,26 +103,26 @@ public class Attributes : MonoBehaviour
         }
         InitializeValues();
     }
-    public void InitializeValues()
+    public void InitializeValues(int additional = 0)
     {
        
-        strength = defaultStrength;
+        strength = defaultStrength + additional;
         mana = defaultMana;
-        manaRegen = defaultManaRegen;
-        healthRegen = defaultHealthRegen;
-        agility = defaultAgility;
-        intelligence = defaultIntelligence;
+        manaRegen = defaultManaRegen ;
+        healthRegen = defaultHealthRegen ;
+        agility = defaultAgility + additional;
+        intelligence = defaultIntelligence + additional;
 
-        armor = defaultArmor;
-        magicResistance = defaultMagicResistance;
+        armor = defaultArmor ;
+        magicResistance = defaultMagicResistance + additional;
 
-        attackDamage = defaultAttackDamage;
-        totalAttackSpeed = defaultAttackSpeed + bonusAttackSpeed;
-        attackRange = defaultAttackRange;
+        attackDamage = defaultAttackDamage ;
+        totalAttackSpeed = (defaultAttackSpeed + bonusAttackSpeed) ;
+        attackRange = defaultAttackRange ;
 
       
 
-        movementSpeed = defaultMovementSpeed;
+        movementSpeed = (defaultMovementSpeed);
 
         totalArmor = armor + bonusArmor;
         totalMagicResistance = magicResistance + bonusMagicResistance;
@@ -125,7 +130,7 @@ public class Attributes : MonoBehaviour
 
 
    
-    };
+}
 
 
 

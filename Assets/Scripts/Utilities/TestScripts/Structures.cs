@@ -60,10 +60,18 @@ public class Structures : Unit
 
     public override void Death(Health objectHealth = null)
     {
-      //  Debug.Log("Death");
-       // TowerDied();
-        DeinitializeValues();
+        //  Debug.Log("Death");
+        // TowerDied();
+        base.Death();
 
+        foreach (HeroPerformanceData currentHero in GameManager.instance.teams[(int)health.damager.unitFaction].heroPerformanceData)
+        {
+            
+            currentHero.gold += goldReward;
+            
+        }
+        
+     
         Destroy(gameObject);
     }
 

@@ -7,8 +7,8 @@ public class TeamData
 {
     [SerializeField] public string name;
     public int kills;
-
-    [SerializeField] public List<GameObject> heroSpawnPoints = new List<GameObject>();
+    [NonReorderable] public List<HeroPerformanceData> heroPerformanceData;
+    [SerializeField][NonReorderable] public List<GameObject> heroSpawnPoints = new List<GameObject>();
     [NonReorderable]  public List<LaneData> lanes = new List<LaneData>();
 
 }
