@@ -11,7 +11,7 @@ public class StatusEffect : MonoBehaviour
     protected float duration;
     public Skill skill;
     public Transform target;
-
+    public bool isInEffect;
      
 
     private void Awake()
@@ -24,6 +24,7 @@ public class StatusEffect : MonoBehaviour
     {
         duration = p_duration;
         target = p_target;
+
     }
 
     public virtual void InflictDebuff()
@@ -46,4 +47,15 @@ public class StatusEffect : MonoBehaviour
         return duration;
     }
 
+
+    public virtual IEnumerator Debuff()
+    {
+        while (isInEffect)
+        {
+            Debug.Log(isInEffect + "On Cooldown");
+            yield return new WaitForSeconds(this.duration);
+       //     Destroy(gameObject);
+        }
+        
+    }
 }

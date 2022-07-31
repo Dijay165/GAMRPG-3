@@ -54,7 +54,9 @@ public class HomingProjectile : MonoBehaviour
             //Insantiate status effect
             GameObject obj = Instantiate(statusEffect, targetTransform);
             StatusEffect status = obj.gameObject.GetComponent<StatusEffect>();
+            status.isInEffect = true;
             status.Initialized(1f, targetTransform);
+   
         }
     }
 

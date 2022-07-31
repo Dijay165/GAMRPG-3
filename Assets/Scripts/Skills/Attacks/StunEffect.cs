@@ -5,10 +5,12 @@ using UnityEngine;
 public class StunEffect : StatusEffect
 {
     // Start is called before the first frame update
-  
+
+    Unit unit;
     void Start()
     {
-        InflictDebuff();
+        unit = target.GetComponent<Unit>();
+        StartCoroutine(Debuff());
     }
 
     // Update is called once per frame
@@ -20,11 +22,11 @@ public class StunEffect : StatusEffect
     public override void InflictDebuff()
     {
         base.InflictDebuff();
-        Debug.Log("Debuff");
-        Unit unit = target.GetComponent<Unit>();
+       
+        
 
         unit.isStun = true;
-        Debug.Log(unit.isStun);
+        
 
      //   target.Play("StatusEffect");
         
@@ -33,5 +35,19 @@ public class StunEffect : StatusEffect
     private void OnDisable()
     {
       //  Debug.Log("OnDisable");
+    }
+
+    public override IEnumerator Debuff()
+    {
+        Debug.Log("Debuff");
+        InflictDebuff();
+       
+        return base.Debuff();
+    }
+    private void OnDestroy()
+    {
+        unit.isStun = false;
+
+        Debug.Log("Over");
     }
 }
