@@ -41,13 +41,8 @@ public class StunEffect : StatusEffect
     {
         Debug.Log("Debuff");
         InflictDebuff();
-       
-        return base.Debuff();
-    }
-    private void OnDestroy()
-    {
         unit.isStun = false;
-
-        Debug.Log("Over");
+        return base.Debuff();
+        
     }
 }

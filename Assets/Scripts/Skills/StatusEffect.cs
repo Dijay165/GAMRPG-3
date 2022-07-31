@@ -54,8 +54,11 @@ public class StatusEffect : MonoBehaviour
         {
             Debug.Log(isInEffect + "On Cooldown");
             yield return new WaitForSeconds(this.duration);
-       //     Destroy(gameObject);
+            //     Destroy(gameObject);
+            isInEffect = false;
         }
+
+        Debug.Log("IsOver");
         
     }
 }

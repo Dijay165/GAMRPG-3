@@ -31,77 +31,85 @@ public class Tower : Structures
     }
     private void Update()
     {
-        if (!targetUnit)
+        if (!this.isStun)
         {
-            Collider[] hitColliders = Physics.OverlapSphere(transform.position, attackRange);
-
-   
-            for (int i = 0; i< hitColliders.Length; i++)
+            if (!targetUnit)
             {
-               // Debug.Log(gameObject.name + " - NAME" + hitColliders[i].gameObject.name + hitColliders[i].gameObject.layer.ToString());
-                if (hitColliders[i].gameObject.layer == LayerMask.NameToLayer("Unit"))
+                Collider[] hitColliders = Physics.OverlapSphere(transform.position, attackRange);
+
+
+                for (int i = 0; i < hitColliders.Length; i++)
                 {
-                    if (hitColliders[i].gameObject.TryGetComponent<Unit>(out Unit otherTargetUnit))
+                    // Debug.Log(gameObject.name + " - NAME" + hitColliders[i].gameObject.name + hitColliders[i].gameObject.layer.ToString());
+                    if (hitColliders[i].gameObject.layer == LayerMask.NameToLayer("Unit"))
                     {
-                        bool isAttack = CanAttack(otherTargetUnit);
-                        //Debug.Log(gameObject.name + " - " + isAttack);
-                        if (isAttack)
+                        if (hitColliders[i].gameObject.TryGetComponent<Unit>(out Unit otherTargetUnit))
                         {
-                            targetUnit = otherTargetUnit;
-                            towerAttack.unit.currentTarget = targetUnit.health;
-                            break;
+                            bool isAttack = CanAttack(otherTargetUnit);
+                            //Debug.Log(gameObject.name + " - " + isAttack);
+                            if (isAttack)
+                            {
+                                targetUnit = otherTargetUnit;
+                                towerAttack.unit.currentTarget = targetUnit.health;
+                                break;
+                            }
+
                         }
-
                     }
+
                 }
-              
+
+
+
+
+
             }
-            
-
-
-            
-          
-        }
-        else if (targetUnit)
-        {
-            if (Time.time >= delay)
+            else if (targetUnit)
             {
-                if (towerAttack.unit.currentTarget.isAlive)
+                if (Time.time >= delay)
                 {
-                    float distance = Vector3.Distance(transform.position, targetUnit.transform.position);
-
-                    if (distance < attackRange)
+                    if (towerAttack.unit.currentTarget.isAlive)
                     {
-                        Vector3 targetDirection = targetUnit.transform.position - transform.position;
+                        float distance = Vector3.Distance(transform.position, targetUnit.transform.position);
 
-                        Vector3 newDirection = Vector3.RotateTowards(transform.forward, targetDirection, 360, 0.0f);
-                        //Debug.Log(newDirection);
-                        //Debug.Log(gameObject.name);
-                        //Debug.Log(towerHead);
-                        towerHead.transform.rotation = Quaternion.LookRotation(newDirection);
+                        if (distance < attackRange)
+                        {
+                            Vector3 targetDirection = targetUnit.transform.position - transform.position;
+
+                            Vector3 newDirection = Vector3.RotateTowards(transform.forward, targetDirection, 360, 0.0f);
+                            //Debug.Log(newDirection);
+                            //Debug.Log(gameObject.name);
+                            //Debug.Log(towerHead);
+                            towerHead.transform.rotation = Quaternion.LookRotation(newDirection);
 
 
-                        //  towerAttack.Attack();
-                        StartCoroutine(towerAttack.Attack());
-                        delay = Time.time + 1f / towerAttack.attackSpeed;
+                            //  towerAttack.Attack();
+                            StartCoroutine(towerAttack.Attack());
+                            delay = Time.time + 1f / towerAttack.attackSpeed;
+                        }
                     }
-                }
-                else
-                {
-                    targetUnit = null;
-                    towerAttack.unit.currentTarget = null;
+                    else
+                    {
+                        targetUnit = null;
+                        towerAttack.unit.currentTarget = null;
+                    }
+
+
                 }
 
-               
+
+
+
             }
 
 
 
 
         }
-
-
-
+        else
+        {
+            Debug.Log("Stun");
+        }
 
     }
 

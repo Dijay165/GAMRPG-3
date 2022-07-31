@@ -4129,6 +4129,26 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 14
   m_CollisionDetection: 0
+--- !u!95 &267384679
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 267384675}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: ca833f1aba0c89f4499f1432e86829ff, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &268374617
 GameObject:
   m_ObjectHideFlags: 0
@@ -7104,6 +7124,7 @@ MonoBehaviour:
   health: {fileID: 0}
   unitFaction: 1
   unitStat: {fileID: 11400000, guid: d6750346963de0840911385da16d176a, type: 2}
+  isStun: 0
   requiredBuildingsDeadForToBeVulnerable:
   - {fileID: 63911276}
   - {fileID: 944513919}
@@ -9452,6 +9473,7 @@ MonoBehaviour:
   health: {fileID: 0}
   unitFaction: 0
   unitStat: {fileID: 11400000, guid: d6750346963de0840911385da16d176a, type: 2}
+  isStun: 0
   requiredBuildingsDeadForToBeVulnerable:
   - {fileID: 622856310}
   - {fileID: 150655182}
@@ -22618,6 +22640,7 @@ MonoBehaviour:
   health: {fileID: 0}
   unitFaction: 0
   unitStat: {fileID: 11400000, guid: 1ba76c184d4fc2144bd9e6bafbd5e885, type: 2}
+  isStun: 0
   requiredBuildingsDeadForToBeVulnerable:
   - {fileID: 512404764}
   oppositeFaction: {fileID: 0}
@@ -38627,6 +38650,7 @@ MonoBehaviour:
   health: {fileID: 0}
   unitFaction: 0
   unitStat: {fileID: 11400000, guid: 545ae41fadf85ea4998106309ce23962, type: 2}
+  isStun: 0
 --- !u!114 &1538651795
 MonoBehaviour:
   m_ObjectHideFlags: 0
