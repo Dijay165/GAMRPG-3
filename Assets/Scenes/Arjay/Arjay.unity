@@ -38981,9 +38981,10 @@ MonoBehaviour:
   isCooldown: 0
   isInEffect: 0
   canCast: 0
-  castRange: 0
+  castRange: 1400
   keyCode: 0
   skill: {fileID: 11400000, guid: 664980ae60655fb40a72851a53fb3743, type: 2}
+  terrorPrefab: {fileID: 5403507082968303793, guid: 020efc83d46fb5d4ca460ada3ffeda22, type: 3}
 --- !u!1 &1544690825
 GameObject:
   m_ObjectHideFlags: 0

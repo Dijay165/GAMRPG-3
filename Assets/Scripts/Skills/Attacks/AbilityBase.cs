@@ -25,9 +25,11 @@ public class AbilityBase : MonoBehaviour
 
     public Skill skill;
 
+   
+
     private void Awake()
     {
-       
+    
 
     }
     private void Start()

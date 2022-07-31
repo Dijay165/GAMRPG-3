@@ -7,11 +7,13 @@ using UnityEngine;
 public class MagicMissile : AbilityBase
 {
     public GameObject missilePrefab;
-    TargetedDamager targetedDamager;
-    Animator animator;
+
+     TargetedDamager targetedDamager;
+     Animator animator;
+
     private void Awake()
     {
-             targetedDamager = GetComponent<TargetedDamager>();
+        targetedDamager = GetComponent<TargetedDamager>();
         animator = GetComponent<Animator>();
         Initialized();
     }
