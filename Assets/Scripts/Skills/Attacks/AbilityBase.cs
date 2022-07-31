@@ -27,7 +27,7 @@ public class AbilityBase : MonoBehaviour
 
     private void Awake()
     {
-        Initialized();
+       
 
     }
     private void Start()

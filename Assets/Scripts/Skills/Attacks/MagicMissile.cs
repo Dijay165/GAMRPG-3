@@ -13,6 +13,7 @@ public class MagicMissile : AbilityBase
     {
              targetedDamager = GetComponent<TargetedDamager>();
         animator = GetComponent<Animator>();
+        Initialized();
     }
 
     private void Update()
