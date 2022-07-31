@@ -18,6 +18,7 @@ public class StatusEffect : MonoBehaviour
     {
         animator = GetComponent<Animator>();
         duration = skill.effectDuration[skill.skillLevel];
+        Debug.Log(duration);
     }
 
     public void Initialized(float p_duration, Transform p_target)
@@ -53,12 +54,13 @@ public class StatusEffect : MonoBehaviour
         while (isInEffect)
         {
             Debug.Log(isInEffect + "On Cooldown");
-            yield return new WaitForSeconds(this.duration);
-            //     Destroy(gameObject);
+            yield return new WaitForSeconds(duration);
             isInEffect = false;
         }
+      
+        //     Destroy(gameObject);
+     //   isInEffect = false;
+       // Debug.Log("IsOver");
 
-        Debug.Log("IsOver");
-        
     }
 }

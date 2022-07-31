@@ -21,15 +21,13 @@ public class StunEffect : StatusEffect
 
     public override void InflictDebuff()
     {
-        base.InflictDebuff();
-       
-        
-
         unit.isStun = true;
+
+        Debug.Log(unit.isStun);
+
+        base.InflictDebuff();
         
 
-     //   target.Play("StatusEffect");
-        
     }
 
     private void OnDisable()
@@ -39,7 +37,7 @@ public class StunEffect : StatusEffect
 
     public override IEnumerator Debuff()
     {
-        Debug.Log("Debuff");
+       // Debug.Log("Debuff");
         InflictDebuff();
         unit.isStun = false;
         return base.Debuff();

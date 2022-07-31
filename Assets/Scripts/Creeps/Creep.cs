@@ -76,7 +76,18 @@ public abstract class Creep : Unit
 
     private void Update()
     {
-        FaceTarget();
+        if (!isStun)
+        {
+            agent.isStopped = false;
+            FaceTarget();
+            
+        }
+        else
+        {
+            agent.isStopped = true;
+            Debug.Log(gameObject.name + " is stop");
+        }
+      
 
        // Debug.Log(attackTime);    
         //transform

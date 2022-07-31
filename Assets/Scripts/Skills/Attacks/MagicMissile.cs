@@ -41,9 +41,12 @@ public class MagicMissile : AbilityBase
        // Debug.Log("Magic Missile");
         GameObject obj = Instantiate(missilePrefab);
         HomingProjectile newInstance = obj.GetComponent<HomingProjectile>();
+        
         newInstance.attackType = attackType;
         newInstance.transform.position = gameObject.transform.position;
         newInstance.InitializeValues(targetedDamager.targetHealth, damage[skillLevel], 900f);
+        newInstance.gameObject.transform.SetParent(targetedDamager.targetHealth.playersParent);
+      //  isInEffect = true;
 
     }
     public override IEnumerator CoolDownEnumerator()
