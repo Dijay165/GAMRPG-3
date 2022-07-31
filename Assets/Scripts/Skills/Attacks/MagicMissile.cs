@@ -11,8 +11,7 @@ public class MagicMissile : AbilityBase
     Animator animator;
     private void Awake()
     {
-        Initialized();
-        targetedDamager = GetComponent<TargetedDamager>();
+             targetedDamager = GetComponent<TargetedDamager>();
         animator = GetComponent<Animator>();
     }
 

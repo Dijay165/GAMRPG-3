@@ -38626,6 +38626,7 @@ GameObject:
   - component: {fileID: 1538651809}
   - component: {fileID: 1538651811}
   - component: {fileID: 1538651812}
+  - component: {fileID: 1538651813}
   m_Layer: 8
   m_Name: Wizard_True
   m_TagString: Player
@@ -38964,6 +38965,25 @@ MonoBehaviour:
   keyCode: 0
   skill: {fileID: 11400000, guid: a3734c54fd4118840b60874982a49ac6, type: 2}
   missilePrefab: {fileID: 5403507082968303793, guid: 37a4facec3cdd41499a5cd416dfbb2ab, type: 3}
+--- !u!114 &1538651813
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1538651793}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 27c26825724c08b4884b4678cf01d4b1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  skillLevel: 0
+  isCooldown: 0
+  isInEffect: 0
+  canCast: 0
+  castRange: 0
+  keyCode: 0
+  skill: {fileID: 11400000, guid: 664980ae60655fb40a72851a53fb3743, type: 2}
 --- !u!1 &1544690825
 GameObject:
   m_ObjectHideFlags: 0
