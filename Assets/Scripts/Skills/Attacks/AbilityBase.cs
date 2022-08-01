@@ -63,7 +63,7 @@ public class AbilityBase : MonoBehaviour
         while (isCooldown)
         {
             yield return new WaitForSeconds(this.coolDownDuration[skillLevel]);
-            canCast = false;
+            canCast = true;
             isCooldown = false;
             //SkillManager.Instance.skillButtons[SkillManager.Instance.skillRef].interactable = true;
         }

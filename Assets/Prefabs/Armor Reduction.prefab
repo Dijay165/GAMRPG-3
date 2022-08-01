@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5750892920052988608}
   - component: {fileID: 3215293232166182611}
+  - component: {fileID: 1011627070371721303}
   m_Layer: 0
   m_Name: Armor Reduction
   m_TagString: Untagged
@@ -46,6 +47,27 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 5, y: 5, z: 5}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &1011627070371721303
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5403507082968303793}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 09ed4f42367cc104ab053ef3ddd6a496, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetAnimator: {fileID: 0}
+  skill: {fileID: 11400000, guid: 664980ae60655fb40a72851a53fb3743, type: 2}
+  target: {fileID: 0}
+  isInEffect: 0
+  armorReductionModifier:
+  - 3
+  - 4
+  - 5
+  - 6
 --- !u!1 &5775447852874950615
 GameObject:
   m_ObjectHideFlags: 0

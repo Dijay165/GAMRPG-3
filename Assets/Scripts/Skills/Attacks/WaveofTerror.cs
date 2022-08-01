@@ -9,6 +9,8 @@ public class WaveofTerror : AbilityBase
     Animator animator;
     public GameObject terrorPrefab;
 
+
+
     private void Awake()
     {
         Initialized();
@@ -18,11 +20,15 @@ public class WaveofTerror : AbilityBase
     {
         targetedDamager = GetComponent<TargetedDamager>();
         animator = GetComponent<Animator>();
+      
     }
 
     // Update is called once per frame
     void Update()
     {
+       
+    
+
 
         CastCondition();
     }
@@ -52,7 +58,7 @@ public class WaveofTerror : AbilityBase
     {
         base.CastCondition();
 
-        Debug.Log(canCast);
+      //  Debug.Log(canCast);
         if (canCast)
         {
             if (Input.GetKeyDown(KeyCode.W))

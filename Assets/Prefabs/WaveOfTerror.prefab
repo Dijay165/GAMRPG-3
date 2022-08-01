@@ -142,6 +142,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d76579affb5e2bb4db0476f2a8654ea1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  projectileSpeed: 200
+  projectileSpeed: 500
   damage: 0
   speed: 0
+  armorReduction: {fileID: 5403507082968303793, guid: 3bdeb70a2df929240a9c960672ddc36a, type: 3}
+  waveTravelDistance: 1400
