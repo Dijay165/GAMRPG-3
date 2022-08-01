@@ -107,8 +107,12 @@ public class SkillHolder : MonoBehaviour
     {
         //Debug.Log("Activate Skill");
         //CastSkill(skillIDIndex);
-      
-        skills[skillIDIndex].CastSkill(gameObject.GetComponent<Unit>());
-        StartCoroutine(skills[skillIDIndex].CoolDownEnumerator());
+        
+        if(skills[skillIDIndex].skillType == SkillType.Active)
+        {
+            skills[skillIDIndex].CastSkill(gameObject.GetComponent<Unit>());
+            StartCoroutine(skills[skillIDIndex].CoolDownEnumerator());
+        }
+     
     }
 }

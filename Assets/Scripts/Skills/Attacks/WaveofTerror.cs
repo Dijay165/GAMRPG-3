@@ -26,10 +26,6 @@ public class WaveofTerror : AbilityBase
     // Update is called once per frame
     void Update()
     {
-       
-    
-
-
         CastCondition();
     }
 

@@ -1,7 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+public enum SkillType
+{
+    Active,
+    Passive
+}
 public class AbilityBase : MonoBehaviour
 {
     // Start is called before the first frame update
@@ -25,7 +29,7 @@ public class AbilityBase : MonoBehaviour
 
     public Skill skill;
 
-   
+    public SkillType skillType;
 
     private void Awake()
     {
@@ -48,6 +52,7 @@ public class AbilityBase : MonoBehaviour
         this.manaCost = skill.manaCost;
         this.attackType = skill.attackType;
         this.keyCode = skill.pressButton;
+        this.skillType = skill.SkillType;
     }
 
     public virtual void CastSkill(Unit target)
