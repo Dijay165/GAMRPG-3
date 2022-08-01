@@ -406,9 +406,61 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6844975425766697757, guid: d8faacfa67b8d4af8b5a81028390f02b, type: 3}
+      propertyPath: whenDestroyed.m_PersistentCalls.m_Calls.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6844975425766697757, guid: d8faacfa67b8d4af8b5a81028390f02b, type: 3}
       propertyPath: requiredBuildingsDeadForToBeVulnerable.Array.data[0]
       value: 
       objectReference: {fileID: 732474730}
+    - target: {fileID: 6844975425766697757, guid: d8faacfa67b8d4af8b5a81028390f02b, type: 3}
+      propertyPath: whenDestroyed.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 6844975425766697757, guid: d8faacfa67b8d4af8b5a81028390f02b, type: 3}
+      propertyPath: whenDestroyed.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 6844975425766697757, guid: d8faacfa67b8d4af8b5a81028390f02b, type: 3}
+      propertyPath: whenDestroyed.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 63911276}
+    - target: {fileID: 6844975425766697757, guid: d8faacfa67b8d4af8b5a81028390f02b, type: 3}
+      propertyPath: whenDestroyed.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 944513919}
+    - target: {fileID: 6844975425766697757, guid: d8faacfa67b8d4af8b5a81028390f02b, type: 3}
+      propertyPath: whenDestroyed.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6844975425766697757, guid: d8faacfa67b8d4af8b5a81028390f02b, type: 3}
+      propertyPath: whenDestroyed.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6844975425766697757, guid: d8faacfa67b8d4af8b5a81028390f02b, type: 3}
+      propertyPath: whenDestroyed.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Invul
+      objectReference: {fileID: 0}
+    - target: {fileID: 6844975425766697757, guid: d8faacfa67b8d4af8b5a81028390f02b, type: 3}
+      propertyPath: whenDestroyed.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: Invul
+      objectReference: {fileID: 0}
+    - target: {fileID: 6844975425766697757, guid: d8faacfa67b8d4af8b5a81028390f02b, type: 3}
+      propertyPath: whenDestroyed.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: Health, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 6844975425766697757, guid: d8faacfa67b8d4af8b5a81028390f02b, type: 3}
+      propertyPath: whenDestroyed.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
+      value: Health, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 6844975425766697757, guid: d8faacfa67b8d4af8b5a81028390f02b, type: 3}
+      propertyPath: whenDestroyed.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 6844975425766697757, guid: d8faacfa67b8d4af8b5a81028390f02b, type: 3}
+      propertyPath: whenDestroyed.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 8176847129870774413, guid: d8faacfa67b8d4af8b5a81028390f02b, type: 3}
       propertyPath: m_Color.b
       value: 0
@@ -999,6 +1051,10 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3144587810365715528, guid: 6f6de38bc4946428ab2a1d468039753e, type: 3}
+      propertyPath: whenDestroyed.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3144587810365715528, guid: 6f6de38bc4946428ab2a1d468039753e, type: 3}
       propertyPath: requiredBuildingsDeadForToBeVulnerable.Array.data[0]
       value: 
       objectReference: {fileID: 1479848497}
@@ -1006,6 +1062,30 @@ PrefabInstance:
       propertyPath: requiredBuildingsDeadForToBeVulnerable.Array.data[1]
       value: 
       objectReference: {fileID: 267384674}
+    - target: {fileID: 3144587810365715528, guid: 6f6de38bc4946428ab2a1d468039753e, type: 3}
+      propertyPath: whenDestroyed.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 3144587810365715528, guid: 6f6de38bc4946428ab2a1d468039753e, type: 3}
+      propertyPath: whenDestroyed.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1479848497}
+    - target: {fileID: 3144587810365715528, guid: 6f6de38bc4946428ab2a1d468039753e, type: 3}
+      propertyPath: whenDestroyed.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3144587810365715528, guid: 6f6de38bc4946428ab2a1d468039753e, type: 3}
+      propertyPath: whenDestroyed.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Invul
+      objectReference: {fileID: 0}
+    - target: {fileID: 3144587810365715528, guid: 6f6de38bc4946428ab2a1d468039753e, type: 3}
+      propertyPath: whenDestroyed.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: Health, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 3144587810365715528, guid: 6f6de38bc4946428ab2a1d468039753e, type: 3}
+      propertyPath: whenDestroyed.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 6455781348988950185, guid: 6f6de38bc4946428ab2a1d468039753e, type: 3}
       propertyPath: m_Enabled
       value: 0
@@ -2188,6 +2268,10 @@ PrefabInstance:
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3144587810365715528, guid: 6f6de38bc4946428ab2a1d468039753e, type: 3}
+      propertyPath: whenDestroyed.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3144587810365715528, guid: 6f6de38bc4946428ab2a1d468039753e, type: 3}
       propertyPath: requiredBuildingsDeadForToBeVulnerable.Array.data[0]
       value: 
       objectReference: {fileID: 1508795184}
@@ -2199,6 +2283,30 @@ PrefabInstance:
       propertyPath: requiredBuildingsDeadForToBeVulnerable.Array.data[2]
       value: 
       objectReference: {fileID: 1508795184}
+    - target: {fileID: 3144587810365715528, guid: 6f6de38bc4946428ab2a1d468039753e, type: 3}
+      propertyPath: whenDestroyed.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 3144587810365715528, guid: 6f6de38bc4946428ab2a1d468039753e, type: 3}
+      propertyPath: whenDestroyed.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 679598521}
+    - target: {fileID: 3144587810365715528, guid: 6f6de38bc4946428ab2a1d468039753e, type: 3}
+      propertyPath: whenDestroyed.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3144587810365715528, guid: 6f6de38bc4946428ab2a1d468039753e, type: 3}
+      propertyPath: whenDestroyed.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Invul
+      objectReference: {fileID: 0}
+    - target: {fileID: 3144587810365715528, guid: 6f6de38bc4946428ab2a1d468039753e, type: 3}
+      propertyPath: whenDestroyed.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: Health, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 3144587810365715528, guid: 6f6de38bc4946428ab2a1d468039753e, type: 3}
+      propertyPath: whenDestroyed.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 3734767506193386923, guid: 6f6de38bc4946428ab2a1d468039753e, type: 3}
       propertyPath: m_Enabled
       value: 0
@@ -3691,6 +3799,34 @@ PrefabInstance:
       propertyPath: statsHolder
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 3144587810365715528, guid: 6f6de38bc4946428ab2a1d468039753e, type: 3}
+      propertyPath: whenDestroyed.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3144587810365715528, guid: 6f6de38bc4946428ab2a1d468039753e, type: 3}
+      propertyPath: whenDestroyed.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 3144587810365715528, guid: 6f6de38bc4946428ab2a1d468039753e, type: 3}
+      propertyPath: whenDestroyed.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 977438706}
+    - target: {fileID: 3144587810365715528, guid: 6f6de38bc4946428ab2a1d468039753e, type: 3}
+      propertyPath: whenDestroyed.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3144587810365715528, guid: 6f6de38bc4946428ab2a1d468039753e, type: 3}
+      propertyPath: whenDestroyed.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Invul
+      objectReference: {fileID: 0}
+    - target: {fileID: 3144587810365715528, guid: 6f6de38bc4946428ab2a1d468039753e, type: 3}
+      propertyPath: whenDestroyed.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: Health, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 3144587810365715528, guid: 6f6de38bc4946428ab2a1d468039753e, type: 3}
+      propertyPath: whenDestroyed.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 7258400321219153387, guid: 6f6de38bc4946428ab2a1d468039753e, type: 3}
       propertyPath: m_LocalRotation.w
       value: 0.67398655
@@ -4010,9 +4146,37 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3144587810365715528, guid: 6f6de38bc4946428ab2a1d468039753e, type: 3}
+      propertyPath: whenDestroyed.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3144587810365715528, guid: 6f6de38bc4946428ab2a1d468039753e, type: 3}
       propertyPath: requiredBuildingsDeadForToBeVulnerable.Array.data[0]
       value: 
       objectReference: {fileID: 1758434625}
+    - target: {fileID: 3144587810365715528, guid: 6f6de38bc4946428ab2a1d468039753e, type: 3}
+      propertyPath: whenDestroyed.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 3144587810365715528, guid: 6f6de38bc4946428ab2a1d468039753e, type: 3}
+      propertyPath: whenDestroyed.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1758434625}
+    - target: {fileID: 3144587810365715528, guid: 6f6de38bc4946428ab2a1d468039753e, type: 3}
+      propertyPath: whenDestroyed.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3144587810365715528, guid: 6f6de38bc4946428ab2a1d468039753e, type: 3}
+      propertyPath: whenDestroyed.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Invul
+      objectReference: {fileID: 0}
+    - target: {fileID: 3144587810365715528, guid: 6f6de38bc4946428ab2a1d468039753e, type: 3}
+      propertyPath: whenDestroyed.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: Health, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 3144587810365715528, guid: 6f6de38bc4946428ab2a1d468039753e, type: 3}
+      propertyPath: whenDestroyed.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 3734767506193386923, guid: 6f6de38bc4946428ab2a1d468039753e, type: 3}
       propertyPath: m_Enabled
       value: 1
@@ -4534,9 +4698,37 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3144587810365715528, guid: 6f6de38bc4946428ab2a1d468039753e, type: 3}
+      propertyPath: whenDestroyed.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3144587810365715528, guid: 6f6de38bc4946428ab2a1d468039753e, type: 3}
       propertyPath: requiredBuildingsDeadForToBeVulnerable.Array.data[0]
       value: 
       objectReference: {fileID: 1030421006}
+    - target: {fileID: 3144587810365715528, guid: 6f6de38bc4946428ab2a1d468039753e, type: 3}
+      propertyPath: whenDestroyed.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 3144587810365715528, guid: 6f6de38bc4946428ab2a1d468039753e, type: 3}
+      propertyPath: whenDestroyed.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1030421006}
+    - target: {fileID: 3144587810365715528, guid: 6f6de38bc4946428ab2a1d468039753e, type: 3}
+      propertyPath: whenDestroyed.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3144587810365715528, guid: 6f6de38bc4946428ab2a1d468039753e, type: 3}
+      propertyPath: whenDestroyed.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Invul
+      objectReference: {fileID: 0}
+    - target: {fileID: 3144587810365715528, guid: 6f6de38bc4946428ab2a1d468039753e, type: 3}
+      propertyPath: whenDestroyed.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: Health, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 3144587810365715528, guid: 6f6de38bc4946428ab2a1d468039753e, type: 3}
+      propertyPath: whenDestroyed.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 3734767506193386923, guid: 6f6de38bc4946428ab2a1d468039753e, type: 3}
       propertyPath: m_Enabled
       value: 1
@@ -5901,7 +6093,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1289839867, guid: 6f6de38bc4946428ab2a1d468039753e, type: 3}
       propertyPath: invulnerable
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1289839868, guid: 6f6de38bc4946428ab2a1d468039753e, type: 3}
       propertyPath: m_Enabled
@@ -6032,6 +6224,10 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3144587810365715528, guid: 6f6de38bc4946428ab2a1d468039753e, type: 3}
+      propertyPath: whenDestroyed.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3144587810365715528, guid: 6f6de38bc4946428ab2a1d468039753e, type: 3}
       propertyPath: requiredBuildingsDeadForToBeVulnerable.Array.data[0]
       value: 
       objectReference: {fileID: 1758434625}
@@ -6039,6 +6235,30 @@ PrefabInstance:
       propertyPath: requiredBuildingsDeadForToBeVulnerable.Array.data[1]
       value: 
       objectReference: {fileID: 267384674}
+    - target: {fileID: 3144587810365715528, guid: 6f6de38bc4946428ab2a1d468039753e, type: 3}
+      propertyPath: whenDestroyed.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 3144587810365715528, guid: 6f6de38bc4946428ab2a1d468039753e, type: 3}
+      propertyPath: whenDestroyed.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1758434625}
+    - target: {fileID: 3144587810365715528, guid: 6f6de38bc4946428ab2a1d468039753e, type: 3}
+      propertyPath: whenDestroyed.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3144587810365715528, guid: 6f6de38bc4946428ab2a1d468039753e, type: 3}
+      propertyPath: whenDestroyed.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Invul
+      objectReference: {fileID: 0}
+    - target: {fileID: 3144587810365715528, guid: 6f6de38bc4946428ab2a1d468039753e, type: 3}
+      propertyPath: whenDestroyed.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: Health, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 3144587810365715528, guid: 6f6de38bc4946428ab2a1d468039753e, type: 3}
+      propertyPath: whenDestroyed.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 6455781348988950185, guid: 6f6de38bc4946428ab2a1d468039753e, type: 3}
       propertyPath: m_Enabled
       value: 0
@@ -7129,6 +7349,33 @@ MonoBehaviour:
   unitFaction: 1
   unitStat: {fileID: 11400000, guid: d6750346963de0840911385da16d176a, type: 2}
   isStun: 0
+  whenDestroyed:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 944513919}
+        m_TargetAssemblyTypeName: Health, Assembly-CSharp
+        m_MethodName: Invul
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 63911276}
+        m_TargetAssemblyTypeName: Health, Assembly-CSharp
+        m_MethodName: Invul
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   requiredBuildingsDeadForToBeVulnerable:
   - {fileID: 63911276}
   - {fileID: 944513919}
@@ -8332,6 +8579,10 @@ PrefabInstance:
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3144587810365715528, guid: 6f6de38bc4946428ab2a1d468039753e, type: 3}
+      propertyPath: whenDestroyed.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3144587810365715528, guid: 6f6de38bc4946428ab2a1d468039753e, type: 3}
       propertyPath: requiredBuildingsDeadForToBeVulnerable.Array.data[0]
       value: 
       objectReference: {fileID: 1655366662}
@@ -8343,6 +8594,30 @@ PrefabInstance:
       propertyPath: requiredBuildingsDeadForToBeVulnerable.Array.data[2]
       value: 
       objectReference: {fileID: 1508795184}
+    - target: {fileID: 3144587810365715528, guid: 6f6de38bc4946428ab2a1d468039753e, type: 3}
+      propertyPath: whenDestroyed.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 3144587810365715528, guid: 6f6de38bc4946428ab2a1d468039753e, type: 3}
+      propertyPath: whenDestroyed.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 679598521}
+    - target: {fileID: 3144587810365715528, guid: 6f6de38bc4946428ab2a1d468039753e, type: 3}
+      propertyPath: whenDestroyed.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3144587810365715528, guid: 6f6de38bc4946428ab2a1d468039753e, type: 3}
+      propertyPath: whenDestroyed.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Invul
+      objectReference: {fileID: 0}
+    - target: {fileID: 3144587810365715528, guid: 6f6de38bc4946428ab2a1d468039753e, type: 3}
+      propertyPath: whenDestroyed.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: Health, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 3144587810365715528, guid: 6f6de38bc4946428ab2a1d468039753e, type: 3}
+      propertyPath: whenDestroyed.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 3734767506193386923, guid: 6f6de38bc4946428ab2a1d468039753e, type: 3}
       propertyPath: m_Enabled
       value: 0
@@ -9013,6 +9288,34 @@ PrefabInstance:
       propertyPath: unitFaction
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3144587810365715528, guid: 6f6de38bc4946428ab2a1d468039753e, type: 3}
+      propertyPath: whenDestroyed.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3144587810365715528, guid: 6f6de38bc4946428ab2a1d468039753e, type: 3}
+      propertyPath: whenDestroyed.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 3144587810365715528, guid: 6f6de38bc4946428ab2a1d468039753e, type: 3}
+      propertyPath: whenDestroyed.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1516888370}
+    - target: {fileID: 3144587810365715528, guid: 6f6de38bc4946428ab2a1d468039753e, type: 3}
+      propertyPath: whenDestroyed.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3144587810365715528, guid: 6f6de38bc4946428ab2a1d468039753e, type: 3}
+      propertyPath: whenDestroyed.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Invul
+      objectReference: {fileID: 0}
+    - target: {fileID: 3144587810365715528, guid: 6f6de38bc4946428ab2a1d468039753e, type: 3}
+      propertyPath: whenDestroyed.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: Health, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 3144587810365715528, guid: 6f6de38bc4946428ab2a1d468039753e, type: 3}
+      propertyPath: whenDestroyed.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 7258400321219153387, guid: 6f6de38bc4946428ab2a1d468039753e, type: 3}
       propertyPath: m_LocalRotation.w
       value: -0.73136556
@@ -9478,10 +9781,24 @@ MonoBehaviour:
   unitFaction: 0
   unitStat: {fileID: 11400000, guid: d6750346963de0840911385da16d176a, type: 2}
   isStun: 0
+  whenDestroyed:
+    m_PersistentCalls:
+      m_Calls: []
   requiredBuildingsDeadForToBeVulnerable:
   - {fileID: 622856310}
   - {fileID: 150655182}
   oppositeFaction: {fileID: 0}
+--- !u!114 &679598521 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 788445809, guid: d8faacfa67b8d4af8b5a81028390f02b, type: 3}
+  m_PrefabInstance: {fileID: 679598505}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 679598507}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b2ee099bcef3156419938abf98198822, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &680526518
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10126,6 +10443,10 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3144587810365715528, guid: 6f6de38bc4946428ab2a1d468039753e, type: 3}
+      propertyPath: whenDestroyed.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3144587810365715528, guid: 6f6de38bc4946428ab2a1d468039753e, type: 3}
       propertyPath: requiredBuildingsDeadForToBeVulnerable.Array.data[0]
       value: 
       objectReference: {fileID: 1780913405}
@@ -10133,6 +10454,30 @@ PrefabInstance:
       propertyPath: requiredBuildingsDeadForToBeVulnerable.Array.data[1]
       value: 
       objectReference: {fileID: 2144567527}
+    - target: {fileID: 3144587810365715528, guid: 6f6de38bc4946428ab2a1d468039753e, type: 3}
+      propertyPath: whenDestroyed.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 3144587810365715528, guid: 6f6de38bc4946428ab2a1d468039753e, type: 3}
+      propertyPath: whenDestroyed.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 18752181}
+    - target: {fileID: 3144587810365715528, guid: 6f6de38bc4946428ab2a1d468039753e, type: 3}
+      propertyPath: whenDestroyed.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3144587810365715528, guid: 6f6de38bc4946428ab2a1d468039753e, type: 3}
+      propertyPath: whenDestroyed.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Invul
+      objectReference: {fileID: 0}
+    - target: {fileID: 3144587810365715528, guid: 6f6de38bc4946428ab2a1d468039753e, type: 3}
+      propertyPath: whenDestroyed.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: Health, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 3144587810365715528, guid: 6f6de38bc4946428ab2a1d468039753e, type: 3}
+      propertyPath: whenDestroyed.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 6455781348988950185, guid: 6f6de38bc4946428ab2a1d468039753e, type: 3}
       propertyPath: m_Enabled
       value: 0
@@ -22350,6 +22695,10 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3144587810365715528, guid: 6f6de38bc4946428ab2a1d468039753e, type: 3}
+      propertyPath: whenDestroyed.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3144587810365715528, guid: 6f6de38bc4946428ab2a1d468039753e, type: 3}
       propertyPath: requiredBuildingsDeadForToBeVulnerable.Array.data[0]
       value: 
       objectReference: {fileID: 1479848497}
@@ -22357,6 +22706,30 @@ PrefabInstance:
       propertyPath: requiredBuildingsDeadForToBeVulnerable.Array.data[1]
       value: 
       objectReference: {fileID: 267384674}
+    - target: {fileID: 3144587810365715528, guid: 6f6de38bc4946428ab2a1d468039753e, type: 3}
+      propertyPath: whenDestroyed.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 3144587810365715528, guid: 6f6de38bc4946428ab2a1d468039753e, type: 3}
+      propertyPath: whenDestroyed.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1479848497}
+    - target: {fileID: 3144587810365715528, guid: 6f6de38bc4946428ab2a1d468039753e, type: 3}
+      propertyPath: whenDestroyed.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3144587810365715528, guid: 6f6de38bc4946428ab2a1d468039753e, type: 3}
+      propertyPath: whenDestroyed.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Invul
+      objectReference: {fileID: 0}
+    - target: {fileID: 3144587810365715528, guid: 6f6de38bc4946428ab2a1d468039753e, type: 3}
+      propertyPath: whenDestroyed.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: Health, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 3144587810365715528, guid: 6f6de38bc4946428ab2a1d468039753e, type: 3}
+      propertyPath: whenDestroyed.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 6455781348988950185, guid: 6f6de38bc4946428ab2a1d468039753e, type: 3}
       propertyPath: m_Enabled
       value: 0
@@ -22645,6 +23018,33 @@ MonoBehaviour:
   unitFaction: 0
   unitStat: {fileID: 11400000, guid: 1ba76c184d4fc2144bd9e6bafbd5e885, type: 2}
   isStun: 0
+  whenDestroyed:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 150655182}
+        m_TargetAssemblyTypeName: Health, Assembly-CSharp
+        m_MethodName: Invul
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 622856310}
+        m_TargetAssemblyTypeName: Health, Assembly-CSharp
+        m_MethodName: Invul
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
   requiredBuildingsDeadForToBeVulnerable:
   - {fileID: 512404764}
   oppositeFaction: {fileID: 0}
@@ -27752,9 +28152,37 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3144587810365715528, guid: 6f6de38bc4946428ab2a1d468039753e, type: 3}
+      propertyPath: whenDestroyed.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3144587810365715528, guid: 6f6de38bc4946428ab2a1d468039753e, type: 3}
       propertyPath: requiredBuildingsDeadForToBeVulnerable.Array.data[0]
       value: 
       objectReference: {fileID: 259911906}
+    - target: {fileID: 3144587810365715528, guid: 6f6de38bc4946428ab2a1d468039753e, type: 3}
+      propertyPath: whenDestroyed.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 3144587810365715528, guid: 6f6de38bc4946428ab2a1d468039753e, type: 3}
+      propertyPath: whenDestroyed.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1692431593}
+    - target: {fileID: 3144587810365715528, guid: 6f6de38bc4946428ab2a1d468039753e, type: 3}
+      propertyPath: whenDestroyed.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3144587810365715528, guid: 6f6de38bc4946428ab2a1d468039753e, type: 3}
+      propertyPath: whenDestroyed.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Invul
+      objectReference: {fileID: 0}
+    - target: {fileID: 3144587810365715528, guid: 6f6de38bc4946428ab2a1d468039753e, type: 3}
+      propertyPath: whenDestroyed.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: Health, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 3144587810365715528, guid: 6f6de38bc4946428ab2a1d468039753e, type: 3}
+      propertyPath: whenDestroyed.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 6455781348988950185, guid: 6f6de38bc4946428ab2a1d468039753e, type: 3}
       propertyPath: m_Enabled
       value: 0
@@ -28803,9 +29231,37 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3144587810365715528, guid: 6f6de38bc4946428ab2a1d468039753e, type: 3}
+      propertyPath: whenDestroyed.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3144587810365715528, guid: 6f6de38bc4946428ab2a1d468039753e, type: 3}
       propertyPath: requiredBuildingsDeadForToBeVulnerable.Array.data[0]
       value: 
       objectReference: {fileID: 1508795184}
+    - target: {fileID: 3144587810365715528, guid: 6f6de38bc4946428ab2a1d468039753e, type: 3}
+      propertyPath: whenDestroyed.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 3144587810365715528, guid: 6f6de38bc4946428ab2a1d468039753e, type: 3}
+      propertyPath: whenDestroyed.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1508795184}
+    - target: {fileID: 3144587810365715528, guid: 6f6de38bc4946428ab2a1d468039753e, type: 3}
+      propertyPath: whenDestroyed.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3144587810365715528, guid: 6f6de38bc4946428ab2a1d468039753e, type: 3}
+      propertyPath: whenDestroyed.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Invul
+      objectReference: {fileID: 0}
+    - target: {fileID: 3144587810365715528, guid: 6f6de38bc4946428ab2a1d468039753e, type: 3}
+      propertyPath: whenDestroyed.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: Health, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 3144587810365715528, guid: 6f6de38bc4946428ab2a1d468039753e, type: 3}
+      propertyPath: whenDestroyed.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 3734767506193386923, guid: 6f6de38bc4946428ab2a1d468039753e, type: 3}
       propertyPath: m_Enabled
       value: 0
@@ -29375,9 +29831,61 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6844975425766697757, guid: d8faacfa67b8d4af8b5a81028390f02b, type: 3}
+      propertyPath: whenDestroyed.m_PersistentCalls.m_Calls.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6844975425766697757, guid: d8faacfa67b8d4af8b5a81028390f02b, type: 3}
       propertyPath: requiredBuildingsDeadForToBeVulnerable.Array.data[0]
       value: 
       objectReference: {fileID: 1692431593}
+    - target: {fileID: 6844975425766697757, guid: d8faacfa67b8d4af8b5a81028390f02b, type: 3}
+      propertyPath: whenDestroyed.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 6844975425766697757, guid: d8faacfa67b8d4af8b5a81028390f02b, type: 3}
+      propertyPath: whenDestroyed.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 6844975425766697757, guid: d8faacfa67b8d4af8b5a81028390f02b, type: 3}
+      propertyPath: whenDestroyed.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 150655182}
+    - target: {fileID: 6844975425766697757, guid: d8faacfa67b8d4af8b5a81028390f02b, type: 3}
+      propertyPath: whenDestroyed.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 622856310}
+    - target: {fileID: 6844975425766697757, guid: d8faacfa67b8d4af8b5a81028390f02b, type: 3}
+      propertyPath: whenDestroyed.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6844975425766697757, guid: d8faacfa67b8d4af8b5a81028390f02b, type: 3}
+      propertyPath: whenDestroyed.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6844975425766697757, guid: d8faacfa67b8d4af8b5a81028390f02b, type: 3}
+      propertyPath: whenDestroyed.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Invul
+      objectReference: {fileID: 0}
+    - target: {fileID: 6844975425766697757, guid: d8faacfa67b8d4af8b5a81028390f02b, type: 3}
+      propertyPath: whenDestroyed.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: Invul
+      objectReference: {fileID: 0}
+    - target: {fileID: 6844975425766697757, guid: d8faacfa67b8d4af8b5a81028390f02b, type: 3}
+      propertyPath: whenDestroyed.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: Health, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 6844975425766697757, guid: d8faacfa67b8d4af8b5a81028390f02b, type: 3}
+      propertyPath: whenDestroyed.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
+      value: Health, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 6844975425766697757, guid: d8faacfa67b8d4af8b5a81028390f02b, type: 3}
+      propertyPath: whenDestroyed.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 6844975425766697757, guid: d8faacfa67b8d4af8b5a81028390f02b, type: 3}
+      propertyPath: whenDestroyed.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 8922848427992051963, guid: d8faacfa67b8d4af8b5a81028390f02b, type: 3}
       propertyPath: unitStat
       value: 
@@ -29583,9 +30091,61 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6844975425766697757, guid: d8faacfa67b8d4af8b5a81028390f02b, type: 3}
+      propertyPath: whenDestroyed.m_PersistentCalls.m_Calls.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6844975425766697757, guid: d8faacfa67b8d4af8b5a81028390f02b, type: 3}
       propertyPath: requiredBuildingsDeadForToBeVulnerable.Array.data[0]
       value: 
       objectReference: {fileID: 1917111675}
+    - target: {fileID: 6844975425766697757, guid: d8faacfa67b8d4af8b5a81028390f02b, type: 3}
+      propertyPath: whenDestroyed.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 6844975425766697757, guid: d8faacfa67b8d4af8b5a81028390f02b, type: 3}
+      propertyPath: whenDestroyed.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 6844975425766697757, guid: d8faacfa67b8d4af8b5a81028390f02b, type: 3}
+      propertyPath: whenDestroyed.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 63911276}
+    - target: {fileID: 6844975425766697757, guid: d8faacfa67b8d4af8b5a81028390f02b, type: 3}
+      propertyPath: whenDestroyed.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 944513919}
+    - target: {fileID: 6844975425766697757, guid: d8faacfa67b8d4af8b5a81028390f02b, type: 3}
+      propertyPath: whenDestroyed.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6844975425766697757, guid: d8faacfa67b8d4af8b5a81028390f02b, type: 3}
+      propertyPath: whenDestroyed.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6844975425766697757, guid: d8faacfa67b8d4af8b5a81028390f02b, type: 3}
+      propertyPath: whenDestroyed.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Invul
+      objectReference: {fileID: 0}
+    - target: {fileID: 6844975425766697757, guid: d8faacfa67b8d4af8b5a81028390f02b, type: 3}
+      propertyPath: whenDestroyed.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: Invul
+      objectReference: {fileID: 0}
+    - target: {fileID: 6844975425766697757, guid: d8faacfa67b8d4af8b5a81028390f02b, type: 3}
+      propertyPath: whenDestroyed.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: Health, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 6844975425766697757, guid: d8faacfa67b8d4af8b5a81028390f02b, type: 3}
+      propertyPath: whenDestroyed.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
+      value: Health, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 6844975425766697757, guid: d8faacfa67b8d4af8b5a81028390f02b, type: 3}
+      propertyPath: whenDestroyed.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 6844975425766697757, guid: d8faacfa67b8d4af8b5a81028390f02b, type: 3}
+      propertyPath: whenDestroyed.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 8176847129870774413, guid: d8faacfa67b8d4af8b5a81028390f02b, type: 3}
       propertyPath: m_Color.b
       value: 0
@@ -37613,9 +38173,61 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6844975425766697757, guid: d8faacfa67b8d4af8b5a81028390f02b, type: 3}
+      propertyPath: whenDestroyed.m_PersistentCalls.m_Calls.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6844975425766697757, guid: d8faacfa67b8d4af8b5a81028390f02b, type: 3}
       propertyPath: requiredBuildingsDeadForToBeVulnerable.Array.data[0]
       value: 
       objectReference: {fileID: 499171696}
+    - target: {fileID: 6844975425766697757, guid: d8faacfa67b8d4af8b5a81028390f02b, type: 3}
+      propertyPath: whenDestroyed.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 6844975425766697757, guid: d8faacfa67b8d4af8b5a81028390f02b, type: 3}
+      propertyPath: whenDestroyed.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 6844975425766697757, guid: d8faacfa67b8d4af8b5a81028390f02b, type: 3}
+      propertyPath: whenDestroyed.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 63911276}
+    - target: {fileID: 6844975425766697757, guid: d8faacfa67b8d4af8b5a81028390f02b, type: 3}
+      propertyPath: whenDestroyed.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 944513919}
+    - target: {fileID: 6844975425766697757, guid: d8faacfa67b8d4af8b5a81028390f02b, type: 3}
+      propertyPath: whenDestroyed.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6844975425766697757, guid: d8faacfa67b8d4af8b5a81028390f02b, type: 3}
+      propertyPath: whenDestroyed.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6844975425766697757, guid: d8faacfa67b8d4af8b5a81028390f02b, type: 3}
+      propertyPath: whenDestroyed.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Invul
+      objectReference: {fileID: 0}
+    - target: {fileID: 6844975425766697757, guid: d8faacfa67b8d4af8b5a81028390f02b, type: 3}
+      propertyPath: whenDestroyed.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: Invul
+      objectReference: {fileID: 0}
+    - target: {fileID: 6844975425766697757, guid: d8faacfa67b8d4af8b5a81028390f02b, type: 3}
+      propertyPath: whenDestroyed.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: Health, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 6844975425766697757, guid: d8faacfa67b8d4af8b5a81028390f02b, type: 3}
+      propertyPath: whenDestroyed.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
+      value: Health, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 6844975425766697757, guid: d8faacfa67b8d4af8b5a81028390f02b, type: 3}
+      propertyPath: whenDestroyed.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 6844975425766697757, guid: d8faacfa67b8d4af8b5a81028390f02b, type: 3}
+      propertyPath: whenDestroyed.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 8176847129870774413, guid: d8faacfa67b8d4af8b5a81028390f02b, type: 3}
       propertyPath: m_Color.b
       value: 0
@@ -37988,6 +38600,10 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3144587810365715528, guid: 6f6de38bc4946428ab2a1d468039753e, type: 3}
+      propertyPath: whenDestroyed.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3144587810365715528, guid: 6f6de38bc4946428ab2a1d468039753e, type: 3}
       propertyPath: requiredBuildingsDeadForToBeVulnerable.Array.data[0]
       value: 
       objectReference: {fileID: 1030421006}
@@ -37995,6 +38611,30 @@ PrefabInstance:
       propertyPath: requiredBuildingsDeadForToBeVulnerable.Array.data[1]
       value: 
       objectReference: {fileID: 1030421006}
+    - target: {fileID: 3144587810365715528, guid: 6f6de38bc4946428ab2a1d468039753e, type: 3}
+      propertyPath: whenDestroyed.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 3144587810365715528, guid: 6f6de38bc4946428ab2a1d468039753e, type: 3}
+      propertyPath: whenDestroyed.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1655366662}
+    - target: {fileID: 3144587810365715528, guid: 6f6de38bc4946428ab2a1d468039753e, type: 3}
+      propertyPath: whenDestroyed.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3144587810365715528, guid: 6f6de38bc4946428ab2a1d468039753e, type: 3}
+      propertyPath: whenDestroyed.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Invul
+      objectReference: {fileID: 0}
+    - target: {fileID: 3144587810365715528, guid: 6f6de38bc4946428ab2a1d468039753e, type: 3}
+      propertyPath: whenDestroyed.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: Health, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 3144587810365715528, guid: 6f6de38bc4946428ab2a1d468039753e, type: 3}
+      propertyPath: whenDestroyed.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 3734767506193386923, guid: 6f6de38bc4946428ab2a1d468039753e, type: 3}
       propertyPath: m_Enabled
       value: 0
@@ -38434,9 +39074,37 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3144587810365715528, guid: 6f6de38bc4946428ab2a1d468039753e, type: 3}
+      propertyPath: whenDestroyed.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3144587810365715528, guid: 6f6de38bc4946428ab2a1d468039753e, type: 3}
       propertyPath: requiredBuildingsDeadForToBeVulnerable.Array.data[0]
       value: 
       objectReference: {fileID: 665948716}
+    - target: {fileID: 3144587810365715528, guid: 6f6de38bc4946428ab2a1d468039753e, type: 3}
+      propertyPath: whenDestroyed.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 3144587810365715528, guid: 6f6de38bc4946428ab2a1d468039753e, type: 3}
+      propertyPath: whenDestroyed.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1917111675}
+    - target: {fileID: 3144587810365715528, guid: 6f6de38bc4946428ab2a1d468039753e, type: 3}
+      propertyPath: whenDestroyed.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3144587810365715528, guid: 6f6de38bc4946428ab2a1d468039753e, type: 3}
+      propertyPath: whenDestroyed.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Invul
+      objectReference: {fileID: 0}
+    - target: {fileID: 3144587810365715528, guid: 6f6de38bc4946428ab2a1d468039753e, type: 3}
+      propertyPath: whenDestroyed.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: Health, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 3144587810365715528, guid: 6f6de38bc4946428ab2a1d468039753e, type: 3}
+      propertyPath: whenDestroyed.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 6455781348988950185, guid: 6f6de38bc4946428ab2a1d468039753e, type: 3}
       propertyPath: m_Enabled
       value: 0
@@ -39931,9 +40599,61 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6844975425766697757, guid: d8faacfa67b8d4af8b5a81028390f02b, type: 3}
+      propertyPath: whenDestroyed.m_PersistentCalls.m_Calls.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6844975425766697757, guid: d8faacfa67b8d4af8b5a81028390f02b, type: 3}
       propertyPath: requiredBuildingsDeadForToBeVulnerable.Array.data[0]
       value: 
       objectReference: {fileID: 1508795184}
+    - target: {fileID: 6844975425766697757, guid: d8faacfa67b8d4af8b5a81028390f02b, type: 3}
+      propertyPath: whenDestroyed.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 6844975425766697757, guid: d8faacfa67b8d4af8b5a81028390f02b, type: 3}
+      propertyPath: whenDestroyed.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 6844975425766697757, guid: d8faacfa67b8d4af8b5a81028390f02b, type: 3}
+      propertyPath: whenDestroyed.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 150655182}
+    - target: {fileID: 6844975425766697757, guid: d8faacfa67b8d4af8b5a81028390f02b, type: 3}
+      propertyPath: whenDestroyed.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 622856310}
+    - target: {fileID: 6844975425766697757, guid: d8faacfa67b8d4af8b5a81028390f02b, type: 3}
+      propertyPath: whenDestroyed.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6844975425766697757, guid: d8faacfa67b8d4af8b5a81028390f02b, type: 3}
+      propertyPath: whenDestroyed.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6844975425766697757, guid: d8faacfa67b8d4af8b5a81028390f02b, type: 3}
+      propertyPath: whenDestroyed.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Invul
+      objectReference: {fileID: 0}
+    - target: {fileID: 6844975425766697757, guid: d8faacfa67b8d4af8b5a81028390f02b, type: 3}
+      propertyPath: whenDestroyed.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: Invul
+      objectReference: {fileID: 0}
+    - target: {fileID: 6844975425766697757, guid: d8faacfa67b8d4af8b5a81028390f02b, type: 3}
+      propertyPath: whenDestroyed.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: Health, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 6844975425766697757, guid: d8faacfa67b8d4af8b5a81028390f02b, type: 3}
+      propertyPath: whenDestroyed.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
+      value: Health, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 6844975425766697757, guid: d8faacfa67b8d4af8b5a81028390f02b, type: 3}
+      propertyPath: whenDestroyed.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 6844975425766697757, guid: d8faacfa67b8d4af8b5a81028390f02b, type: 3}
+      propertyPath: whenDestroyed.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 8830081746614289503, guid: d8faacfa67b8d4af8b5a81028390f02b, type: 3}
       propertyPath: m_Radius
       value: 140
@@ -40598,6 +41318,10 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3144587810365715528, guid: 6f6de38bc4946428ab2a1d468039753e, type: 3}
+      propertyPath: whenDestroyed.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3144587810365715528, guid: 6f6de38bc4946428ab2a1d468039753e, type: 3}
       propertyPath: requiredBuildingsDeadForToBeVulnerable.Array.data[0]
       value: 
       objectReference: {fileID: 977438706}
@@ -40605,6 +41329,30 @@ PrefabInstance:
       propertyPath: requiredBuildingsDeadForToBeVulnerable.Array.data[1]
       value: 
       objectReference: {fileID: 259911906}
+    - target: {fileID: 3144587810365715528, guid: 6f6de38bc4946428ab2a1d468039753e, type: 3}
+      propertyPath: whenDestroyed.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 3144587810365715528, guid: 6f6de38bc4946428ab2a1d468039753e, type: 3}
+      propertyPath: whenDestroyed.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1093049224}
+    - target: {fileID: 3144587810365715528, guid: 6f6de38bc4946428ab2a1d468039753e, type: 3}
+      propertyPath: whenDestroyed.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3144587810365715528, guid: 6f6de38bc4946428ab2a1d468039753e, type: 3}
+      propertyPath: whenDestroyed.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Invul
+      objectReference: {fileID: 0}
+    - target: {fileID: 3144587810365715528, guid: 6f6de38bc4946428ab2a1d468039753e, type: 3}
+      propertyPath: whenDestroyed.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: Health, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 3144587810365715528, guid: 6f6de38bc4946428ab2a1d468039753e, type: 3}
+      propertyPath: whenDestroyed.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 6455781348988950185, guid: 6f6de38bc4946428ab2a1d468039753e, type: 3}
       propertyPath: m_Enabled
       value: 0
@@ -46112,7 +46860,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1289839867, guid: 6f6de38bc4946428ab2a1d468039753e, type: 3}
       propertyPath: invulnerable
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1289839868, guid: 6f6de38bc4946428ab2a1d468039753e, type: 3}
       propertyPath: m_Enabled
@@ -46651,9 +47399,37 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3144587810365715528, guid: 6f6de38bc4946428ab2a1d468039753e, type: 3}
+      propertyPath: whenDestroyed.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3144587810365715528, guid: 6f6de38bc4946428ab2a1d468039753e, type: 3}
       propertyPath: requiredBuildingsDeadForToBeVulnerable.Array.data[0]
       value: 
       objectReference: {fileID: 2144567527}
+    - target: {fileID: 3144587810365715528, guid: 6f6de38bc4946428ab2a1d468039753e, type: 3}
+      propertyPath: whenDestroyed.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 3144587810365715528, guid: 6f6de38bc4946428ab2a1d468039753e, type: 3}
+      propertyPath: whenDestroyed.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 732474730}
+    - target: {fileID: 3144587810365715528, guid: 6f6de38bc4946428ab2a1d468039753e, type: 3}
+      propertyPath: whenDestroyed.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3144587810365715528, guid: 6f6de38bc4946428ab2a1d468039753e, type: 3}
+      propertyPath: whenDestroyed.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Invul
+      objectReference: {fileID: 0}
+    - target: {fileID: 3144587810365715528, guid: 6f6de38bc4946428ab2a1d468039753e, type: 3}
+      propertyPath: whenDestroyed.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: Health, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 3144587810365715528, guid: 6f6de38bc4946428ab2a1d468039753e, type: 3}
+      propertyPath: whenDestroyed.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 6455781348988950185, guid: 6f6de38bc4946428ab2a1d468039753e, type: 3}
       propertyPath: m_Enabled
       value: 0
@@ -52840,6 +53616,10 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3144587810365715528, guid: 6f6de38bc4946428ab2a1d468039753e, type: 3}
+      propertyPath: whenDestroyed.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3144587810365715528, guid: 6f6de38bc4946428ab2a1d468039753e, type: 3}
       propertyPath: requiredBuildingsDeadForToBeVulnerable.Array.data[0]
       value: 
       objectReference: {fileID: 1516888370}
@@ -52847,6 +53627,30 @@ PrefabInstance:
       propertyPath: requiredBuildingsDeadForToBeVulnerable.Array.data[1]
       value: 
       objectReference: {fileID: 665948716}
+    - target: {fileID: 3144587810365715528, guid: 6f6de38bc4946428ab2a1d468039753e, type: 3}
+      propertyPath: whenDestroyed.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 3144587810365715528, guid: 6f6de38bc4946428ab2a1d468039753e, type: 3}
+      propertyPath: whenDestroyed.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1093494337}
+    - target: {fileID: 3144587810365715528, guid: 6f6de38bc4946428ab2a1d468039753e, type: 3}
+      propertyPath: whenDestroyed.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3144587810365715528, guid: 6f6de38bc4946428ab2a1d468039753e, type: 3}
+      propertyPath: whenDestroyed.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Invul
+      objectReference: {fileID: 0}
+    - target: {fileID: 3144587810365715528, guid: 6f6de38bc4946428ab2a1d468039753e, type: 3}
+      propertyPath: whenDestroyed.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: Health, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 3144587810365715528, guid: 6f6de38bc4946428ab2a1d468039753e, type: 3}
+      propertyPath: whenDestroyed.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 3734767506193386923, guid: 6f6de38bc4946428ab2a1d468039753e, type: 3}
       propertyPath: m_Enabled
       value: 0
@@ -54724,6 +55528,34 @@ PrefabInstance:
     - target: {fileID: 3144587810365715528, guid: 6f6de38bc4946428ab2a1d468039753e, type: 3}
       propertyPath: unitFaction
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3144587810365715528, guid: 6f6de38bc4946428ab2a1d468039753e, type: 3}
+      propertyPath: whenDestroyed.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3144587810365715528, guid: 6f6de38bc4946428ab2a1d468039753e, type: 3}
+      propertyPath: whenDestroyed.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 3144587810365715528, guid: 6f6de38bc4946428ab2a1d468039753e, type: 3}
+      propertyPath: whenDestroyed.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1780913405}
+    - target: {fileID: 3144587810365715528, guid: 6f6de38bc4946428ab2a1d468039753e, type: 3}
+      propertyPath: whenDestroyed.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3144587810365715528, guid: 6f6de38bc4946428ab2a1d468039753e, type: 3}
+      propertyPath: whenDestroyed.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Invul
+      objectReference: {fileID: 0}
+    - target: {fileID: 3144587810365715528, guid: 6f6de38bc4946428ab2a1d468039753e, type: 3}
+      propertyPath: whenDestroyed.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: Health, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 3144587810365715528, guid: 6f6de38bc4946428ab2a1d468039753e, type: 3}
+      propertyPath: whenDestroyed.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 7258400321219153387, guid: 6f6de38bc4946428ab2a1d468039753e, type: 3}
       propertyPath: m_LocalRotation.w

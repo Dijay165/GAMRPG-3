@@ -238,9 +238,10 @@ public class Health : MonoBehaviour
         }
         else
         {
+
             OnDeathEvent.Invoke(this);
             isAlive = false;
-         //   Debug.Log("Invoke Stuff");
+            Debug.Log("Invoke Stuff");
         }
     }
    
@@ -284,5 +285,10 @@ public class Health : MonoBehaviour
             //Debug.Log("Not Works??");
             return baseDamage;
         }
+    }
+
+    public void Invul(bool b_bool)
+    {
+        this.invulnerable = b_bool;
     }
 }

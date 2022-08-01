@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 [RequireComponent(typeof(Health))]
 public class Structures : Unit
@@ -11,9 +12,11 @@ public class Structures : Unit
 
     //public GameObject towerDetectGO;
 
-   // public TowerDetection detection;
+    // public TowerDetection detection;
 
     //public Collider collideDetect;
+
+    public UnityEvent whenDestroyed;
 
     protected override void Awake()
     {
@@ -31,6 +34,7 @@ public class Structures : Unit
         }
         for (int i = 0; i < requiredBuildingsDeadForToBeVulnerable.Count; i++)
         {
+            Debug.Log(gameObject.name + " " + requiredBuildingsDeadForToBeVulnerable[i].gameObject.name);
             requiredBuildingsDeadForToBeVulnerable[i].OnDeathEvent.AddListener(ReduceRequirement);
         }
     }
@@ -50,9 +54,18 @@ public class Structures : Unit
         if (health != null)
             health.OnDeathEvent.RemoveListener(Death);
 
-
+        whenDestroyed.Invoke();
     }
-  
+
+    private void OnDestroy()
+    {
+        //if (health != null)
+        //    health.OnDeathEvent.RemoveListener(Death);
+
+
+        //requiredBuildingsDeadForToBeVulnerable[i].OnDeathEvent.RemoveListener(ReduceRequirement);
+    }
+
     public void OnSelectStructure()
     {
         debugManager.structure = gameObject;
@@ -73,6 +86,7 @@ public class Structures : Unit
     void ReduceRequirement(Health objectHealth)
     {
         RequiredBuildingsDestroyedCounter--;
+        Debug.Log(RequiredBuildingsDestroyedCounter);
         if (RequiredBuildingsDestroyedCounter == 0)
         {
             GetComponent<Health>().invulnerable = false;   
