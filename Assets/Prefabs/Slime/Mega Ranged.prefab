@@ -249,7 +249,6 @@ GameObject:
   - component: {fileID: -276126547279088970}
   - component: {fileID: -6175177739505886256}
   - component: {fileID: -4088243304572692980}
-  - component: {fileID: 9081961192509436464}
   m_Layer: 8
   m_Name: Mega Ranged
   m_TagString: Untagged
@@ -313,6 +312,7 @@ MonoBehaviour:
   health: {fileID: 0}
   unitFaction: 0
   unitStat: {fileID: 11400000, guid: d7314e961a9f3bc4ebbae6af5aabe6b0, type: 2}
+  isStun: 0
   agent: {fileID: 0}
   obstacle: {fileID: 0}
   currentWaypoint: {fileID: 0}
@@ -498,20 +498,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7c3d457f7f78c7a43abe4111be03762d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &9081961192509436464
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4147275252921541089}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a19e518a829f7164190977d47d046cfc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  armorAmount: 0
-  hasBuff: 0
 --- !u!1 &4147275253534167944
 GameObject:
   m_ObjectHideFlags: 0

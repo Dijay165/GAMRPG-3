@@ -34,7 +34,7 @@ public class Structures : Unit
         }
         for (int i = 0; i < requiredBuildingsDeadForToBeVulnerable.Count; i++)
         {
-            Debug.Log(gameObject.name + " " + requiredBuildingsDeadForToBeVulnerable[i].gameObject.name);
+          //  Debug.Log(gameObject.name + " " + requiredBuildingsDeadForToBeVulnerable[i].gameObject.name);
             requiredBuildingsDeadForToBeVulnerable[i].OnDeathEvent.AddListener(ReduceRequirement);
         }
     }

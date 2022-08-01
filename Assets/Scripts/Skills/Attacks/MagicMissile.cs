@@ -55,7 +55,7 @@ public class MagicMissile : AbilityBase
                 canCast = true;
                 if (!isCooldown)
                 {
-                    if(Input.GetKeyDown(keyCode))
+                    
                     animator.SetTrigger("CastSkill");
                     //     Debug.Log("In Range");
                     //animator.SetTrigger("CastSkill");

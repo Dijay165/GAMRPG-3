@@ -39292,7 +39292,6 @@ GameObject:
   - component: {fileID: 1538651796}
   - component: {fileID: 1538651795}
   - component: {fileID: 1538651794}
-  - component: {fileID: 1538651807}
   - component: {fileID: 1538651808}
   - component: {fileID: 1538651810}
   - component: {fileID: 1538651809}
@@ -39548,20 +39547,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: -28.509, z: 0}
---- !u!114 &1538651807
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1538651793}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a19e518a829f7164190977d47d046cfc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  armorAmount: 0
-  hasBuff: 0
 --- !u!114 &1538651808
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -39667,7 +39652,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1538651793}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 320af0fe781dd4a4ca5ec4faf7823541, type: 3}
   m_Name: 
@@ -39681,6 +39666,18 @@ MonoBehaviour:
   skill: {fileID: 11400000, guid: b8299fb3e7ba6204990e76a8630420ef, type: 2}
   skillType: 0
   auraRadius: 600
+  auraCreeped: []
+  unit: {fileID: 0}
+  rangeBonus:
+  - 50
+  - 75
+  - 100
+  - 125
+  damageBonus:
+  - 5
+  - 15
+  - 25
+  - 35
 --- !u!1 &1544690825
 GameObject:
   m_ObjectHideFlags: 0

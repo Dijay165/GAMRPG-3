@@ -31,7 +31,7 @@ public class Damager : MonoBehaviour
         switch (attributes.attackType)
         {
             case AttackType.Physical:
-                modifiedDamage = unit.currentTarget.gameObject.GetComponent<Health>().CalcDamage(attributes.attackDamage,
+                modifiedDamage = unit.currentTarget.gameObject.GetComponent<Health>().CalculateDamage(attributes.attackDamage,
                     attributes.weaponType, unit.currentTarget.gameObject.GetComponent<Attributes>().armorType);
 
                 finalModifiedDamage = unit.currentTarget.gameObject.GetComponent<Health>().findDamage(attributes.attackType, modifiedDamage);
@@ -40,7 +40,7 @@ public class Damager : MonoBehaviour
 
             case AttackType.Magical:
               
-                modifiedDamage = unit.currentTarget.gameObject.GetComponent<Health>().CalcDamage(gameObject.GetComponent<Health>().
+                modifiedDamage = unit.currentTarget.gameObject.GetComponent<Health>().CalculateDamage(gameObject.GetComponent<Health>().
                        MagicResistance(attributes.magicAttack),
                      attributes.weaponType, unit.currentTarget.gameObject.GetComponent<Attributes>().armorType);
 

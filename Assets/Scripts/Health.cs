@@ -272,7 +272,7 @@ public class Health : MonoBehaviour
             }},
         };
 
-    public float CalcDamage(float baseDamage, WeaponType damageType, ArmorType armorType)
+    public float CalculateDamage(float baseDamage, WeaponType damageType, ArmorType armorType)
     {
         Dictionary<ArmorType, Func<float, float>> damageTypeDictionary = damageTypes[damageType];
         if (damageTypeDictionary.ContainsKey(armorType))

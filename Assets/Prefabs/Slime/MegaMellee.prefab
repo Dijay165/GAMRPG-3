@@ -54,7 +54,6 @@ GameObject:
   - component: {fileID: 2163277990956777852}
   - component: {fileID: -3884378849776890639}
   - component: {fileID: -4752928479681188677}
-  - component: {fileID: 6257604352832169882}
   m_Layer: 8
   m_Name: MegaMellee
   m_TagString: Untagged
@@ -97,6 +96,7 @@ MonoBehaviour:
   health: {fileID: 0}
   unitFaction: 0
   unitStat: {fileID: 11400000, guid: 56c5f7031f0f0c64885e3a659bf93d70, type: 2}
+  isStun: 0
   agent: {fileID: 0}
   obstacle: {fileID: 0}
   currentWaypoint: {fileID: 0}
@@ -299,20 +299,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7c3d457f7f78c7a43abe4111be03762d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &6257604352832169882
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1275084573514684071}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a19e518a829f7164190977d47d046cfc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  armorAmount: 0
-  hasBuff: 0
 --- !u!1 &2161905593900652940
 GameObject:
   m_ObjectHideFlags: 0
