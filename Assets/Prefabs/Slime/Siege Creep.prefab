@@ -85,7 +85,6 @@ GameObject:
   - component: {fileID: -6797513444139051269}
   - component: {fileID: -164551829293610232}
   - component: {fileID: -4413819358353526866}
-  - component: {fileID: -8073418245842757400}
   - component: {fileID: 2704036883242044807}
   m_Layer: 8
   m_Name: Siege Creep
@@ -340,20 +339,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7c3d457f7f78c7a43abe4111be03762d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &-8073418245842757400
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1418954211154683660}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a19e518a829f7164190977d47d046cfc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  armorAmount: 0
-  hasBuff: 0
 --- !u!114 &2704036883242044807
 MonoBehaviour:
   m_ObjectHideFlags: 0

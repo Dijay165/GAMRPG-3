@@ -74,7 +74,7 @@ public class TargetedDamager : MonoBehaviour
     public void DamageTarget()
     {
         
-        float modifiedDamage = targetHealth.CalcDamage(damageAmount, attributes.weaponType, targetHealth.gameObject.GetComponent<Attributes>().armorType);
+        float modifiedDamage = targetHealth.CalculateDamage(damageAmount, attributes.weaponType, targetHealth.gameObject.GetComponent<Attributes>().armorType);
 
         targetHealth.SubtractHealth(GetComponent<Unit>(), modifiedDamage);
     }

@@ -22,7 +22,11 @@ public class CreepAttack : StateMachineBehaviour
        
         creep.gameObject.GetComponent<Damager>().DamageTarget();
 
-        creep.agent.isStopped = true;
+        if (agent != null)
+        {
+            agent.isStopped = true;
+        }
+   
         creep.FaceTarget();
     }
 

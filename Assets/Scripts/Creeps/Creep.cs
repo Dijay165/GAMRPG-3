@@ -97,7 +97,11 @@ public abstract class Creep : Unit
         }
         else
         {
-            agent.isStopped = true;
+            if (agent != null)
+            {
+                agent.isStopped = true;
+            }
+        
             Debug.Log(gameObject.name + " is stop");
         }
       

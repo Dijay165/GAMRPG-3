@@ -499,7 +499,6 @@ GameObject:
   - component: {fileID: 7193864837406473067}
   - component: {fileID: -268582041083851338}
   - component: {fileID: -2529363437634863894}
-  - component: {fileID: -6011004024904576231}
   - component: {fileID: 3381454633038894148}
   m_Layer: 8
   m_Name: MegaSiege Creep
@@ -754,20 +753,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7c3d457f7f78c7a43abe4111be03762d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &-6011004024904576231
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8055485629282258745}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a19e518a829f7164190977d47d046cfc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  armorAmount: 0
-  hasBuff: 0
 --- !u!114 &3381454633038894148
 MonoBehaviour:
   m_ObjectHideFlags: 0

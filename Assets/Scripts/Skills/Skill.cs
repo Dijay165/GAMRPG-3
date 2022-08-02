@@ -29,7 +29,7 @@ public abstract class Skill : ScriptableObject
     public bool canDispel;
     public int skillLevel;
     public AttackType attackType;
-    
+    public SkillType SkillType;
 
 
    

@@ -8,5 +8,5 @@ public class Job : ScriptableObject
 {
     // Start is called before the first frame update
 
-    public List<Skill> skills;
+    public List<AbilityBase> skills;
 }

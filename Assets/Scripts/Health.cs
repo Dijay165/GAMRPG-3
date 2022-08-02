@@ -244,9 +244,10 @@ public class Health : MonoBehaviour
         }
         else
         {
+
             OnDeathEvent.Invoke(this);
             isAlive = false;
-         //   Debug.Log("Invoke Stuff");
+           // Debug.Log("Invoke Stuff");
         }
     }
    
@@ -277,7 +278,7 @@ public class Health : MonoBehaviour
             }},
         };
 
-    public float CalcDamage(float baseDamage, WeaponType damageType, ArmorType armorType)
+    public float CalculateDamage(float baseDamage, WeaponType damageType, ArmorType armorType)
     {
         Dictionary<ArmorType, Func<float, float>> damageTypeDictionary = damageTypes[damageType];
         if (damageTypeDictionary.ContainsKey(armorType))
@@ -290,5 +291,10 @@ public class Health : MonoBehaviour
             //Debug.Log("Not Works??");
             return baseDamage;
         }
+    }
+
+    public void Invul(bool b_bool)
+    {
+        this.invulnerable = b_bool;
     }
 }

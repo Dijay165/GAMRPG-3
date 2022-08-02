@@ -75,41 +75,33 @@ public class BonusArmorAura : MonoBehaviour
         {
             if (potentialHero[i] != null)
             {
-                if (potentialHero[i].TryGetComponent(out AttributeModifier attributeModifier))
+                float distance = Vector3.Distance(transform.position, potentialHero[i].transform.position);
+                if (distance < auraRadius)
                 {
-                    float distance = Vector3.Distance(transform.position, potentialHero[i].transform.position);
+                   
 
-                    if (distance < auraRadius)
+                    if (potentialHero[i].GetComponent<ArmorModifier>() == null)
                     {
-
-                        if (!attributeModifier.hasBuff)
-                        {
-                            attributeModifier.armorAmount = armorAmount;
-                            attributeModifier.ApplyModification();
-                            // Debug.Log("MODIFIER APPLIED " + gameObject.name);
-                        }
-
-
-
+                        ArmorModifier armorModifier = potentialHero[i].AddComponent<ArmorModifier>();
+                       
+                        armorModifier.modifierAmount = armorAmount;
+                        armorModifier.ApplyModification();
 
                     }
-                    else
-                    {
-                        if (attributeModifier.hasBuff)
-                        {
-                            attributeModifier.armorAmount = armorAmount;
-                            attributeModifier.VoidModification();
-                            // Debug.Log("MODIFIER APPLIED " + gameObject.name);
-                        }
-                        potentialHero.Remove(potentialHero[i]);
-                    }
+                    
                 }
-               
-                
-            }
-            else
-            {
-                potentialHero.Remove(potentialHero[i]);
+                else
+                {
+                    if (potentialHero[i].TryGetComponent(out ArmorModifier armorModifier))
+                    {
+                        armorModifier.modifierAmount = armorAmount;
+                        armorModifier.RemoveModification();
+                        // Debug.Log("MODIFIER APPLIED " + gameObject.name);
+                        Destroy(potentialHero[i].GetComponent<ArmorModifier>());
+                    }
+                    potentialHero.Remove(potentialHero[i]);
+                }
+
             }
 
 

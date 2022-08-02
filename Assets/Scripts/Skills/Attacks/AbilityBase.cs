@@ -1,17 +1,21 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
-public class AbilityBase : MonoBehaviour
+public enum SkillType
+{
+    Active,
+    Passive
+}
+public abstract class AbilityBase : ScriptableObject
 {
     // Start is called before the first frame update
     public int skillLevel;
-    protected List<float> damage;
+    public List<float> damage;
 
-    protected List<float> coolDownDuration;
-    protected List<float> effectDuration;
+    public List<float> coolDownDuration;
+    public List<float> effectDuration;
 
-    protected List<float> manaCost;
+    public List<float> manaCost;
 
     protected AttackType attackType;
 
@@ -19,15 +23,18 @@ public class AbilityBase : MonoBehaviour
     public bool isInEffect;
     public bool canCast;
     public float castRange;
+    public Sprite skillIcon;
 
     //[HideInInspector]
     public KeyCode keyCode;
 
     public Skill skill;
 
+    public SkillType skillType;
+
     private void Awake()
     {
-        Initialized();
+    
 
     }
     private void Start()
@@ -35,6 +42,8 @@ public class AbilityBase : MonoBehaviour
         
     }
 
+
+    
     protected void Initialized()
     {
 
@@ -44,24 +53,13 @@ public class AbilityBase : MonoBehaviour
         this.manaCost = skill.manaCost;
         this.attackType = skill.attackType;
         this.keyCode = skill.pressButton;
+        this.skillType = skill.SkillType;
     }
 
-    public virtual void CastSkill(Unit target)
-    {
-        isCooldown = true;
-        isInEffect = true;
-    }
+    
 
-    public virtual IEnumerator CoolDownEnumerator()
+    public virtual void CastCondition()
     {
-       // Debug.Log("isCooldown");
 
-        while (isCooldown)
-        {
-            yield return new WaitForSeconds(this.coolDownDuration[skillLevel]);
-            isCooldown = false;
-            //SkillManager.Instance.skillButtons[SkillManager.Instance.skillRef].interactable = true;
-        }
-        //Debug.Log("can cast again");
     }
 }

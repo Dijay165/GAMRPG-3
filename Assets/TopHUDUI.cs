@@ -17,8 +17,9 @@ public class TopHUDUI : MonoBehaviour
 
         for (int i = 0; i < GameManager.instance.teams[1].heroPerformanceData.Count; i++)
         {
-            GameObject instance = Instantiate(prefab);
-            instance.GetComponent<RectTransform>().SetParent(rightTeam);
+            GameObject instance = Instantiate(prefab,rightTeam);
+            //instance.GetComponent<RectTransform>().SetParent(rightTeam,false);
+      
         }
     }
 }
