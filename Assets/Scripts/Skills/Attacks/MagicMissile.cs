@@ -52,7 +52,7 @@ public class MagicMissile : AbilityBase
             float distance = Vector3.Distance(targetedDamager.agent.transform.position, targetedDamager.targetHealth.playersParent.position);
             if (distance < castRange)
             {
-                canCast = true;
+           //     canCast = true;
                 if (!isCooldown)
                 {
                     

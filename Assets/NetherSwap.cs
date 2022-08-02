@@ -13,6 +13,9 @@ public class NetherSwap : AbilityBase
         targetedDamager = GetComponent<TargetedDamager>();
         animator = GetComponent<Animator>();
         Initialized();
+        // float refe = skill.coolDownDuration[1];
+        // coolDownDuration = skill.coolDownDuration;
+        castRange = skill.effectDuration[0];
     }
     // Update is called once per frame
     void Update()
@@ -28,7 +31,7 @@ public class NetherSwap : AbilityBase
             float distance = Vector3.Distance(targetedDamager.agent.transform.position, targetedDamager.targetHealth.playersParent.position);
             if (distance < castRange)
             {
-                canCast = true;
+               // canCast = true;
                 if (!isCooldown)
                 {
 
@@ -70,6 +73,8 @@ public class NetherSwap : AbilityBase
 
     public override IEnumerator CoolDownEnumerator()
     {
+
+      //  Debug.Log("Cooldown");
         return base.CoolDownEnumerator();
     }
 }
