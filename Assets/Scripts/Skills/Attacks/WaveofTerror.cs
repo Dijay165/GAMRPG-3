@@ -11,24 +11,6 @@ public class WaveofTerror : ActiveSkill
 
 
 
-    private void Awake()
-    {
-        Initialized();
-        canCast = true;
-    }
-    void Start()
-    {
-      //  targetedDamager = GetComponent<TargetedDamager>();
-    //    animator = GetComponent<Animator>();
-      
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        CastCondition();
-    }
-
     public override void OnActivate(Unit target)
     {
         //  animator.SetTrigger("CastSkill");
