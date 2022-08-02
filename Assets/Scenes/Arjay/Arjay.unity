@@ -39299,6 +39299,7 @@ GameObject:
   - component: {fileID: 1538651812}
   - component: {fileID: 1538651813}
   - component: {fileID: 1538651814}
+  - component: {fileID: 1538651815}
   m_Layer: 8
   m_Name: Wizard_True
   m_TagString: Player
@@ -39678,6 +39679,26 @@ MonoBehaviour:
   - 15
   - 25
   - 35
+--- !u!114 &1538651815
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1538651793}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b9efd6191cd76b0498fc24e6da23df79, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  skillLevel: 0
+  isCooldown: 0
+  isInEffect: 0
+  canCast: 0
+  castRange: 0
+  keyCode: 0
+  skill: {fileID: 11400000, guid: aaaf19d50f71d514eb85ad7a4f6bb58f, type: 2}
+  skillType: 0
 --- !u!1 &1544690825
 GameObject:
   m_ObjectHideFlags: 0

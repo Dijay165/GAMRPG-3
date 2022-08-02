@@ -86,11 +86,12 @@ public class VengeanceAura : AbilityBase
                            
                             damageModifier.attackRangeModifier = rangeBonus[skillLevel];
                             damageModifier.attackDamageModifier = damageBonus[skillLevel];
-                            Debug.Log(damageModifier.attackDamageModifier);
+                           // Debug.Log(damageModifier.attackDamageModifier);
 
                             damageModifier.ApplyModification();
                             // Debug.Log("MODIFIER APPLIED " + gameObject.name);
                        
+
                     }
                 }
                 else
@@ -112,10 +113,5 @@ public class VengeanceAura : AbilityBase
         }
     }
 
-    private void OnDrawGizmos()
-    {
-        Gizmos.color = Color.red;
-        Gizmos.DrawWireSphere(transform.position, auraRadius);
-    }
 }
 
