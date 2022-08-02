@@ -60,7 +60,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   targetAnimator: {fileID: 0}
-  skill: {fileID: 11400000, guid: 664980ae60655fb40a72851a53fb3743, type: 2}
+  skill: {fileID: 11400000, guid: d695b163bc2a13945ad2306608a9cc58, type: 2}
   target: {fileID: 0}
   isInEffect: 0
   armorReductionModifier:

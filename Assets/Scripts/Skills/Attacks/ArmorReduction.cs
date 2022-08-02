@@ -5,7 +5,7 @@ using UnityEngine;
 public class ArmorReduction : StatusEffect
 {
     // Start is called before the first frame update
-    Unit unit;
+    public Unit unit;
     public List<float> armorReductionModifier;
     private float baseArmor;
 

@@ -212,9 +212,9 @@ public class Health : MonoBehaviour
     public float findDamage(AttackType attacker, float damage)
     {
         float mitigations = 0;
-        Debug.Log(gameObject.name);
-        Debug.Log(attributes.totalArmor);
-        Debug.Log(level.currentLevel);
+       // Debug.Log(gameObject.name);
+        //Debug.Log(attributes.totalArmor);
+       // Debug.Log(level.currentLevel);
         switch (attacker)
         {
             case AttackType.Physical:
