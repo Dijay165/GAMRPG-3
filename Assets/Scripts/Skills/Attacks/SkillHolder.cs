@@ -47,6 +47,7 @@ public class SkillHolder : MonoBehaviour
     void Update()
     {
         KeyPressedCheckers();
+       // PassiveSkill();
       //  anim.SetTrigger("CastSkill");
     }
 
@@ -73,13 +74,23 @@ public class SkillHolder : MonoBehaviour
                 Events.OnPlayerSkillIndex.Invoke(i);
                 skillIDIndex = i;
               
-                    
+                
                 ActivateSkill();
                 
             }
           
         }
  
+    }
+
+    public void Passive()
+    {
+       
+
+        //foreach(PassiveSkill passiveSkill in skills)
+        //{
+
+        //}
     }
 
     public void CastSkill(int index)
