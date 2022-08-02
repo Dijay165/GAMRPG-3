@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class NetherSwap : AbilityBase
+public class NetherSwap : ActiveSkill
 {
     TargetedDamager targetedDamager;
     Animator animator;
@@ -10,8 +10,8 @@ public class NetherSwap : AbilityBase
 
     private void Awake()
     {
-        targetedDamager = GetComponent<TargetedDamager>();
-        animator = GetComponent<Animator>();
+    //    targetedDamager = GetComponent<TargetedDamager>();
+      //  animator = GetComponent<Animator>();
         Initialized();
         // float refe = skill.coolDownDuration[1];
         // coolDownDuration = skill.coolDownDuration;
@@ -45,15 +45,15 @@ public class NetherSwap : AbilityBase
         }
     }
 
-    public override void CastSkill(Unit target)
+    public override void OnActivate(Unit target)
     {
-        base.CastSkill(target);
+        base.OnActivate(target);
         canCast = false;
         // GameObject obj = Instantiate(swapPrefab);
         //ChannelSkill channelSkill = obj.GetComponent<ChannelSkill>();
         //channelSkill.transform.position = gameObject.transform.position;
         //channelSkill.InitializedValues(targetedDamager.targetHealth, damage[skillLevel], 1, attackType);
-        StartCoroutine(Swap());
+     //   StartCoroutine(Swap());
 
 
     }
@@ -61,11 +61,11 @@ public class NetherSwap : AbilityBase
     public IEnumerator Swap()
     {
         Debug.Log("Swap");
-        Vector3 playerPosition = gameObject.transform.position;
+    //    Vector3 playerPosition = gameObject.transform.position;
         Vector3 targetPosition = targetedDamager.targetHealth.playersParent.transform.position;
 
-        gameObject.transform.position = targetPosition;
-        targetedDamager.targetHealth.playersParent.transform.position = playerPosition;
+    //    gameObject.transform.position = targetPosition;
+      //  targetedDamager.targetHealth.playersParent.transform.position = playerPosition;
         yield return new WaitForSeconds(1f);
       
        

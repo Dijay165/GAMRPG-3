@@ -2,39 +2,33 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-//[CreateAssetMenu(fileName = "MagicMissile", menuName = "New MagicMissile")]
+[CreateAssetMenu(fileName = "MagicMissile", menuName = "New MagicMissile")]
 
-public class MagicMissile : AbilityBase
+public class MagicMissile : ActiveSkill
 {
-    public GameObject missilePrefab;
+    
 
      TargetedDamager targetedDamager;
      Animator animator;
 
-    private void Awake()
-    {
-        targetedDamager = GetComponent<TargetedDamager>();
-        animator = GetComponent<Animator>();
-        Initialized();
-    }
 
-    private void Update()
+    public override void OnActivate(Unit target)
     {
-        CastCondition();
-    }
-    public override void CastSkill(Unit target)
-    {
-        base.CastSkill(target);
-       // Debug.Log("Magic Missile");
-        GameObject obj = Instantiate(missilePrefab);
+        base.OnActivate(target);
+
+
+        Debug.Log("Magic Missile");
+
+        targetedDamager = target.gameObject.GetComponent<TargetedDamager>();
+
+        GameObject obj = Instantiate(prefab, target.gameObject.transform.position, Quaternion.identity);
         HomingProjectile newInstance = obj.GetComponent<HomingProjectile>();
-        
-        newInstance.attackType = attackType;
-        newInstance.transform.position = gameObject.transform.position;
-        newInstance.InitializeValues(targetedDamager.targetHealth, damage[skillLevel], 900f);
-      //  newInstance.gameObject.transform.SetParent(targetedDamager.targetHealth.playersParent);
-      //  isInEffect = true;
 
+        newInstance.attackType = attackType;
+        newInstance.transform.position = target.gameObject.transform.position;
+        newInstance.InitializeValues(targetedDamager.targetHealth, damage[skillLevel], 900f);
+        newInstance.gameObject.transform.SetParent(targetedDamager.targetHealth.playersParent);
+        //  isInEffect = true;
     }
     public override IEnumerator CoolDownEnumerator()
     {

@@ -57,10 +57,11 @@ public class SkillManager : MonoBehaviour
 
     public void ActivateSkill(int index)
     {
+       
         if (!player.job.skills[index].isCooldown)
         {
-            player.job.skills[index].CastSkill(player.GetComponent<Unit>());
-            StartCoroutine(player.job.skills[index].CoolDownEnumerator());
+           // player.job.skills[index].OnActivate(player.GetComponent<Unit>());
+           // StartCoroutine(player.job.skills[index].CoolDownEnumerator());
         }
     }
 

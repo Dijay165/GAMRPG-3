@@ -9,7 +9,7 @@ public class StatusEffect : MonoBehaviour
     protected Animator animator;
     public Animator targetAnimator;
     protected float duration;
-    public Skill skill;
+    public ActiveSkill skill;
     public Transform target;
     public bool isInEffect;
      

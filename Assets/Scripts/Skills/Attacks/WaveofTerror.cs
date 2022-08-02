@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class WaveofTerror : AbilityBase
+public class WaveofTerror : ActiveSkill
 {
     // Start is called before the first frame update
     TargetedDamager targetedDamager;
@@ -18,8 +18,8 @@ public class WaveofTerror : AbilityBase
     }
     void Start()
     {
-        targetedDamager = GetComponent<TargetedDamager>();
-        animator = GetComponent<Animator>();
+      //  targetedDamager = GetComponent<TargetedDamager>();
+    //    animator = GetComponent<Animator>();
       
     }
 
@@ -29,16 +29,16 @@ public class WaveofTerror : AbilityBase
         CastCondition();
     }
 
-    public override void CastSkill(Unit target)
+    public override void OnActivate(Unit target)
     {
         //  animator.SetTrigger("CastSkill");
         
-        base.CastSkill(target);
+        base.OnActivate(target);
         //   Debug.Log("WaveofTerror");
         canCast = false;
         GameObject obj = Instantiate(terrorPrefab);
         StraightProjectile straightProjectile = obj.GetComponentInChildren<StraightProjectile>();
-        straightProjectile.transform.position = gameObject.transform.position;
+       // straightProjectile.transform.position = gameObject.transform.position;
         straightProjectile.Initialization(targetedDamager.targetHealth, skill.damage[skillLevel]);
 
     }
