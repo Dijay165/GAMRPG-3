@@ -7,6 +7,7 @@ public class ActiveSkill : AbilityBase
 {
     //public float castRange;
     public GameObject prefab;
+  
 
     public virtual void OnActivate(Unit target)
     {
@@ -17,6 +18,15 @@ public class ActiveSkill : AbilityBase
             isInEffect = true;
         }
 
+
+    }
+     
+    public override AbilityBase data
+    {
+        get
+        {
+            return data;
+        }
 
     }
 

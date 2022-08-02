@@ -4,9 +4,14 @@ using UnityEngine;
 
 public class PassiveSkill : AbilityBase
 {
-    // Start is called before the first frame update
+    public override AbilityBase data
+    {
+        get
+        {
+            return data;
+        }
 
-
+    }
     public virtual void OnApply()
     {
 

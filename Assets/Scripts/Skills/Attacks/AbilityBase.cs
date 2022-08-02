@@ -69,6 +69,8 @@ public abstract class AbilityBase : ScriptableObject
 
     //}
 
+    public abstract AbilityBase data { get; }
+
 
     public virtual void CastCondition()
     {

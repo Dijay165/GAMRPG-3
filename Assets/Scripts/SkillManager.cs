@@ -49,8 +49,6 @@ public class SkillManager : MonoBehaviour
         for (int i = 0; i < buttons.Count; i++)
         {
             buttons[i].GetComponent<Image>().sprite = player.job.skills[i].skillIcon;
-          //  buttons[i].GetComponent<Image>().sprite = PlayerManager.instance.player.GetComponent<SkillHolder>().job.skills[i].skillIcon;
-            // iconSprite[i].GetComponent<Image>().sprite = PlayerManager.instance.GetComponent<SkillHolder>().job.skills[i].skillIcon;
         }
 
     }

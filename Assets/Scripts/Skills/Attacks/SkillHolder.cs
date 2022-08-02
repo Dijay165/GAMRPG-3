@@ -9,7 +9,7 @@ public class SkillHolder : MonoBehaviour
     public Job job;
     public List<KeyCode> keyCodes;
 
-    public List<ActiveSkill> skills;
+    public List<AbilityBase> skills;
     Animator anim;
     MOBAMovement movement;
     [HideInInspector]
@@ -27,7 +27,7 @@ public class SkillHolder : MonoBehaviour
         //skills.Add(gameObject.GetComponents<Skill>());
         //skills = gameObject.GetComponents<Skill>();
         
-        foreach(ActiveSkill skill in job.skills)
+        foreach(AbilityBase skill in job.skills)
         {
             skills.Add(skill);
           //  Debug.Log(skill.name);
@@ -99,12 +99,21 @@ public class SkillHolder : MonoBehaviour
         
             if(TryGetComponent<Unit>(out Unit unit))
             {
-                // job.skills[index].CastSkill(unit);
                 Debug.Log("Unit Found");
-                skills[index].OnActivate(unit);
-                //job.skills[index].CastSkill(unit);
-                StartCoroutine(skills[index].CoolDownEnumerator());
+                
+                //if(skills[index].GetType() == typeof(ActiveSkill))
+                //{
+                    if(skills[index] is ActiveSkill)
+                    {
+                        ActiveSkill activeSkill = (ActiveSkill)skills[index];
+                        activeSkill.OnActivate(unit);
+                        StartCoroutine(activeSkill.CoolDownEnumerator());
+                    }
+                 //   skills[index].OnActivate(unit);
+                    
+               //  }
             }
+              
             else
             {
                 Debug.Log("Unit Not Found");
@@ -116,18 +125,24 @@ public class SkillHolder : MonoBehaviour
     {
         /// Debug.Log("Activate Skill");
         //CastSkill(skillIDIndex);
+        
+        if (skills[skillIDIndex] is ActiveSkill)
+        {
+            ActiveSkill activeSkill = (ActiveSkill)skills[skillIDIndex];
+            activeSkill.OnActivate(gameObject.GetComponent<Unit>());
+            StartCoroutine(activeSkill.CoolDownEnumerator());
+        }
 
-       
-        skills[skillIDIndex].OnActivate(gameObject.GetComponent<Unit>());
-        StartCoroutine(skills[skillIDIndex].CoolDownEnumerator());
+        // skills[skillIDIndex].OnActivate(gameObject.GetComponent<Unit>());
+        //StartCoroutine(skills[skillIDIndex].CoolDownEnumerator());
         //if (skills[skillIDIndex].skillType == SkillType.Active)
         //{
         //    if (!skills[skillIDIndex].isCooldown)
         //    {
-            
+
         //    }
-            
+
         //}
-     
+
     }
 }
