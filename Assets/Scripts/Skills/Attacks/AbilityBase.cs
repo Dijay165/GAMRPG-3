@@ -56,7 +56,19 @@ public abstract class AbilityBase : ScriptableObject
         this.skillType = skill.SkillType;
     }
 
-    
+
+    //public virtual void OnActivate(Unit target)
+    //{
+    //    if (canCast)
+    //    {
+    //        //  Debug.Log("OnActivate");
+    //        isCooldown = true;
+    //        isInEffect = true;
+    //    }
+
+
+    //}
+
 
     public virtual void CastCondition()
     {
