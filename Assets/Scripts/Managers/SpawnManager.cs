@@ -25,8 +25,34 @@ public class SpawnManager : MonoBehaviour
     void Start()
     {
         waveTimer = waveTime;
+        SpawnHeroes();
         StartCoroutine(Co_SpawnWave());
         StartCoroutine(Co_CreepScaling());
+    }
+
+    public void SpawnHeroes()
+    {
+        //Enemy mid hero
+        SpawnHero(1,1);
+    }
+
+    public void SpawnHero(int p_team, int p_lane)
+    {
+    
+        Hero hero = HeroPool.pool.Get();
+        hero.attribute.InitializeValues(creepWaveMultiplierCount);
+        hero.waypoints = GameManager.MakePath(p_team, p_lane);
+
+        hero.transform.position = (GameManager.instance.teams[p_team].lanes[p_lane].creepSpawnPoint.transform.position);
+        hero.unitFaction = (Faction)p_team;
+
+
+        Animator anim = hero.GetComponent<Animator>();
+        NavMeshAgent nav = hero.GetComponent<NavMeshAgent>();
+        nav.Warp(new Vector3(hero.transform.position.x, 0f, hero.transform.position.z));// newCreep.transform.position);
+        nav.enabled = false;
+        nav.enabled = true;
+        anim.SetInteger("pathCount", 2);
     }
     IEnumerator Co_CreepScaling()
     {

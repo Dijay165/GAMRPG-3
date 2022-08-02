@@ -500,6 +500,7 @@ GameObject:
   - component: {fileID: -268582041083851338}
   - component: {fileID: -2529363437634863894}
   - component: {fileID: -6011004024904576231}
+  - component: {fileID: 3381454633038894148}
   m_Layer: 8
   m_Name: MegaSiege Creep
   m_TagString: Untagged
@@ -540,9 +541,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   icon: {fileID: 814606041612494954}
   currentTarget: {fileID: 0}
+  level: {fileID: 0}
+  goldReward: 0
+  nearbyEnemyHeroes: []
   health: {fileID: 0}
   unitFaction: 0
   unitStat: {fileID: 11400000, guid: c23f5e31a230b2145b70f93fa124485b, type: 2}
+  attribute: {fileID: 0}
+  isStun: 0
   agent: {fileID: 0}
   obstacle: {fileID: 0}
   currentWaypoint: {fileID: 0}
@@ -577,6 +583,9 @@ MonoBehaviour:
   minHealth: 0
   maxHealth: 875
   healthRegen: 0
+  damager: {fileID: 0}
+  level: {fileID: 0}
+  attributes: {fileID: 0}
 --- !u!195 &7193864837406473058
 NavMeshAgent:
   m_ObjectHideFlags: 0
@@ -627,9 +636,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1745d2ceb585d8f4e84d4c8cc99f97f9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  level: 0
   defaultMana: 0
-  skillPoints: 0
   baseAttackSpeed: 0
   agiFlatModifiers: 0
   strength: 0
@@ -761,3 +768,29 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   armorAmount: 0
   hasBuff: 0
+--- !u!114 &3381454633038894148
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8055485629282258745}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 19651606ebc8fea4d8018d499d71ea17, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  canLevelUp: 0
+  isFixedEXPReward: 0
+  fixedEXPReward: 0
+  currentLevel: 1
+  maxLevel: 0
+  exp: 0
+  maxExp: 0
+  enemies: []
+  expRadius: 1500
+  expPerLevel: 
+  levelUI: {fileID: 0}
+  expBarFill: {fileID: 0}
+  skillPoints: 0
+  LevelTrigger: {fileID: 0}

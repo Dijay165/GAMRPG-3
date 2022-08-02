@@ -352,6 +352,7 @@ GameObject:
   - component: {fileID: -2520097057315696479}
   - component: {fileID: 2642246202499644620}
   - component: {fileID: -9061944418741247474}
+  - component: {fileID: 3106761407345792061}
   m_Layer: 8
   m_Name: Ranged Creep
   m_TagString: Untagged
@@ -392,9 +393,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   icon: {fileID: 7153225734878173807}
   currentTarget: {fileID: 0}
+  level: {fileID: 0}
+  goldReward: 0
+  nearbyEnemyHeroes: []
   health: {fileID: 0}
   unitFaction: 0
   unitStat: {fileID: 11400000, guid: c0f00574888e85b4195698e35fca7d8c, type: 2}
+  attribute: {fileID: 0}
+  isStun: 0
   agent: {fileID: 0}
   obstacle: {fileID: 0}
   currentWaypoint: {fileID: 0}
@@ -429,6 +435,9 @@ MonoBehaviour:
   minHealth: 0
   maxHealth: 300
   healthRegen: 0
+  damager: {fileID: 0}
+  level: {fileID: 0}
+  attributes: {fileID: 0}
 --- !u!54 &8664540318093946653
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -543,9 +552,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1745d2ceb585d8f4e84d4c8cc99f97f9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  level: 0
   defaultMana: 0
-  skillPoints: 0
   baseAttackSpeed: 0
   agiFlatModifiers: 0
   strength: 0
@@ -613,6 +620,32 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   armorAmount: 0
   hasBuff: 0
+--- !u!114 &3106761407345792061
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7043307993562831318}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 19651606ebc8fea4d8018d499d71ea17, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  canLevelUp: 0
+  isFixedEXPReward: 0
+  fixedEXPReward: 0
+  currentLevel: 1
+  maxLevel: 0
+  exp: 0
+  maxExp: 0
+  enemies: []
+  expRadius: 1500
+  expPerLevel: 
+  levelUI: {fileID: 0}
+  expBarFill: {fileID: 0}
+  skillPoints: 0
+  LevelTrigger: {fileID: 0}
 --- !u!1 &7929845305589618429
 GameObject:
   m_ObjectHideFlags: 0

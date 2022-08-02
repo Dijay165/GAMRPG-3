@@ -64,12 +64,12 @@ public class Structures : Unit
         // TowerDied();
         base.Death();
 
-        foreach (HeroPerformanceData currentHero in GameManager.instance.teams[(int)health.damager.unitFaction].heroPerformanceData)
-        {
+        //foreach (HeroPerformanceData currentHero in GameManager.instance.teams[(int)health.damager.unitFaction].heroPerformanceData)
+        //{
             
-            currentHero.gold += goldReward;
+        //    currentHero.gold += goldReward;
             
-        }
+        //} JERRY
         
      
         Destroy(gameObject);

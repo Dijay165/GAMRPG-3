@@ -118,7 +118,7 @@ public class Unit : MonoBehaviour
     public virtual void Death(Health objectHealth = null)
     {
         DeinitializeValues();
-        level.RewardExp();
+        //level.RewardExp(); JERRY GO BACK TO THIS
      
       
   

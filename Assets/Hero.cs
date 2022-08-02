@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Hero : Unit
+public class Hero : Creep
 {
     public override void Death(Health objectHealth = null)
     {
@@ -16,7 +16,7 @@ public class Hero : Unit
                 HeroPerformanceData hpd = GameManager.GetHeroData(currentHero);
                 if (hpd == GameManager.GetHeroData(health.damager))
                 {
-                    hpd.gold += (goldReward + (level.level * 8) + GameManager.GetKillStreakGold(hpd.killstreak));
+                    hpd.gold += (goldReward + (level.currentLevel * 8) + GameManager.GetKillStreakGold(hpd.killstreak));
 
                 }
                 else

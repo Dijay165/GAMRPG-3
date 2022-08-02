@@ -17,6 +17,7 @@ GameObject:
   - component: {fileID: 8948773217883602519}
   - component: {fileID: 1921273913590604962}
   - component: {fileID: 3081614833692483395}
+  - component: {fileID: 3539969814129334613}
   m_Layer: 0
   m_Name: LaserTower_0
   m_TagString: Untagged
@@ -76,6 +77,7 @@ MonoBehaviour:
   minHealth: 0
   maxHealth: 100
   healthRegen: 0
+  damager: {fileID: 0}
 --- !u!136 &1716755602
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -116,9 +118,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   icon: {fileID: 252143906332641596}
   currentTarget: {fileID: 0}
+  level: {fileID: 0}
+  goldReward: 0
+  nearbyEnemyHeroes: []
   health: {fileID: 0}
   unitFaction: 0
   unitStat: {fileID: 11400000, guid: 01ee7a4e66616a14b94ca92ef60c9def, type: 2}
+  attribute: {fileID: 0}
+  isStun: 0
   requiredBuildingsDeadForToBeVulnerable: []
   attackRange: 700
   targetUnit: {fileID: 0}
@@ -136,9 +143,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1745d2ceb585d8f4e84d4c8cc99f97f9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  level: 0
   defaultMana: 0
-  skillPoints: 0
   baseAttackSpeed: 0
   agiFlatModifiers: 0
   strength: 0
@@ -198,6 +203,32 @@ MonoBehaviour:
   auraRadius: 900
   armorAmount: 3
   potentialHero: []
+--- !u!114 &3539969814129334613
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1161251386251526}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 19651606ebc8fea4d8018d499d71ea17, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  canLevelUp: 0
+  isFixedEXPReward: 0
+  fixedEXPReward: 0
+  level: 1
+  maxLevel: 0
+  exp: 0
+  maxExp: 0
+  enemies: []
+  expRadius: 1500
+  expPerLevel: 
+  levelUI: {fileID: 0}
+  expBarFill: {fileID: 0}
+  skillPoints: 0
+  LevelTrigger: {fileID: 0}
 --- !u!1 &1213524718981924
 GameObject:
   m_ObjectHideFlags: 0

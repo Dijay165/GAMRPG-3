@@ -20,6 +20,8 @@ public class Health : MonoBehaviour
     public float maxHealth;
     public float healthRegen;
     public Unit damager;
+    public Level level;
+    public Attributes attributes;
 
     public Death OnDeathEvent = new Death();
     public HealthModify OnHealthModifyEvent = new HealthModify();
@@ -34,7 +36,8 @@ public class Health : MonoBehaviour
     {
 
         playersParent = transform;
-        
+        level = GetComponent<Level>();
+        attributes = GetComponent<Attributes>();    
         ResetValues();
 
       
@@ -197,8 +200,8 @@ public class Health : MonoBehaviour
         //  float mitigations = 0;
 
 
-        float totalResistanceMod = 1 * (damage - gameObject.GetComponent<Attributes>().totalMagicResistance) * (damage - gameObject.GetComponent<Attributes>().totalMagicResistance);
-        float reductionMode = 1 * (damage + gameObject.GetComponent<Attributes>().magicAttack) * (damage + gameObject.GetComponent<Attributes>().magicAttack);
+        float totalResistanceMod = 1 * (damage - attributes.totalMagicResistance) * (damage - attributes.totalMagicResistance);
+        float reductionMode = 1 * (damage + attributes.magicAttack) * (damage + attributes.magicAttack);
         float finalResistance = 1 - (totalResistanceMod * reductionMode);
         float damageModFromMR = damage - finalResistance;
 
@@ -209,17 +212,19 @@ public class Health : MonoBehaviour
     public float findDamage(AttackType attacker, float damage)
     {
         float mitigations = 0;
-
+        Debug.Log(gameObject.name);
+        Debug.Log(attributes.totalArmor);
+        Debug.Log(level.currentLevel);
         switch (attacker)
         {
             case AttackType.Physical:
-                mitigations = Mathf.CeilToInt(gameObject.GetComponent<Attributes>().totalArmor / damage + (damage *
-              gameObject.GetComponent<Level>().level));
+                mitigations = Mathf.CeilToInt(attributes.totalArmor / damage + (damage *
+              level.currentLevel));
                 break;
             case AttackType.Magical:
 
-                mitigations = Mathf.CeilToInt(gameObject.GetComponent<Attributes>().magicResistance / damage + (damage *
-               gameObject.GetComponent<Level>().level));
+                mitigations = Mathf.CeilToInt(attributes.magicResistance / damage + (damage *
+               level.currentLevel));
 
 
                 break;

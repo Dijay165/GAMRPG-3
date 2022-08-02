@@ -9,7 +9,7 @@ public class Level : MonoBehaviour
     public bool canLevelUp;
     public bool isFixedEXPReward;
     public float fixedEXPReward;
-    public int level = 1;
+    public int currentLevel = 1;
     public int maxLevel;
     public float exp;
     public float maxExp;
@@ -72,7 +72,7 @@ public class Level : MonoBehaviour
     {
         if (canLevelUp)
         {
-            maxExp = expPerLevel[level-1];
+            maxExp = expPerLevel[currentLevel-1];
             //LevelTrigger.OnTriggerEnteredFunction += TriggerEnteredFunction;
             //LevelTrigger.OnTriggerExittedFunction += TriggerExittedFunction;
             maxLevel = expPerLevel.Count + 1;
@@ -86,19 +86,19 @@ public class Level : MonoBehaviour
     public void AddExp(float p_expModifer)
     {
         
-        if (level < maxLevel)
+        if (currentLevel < maxLevel)
         {
-            Debug.Log(level + " ADDED EXP " + p_expModifer);
+            Debug.Log(currentLevel + " ADDED EXP " + p_expModifer);
             exp += p_expModifer;
             //can still level up
             if (exp >= maxExp)
             {
               
                 Debug.Log("Level up");
-                level++;
+                currentLevel++;
                 skillPoints++;
                 //Level up
-                if (level < maxLevel)
+                if (currentLevel < maxLevel)
                 {
                     SetNextExpRequirement();
                     
@@ -131,7 +131,7 @@ public class Level : MonoBehaviour
         float  excessExp = exp - maxExp; //750 - 500 = 250 or 500 - 500 = 0
         exp = 0 + excessExp;
 
-        maxExp = expPerLevel[level - 1];
+        maxExp = expPerLevel[currentLevel - 1];
 
  
     }
@@ -140,7 +140,7 @@ public class Level : MonoBehaviour
     {
         if (levelUI != null)
         {
-            levelUI.text = level.ToString();
+            levelUI.text = currentLevel.ToString();
         }
     }
 
