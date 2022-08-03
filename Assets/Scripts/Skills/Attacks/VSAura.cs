@@ -9,7 +9,7 @@ public class VSAura : MonoBehaviour
     public PassiveSkill skill;
 
     public float auraRadius;
-    [SerializeField] List<GameObject> auraCreeped;
+    [SerializeField] List<GameObject> auraCreeped = new List<GameObject>();
     // public Unit unit;
 
     public List<float> rangeBonus;
@@ -35,7 +35,7 @@ public class VSAura : MonoBehaviour
 
             if (hitColliders[i].gameObject.GetComponent<RangedDamager>() != null)
             {
-                Debug.Log(hitColliders[i].name);
+                Debug.Log(gameObject.name + " "  + hitColliders[i].name);
                 if (auraCreeped.Count > 0)
                 {
                     for (int ii = 0; ii < auraCreeped.Count;)
@@ -62,6 +62,8 @@ public class VSAura : MonoBehaviour
 
                     if (hitColliders[i].gameObject.TryGetComponent<Health>(out Health hitHealth))
                     {
+                        Debug.Log(gameObject.name + " " + hitColliders[i].name + " Stuff");
+
                         if (hitHealth.CompareTeam(gameObject.GetComponent<Unit>().unitFaction))
                         {
                             auraCreeped.Add(hitColliders[i].gameObject);

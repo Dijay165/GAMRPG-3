@@ -43,7 +43,7 @@ public class VengeanceAura : PassiveSkill
                 unit.gameObject.GetComponent<VSAura>().auraRadius = this.castRange;
                 unit.gameObject.GetComponent<VSAura>().damageBonus = this.damage;
                 unit.gameObject.GetComponent<VSAura>().rangeBonus = this.effectDuration;
-               hasSkill = true;
+                hasSkill = true;
             }
 
         }
