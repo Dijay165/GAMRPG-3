@@ -47,8 +47,9 @@ public class SkillHolder : MonoBehaviour
     void Update()
     {
         KeyPressedCheckers();
-       // PassiveSkill();
-      //  anim.SetTrigger("CastSkill");
+        // PassiveSkill();
+        //  anim.SetTrigger("CastSkill");
+        ActivatePassiveSkill();
     }
 
 
@@ -121,28 +122,31 @@ public class SkillHolder : MonoBehaviour
           
     }
 
+    public void ActivatePassiveSkill()
+    {
+
+        for(int i = 0; i < skills.Count; i++)
+        {
+            if (skills[i] is PassiveSkill)
+            {
+                PassiveSkill passiveSkill = (PassiveSkill)skills[i];
+                passiveSkill.OnApply(gameObject.GetComponent<Unit>());
+            }
+        }
+        //foreach(PassiveSkill passiveSkill in skills)
+        //{
+        //    passiveSkill.OnApply();
+        //}
+    }
+
     public void ActivateSkill()
     {
-        /// Debug.Log("Activate Skill");
-        //CastSkill(skillIDIndex);
-        
+
         if (skills[skillIDIndex] is ActiveSkill)
         {
             ActiveSkill activeSkill = (ActiveSkill)skills[skillIDIndex];
             activeSkill.OnActivate(gameObject.GetComponent<Unit>());
             StartCoroutine(activeSkill.CoolDownEnumerator());
         }
-
-        // skills[skillIDIndex].OnActivate(gameObject.GetComponent<Unit>());
-        //StartCoroutine(skills[skillIDIndex].CoolDownEnumerator());
-        //if (skills[skillIDIndex].skillType == SkillType.Active)
-        //{
-        //    if (!skills[skillIDIndex].isCooldown)
-        //    {
-
-        //    }
-
-        //}
-
     }
 }

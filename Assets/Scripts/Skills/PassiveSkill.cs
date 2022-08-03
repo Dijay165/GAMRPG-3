@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class PassiveSkill : AbilityBase
 {
+    public GameObject prefab;
     public override AbilityBase data
     {
         get
@@ -12,7 +13,7 @@ public class PassiveSkill : AbilityBase
         }
 
     }
-    public virtual void OnApply()
+    public virtual void OnApply(Unit unit)
     {
 
     }
