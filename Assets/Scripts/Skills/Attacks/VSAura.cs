@@ -35,7 +35,7 @@ public class VSAura : MonoBehaviour
 
             if (hitColliders[i].gameObject.GetComponent<RangedDamager>() != null)
             {
-                Debug.Log(gameObject.name + " "  + hitColliders[i].name);
+               // Debug.Log(gameObject.name + " "  + hitColliders[i].name);
                 if (auraCreeped.Count > 0)
                 {
                     for (int ii = 0; ii < auraCreeped.Count;)
@@ -62,7 +62,7 @@ public class VSAura : MonoBehaviour
 
                     if (hitColliders[i].gameObject.TryGetComponent<Health>(out Health hitHealth))
                     {
-                        Debug.Log(gameObject.name + " " + hitColliders[i].name + " Stuff");
+                     //   Debug.Log(gameObject.name + " " + hitColliders[i].name + " Stuff");
 
                         if (hitHealth.CompareTeam(gameObject.GetComponent<Unit>().unitFaction))
                         {
@@ -96,7 +96,7 @@ public class VSAura : MonoBehaviour
                         Debug.Log(damageModifier.attackDamageModifier);
 
                         damageModifier.ApplyModification();
-                        Debug.Log("MODIFIER APPLIED " + auraCreeped[i].gameObject.name);
+                       // Debug.Log("MODIFIER APPLIED " + auraCreeped[i].gameObject.name);
 
 
                     }
@@ -109,7 +109,7 @@ public class VSAura : MonoBehaviour
                         damageModifier.attackDamageModifier = damageBonus[0];
                         damageModifier.RemoveModification();
                         Destroy(auraCreeped[i].GetComponent<DamageModifier>());
-                        Debug.Log("REMOVE MODF APPLIED " + auraCreeped[i].gameObject.name);
+                      //  Debug.Log("REMOVE MODF APPLIED " + auraCreeped[i].gameObject.name);
                     }
                     auraCreeped.Remove(auraCreeped[i]);
                 }

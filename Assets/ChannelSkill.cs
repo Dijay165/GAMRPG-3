@@ -15,13 +15,13 @@ public class ChannelSkill : MonoBehaviour
     void Start()
     {
         // StartCoroutine(ActivateSkill());
-        
 
+        Skill();
     }
 
     private void OnEnable()
     {
-        Skill();
+     
     }
 
     // Update is called once per frame

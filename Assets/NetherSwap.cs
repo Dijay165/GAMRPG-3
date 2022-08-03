@@ -40,12 +40,23 @@ public class NetherSwap : ActiveSkill
         canCast = false;
 
         //Skill(target);
-        GameObject obj = Instantiate(prefab, target.gameObject.transform.position, Quaternion.identity);
-        ChannelSkill channelSkill = obj.GetComponent<ChannelSkill>();
-        channelSkill.transform.position = target.gameObject.transform.position;
-        channelSkill.targetTransform = targetedDamager.targetHealth.playersParent;
-        channelSkill.InitializedValues(targetedDamager.targetHealth, 0, 1, attackType);
-        channelSkill.gameObject.transform.SetParent(targetedDamager.targetHealth.playersParent);
+
+        targetedDamager = target.gameObject.GetComponent<TargetedDamager>();
+
+        Vector3 playerPosition = target.transform.position;
+        Vector3 targetPosition = targetedDamager.targetHealth.playersParent.transform.position;
+
+        target.transform.position = targetPosition;
+        targetedDamager.targetHealth.playersParent.transform.position = playerPosition;
+
+        //GameObject obj = Instantiate(prefab);
+        //ChannelSkill channelSkill = obj.GetComponent<ChannelSkill>();
+
+
+        //channelSkill.transform.position = target.gameObject.transform.position;
+        //channelSkill.targetTransform = targetedDamager.targetHealth.playersParent;
+        //channelSkill.InitializedValues(targetedDamager.targetHealth, 0, 1, attackType);
+        //channelSkill.gameObject.transform.SetParent(targetedDamager.targetHealth.playersParent);
         //StartCoroutine(Swap());
 
 

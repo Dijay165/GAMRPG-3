@@ -30,7 +30,7 @@ public class VengeanceAura : PassiveSkill
         base.OnApply(unit);
         // GameObject obj =     
 
-        Debug.Log("OnApply");
+      //  Debug.Log("OnApply");
         //  Debug.Log(unit.name);
 
         if (!hasSkill)
