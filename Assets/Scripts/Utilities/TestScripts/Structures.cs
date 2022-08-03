@@ -76,15 +76,22 @@ public class Structures : Unit
         //  Debug.Log("Death");
         // TowerDied();
         base.Death();
+        int team = 0;
+        if (health.team == 0)
+        {
+            team = 1;
+        }
+       
+        foreach (HeroPerformanceData currentHero in GameManager.instance.teams[team].heroPerformanceData)
+        {
 
-        //foreach (HeroPerformanceData currentHero in GameManager.instance.teams[(int)health.damager.unitFaction].heroPerformanceData)
-        //{
-            
-        //    currentHero.gold += goldReward;
-            
-        //} JERRY
-        
-     
+            currentHero.gold += goldReward;
+
+        }
+      
+
+
+
         Destroy(gameObject);
     }
 

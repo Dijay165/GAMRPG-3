@@ -11,7 +11,7 @@ public class MeleeCreep : Creep
     protected override void DeinitializeValues()
     {
         base.DeinitializeValues();
-        Destroy(gameObject);
-        //MeleeCreepPool.pool.Release(this);
+        //Destroy(gameObject);
+        MeleeCreepPool.pool.Release(this);
     }
 }

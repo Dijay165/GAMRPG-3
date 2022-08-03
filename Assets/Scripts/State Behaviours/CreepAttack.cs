@@ -24,7 +24,14 @@ public class CreepAttack : StateMachineBehaviour
 
         if (agent != null)
         {
-            agent.isStopped = true;
+            if (agent.enabled == true)
+            {
+                if (agent.isOnNavMesh)
+                {
+                    agent.isStopped = true;
+                }
+            }
+            
         }
    
         creep.FaceTarget();

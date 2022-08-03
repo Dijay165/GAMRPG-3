@@ -2,6 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.Events;
+public class AddHeroUI : UnityEvent { }
+public class UpdateHeroUI : UnityEvent<HeroPerformanceData> { }
+public class UpdateHeroTimeUI : UnityEvent<HeroPerformanceData> { }
 [System.Serializable]
 public class HeroPerformanceData
 {
@@ -23,8 +27,10 @@ public class GameManager : MonoBehaviour
     public TextMeshProUGUI winnerText;
     [NonReorderable] public List<TeamData> teams = new List<TeamData>();
     public List<int> killStreakGoldReward;
-    
-
+    public List<int> expPerLevel = new List<int>();
+    public static UpdateHeroUI OnUpdateHeroUIEvent = new UpdateHeroUI();
+    public static UpdateHeroTimeUI OnUpdatarHeroTimeUI = new UpdateHeroTimeUI();
+    public static AddHeroUI OnAddHeroUIEvent = new AddHeroUI();
     //Invoke event when nexus is destoryed, when called end the game. 
     private void Awake()
     {
@@ -53,6 +59,36 @@ public class GameManager : MonoBehaviour
         {
             return instance.killStreakGoldReward[p_killstreak];
         }
+    }
+    public static int GetHeroDataTeamIndex(HeroPerformanceData hero)
+    {
+        for (int i = 0; i < instance.teams.Count; i++)
+        {
+            for (int ii = 0; ii < instance.teams[i].heroPerformanceData.Count; ii++)
+            {
+                if (instance.teams[i].heroPerformanceData[ii] == hero)
+                {
+                    return i;
+                }
+            }
+        }
+        Debug.Log("NONE FOUND");
+        return -1;
+    }
+    public static int GetHeroDataIndex(HeroPerformanceData hero)
+    {
+        foreach (TeamData currentTeam in instance.teams)
+        {
+            for (int i = 0; i < currentTeam.heroPerformanceData.Count;i++)
+            {
+                if (currentTeam.heroPerformanceData[i] == hero)
+                {
+                    return i;
+                }
+            }
+        }
+        Debug.Log("NONE FOUND");
+        return -1;
     }
     public static HeroPerformanceData GetHeroData(Unit hero)
     {

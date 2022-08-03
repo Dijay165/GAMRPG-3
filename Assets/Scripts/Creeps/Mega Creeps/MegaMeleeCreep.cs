@@ -12,7 +12,7 @@ public class MegaMeleeCreep : Creep
     protected override void DeinitializeValues()
     {
         base.DeinitializeValues();
-        Destroy(gameObject);
-        //MegaMeleeCreepPool.pool.Release(this);
+        //Destroy(gameObject);
+        MegaMeleeCreepPool.pool.Release(this);
     }
 }

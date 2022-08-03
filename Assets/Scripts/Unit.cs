@@ -60,7 +60,10 @@ public class Unit : MonoBehaviour
         {
             attribute = foundAttribute;
         }
-        
+        if (TryGetComponent<Level>(out Level foundLevel))
+        {
+            level = foundLevel;
+        }
     }
 
     IEnumerator Co_Load()
@@ -99,7 +102,7 @@ public class Unit : MonoBehaviour
             if (hitCollider.gameObject != gameObject)
             {
 
-                if (hitCollider.gameObject.TryGetComponent(out Hero unit))
+                if (hitCollider.gameObject.TryGetComponent(out Unit unit))
                 {
                     if (unit.unitFaction != unitFaction)
                     {
@@ -117,8 +120,9 @@ public class Unit : MonoBehaviour
 
     public virtual void Death(Health objectHealth = null)
     {
+        level.RewardExp();
         DeinitializeValues();
-        //level.RewardExp(); JERRY GO BACK TO THIS
+      
      
       
   

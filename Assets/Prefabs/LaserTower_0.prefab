@@ -72,12 +72,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playersParent: {fileID: 0}
   invulnerable: 1
+  team: 0
   isAlive: 0
   currentHealth: 0
   minHealth: 0
   maxHealth: 100
   healthRegen: 0
   damager: {fileID: 0}
+  level: {fileID: 0}
+  attributes: {fileID: 0}
 --- !u!136 &1716755602
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -119,13 +122,16 @@ MonoBehaviour:
   icon: {fileID: 252143906332641596}
   currentTarget: {fileID: 0}
   level: {fileID: 0}
-  goldReward: 0
+  goldReward: 75
   nearbyEnemyHeroes: []
   health: {fileID: 0}
   unitFaction: 0
   unitStat: {fileID: 11400000, guid: 01ee7a4e66616a14b94ca92ef60c9def, type: 2}
   attribute: {fileID: 0}
   isStun: 0
+  whenDestroyed:
+    m_PersistentCalls:
+      m_Calls: []
   requiredBuildingsDeadForToBeVulnerable: []
   attackRange: 700
   targetUnit: {fileID: 0}
@@ -216,15 +222,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   canLevelUp: 0
-  isFixedEXPReward: 0
+  isFixedEXPReward: 1
   fixedEXPReward: 0
-  level: 1
-  maxLevel: 0
+  currentLevel: 1
   exp: 0
   maxExp: 0
   enemies: []
   expRadius: 1500
-  expPerLevel: 
   levelUI: {fileID: 0}
   expBarFill: {fileID: 0}
   skillPoints: 0

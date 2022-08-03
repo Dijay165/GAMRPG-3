@@ -11,7 +11,7 @@ public class MegaSiegeCreep : Creep
     protected override void DeinitializeValues()
     {
         base.DeinitializeValues();
-        Destroy(gameObject);
-        //MegaSiegeCreepPool.pool.Release(this);
+        //Destroy(gameObject);
+        MegaSiegeCreepPool.pool.Release(this);
     }
 }

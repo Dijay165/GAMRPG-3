@@ -24,13 +24,12 @@ public class BonusArmorAura : MonoBehaviour
 
         for (int i = 0; i < hitColliders.Length; i++)
         {
-            if (hitColliders[i].gameObject.layer == LayerMask.NameToLayer("Unit")
-            && hitColliders[i].gameObject.CompareTag("Player"))
-            {
+           
              
-                if (hitColliders[i].gameObject.GetComponent<Unit>() != null)
+            if (hitColliders[i].gameObject.GetComponent<Unit>() != null)
+            {
+                if (hitColliders[i].gameObject.GetComponent<Unit>() is Hero || hitColliders[i].gameObject.GetComponent<Unit>() is Player)
                 {
-              
                     if (potentialHero.Count > 0)
                     {
                         for (int ii = 0; ii < potentialHero.Count;)
@@ -54,7 +53,7 @@ public class BonusArmorAura : MonoBehaviour
                     }
                     else
                     {
-                        
+
                         if (hitColliders[i].gameObject.TryGetComponent<Health>(out Health hitHealth))
                         {
                             if (hitHealth.CompareTeam(unit.unitFaction))
@@ -62,13 +61,15 @@ public class BonusArmorAura : MonoBehaviour
                                 potentialHero.Add(hitColliders[i].gameObject);
                             }
                         }
-                        
+
                     }
+                }
+                
                    
 
 
-                }
             }
+            
         }
 
         for (int i = 0; i < potentialHero.Count; i++)

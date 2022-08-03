@@ -95,7 +95,7 @@ MonoBehaviour:
   icon: {fileID: 7444496976121660389}
   currentTarget: {fileID: 0}
   level: {fileID: 0}
-  goldReward: 0
+  goldReward: 20
   nearbyEnemyHeroes: []
   health: {fileID: 0}
   unitFaction: 0
@@ -115,7 +115,6 @@ MonoBehaviour:
   enemies: []
   test: 0
   skinnedMeshRenderer: {fileID: 922411435948292484}
-  redFace: {fileID: 2100000, guid: 4ae0951617653ad40a3f2bbec1c456e1, type: 2}
   attackTime: 0
 --- !u!114 &695369996818386633
 MonoBehaviour:
@@ -145,6 +144,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playersParent: {fileID: 0}
   invulnerable: 0
+  team: 0
   isAlive: 0
   currentHealth: 0
   minHealth: 0
@@ -318,15 +318,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   canLevelUp: 0
-  isFixedEXPReward: 0
-  fixedEXPReward: 0
+  isFixedEXPReward: 1
+  fixedEXPReward: 25
   currentLevel: 1
-  maxLevel: 0
   exp: 0
   maxExp: 0
   enemies: []
   expRadius: 1500
-  expPerLevel: 
   levelUI: {fileID: 0}
   expBarFill: {fileID: 0}
   skillPoints: 0
@@ -387,7 +385,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2525893482936342545}
   m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: 8.8, z: 0}
+  m_LocalPosition: {x: 0, y: 10, z: 0}
   m_LocalScale: {x: 0.5, y: 0.5, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children: []

@@ -33,8 +33,9 @@ public abstract class Creep : Unit
 
     public float test;
 
+
     public SkinnedMeshRenderer skinnedMeshRenderer;
-    public Material redFace;
+
     public float attackTime;
 
     public override void Death(Health objectHealth = null)
@@ -43,7 +44,9 @@ public abstract class Creep : Unit
         HeroPerformanceData performanceData = GameManager.GetHeroData(health.damager);
         if (performanceData != null)
         {
+            Debug.Log(health.damager.gameObject.name + " GAINED GOLD " + goldReward);
             performanceData.gold += goldReward;
+            GameManager.OnUpdateHeroUIEvent.Invoke(performanceData);
         }
 
 
@@ -69,12 +72,7 @@ public abstract class Creep : Unit
 
     private void Start()
     {
-        if (unitFaction == Faction.Dire)
-        {
-            Material[] mats = skinnedMeshRenderer.materials;
-            mats[0] = redFace;
-            skinnedMeshRenderer.materials = mats;
-        }
+    
         agent.speed = unitStat.startingMovementSpeed;
     }
 
@@ -113,7 +111,18 @@ public abstract class Creep : Unit
     protected override void InitializeValues()
     {
         base.InitializeValues();
-
+        if (unitFaction == Faction.Dire)
+        {
+            Material[] mats = skinnedMeshRenderer.materials;
+            mats[0] = SpawnManager.instance.redFace;
+            skinnedMeshRenderer.materials = mats;
+        }
+        else if (unitFaction == Faction.Radiant)
+        {
+            Material[] mats = skinnedMeshRenderer.materials;
+            mats[0] = SpawnManager.instance.whiteFace;
+            skinnedMeshRenderer.materials = mats;
+        }
         obstacle.enabled = false;
         agent.enabled = true;
 

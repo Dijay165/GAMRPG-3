@@ -71,17 +71,17 @@ public class GenericObjectPool<T> : MonoBehaviour where T : MonoBehaviour
         //if (!isInactiveInContainer)
         //{
 
-        //    p_desiredObject.gameObject.SetActive(true);
+            p_desiredObject.gameObject.SetActive(true);
         //}
     }
 
     void ReleaseObject(T p_desiredObject)
     {
         p_desiredObject.transform.position = container.position;
-        
+
         //if (!isInactiveInContainer)
         //{
-        //    p_desiredObject.gameObject.SetActive(false);
+            p_desiredObject.gameObject.SetActive(false);
         //}
 
 

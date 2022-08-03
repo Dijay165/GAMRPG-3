@@ -10,7 +10,7 @@ public class Level : MonoBehaviour
     public bool isFixedEXPReward;
     public float fixedEXPReward;
     public int currentLevel = 1;
-    public int maxLevel;
+
     public float exp;
     public float maxExp;
 
@@ -20,7 +20,7 @@ public class Level : MonoBehaviour
 
     public float expRadius = 1500;
 
-    public List<int> expPerLevel = new List<int>();
+
     [SerializeField] private TextMeshProUGUI levelUI;
     [SerializeField] private Image expBarFill;
     public Action OnLevelUp;
@@ -45,7 +45,7 @@ public class Level : MonoBehaviour
         if (unit.nearbyEnemyHeroes.Count > 0)
         {
             float currentExpReward = 0;
-            if (unit is Hero)
+            if (unit is Hero || unit is Player)
             {
                 currentExpReward = (100 + 0.13f * exp);
             }
@@ -55,7 +55,7 @@ public class Level : MonoBehaviour
             }
 
             currentExpReward = currentExpReward / unit.nearbyEnemyHeroes.Count;
-            foreach (Hero nearbyHero in unit.nearbyEnemyHeroes)
+            foreach (Unit nearbyHero in unit.nearbyEnemyHeroes)
             {
               
                 nearbyHero.level.AddExp(currentExpReward);
@@ -72,10 +72,10 @@ public class Level : MonoBehaviour
     {
         if (canLevelUp)
         {
-            maxExp = expPerLevel[currentLevel-1];
+            maxExp = GameManager.instance.expPerLevel[currentLevel-1];
             //LevelTrigger.OnTriggerEnteredFunction += TriggerEnteredFunction;
             //LevelTrigger.OnTriggerExittedFunction += TriggerExittedFunction;
-            maxLevel = expPerLevel.Count + 1;
+          
         }
         
         UpdateLevelUI();
@@ -86,7 +86,7 @@ public class Level : MonoBehaviour
     public void AddExp(float p_expModifer)
     {
         
-        if (currentLevel < maxLevel)
+        if (currentLevel < GameManager.instance.expPerLevel.Count + 1)
         {
             Debug.Log(currentLevel + " ADDED EXP " + p_expModifer);
             exp += p_expModifer;
@@ -98,7 +98,7 @@ public class Level : MonoBehaviour
                 currentLevel++;
                 skillPoints++;
                 //Level up
-                if (currentLevel < maxLevel)
+                if (currentLevel < GameManager.instance.expPerLevel.Count + 1)
                 {
                     SetNextExpRequirement();
                     
@@ -131,7 +131,7 @@ public class Level : MonoBehaviour
         float  excessExp = exp - maxExp; //750 - 500 = 250 or 500 - 500 = 0
         exp = 0 + excessExp;
 
-        maxExp = expPerLevel[currentLevel - 1];
+        maxExp = GameManager.instance.expPerLevel[currentLevel - 1];
 
  
     }
@@ -140,7 +140,7 @@ public class Level : MonoBehaviour
     {
         if (levelUI != null)
         {
-            levelUI.text = currentLevel.ToString();
+            levelUI.text = "Level: " + currentLevel.ToString();
         }
     }
 
