@@ -7,15 +7,21 @@ public class ChannelSkill : MonoBehaviour
     // Start is called before the first frame update
 
     private Health targetHealth;
-    private Transform targetTransform;
+    public Transform targetTransform;
 
     public float damage;
-    public float speed;
+    public float speed = 1;
     public AttackType attackType;
     void Start()
     {
-        StartCoroutine(ActivateSkill());
+        // StartCoroutine(ActivateSkill());
+        
 
+    }
+
+    private void OnEnable()
+    {
+        Skill();
     }
 
     // Update is called once per frame
@@ -34,9 +40,24 @@ public class ChannelSkill : MonoBehaviour
     }
 
 
+    public void Skill()
+    {
+        Vector3 playerPosition = gameObject.transform.position;
+        Vector3 targetPosition = targetHealth.playersParent.transform.position;
+
+        gameObject.transform.position = targetPosition;
+        targetHealth.playersParent.transform.position = playerPosition;
+    }
+
     public IEnumerator ActivateSkill()
     {
+        Vector3 playerPosition = gameObject.transform.position;
+        Vector3 targetPosition = targetHealth.playersParent.transform.position;
+
+        gameObject.transform.position = targetPosition;
+        targetHealth.playersParent.transform.position = playerPosition;
 
         yield return new WaitForSeconds(speed);
+        Destroy(gameObject);
     }
 }

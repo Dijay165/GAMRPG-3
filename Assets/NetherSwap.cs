@@ -2,27 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
+[CreateAssetMenu(fileName = "NetherSwap", menuName = "NetherSwap")]
+
 public class NetherSwap : ActiveSkill
 {
     TargetedDamager targetedDamager;
     Animator animator;
   //  public GameObject swapPrefab;
 
-    private void Awake()
-    {
-    //    targetedDamager = GetComponent<TargetedDamager>();
-      //  animator = GetComponent<Animator>();
-        Initialized();
-        // float refe = skill.coolDownDuration[1];
-        // coolDownDuration = skill.coolDownDuration;
-        castRange = skill.effectDuration[0];
-    }
-    // Update is called once per frame
-    void Update()
-    {
-        CastCondition();
-    }
-
+   
     public override void CastCondition()
     {
         base.CastCondition();
@@ -49,11 +38,15 @@ public class NetherSwap : ActiveSkill
     {
         base.OnActivate(target);
         canCast = false;
-        // GameObject obj = Instantiate(swapPrefab);
-        //ChannelSkill channelSkill = obj.GetComponent<ChannelSkill>();
-        //channelSkill.transform.position = gameObject.transform.position;
-        //channelSkill.InitializedValues(targetedDamager.targetHealth, damage[skillLevel], 1, attackType);
-     //   StartCoroutine(Swap());
+
+        //Skill(target);
+        GameObject obj = Instantiate(prefab, target.gameObject.transform.position, Quaternion.identity);
+        ChannelSkill channelSkill = obj.GetComponent<ChannelSkill>();
+        channelSkill.transform.position = target.gameObject.transform.position;
+        channelSkill.targetTransform = targetedDamager.targetHealth.playersParent;
+        channelSkill.InitializedValues(targetedDamager.targetHealth, 0, 1, attackType);
+        channelSkill.gameObject.transform.SetParent(targetedDamager.targetHealth.playersParent);
+        //StartCoroutine(Swap());
 
 
     }
@@ -62,7 +55,7 @@ public class NetherSwap : ActiveSkill
     {
         Debug.Log("Swap");
     //    Vector3 playerPosition = gameObject.transform.position;
-        Vector3 targetPosition = targetedDamager.targetHealth.playersParent.transform.position;
+        //Vector3 targetPosition = targetedDamager.targetHealth.playersParent.transform.position;
 
     //    gameObject.transform.position = targetPosition;
       //  targetedDamager.targetHealth.playersParent.transform.position = playerPosition;
@@ -70,6 +63,15 @@ public class NetherSwap : ActiveSkill
       
        
     }
+
+    //public void Skill(Unit unit)
+    //{
+    //    Vector3 playerPosition = unit.transform.position;
+    //    Vector3 targetPosition = targetedDamager.targetHealth.transform.position;
+
+    //    unit.transform.position = targetPosition;
+    //    targetedDamager.targetHealth.playersParent.transform.position = playerPosition;
+    //}
 
     public override IEnumerator CoolDownEnumerator()
     {

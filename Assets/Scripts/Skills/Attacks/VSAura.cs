@@ -91,8 +91,8 @@ public class VSAura : MonoBehaviour
                         DamageModifier damageModifier = auraCreeped[i].AddComponent<DamageModifier>();
 
 
-                        damageModifier.attackRangeModifier = rangeBonus[skill.skillLevel];
-                        damageModifier.attackDamageModifier = damageBonus[skill.skillLevel];
+                        damageModifier.attackRangeModifier = rangeBonus[0];
+                        damageModifier.attackDamageModifier = damageBonus[0];
                         Debug.Log(damageModifier.attackDamageModifier);
 
                         damageModifier.ApplyModification();
@@ -105,8 +105,8 @@ public class VSAura : MonoBehaviour
                 {
                     if (auraCreeped[i].TryGetComponent(out DamageModifier damageModifier))
                     {
-                        damageModifier.attackRangeModifier = rangeBonus[skill.skillLevel];
-                        damageModifier.attackDamageModifier = damageBonus[skill.skillLevel];
+                        damageModifier.attackRangeModifier = rangeBonus[0];
+                        damageModifier.attackDamageModifier = damageBonus[0];
                         damageModifier.RemoveModification();
                         Destroy(auraCreeped[i].GetComponent<DamageModifier>());
                         Debug.Log("REMOVE MODF APPLIED " + auraCreeped[i].gameObject.name);
