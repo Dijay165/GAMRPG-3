@@ -17,6 +17,7 @@ public class ActiveSkill : AbilityBase
             this.isCooldown = true;
             this.isInEffect = true;
             target.GetComponent<Mana>().SubtractMana(manaCost[skillLevel]);
+          //  CoroutineSetup.instance.StartCoroutine(CoolDownEnumerator());
         }
 
 
@@ -37,7 +38,7 @@ public class ActiveSkill : AbilityBase
 
         while (isCooldown)
         {
-             Debug.Log(coolDownDuration[skillLevel]);
+           //  Debug.Log(coolDownDuration[skillLevel]);
             yield return new WaitForSeconds(this.coolDownDuration[skillLevel]);
             this.canCast = true;
             this.isCooldown = false;

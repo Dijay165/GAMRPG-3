@@ -16,6 +16,7 @@ public class SkillHolder : MonoBehaviour
     public int skillIDIndex;
 
     
+    
     private void Awake()
     {
         // Events.OnPlayerSkillIndex.AddListener(KeyIndex);
@@ -92,6 +93,7 @@ public class SkillHolder : MonoBehaviour
                 if (skills[skillIDIndex].canCast)
                 {
                     anim.SetTrigger("CastSkill");
+
                 }
                
             //    ActivateSkill();
@@ -172,6 +174,13 @@ public class SkillHolder : MonoBehaviour
 
                 activeSkill.OnActivate(gameObject.GetComponent<Unit>());
                 StartCoroutine(activeSkill.CoolDownEnumerator());
+
+
+                if (gameObject.GetComponent<Unit>().CompareTag("Player"))
+                {
+                    StartCoroutine(SkillManager.instance.CountdownText(activeSkill.coolDownDuration[activeSkill.skillLevel]));
+                }
+
             }
             else
             {

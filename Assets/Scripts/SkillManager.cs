@@ -11,18 +11,23 @@ public class SkillManager : MonoBehaviour
     public List<Button> buttons;
     public List<TextMeshProUGUI> text;
     SkillHolder player;
+    public static SkillManager instance;
+
+    float refCountdown;
     private void Awake()
     {
+        instance = this;
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<SkillHolder>();
+       
     }
     void Start()
     {
-        Events.OnPlayerSkillIndex.AddListener(skillGetter);
+      
        
     }
     private void OnEnable()
     {
-        
+        Events.OnPlayerSkillIndex.AddListener(skillGetter);
         InitializeButtons();
     }
 
@@ -34,7 +39,17 @@ public class SkillManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        //if (player.skills[skillIndex].isCooldown)
+        //{
+        //    buttons[skillIndex].GetComponent<Image>().fillAmount += 1 / 
+        //        player.skills[skillIndex].coolDownDuration[player.skills[skillIndex].skillLevel] * Time.deltaTime;
+
+        //    if(buttons[skillIndex].GetComponent<Image>().fillAmount >= 1)
+        //    {
+        //        buttons[skillIndex].GetComponent<Image>().fillAmount = 0;
+        //    }
+        //}
+
     }
 
 
@@ -67,5 +82,26 @@ public class SkillManager : MonoBehaviour
         }
     }
 
+
+    public IEnumerator CountdownText(float cooldown)
+    {
+        
+      //  refCountdown = cooldown;
+     //   Debug.Log(refCountdown + " Start Cooldown");
+
+        while (cooldown >= 0)
+        {
+
+            Debug.Log(cooldown + " Cooldown");
+            text[skillIndex].text = cooldown.ToString();
+            yield return new WaitForSeconds(1f);
+            Debug.Log("After Countdown");
+            cooldown--;
+
+        }
+
+        text[skillIndex].text = "";
+
+    }
 
 }
