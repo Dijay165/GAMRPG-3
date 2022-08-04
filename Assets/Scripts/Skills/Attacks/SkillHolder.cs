@@ -106,7 +106,7 @@ public class SkillHolder : MonoBehaviour
         }
         else
         {
-            Debug.Log("isnull");
+          //  Debug.Log("isnull");
         }
        
 
