@@ -38,29 +38,29 @@ public class WaveofTerror : ActiveSkill
     }
 
 
-    public override void CastCondition()
-    {
-        base.CastCondition();
+    //public override void CastCondition()
+    //{
+    //    base.CastCondition();
 
-      //  Debug.Log(canCast);
-        if (canCast)
-        {
-            if (Input.GetKeyDown(KeyCode.W))
-            {
-                if (!isCooldown)
-                {
-                    Debug.Log("Not cooldown");
-                    animator.SetTrigger("CastSkill");
-                }
-                else
-                {
-                    Debug.Log("Cooldown");
-                }
-            }
-        }
-        else
-        {
-            animator.ResetTrigger("CastSkill");
-        }
-    }
+    //  //  Debug.Log(canCast);
+    //    if (canCast)
+    //    {
+    //        if (Input.GetKeyDown(KeyCode.W))
+    //        {
+    //            if (!isCooldown)
+    //            {
+    //                Debug.Log("Not cooldown");
+    //                animator.SetTrigger("CastSkill");
+    //            }
+    //            else
+    //            {
+    //                Debug.Log("Cooldown");
+    //            }
+    //        }
+    //    }
+    //    else
+    //    {
+    //        animator.ResetTrigger("CastSkill");
+    //    }
+    //}
 }

@@ -72,8 +72,23 @@ public abstract class AbilityBase : ScriptableObject
     public abstract AbilityBase data { get; }
 
 
-    public virtual void CastCondition()
+    public bool CastCondition(Transform self, Transform target)
     {
+        bool cond = false; 
+        if (target != null)
+        {
+            float distance = Vector3.Distance(self.position, target.position);
+            if (distance < castRange)
+            {
+                cond = true;
+            }
+            else
+            {
+                cond =  false;
+            }
+        }
 
+        return cond;
+        //  if(unit.transform.)
     }
 }

@@ -14,6 +14,8 @@ public class SkillHolder : MonoBehaviour
     MOBAMovement movement;
     [HideInInspector]
     public int skillIDIndex;
+
+    
     private void Awake()
     {
         // Events.OnPlayerSkillIndex.AddListener(KeyIndex);
@@ -30,6 +32,9 @@ public class SkillHolder : MonoBehaviour
         foreach(AbilityBase skill in job.skills)
         {
             skills.Add(skill);
+            skill.isCooldown = false;
+            skill.isInEffect = false;
+            skill.canCast = true;
           //  Debug.Log(skill.name);
            // keyCodes.Add(skill.keyCode);
         }
@@ -71,17 +76,33 @@ public class SkillHolder : MonoBehaviour
             {
                 Debug.Log("Pressed " + keyCodes[i]);
        
-                movement.HeroMove();
                 Events.OnPlayerSkillIndex.Invoke(i);
                 skillIDIndex = i;
-              
-                
-                ActivateSkill();
-                
+                movement.HeroMove();       
             }
           
         }
- 
+
+        if(gameObject.GetComponent<TargetedDamager>().targetHealth != null)
+        {
+            bool inDistance = skills[skillIDIndex].CastCondition(gameObject.transform, gameObject.GetComponent<TargetedDamager>().targetHealth.playersParent.transform);
+            if (inDistance)
+            {
+                Debug.Log("distance");
+                if (skills[skillIDIndex].canCast)
+                {
+                    anim.SetTrigger("CastSkill");
+                }
+               
+            //    ActivateSkill();
+            }
+        }
+        else
+        {
+            Debug.Log("isnull");
+        }
+       
+
     }
 
     public void Passive()

@@ -12,27 +12,27 @@ public class NetherSwap : ActiveSkill
   //  public GameObject swapPrefab;
 
    
-    public override void CastCondition()
-    {
-        base.CastCondition();
-        if (targetedDamager.targetHealth != null)
-        {
-            float distance = Vector3.Distance(targetedDamager.agent.transform.position, targetedDamager.targetHealth.playersParent.position);
-            if (distance < castRange)
-            {
-               // canCast = true;
-                if (!isCooldown)
-                {
+    //public override void CastCondition()
+    //{
+    //    base.CastCondition();
+    //    if (targetedDamager.targetHealth != null)
+    //    {
+    //        float distance = Vector3.Distance(targetedDamager.agent.transform.position, targetedDamager.targetHealth.playersParent.position);
+    //        if (distance < castRange)
+    //        {
+    //           // canCast = true;
+    //            if (!isCooldown)
+    //            {
 
-                    animator.SetTrigger("CastSkill");
-                    //     Debug.Log("In Range");
-                    //animator.SetTrigger("CastSkill");
-                }
+    //                animator.SetTrigger("CastSkill");
+    //                //     Debug.Log("In Range");
+    //                //animator.SetTrigger("CastSkill");
+    //            }
 
 
-            }
-        }
-    }
+    //        }
+    //    }
+    //}
 
     public override void OnActivate(Unit target)
     {
