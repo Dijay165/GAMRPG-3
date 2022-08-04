@@ -92,7 +92,12 @@ public class SkillHolder : MonoBehaviour
                 Debug.Log("distance");
                 if (skills[skillIDIndex].canCast)
                 {
-                    anim.SetTrigger("CastSkill");
+                    if(gameObject.GetComponent<Mana>().currentMana < skills[skillIDIndex].manaCost[skills[skillIDIndex].skillLevel])
+                    {
+                        anim.SetTrigger("CastSkill");
+                    }
+
+                  
 
                 }
                
@@ -162,6 +167,8 @@ public class SkillHolder : MonoBehaviour
         //}
     }
 
+
+
     public void ActivateSkill()
     {
 
@@ -179,6 +186,7 @@ public class SkillHolder : MonoBehaviour
                 if (gameObject.GetComponent<Unit>().CompareTag("Player"))
                 {
                     StartCoroutine(SkillManager.instance.CountdownText(activeSkill.coolDownDuration[activeSkill.skillLevel], SkillManager.instance.text[skillIDIndex]));
+                   // SkillManager.instance.ButtonChecker();
                 }
 
             }

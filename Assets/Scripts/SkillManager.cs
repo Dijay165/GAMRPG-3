@@ -51,8 +51,45 @@ public class SkillManager : MonoBehaviour
         //    }
         //}
 
+        //Compare all 
+        // if(player.GetComponent<Mana>().currentMana < )
+        ButtonChecker();
+    }
 
-       
+
+    public void ButtonChecker()
+    {
+        
+        
+        for(int i = 0; i < buttons.Count; i++)
+        {
+
+            if (player.skills[i] is ActiveSkill)
+            {
+                Debug.Log(player.skills[i].name);
+                if (player.GetComponent<Mana>().currentMana < player.skills[i].manaCost[i])
+                {
+                    buttons[i].GetComponent<Image>().color = Color.blue;
+
+                }
+                else
+                {
+                    buttons[i].GetComponent<Image>().color = Color.white;
+
+                }
+            }
+            else
+            {
+                Debug.Log("Is passive");
+
+            }
+
+
+
+
+
+
+        }
     }
 
 
@@ -106,6 +143,7 @@ public class SkillManager : MonoBehaviour
             //}
 
             cooldownText.text = refCountdown.ToString();
+    
 
             yield return new WaitForSeconds(1f);
             Debug.Log("After Countdown");

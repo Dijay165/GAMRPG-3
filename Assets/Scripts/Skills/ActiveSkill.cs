@@ -11,14 +11,18 @@ public class ActiveSkill : AbilityBase
 
     public virtual void OnActivate(Unit target)
     {
-        if (this.canCast)
+        if(target.GetComponent<Mana>().currentMana >= this.manaCost[skillLevel])
         {
-          //  Debug.Log("OnActivate");
-            this.isCooldown = true;
-            this.isInEffect = true;
-            target.GetComponent<Mana>().SubtractMana(manaCost[skillLevel]);
-         //   CoroutineSetup.instance.StartCoroutine(SkillManager.instance.CountdownText(coolDownDuration[skillLevel]));
+            if (this.canCast)
+            {
+                //  Debug.Log("OnActivate");
+                this.isCooldown = true;
+                this.isInEffect = true;
+                target.GetComponent<Mana>().SubtractMana(manaCost[skillLevel]);
+                //   CoroutineSetup.instance.StartCoroutine(SkillManager.instance.CountdownText(coolDownDuration[skillLevel]));
+            }
         }
+       
 
 
     }
