@@ -63,35 +63,24 @@ public class SkillManager : MonoBehaviour
         
         for(int i = 0; i < buttons.Count; i++)
         {
-            Debug.Log("Start Loop i " + i + " Button count " + buttons.Count);
+           // Debug.Log("Start Loop i " + i + " Button count " + buttons.Count);
             if (player.job.skills[i].skillType == SkillType.Active)
             {
-                Debug.Log("Start Active " + i);
+              //  Debug.Log("Start Active " + i);
                 if (player.GetComponent<Mana>().currentMana < player.job.skills[i].manaCost[player.job.skills[i].skillLevel])
                 {
-                    Debug.Log("Active " + player.job.skills[i].name);
+                //    Debug.Log("Active " + player.job.skills[i].name);
                     buttons[i].GetComponent<Image>().color = Color.blue;
 
                 }
                 else
                 {
-                    Debug.Log("Passive " + player.job.skills[i].name);
+                  //  Debug.Log("Passive " + player.job.skills[i].name);
                     buttons[i].GetComponent<Image>().color = Color.white;
 
                 }
               
             }
-            else
-            {
-                Debug.Log("Is passive");
-
-            }
-          
-
-
-
-
-
         }
     }
 

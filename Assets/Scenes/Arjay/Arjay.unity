@@ -6035,6 +6035,7 @@ MonoBehaviour:
   - {fileID: 1364444635}
   - {fileID: 609011809}
   text: []
+  cooldownIndexes: []
 --- !u!1 &483170398
 GameObject:
   m_ObjectHideFlags: 0
@@ -40663,6 +40664,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8da60ca9de2fb7d4da815f1925aca1a5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  text: {fileID: 440871789}
 --- !u!114 &1538651809
 MonoBehaviour:
   m_ObjectHideFlags: 0
