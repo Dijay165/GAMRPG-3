@@ -178,7 +178,7 @@ public class SkillHolder : MonoBehaviour
 
                 if (gameObject.GetComponent<Unit>().CompareTag("Player"))
                 {
-                    StartCoroutine(SkillManager.instance.CountdownText(activeSkill.coolDownDuration[activeSkill.skillLevel]));
+                    StartCoroutine(SkillManager.instance.CountdownText(activeSkill.coolDownDuration[activeSkill.skillLevel], SkillManager.instance.text[skillIDIndex]));
                 }
 
             }

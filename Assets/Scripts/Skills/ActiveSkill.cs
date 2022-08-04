@@ -7,7 +7,7 @@ public class ActiveSkill : AbilityBase
 {
     //public float castRange;
     public GameObject prefab;
-  
+    public float refCountdown;
 
     public virtual void OnActivate(Unit target)
     {
@@ -17,7 +17,7 @@ public class ActiveSkill : AbilityBase
             this.isCooldown = true;
             this.isInEffect = true;
             target.GetComponent<Mana>().SubtractMana(manaCost[skillLevel]);
-          //  CoroutineSetup.instance.StartCoroutine(CoolDownEnumerator());
+         //   CoroutineSetup.instance.StartCoroutine(SkillManager.instance.CountdownText(coolDownDuration[skillLevel]));
         }
 
 

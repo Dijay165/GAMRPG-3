@@ -12,6 +12,7 @@ public class SkillManager : MonoBehaviour
     public List<TextMeshProUGUI> text;
     SkillHolder player;
     public static SkillManager instance;
+    public List<float> cooldownIndexes;
 
     float refCountdown;
     private void Awake()
@@ -50,6 +51,8 @@ public class SkillManager : MonoBehaviour
         //    }
         //}
 
+
+       
     }
 
 
@@ -83,25 +86,35 @@ public class SkillManager : MonoBehaviour
     }
 
 
-    public IEnumerator CountdownText(float cooldown)
+    public IEnumerator CountdownText(float cooldown, TextMeshProUGUI cooldownText)
     {
-        
-      //  refCountdown = cooldown;
-     //   Debug.Log(refCountdown + " Start Cooldown");
+       
+        float refCountdown = cooldown;
+        Debug.Log(skillIndex);
 
-        while (cooldown >= 0)
+        cooldownIndexes.Add(refCountdown);
+
+        while (refCountdown >= 0)
         {
 
-            Debug.Log(cooldown + " Cooldown");
-            text[skillIndex].text = cooldown.ToString();
+            //for (int i = 0; i < text.Count; i++)
+            //{
+            //    if (player.job.skills[i].isCooldown)
+            //    {
+            //        text[i].text = refCountdown.ToString();
+            //    }
+            //}
+
+            cooldownText.text = refCountdown.ToString();
+
             yield return new WaitForSeconds(1f);
             Debug.Log("After Countdown");
-            cooldown--;
+            refCountdown--;
 
         }
 
-        text[skillIndex].text = "";
-
+        cooldownText.text = "";
+        Debug.Log("Cooldown finish");
     }
 
 }

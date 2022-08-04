@@ -27,9 +27,9 @@ public class ArmorReduction : StatusEffect
     public override void InflictDebuff()
     {
         base.InflictDebuff();
-        Debug.Log("Before Debuff" + unit.GetComponent<Attributes>().totalArmor);
+     //   Debug.Log("Before Debuff" + unit.GetComponent<Attributes>().totalArmor);
         unit.GetComponent<Attributes>().totalArmor -= armorReductionModifier[skill.skillLevel];
-        Debug.Log("After Debuff" + unit.GetComponent<Attributes>().totalArmor);
+      //  Debug.Log("After Debuff" + unit.GetComponent<Attributes>().totalArmor);
     }
 
     public override IEnumerator Debuff()
