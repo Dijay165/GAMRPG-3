@@ -145,8 +145,18 @@ public class SkillHolder : MonoBehaviour
         if (skills[skillIDIndex] is ActiveSkill)
         {
             ActiveSkill activeSkill = (ActiveSkill)skills[skillIDIndex];
-            activeSkill.OnActivate(gameObject.GetComponent<Unit>());
-            StartCoroutine(activeSkill.CoolDownEnumerator());
+            if (activeSkill.canCast)
+            {
+                Debug.Log("Can cast");
+
+                activeSkill.OnActivate(gameObject.GetComponent<Unit>());
+                StartCoroutine(activeSkill.CoolDownEnumerator());
+            }
+            else
+            {
+                Debug.Log("Cannot cast");
+            }
+        
         }
     }
 }

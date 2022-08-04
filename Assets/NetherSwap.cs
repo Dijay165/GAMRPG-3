@@ -49,30 +49,25 @@ public class NetherSwap : ActiveSkill
         target.transform.position = targetPosition;
         targetedDamager.targetHealth.playersParent.transform.position = playerPosition;
 
-        //GameObject obj = Instantiate(prefab);
-        //ChannelSkill channelSkill = obj.GetComponent<ChannelSkill>();
 
-
-        //channelSkill.transform.position = target.gameObject.transform.position;
-        //channelSkill.targetTransform = targetedDamager.targetHealth.playersParent;
-        //channelSkill.InitializedValues(targetedDamager.targetHealth, 0, 1, attackType);
-        //channelSkill.gameObject.transform.SetParent(targetedDamager.targetHealth.playersParent);
-        //StartCoroutine(Swap());
-
-
+        // CoroutineSetup.instance.StartCoroutine(Swap(target));
     }
 
-    public IEnumerator Swap()
+    public IEnumerator Swap(Unit unit)
     {
-        Debug.Log("Swap");
-    //    Vector3 playerPosition = gameObject.transform.position;
-        //Vector3 targetPosition = targetedDamager.targetHealth.playersParent.transform.position;
-
-    //    gameObject.transform.position = targetPosition;
-      //  targetedDamager.targetHealth.playersParent.transform.position = playerPosition;
+    
         yield return new WaitForSeconds(1f);
-      
-       
+        Debug.Log("Swap");
+        targetedDamager = unit.gameObject.GetComponent<TargetedDamager>();
+
+        Vector3 playerPosition = unit.transform.position;
+        Vector3 targetPosition = targetedDamager.targetHealth.playersParent.transform.position;
+
+        unit.transform.position = targetPosition;
+        targetedDamager.targetHealth.playersParent.transform.position = playerPosition;
+
+
+     //   CoroutineSetup.instance.StartCoroutine(CoolDownEnumerator());
     }
 
     //public void Skill(Unit unit)

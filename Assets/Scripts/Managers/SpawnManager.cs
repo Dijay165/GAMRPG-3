@@ -130,10 +130,10 @@ public class SpawnManager : MonoBehaviour
             {
                 for (int buildingIndex = 0; buildingIndex < GameManager.instance.teams[teamIndex].lanes[laneIndex].buildings.Count; buildingIndex++)// For each team's lanes
                 {
-                    Debug.Log(GameManager.instance.teams[teamIndex].lanes[laneIndex].buildings[buildingIndex].name+" bnames IT");
+                 //   Debug.Log(GameManager.instance.teams[teamIndex].lanes[laneIndex].buildings[buildingIndex].name+" bnames IT");
                     if (p_barracks.gameObject == GameManager.instance.teams[teamIndex].lanes[laneIndex].buildings[buildingIndex].gameObject)
                     {
-                        Debug.Log("GOT IT");
+                      //  Debug.Log("GOT IT");
                         GameManager.instance.teams[teamIndex].lanes[laneIndex].meleeBarracksIsAlive = false;
                         GameManager.instance.teams[teamIndex].lanes[laneIndex].rangeBarracksIsAlive = false;
                         p_barracks.gameObject.SetActive(false);

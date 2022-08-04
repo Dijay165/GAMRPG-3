@@ -93,7 +93,7 @@ public class VSAura : MonoBehaviour
 
                         damageModifier.attackRangeModifier = rangeBonus[0];
                         damageModifier.attackDamageModifier = damageBonus[0];
-                        Debug.Log(damageModifier.attackDamageModifier);
+                    //    Debug.Log(damageModifier.attackDamageModifier);
 
                         damageModifier.ApplyModification();
                        // Debug.Log("MODIFIER APPLIED " + auraCreeped[i].gameObject.name);

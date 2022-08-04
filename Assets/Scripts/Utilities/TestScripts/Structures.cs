@@ -94,7 +94,7 @@ public class Structures : Unit
     void ReduceRequirement(Health objectHealth)
     {
         RequiredBuildingsDestroyedCounter--;
-        Debug.Log(RequiredBuildingsDestroyedCounter);
+      //  Debug.Log(RequiredBuildingsDestroyedCounter);
         if (RequiredBuildingsDestroyedCounter == 0)
         {
             GetComponent<Health>().invulnerable = false;   

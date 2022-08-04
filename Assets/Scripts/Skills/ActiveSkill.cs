@@ -11,11 +11,11 @@ public class ActiveSkill : AbilityBase
 
     public virtual void OnActivate(Unit target)
     {
-        if (canCast)
+        if (this.canCast)
         {
           //  Debug.Log("OnActivate");
-            isCooldown = true;
-            isInEffect = true;
+            this.isCooldown = true;
+            this.isInEffect = true;
         }
 
 
@@ -32,17 +32,18 @@ public class ActiveSkill : AbilityBase
 
     public virtual IEnumerator CoolDownEnumerator()
     {
-        Debug.Log("isCooldown");
+      
 
         while (isCooldown)
         {
-            // Debug.Log(coolDownDuration[skillLevel]);
-            yield return new WaitForSeconds(coolDownDuration[skillLevel]);
-            canCast = true;
-            isCooldown = false;
+             Debug.Log(coolDownDuration[skillLevel]);
+            yield return new WaitForSeconds(this.coolDownDuration[skillLevel]);
+            this.canCast = true;
+            this.isCooldown = false;
+            Debug.Log("can cast again");
             //SkillManager.Instance.skillButtons[SkillManager.Instance.skillRef].interactable = true;
         }
-        //Debug.Log("can cast again");
+
     }
 
 }

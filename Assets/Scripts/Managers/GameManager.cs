@@ -66,7 +66,7 @@ public class GameManager : MonoBehaviour
                 }
             }
         }
-        Debug.Log("NONE FOUND");
+       // Debug.Log("NONE FOUND");
         return null;
     }
     public static List<GameObject> MakePath(int p_team, int p_lane)
