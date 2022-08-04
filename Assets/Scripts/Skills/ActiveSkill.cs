@@ -16,6 +16,7 @@ public class ActiveSkill : AbilityBase
           //  Debug.Log("OnActivate");
             this.isCooldown = true;
             this.isInEffect = true;
+            target.GetComponent<Mana>().SubtractMana(manaCost[skillLevel]);
         }
 
 

@@ -2,12 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class SkillManager : MonoBehaviour
 {
     // Start is called before the first frame update
     int skillIndex;
     public List<Button> buttons;
+    public List<TextMeshProUGUI> text;
     SkillHolder player;
     private void Awake()
     {
@@ -49,6 +51,8 @@ public class SkillManager : MonoBehaviour
         for (int i = 0; i < buttons.Count; i++)
         {
             buttons[i].GetComponent<Image>().sprite = player.job.skills[i].skillIcon;
+            text.Add(buttons[i].GetComponentInChildren<TextMeshProUGUI>());
+            text[i].text = "";
         }
 
     }
