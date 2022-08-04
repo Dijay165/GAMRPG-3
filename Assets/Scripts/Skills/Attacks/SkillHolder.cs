@@ -92,9 +92,13 @@ public class SkillHolder : MonoBehaviour
                 Debug.Log("distance");
                 if (skills[skillIDIndex].canCast)
                 {
-                    if(gameObject.GetComponent<Mana>().currentMana < skills[skillIDIndex].manaCost[skills[skillIDIndex].skillLevel])
+                    if(gameObject.GetComponent<Mana>().currentMana > skills[skillIDIndex].manaCost[skills[skillIDIndex].skillLevel])
                     {
                         anim.SetTrigger("CastSkill");
+                    }
+                    else
+                    {
+                        anim.SetTrigger("Turn");
                     }
 
                   
