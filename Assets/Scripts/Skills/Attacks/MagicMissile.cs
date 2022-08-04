@@ -16,7 +16,7 @@ public class MagicMissile : ActiveSkill
     {
         base.OnActivate(target);
 
-
+        canCast = false;
         Debug.Log("Magic Missile");
 
         targetedDamager = target.gameObject.GetComponent<TargetedDamager>();
@@ -28,6 +28,9 @@ public class MagicMissile : ActiveSkill
         newInstance.transform.position = target.gameObject.transform.position;
         newInstance.InitializeValues(targetedDamager.targetHealth, damage[skillLevel], 900f);
         newInstance.gameObject.transform.SetParent(targetedDamager.targetHealth.playersParent);
+
+
+
         //  isInEffect = true;
     }
     public override IEnumerator CoolDownEnumerator()

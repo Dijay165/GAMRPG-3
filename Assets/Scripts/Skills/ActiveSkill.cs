@@ -46,4 +46,11 @@ public class ActiveSkill : AbilityBase
 
     }
 
+
+    private void OnDisable()
+    {
+        this.canCast = true;
+        this.isCooldown = false;
+        this.isInEffect = false;
+    }
 }
