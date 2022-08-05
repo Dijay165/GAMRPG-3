@@ -24,12 +24,11 @@ public class CreepAttack : StateMachineBehaviour
 
         if (agent != null)
         {
-            if(agent.enabled = true)
+            if (agent.enabled == true)
             {
                 if (agent.isOnNavMesh)
                 {
                     agent.isStopped = true;
-
                 }
             }
             

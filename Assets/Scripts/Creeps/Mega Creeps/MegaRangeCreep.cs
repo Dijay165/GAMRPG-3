@@ -11,7 +11,7 @@ public class MegaRangeCreep : Creep
     protected override void DeinitializeValues()
     {
         base.DeinitializeValues();
-        Destroy(gameObject);
-        //MegaRangeCreepPool.pool.Release(this);
+        //Destroy(gameObject);
+        MegaRangeCreepPool.pool.Release(this);
     }
 }

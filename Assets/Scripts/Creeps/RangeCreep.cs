@@ -11,7 +11,7 @@ public class RangeCreep : Creep
     protected override void DeinitializeValues()
     {
         base.DeinitializeValues();
-        Destroy(gameObject);
-        //RangeCreepPool.pool.Release(this);
+        //Destroy(gameObject);
+        RangeCreepPool.pool.Release(this);
     }
 }

@@ -5,7 +5,7 @@ using UnityEngine.AI;
 
 public class SpawnManager : MonoBehaviour
 {
-
+    public static SpawnManager instance;
     [SerializeField] private float spawnTime = 75;
 
     [SerializeField] private int waveCounter = 0;
@@ -18,22 +18,65 @@ public class SpawnManager : MonoBehaviour
     [SerializeField] private int siegeCreepWaveAmount = 10; //Every 10 waves
     [SerializeField] private int doubleSiegeCreepTime = 2100; // After 35 minutes (2100 seconds)
 
+    public Material redFace;
+    public Material whiteFace;
+
     int creepWaveMultiplierCount;
 
-
+    private void Awake()
+    {
+        instance = this;
+    }
     // Start is called before the first frame update
     void Start()
     {
         waveTimer = waveTime;
+        creepWaveMultiplierCount = 1;
         SpawnHeroes();
         StartCoroutine(Co_SpawnWave());
         StartCoroutine(Co_CreepScaling());
+
+    }
+    public void RespawnHero(Unit p_hero)
+    {
+        HeroPerformanceData currhpd = GameManager.GetHeroData(p_hero);
+        currhpd.deaths++;
+        currhpd.killstreak = 0;
+        GameManager.OnUpdateHeroUIEvent.Invoke(currhpd);
+        p_hero.gameObject.SetActive(false);
+        StartCoroutine(RespawnTimer(currhpd));
     }
 
+
+    IEnumerator RespawnTimer(HeroPerformanceData currhpd)
+    {
+        currhpd.spawnTime = 60;
+        while (currhpd.spawnTime > 0)
+        {
+            yield return new WaitForSeconds(1f);
+            currhpd.spawnTime -= 1;
+            GameManager.OnUpdatarHeroTimeUI.Invoke(currhpd);
+        }
+        GameManager.OnUpdatarHeroTimeUI.Invoke(currhpd);
+        currhpd.unit.gameObject.SetActive(true);
+        currhpd.unit.transform.position = GameManager.instance.teams[currhpd.unit.health.team].heroSpawnPoints[0].transform.position;
+        NavMeshAgent nav = currhpd.unit.GetComponent<NavMeshAgent>();
+        nav.Warp(new Vector3(GameManager.instance.teams[currhpd.unit.health.team].heroSpawnPoints[0].transform.position.x, 
+            0f,
+            GameManager.instance.teams[currhpd.unit.health.team].heroSpawnPoints[0].transform.position.z));// newCreep.transform.position);
+        nav.enabled = false;
+        nav.enabled = true;
+
+    }
     public void SpawnHeroes()
     {
+        SpawnHero(0, 0);
+        SpawnHero(0, 2);
+
         //Enemy mid hero
+        SpawnHero(1,0);
         SpawnHero(1,1);
+        SpawnHero(1,2);
     }
 
     public void SpawnHero(int p_team, int p_lane)
@@ -53,13 +96,23 @@ public class SpawnManager : MonoBehaviour
         nav.enabled = false;
         nav.enabled = true;
         anim.SetInteger("pathCount", 2);
+        HeroPerformanceData heroPerformance = new HeroPerformanceData();
+        heroPerformance.unit = hero;
+        GameManager.instance.teams[p_team].heroPerformanceData.Add(heroPerformance);
+        GameManager.OnAddHeroUIEvent.Invoke();
+
+
     }
     IEnumerator Co_CreepScaling()
     {
         yield return new WaitForSeconds(180f);
         creepWaveMultiplierCount++;
+    
+        StartCoroutine(Co_CreepScaling());
+        
+
     }
- 
+
     IEnumerator Co_SpawnWave()
     {
      
@@ -161,6 +214,7 @@ public class SpawnManager : MonoBehaviour
             {
                 Creep newCreep = genericObject as Creep;
                 newCreep.attribute.InitializeValues(creepWaveMultiplierCount);
+                newCreep.goldReward = newCreep.defaultGoldReward * creepWaveMultiplierCount;
                 newCreep.waypoints = GameManager.MakePath(p_team, p_lane);
                
                 newCreep.transform.position = (GameManager.instance.teams[p_team].lanes[p_lane].creepSpawnPoint.transform.position);

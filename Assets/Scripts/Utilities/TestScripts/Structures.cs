@@ -9,7 +9,7 @@ public class Structures : Unit
     // Start is called before the first frame update
 
     private DebugManager debugManager;
-
+    public int splitGoldReward;
     //public GameObject towerDetectGO;
 
     // public TowerDetection detection;
@@ -76,15 +76,38 @@ public class Structures : Unit
         //  Debug.Log("Death");
         // TowerDied();
         base.Death();
+        int team = 0;
+        if (health.team == 0)
+        {
+            team = 1;
+        }
+       
+        foreach (HeroPerformanceData currentHero in GameManager.instance.teams[team].heroPerformanceData)
+        {
+            if (health.damager != null)
+            {
+                if (GameManager.GetHeroData(health.damager) != null)
+                {
+                    if (currentHero == GameManager.GetHeroData(health.damager))
+                    {
+                        currentHero.gold += goldReward;
+                    }
 
-        //foreach (HeroPerformanceData currentHero in GameManager.instance.teams[(int)health.damager.unitFaction].heroPerformanceData)
-        //{
-            
-        //    currentHero.gold += goldReward;
-            
-        //} JERRY
-        
-     
+                }
+            }
+         
+            else
+            {
+                currentHero.gold += splitGoldReward;
+            }
+           
+            GameManager.OnUpdateHeroUIEvent.Invoke(currentHero);
+
+        }
+    
+
+
+
         Destroy(gameObject);
     }
 

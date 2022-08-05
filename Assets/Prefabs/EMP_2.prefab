@@ -54,6 +54,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playersParent: {fileID: 0}
   invulnerable: 0
+  team: 0
   isAlive: 0
   currentHealth: 0
   minHealth: 0
@@ -157,7 +158,7 @@ MonoBehaviour:
   icon: {fileID: 0}
   currentTarget: {fileID: 0}
   level: {fileID: 0}
-  goldReward: 0
+  goldReward: 90
   nearbyEnemyHeroes: []
   health: {fileID: 0}
   unitFaction: 0
@@ -181,15 +182,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   canLevelUp: 0
-  isFixedEXPReward: 0
+  isFixedEXPReward: 1
   fixedEXPReward: 0
   currentLevel: 1
-  maxLevel: 0
   exp: 0
   maxExp: 0
   enemies: []
   expRadius: 1500
-  expPerLevel: 
   levelUI: {fileID: 0}
   expBarFill: {fileID: 0}
   skillPoints: 0

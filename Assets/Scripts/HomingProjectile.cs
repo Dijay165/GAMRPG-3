@@ -90,7 +90,13 @@ public class HomingProjectile : MonoBehaviour
                 {
                     direction = sav - transform.position;
                     transform.LookAt(targetTransform.transform);
-
+                    if (runningDecay != null)
+                    {
+                        StopCoroutine(runningDecay);
+                        runningDecay = null;
+                    }
+                    runningDecay = Co_Decay();
+                    StartCoroutine(Co_Decay());
                 }
                 else
                 {

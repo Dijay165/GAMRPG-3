@@ -13,7 +13,7 @@ public class Health : MonoBehaviour
 {
     public Transform playersParent;
     public bool invulnerable = false;
-    int team;
+    public int team;
     [HideInInspector]public bool isAlive;
     public float currentHealth;
     [SerializeField] private float minHealth;
@@ -24,6 +24,7 @@ public class Health : MonoBehaviour
     public Attributes attributes;
 
     public Death OnDeathEvent = new Death();
+
     public HealthModify OnHealthModifyEvent = new HealthModify();
     protected HealthOverheadUI healthOverheadUI;
     public float GetHealth()
@@ -169,11 +170,12 @@ public class Health : MonoBehaviour
     {
         Events.OnPlayerSelect.Invoke();
         damager = p_damager;
-        RegisterOverheadHealthUI();
+     
 
         if (isAlive)
         {
-     
+            RegisterOverheadHealthUI();
+
             DamageOverhead damageOverhead = DamagedOverheadPool.pool.Get();
 
             //This is for physical armor 
@@ -212,9 +214,7 @@ public class Health : MonoBehaviour
     public float findDamage(AttackType attacker, float damage)
     {
         float mitigations = 0;
-       // Debug.Log(gameObject.name);
-        //Debug.Log(attributes.totalArmor);
-       // Debug.Log(level.currentLevel);
+
         switch (attacker)
         {
             case AttackType.Physical:
@@ -245,7 +245,7 @@ public class Health : MonoBehaviour
         else
         {
 
-            OnDeathEvent.Invoke(this);
+            OnDeathEvent?.Invoke(this);
             isAlive = false;
            // Debug.Log("Invoke Stuff");
         }

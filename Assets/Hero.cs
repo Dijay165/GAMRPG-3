@@ -6,31 +6,47 @@ public class Hero : Creep
 {
     public override void Death(Health objectHealth = null)
     {
-        base.Death();
+        //base.Death();
+        level.RewardExp();
+        DeinitializeValues();
+
+
         FindNearbyHeroes(1500);
         //Formula: base gold + (dead hero level * 8) + streak gold
         if (nearbyEnemyHeroes.Count > 0)
         {
-            foreach (Hero currentHero in nearbyEnemyHeroes)
+            
+            for (int i = 0; i < nearbyEnemyHeroes.Count; i++)
             {
-                HeroPerformanceData hpd = GameManager.GetHeroData(currentHero);
-                if (hpd == GameManager.GetHeroData(health.damager))
+                if (nearbyEnemyHeroes[i] is Hero || nearbyEnemyHeroes[i] is Player)
                 {
-                    hpd.gold += (goldReward + (level.currentLevel * 8) + GameManager.GetKillStreakGold(hpd.killstreak));
+                    HeroPerformanceData hpd = GameManager.GetHeroData(nearbyEnemyHeroes[i]);
+                    if (hpd == GameManager.GetHeroData(health.damager))
+                    {
+                        hpd.gold += (goldReward + (level.currentLevel * 8) + GameManager.GetKillStreakGold(hpd.killstreak));
+                        hpd.kills++;
+                        hpd.killstreak++;
+                        Debug.Log(health.damager.gameObject.name);
+                        Debug.Log( " HERO DEATH GAINED GOLD " + goldReward);
 
-                }
-                else
-                {
-                    //Formula(30 + Victim Net Worth x 0.038) x k / Number of Heroes
-                    hpd.gold += (goldReward + Mathf.FloorToInt(1f * 0.038f)) / nearbyEnemyHeroes.Count;
+                    }
+                    else if (hpd != null)
+                    {
+                        //Formula(30 + Victim Net Worth x 0.038) x k / Number of Heroes
+                        hpd.gold += (goldReward + Mathf.FloorToInt(1f * 0.038f)) / nearbyEnemyHeroes.Count;
+                        Debug.Log(gameObject.name);
+                        Debug.Log( " SPLIT HERO DEATH GAINED GOLD " + goldReward);
+                    }
+                    GameManager.OnUpdateHeroUIEvent.Invoke(hpd);
                 }
             }
+               
+            
            
         }
-         
-      
-
-
+        SpawnManager.instance.RespawnHero(this);
 
     }
+
+
 }
