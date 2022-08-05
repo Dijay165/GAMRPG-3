@@ -93,9 +93,17 @@ public class DebugManager : MonoBehaviour
     {
         GameObject player = PlayerManager.instance.player;
 
-        
-        player.GetComponent<SkillHolder>().skills[player.GetComponent<SkillHolder>().skillIDIndex].canCast = true;
-        SkillManager.instance.text[player.GetComponent<SkillHolder>().skillIDIndex].text = "";
+      
+
+        for(int i = 0; i < SkillManager.instance.text.Count; i++)
+        {
+            player.GetComponent<SkillHolder>().skills[i].canCast = true;
+            player.GetComponent<SkillHolder>().skills[i].isCooldown = false;
+            player.GetComponent<SkillHolder>().skills[i].isInEffect = false;
+            SkillManager.instance.text[i].text = "";
+        }
+
+        player.GetComponent<SkillHolder>().StopCountdown();
 
     }
 }

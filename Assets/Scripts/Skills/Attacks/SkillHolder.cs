@@ -201,4 +201,13 @@ public class SkillHolder : MonoBehaviour
         
         }
     }
+
+    public void StopCountdown()
+    {
+        Debug.Log("Stop");
+  //      ActiveSkill activeSkill = (ActiveSkill)skills[skillIDIndex];
+
+        StopAllCoroutines();
+      //  StopCoroutine(SkillManager.instance.CountdownText(activeSkill.coolDownDuration[activeSkill.skillLevel], SkillManager.instance.text[skillIDIndex]));
+    }
 }
