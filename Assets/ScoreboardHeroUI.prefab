@@ -629,7 +629,7 @@ GameObject:
   - component: {fileID: 7923152909873553506}
   - component: {fileID: 7458646538775622568}
   m_Layer: 5
-  m_Name: Assists
+  m_Name: Networth
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -683,7 +683,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 
+  m_text: 0
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 0161d805a3764c089bef00bfe00793f5, type: 2}
   m_sharedMaterial: {fileID: 2147374, guid: 0161d805a3764c089bef00bfe00793f5, type: 2}
@@ -1004,3 +1004,4 @@ MonoBehaviour:
   gold: {fileID: 9164384227647571462}
   kills: {fileID: 3143175572783415940}
   deaths: {fileID: 2095708362131648384}
+  networth: {fileID: 7458646538775622568}

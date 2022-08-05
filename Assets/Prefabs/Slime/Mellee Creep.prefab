@@ -298,6 +298,7 @@ MonoBehaviour:
   currentTarget: {fileID: 0}
   level: {fileID: 0}
   goldReward: 34
+  defaultGoldReward: 34
   nearbyEnemyHeroes: []
   health: {fileID: 0}
   unitFaction: 0

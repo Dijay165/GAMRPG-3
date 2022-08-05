@@ -13,6 +13,7 @@ public class MegaMeleeCreep : Creep
     {
         base.DeinitializeValues();
         //Destroy(gameObject);
-        MegaMeleeCreepPool.pool.Release(this);
+        SpawnManager.instance.Despawn(gameObject);
+        //MegaMeleeCreepPool.pool.Release(this);
     }
 }

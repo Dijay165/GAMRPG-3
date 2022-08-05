@@ -46,6 +46,7 @@ public abstract class Creep : Unit
         {
             Debug.Log(health.damager.gameObject.name + " GAINED GOLD " + goldReward);
             performanceData.gold += goldReward;
+            performanceData.networth = performanceData.gold;
             GameManager.OnUpdateHeroUIEvent.Invoke(performanceData);
         }
 

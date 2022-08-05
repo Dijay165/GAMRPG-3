@@ -113,62 +113,87 @@ public class SpawnManager : MonoBehaviour
 
     }
 
-    IEnumerator Co_SpawnWave()
+    public void Despawn(GameObject g)
     {
-     
-        
+        StartCoroutine(Co_Despawning(g));
+    }
 
-        for (int teamIndex = 0; teamIndex < GameManager.instance.teams.Count; teamIndex++)//For each team
+    IEnumerator Co_Despawning(GameObject g)
+    {
+        g.SetActive(false);
+        yield return new WaitForSeconds(3f);
+        Destroy(g);
+
+
+    }
+    void Spawn(int teamIndex)
+    {
+
+        for (int laneIndex = 0; laneIndex < GameManager.instance.teams[teamIndex].lanes.Count; laneIndex++)// For each team's lanes
         {
-            for (int laneIndex = 0; laneIndex < GameManager.instance.teams[teamIndex].lanes.Count; laneIndex++)// For each team's lanes
+            int otherTeam = teamIndex == 0 ? 1 : 0; //If p_team variable is equals to 0, make value 1, else (if its 1) make value 0
+
+            Debug.Log("WORKPLEASE " + "Spawn: " + laneIndex);
+            //Melee Creep
+            if (GameManager.instance.teams[otherTeam].lanes[laneIndex].meleeBarracksIsAlive) //If enemy team's barracks is dead spawn mega Creep
             {
-                int otherTeam = teamIndex == 0 ? 1 : 0; //If p_team variable is equals to 0, make value 1, else (if its 1) make value 0
-
-
-                //Melee Creep
-                if (GameManager.instance.teams[otherTeam].lanes[laneIndex].meleeBarracksIsAlive) //If enemy team's barracks is dead spawn mega Creep
-                {
-                    SpawnCreep<MeleeCreep>(teamIndex, laneIndex, amountOfMeleeCreep);
-                }
-                else//If enemy team's barracks is alive spawn normal Creep
-                {
-                    SpawnCreep<MegaMeleeCreep>(teamIndex, laneIndex, amountOfMeleeCreep); //Mega melee creep make
-                }
-
-                //Range Creep
-                if (GameManager.instance.teams[otherTeam].lanes[laneIndex].rangeBarracksIsAlive) //If enemy team's barracks is dead spawn mega Creep
-                {
-                    SpawnCreep<RangeCreep>(teamIndex, laneIndex, amountOfRangeCreep);
-                }
-                else//If enemy team's barracks is alive spawn normal Creep
-                {
-                    SpawnCreep<MegaRangeCreep>(teamIndex, laneIndex, amountOfRangeCreep);
-                }
-
-                //Siege Creep
-                if (waveCounter % siegeCreepWaveAmount == 0)
-                {
-                    amountOfSiegeCreep = 1;
-                    if (GameManager.instance.gameTime >= doubleSiegeCreepTime)
-                    {
-                        amountOfSiegeCreep = 2;
-                    }
-
-                    if (GameManager.instance.teams[otherTeam].lanes[laneIndex].rangeBarracksIsAlive) //If enemy team's barracks is dead spawn mega Creep
-                    {
-                        SpawnCreep<SiegeCreep>(teamIndex, laneIndex, amountOfSiegeCreep);
-                    }
-                    else//If enemy team's barracks is alive spawn normal Creep
-                    {
-                        SpawnCreep<MegaSiegeCreep>(teamIndex, laneIndex, amountOfSiegeCreep);
-                    }
-                }
-
-
+                SpawnCreep(typeof(MeleeCreep),teamIndex, laneIndex, amountOfMeleeCreep);
+            }
+            else//If enemy team's barracks is alive spawn normal Creep
+            {
+                SpawnCreep(typeof(MegaMeleeCreep),teamIndex, laneIndex, amountOfMeleeCreep); //Mega melee creep make
             }
 
+            //Range Creep
+            if (GameManager.instance.teams[otherTeam].lanes[laneIndex].rangeBarracksIsAlive) //If enemy team's barracks is dead spawn mega Creep
+            {
+                SpawnCreep(typeof(RangeCreep),teamIndex, laneIndex, amountOfRangeCreep);
+            }
+            else//If enemy team's barracks is alive spawn normal Creep
+            {
+                SpawnCreep(typeof(MegaRangeCreep),teamIndex, laneIndex, amountOfRangeCreep);
+            }
+
+            //Siege Creep
+            if (waveCounter % siegeCreepWaveAmount == 0)
+            {
+                amountOfSiegeCreep = 1;
+                if (GameManager.instance.gameTime >= doubleSiegeCreepTime)
+                {
+                    amountOfSiegeCreep = 2;
+                }
+
+                if (GameManager.instance.teams[otherTeam].lanes[laneIndex].rangeBarracksIsAlive) //If enemy team's barracks is dead spawn mega Creep
+                {
+                    SpawnCreep(typeof(SiegeCreep),teamIndex, laneIndex, amountOfSiegeCreep);
+                }
+                else//If enemy team's barracks is alive spawn normal Creep
+                {
+                    SpawnCreep(typeof(MegaSiegeCreep),teamIndex, laneIndex, amountOfSiegeCreep);
+                }
+            }
+
+
         }
-       
+    }
+    IEnumerator Co_SpawnWave()
+    {
+        //MeleeCreepPool.Clear();
+        //RangeCreepPool.Clear();
+        //SiegeCreepPool.Clear();
+        //MegaMeleeCreepPool.Clear();
+        //MegaRangeCreepPool.Clear();
+        //MegaSiegeCreepPool.Clear();
+        //yield return new WaitForSeconds(5f);
+        Spawn(0);
+        Debug.Log("WORKPLEASE " + "TEAM Spawn: 0");
+
+   
+        Spawn(1);
+        Debug.Log("WORKPLEASE " + "TEAM Spawn: 1");
+
+
+
         waveCounter++;
         yield return new WaitForSeconds(spawnTime);
         StartCoroutine(Co_SpawnWave());
@@ -196,42 +221,76 @@ public class SpawnManager : MonoBehaviour
         }
     }
 
-    void SpawnCreep<T>(int p_team, int p_lane, int p_amount = 1) where T: MonoBehaviour
+    void SpawnCreep(System.Type p_type,int p_team, int p_lane, int p_amount = 1 )
     {
-        
-            StartCoroutine(Co_SpawnCreep<T>( p_team,  p_lane,  p_amount));
+        Debug.Log("WORKPLEASE " + "Spawn Creep T: " + p_lane);
+        StartCoroutine(Co_SpawnCreep(p_type,p_team,  p_lane,  p_amount));
            
     }
 
-    IEnumerator Co_SpawnCreep<T>(int p_team, int p_lane, int p_amount = 1) where T : MonoBehaviour
+    IEnumerator Co_SpawnCreep(System.Type p_type, int p_team, int p_lane, int p_amount = 1)
     {
-        for (int i = 0; i < p_amount; i++)
+        Creep genericObject = null;
+        if (p_type == typeof(MeleeCreep))
         {
-            
-            T genericObject = GenericObjectPool<T>.pool.Get();
+            genericObject = MeleeCreepPool.pool.Get();
+        }
+        else if (p_type == typeof(RangeCreep))
+        {
+            genericObject = RangeCreepPool.pool.Get();
+        }
+        else if (p_type == typeof(SiegeCreep))
+        {
+            genericObject = SiegeCreepPool.pool.Get();
+        }
 
-            if (genericObject is Creep)
-            {
-                Creep newCreep = genericObject as Creep;
-                newCreep.attribute.InitializeValues(creepWaveMultiplierCount);
-                newCreep.goldReward = newCreep.defaultGoldReward * creepWaveMultiplierCount;
-                newCreep.waypoints = GameManager.MakePath(p_team, p_lane);
+        else if(p_type == typeof(MegaMeleeCreep))
+        {
+            genericObject = MegaMeleeCreepPool.pool.Get();
+        }
+        else if (p_type == typeof(MegaRangeCreep))
+        {
+            genericObject = MegaRangeCreepPool.pool.Get();
+        }
+        else if (p_type == typeof(MegaSiegeCreep))
+        {
+            genericObject = MegaSiegeCreepPool.pool.Get();
+        }
+
+        //Debug.Log("OUT WORKPLEASE " + genericObject.gameObject.name + " TEAM " + p_team + " Spawn Creep Out: " + p_lane + " index " + p_amount);
+
+        Debug.Log("INN WORKPLEASE " + genericObject.gameObject.name + " TEAM " + p_team + " Spawn Creep In: " + p_lane + " index " + p_amount);
+        Creep newCreep = genericObject as Creep;
+        newCreep.attribute.InitializeValues(creepWaveMultiplierCount);
+        newCreep.goldReward = newCreep.defaultGoldReward * creepWaveMultiplierCount;
+        newCreep.waypoints = GameManager.MakePath(p_team, p_lane);
                
-                newCreep.transform.position = (GameManager.instance.teams[p_team].lanes[p_lane].creepSpawnPoint.transform.position);
-                newCreep.unitFaction = (Faction)p_team;
+        newCreep.transform.position = (GameManager.instance.teams[p_team].lanes[p_lane].creepSpawnPoint.transform.position);
+        newCreep.unitFaction = (Faction)p_team;
                 
                 
-                Animator anim = newCreep.GetComponent<Animator>();
-                NavMeshAgent nav = newCreep.GetComponent<NavMeshAgent>();
-                nav.Warp(new Vector3(newCreep.transform.position.x, 0f, newCreep.transform.position.z));// newCreep.transform.position);
-                nav.enabled = false;
-                nav.enabled = true;
-                anim.SetInteger("pathCount", 2);
+        Animator anim = newCreep.GetComponent<Animator>();
+        NavMeshAgent nav = newCreep.GetComponent<NavMeshAgent>();
+        nav.Warp(new Vector3(GameManager.instance.teams[p_team].lanes[p_lane].creepSpawnPoint.transform.position.x, 
+            0f,
+            GameManager.instance.teams[p_team].lanes[p_lane].creepSpawnPoint.transform.position.z));// newCreep.transform.position);
+        nav.enabled = false;
+        nav.enabled = true;
+        anim.SetInteger("pathCount", 2);
               
 
+        
+        yield return new WaitForSeconds(0.5f);
+        if (p_amount > 0)
+        {
+            p_amount--;
+            if (p_amount > 0)
+            {
+                StartCoroutine(Co_SpawnCreep(p_type, p_team, p_lane, p_amount));
             }
-            yield return new WaitForSeconds(0.5f);
         }
+
+        
     }
 }
 

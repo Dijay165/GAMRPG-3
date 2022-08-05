@@ -315,7 +315,8 @@ MonoBehaviour:
   icon: {fileID: 3962947828094357269}
   currentTarget: {fileID: 0}
   level: {fileID: 0}
-  goldReward: 0
+  goldReward: 100
+  defaultGoldReward: 100
   nearbyEnemyHeroes: []
   health: {fileID: 0}
   unitFaction: 0

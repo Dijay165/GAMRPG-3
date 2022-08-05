@@ -9,7 +9,7 @@ public class Structures : Unit
     // Start is called before the first frame update
 
     private DebugManager debugManager;
-    public int splitGoldReward;
+
     //public GameObject towerDetectGO;
 
     // public TowerDetection detection;
@@ -90,17 +90,21 @@ public class Structures : Unit
                 {
                     if (currentHero == GameManager.GetHeroData(health.damager))
                     {
+                        Debug.Log(" SPLIT structure DEATH GAINED GOLD " + goldReward);
                         currentHero.gold += goldReward;
+                        currentHero.networth = currentHero.gold;
                     }
-
+                    
+                    Debug.Log(" SPLIT structure DEATH GAINED GOLD " + defaultGoldReward);
+                    currentHero.gold += defaultGoldReward;
+                    currentHero.networth = currentHero.gold;
+                    
                 }
+
             }
          
-            else
-            {
-                currentHero.gold += splitGoldReward;
-            }
-           
+          
+         
             GameManager.OnUpdateHeroUIEvent.Invoke(currentHero);
 
         }

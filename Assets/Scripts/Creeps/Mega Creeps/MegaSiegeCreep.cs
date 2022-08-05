@@ -12,6 +12,7 @@ public class MegaSiegeCreep : Creep
     {
         base.DeinitializeValues();
         //Destroy(gameObject);
-        MegaSiegeCreepPool.pool.Release(this);
+        SpawnManager.instance.Despawn(gameObject);
+        //MegaSiegeCreepPool.pool.Release(this);
     }
 }

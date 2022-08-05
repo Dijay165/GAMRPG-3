@@ -12,6 +12,7 @@ public class MegaRangeCreep : Creep
     {
         base.DeinitializeValues();
         //Destroy(gameObject);
-        MegaRangeCreepPool.pool.Release(this);
+        SpawnManager.instance.Despawn(gameObject);
+        //MegaRangeCreepPool.pool.Release(this);
     }
 }

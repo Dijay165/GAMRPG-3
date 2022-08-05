@@ -12,6 +12,8 @@ public class MeleeCreep : Creep
     {
         base.DeinitializeValues();
         //Destroy(gameObject);
-        MeleeCreepPool.pool.Release(this);
+
+        SpawnManager.instance.Despawn(gameObject);
+        //MeleeCreepPool.pool.Release(this);
     }
 }

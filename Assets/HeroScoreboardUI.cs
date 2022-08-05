@@ -12,7 +12,7 @@ public class HeroScoreboardUI : MonoBehaviour
   
     public TMP_Text kills;
     public TMP_Text deaths;
-
+    public TMP_Text networth;
 
     public void SetUpUI(string p_heroName, Sprite sprite)
     {
@@ -25,7 +25,7 @@ public class HeroScoreboardUI : MonoBehaviour
 
         kills.text = "0";
         deaths.text = "0";
- 
+        networth.text = "0";
     }
 
     public void UpdateUI(HeroPerformanceData p_heroPerformanceData)
@@ -38,7 +38,8 @@ public class HeroScoreboardUI : MonoBehaviour
 
         kills.text = p_heroPerformanceData.kills.ToString();
         deaths.text = p_heroPerformanceData.deaths.ToString();
-      //  assists.text = p_heroPerformanceData.assist.ToString();
+        networth.text = p_heroPerformanceData.networth.ToString();
+        //  assists.text = p_heroPerformanceData.assist.ToString();
 
     }
 }

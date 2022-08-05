@@ -36,6 +36,7 @@ public class Player : Unit
                         hpd.gold += (goldReward + (level.currentLevel * 8) + GameManager.GetKillStreakGold(hpd.killstreak));
                         hpd.kills++;
                         hpd.killstreak++;
+                        hpd.networth = hpd.gold;
                         Debug.Log(health.damager.gameObject.name);
                         Debug.Log(" HERO DEATH GAINED GOLD " + goldReward);
 
@@ -44,6 +45,7 @@ public class Player : Unit
                     {
                         //Formula(30 + Victim Net Worth x 0.038) x k / Number of Heroes
                         hpd.gold += (goldReward + Mathf.FloorToInt(1f * 0.038f)) / nearbyEnemyHeroes.Count;
+                        hpd.networth = hpd.gold;
                         Debug.Log(gameObject.name);
                         Debug.Log(" SPLIT HERO DEATH GAINED GOLD " + goldReward);
                     }

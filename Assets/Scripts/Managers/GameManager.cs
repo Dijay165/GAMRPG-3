@@ -66,11 +66,13 @@ public class GameManager : MonoBehaviour
         foreach(HeroPerformanceData hpd in GameManager.instance.teams[0].heroPerformanceData)
         {
             hpd.gold += goldPerMinute;
+            hpd.networth = hpd.gold;
             GameManager.OnUpdateHeroUIEvent.Invoke(hpd);
         }
         foreach (HeroPerformanceData hpd in GameManager.instance.teams[1].heroPerformanceData)
         {
             hpd.gold += goldPerMinute;
+            hpd.networth = hpd.gold;
             GameManager.OnUpdateHeroUIEvent.Invoke(hpd);
         }
         StartCoroutine(GoldPerMinute());

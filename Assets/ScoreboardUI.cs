@@ -12,7 +12,7 @@ public class ScoreboardUI : MonoBehaviour
 
     public TMP_Text leftKills;
     public TMP_Text leftDeaths;
-
+    public TMP_Text leftNetworth;
     public RectTransform rightTeam;
 
    
@@ -20,7 +20,7 @@ public class ScoreboardUI : MonoBehaviour
 
     public TMP_Text rightKills;
     public TMP_Text rightDeaths;
-
+    public TMP_Text rightNetworth;
     public List<HeroScoreboardUI> leftTeamAvatars;
     public List<HeroScoreboardUI> rightTeamAvatars;
     public HeroScoreboardUI prefab;
@@ -88,13 +88,14 @@ public class ScoreboardUI : MonoBehaviour
             gold += GameManager.instance.teams[0].heroPerformanceData[i].gold;
             kills += GameManager.instance.teams[0].heroPerformanceData[i].kills;
             deaths += GameManager.instance.teams[0].heroPerformanceData[i].deaths;
-
+         
         }
 
         leftGold.text = gold.ToString();
 
         leftKills.text = kills.ToString();
         leftDeaths.text = deaths.ToString();
+        leftNetworth.text = gold.ToString();
 
         gold = 0;
         kills = 0;
@@ -111,6 +112,8 @@ public class ScoreboardUI : MonoBehaviour
 
         rightKills.text = kills.ToString();
         rightDeaths.text = deaths.ToString();
+
+        rightNetworth.text = gold.ToString();
 
     }
 }

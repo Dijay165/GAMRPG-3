@@ -123,12 +123,14 @@ MonoBehaviour:
   currentTarget: {fileID: 0}
   level: {fileID: 0}
   goldReward: 75
+  defaultGoldReward: 50
   nearbyEnemyHeroes: []
   health: {fileID: 0}
   unitFaction: 0
   unitStat: {fileID: 11400000, guid: 01ee7a4e66616a14b94ca92ef60c9def, type: 2}
   attribute: {fileID: 0}
   isStun: 0
+  splitGoldReward: 0
   whenDestroyed:
     m_PersistentCalls:
       m_Calls: []

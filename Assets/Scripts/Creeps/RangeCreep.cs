@@ -12,6 +12,7 @@ public class RangeCreep : Creep
     {
         base.DeinitializeValues();
         //Destroy(gameObject);
-        RangeCreepPool.pool.Release(this);
+        SpawnManager.instance.Despawn(gameObject);
+        //RangeCreepPool.pool.Release(this);
     }
 }

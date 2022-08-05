@@ -13,7 +13,17 @@ public class CreepMove : StateMachineBehaviour
         NavMeshAgent agent = creep.agent;
 
         creep.obstacle.enabled = false;
-        agent.enabled = true;
+        if (agent.isOnNavMesh)
+        {
+            agent.enabled = true;
+        }
+        else
+        {
+            agent.Warp(new Vector3(agent.transform.position.x, 0f, agent.transform.position.z));
+            agent.enabled = false;
+            agent.enabled = true;
+        }
+    
         if (creep.destination != null)
         {
             if (agent.isOnNavMesh == false)

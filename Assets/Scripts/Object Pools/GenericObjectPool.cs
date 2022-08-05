@@ -8,7 +8,8 @@ public class GenericObjectPool<T> : MonoBehaviour where T : MonoBehaviour
     private bool isAlwaysInContainer;
     //[SerializeField]
     //private bool isInactiveInContainer;
-    [SerializeField] private Transform container;
+    public static GenericObjectPool<T> instance;
+    [SerializeField] public Transform container;
     public T prefab;
     public static ObjectPool<T> pool;
     [SerializeField]
@@ -19,10 +20,10 @@ public class GenericObjectPool<T> : MonoBehaviour where T : MonoBehaviour
     private int flexibleMaxAmount;
     private void Awake()
     {
-
+        instance = this;
         pool = new ObjectPool<T>(
             CreateObject,
-            GetObject,
+            objectPooled => { objectPooled.gameObject.SetActive(true); },
             ReleaseObject,
             DestroyObject,
             isCollectionCheck
@@ -30,11 +31,20 @@ public class GenericObjectPool<T> : MonoBehaviour where T : MonoBehaviour
             defaultMaxAmount
             ,
             flexibleMaxAmount
-            );
+            )  ;
 
      //   Debug.Log("Loaded" + gameObject.name);
     }
-
+    public static void Clear()
+    {
+        for (int i =0; i< instance.container.childCount; i++)
+        {
+            if (!instance.container.GetChild(i).gameObject.activeSelf)
+            {
+                Destroy(instance.container.GetChild(i).gameObject);
+            }
+        }
+    }
     T CreateObject()
     {
         var newObject = Instantiate(prefab);
