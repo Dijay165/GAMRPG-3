@@ -10,6 +10,7 @@ public class Unit : MonoBehaviour
     public Health currentTarget;
     public Level level;
     public int goldReward;
+    public int defaultGoldReward;
     public List<Unit> nearbyEnemyHeroes = new List<Unit>();
 
 

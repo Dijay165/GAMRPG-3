@@ -31,9 +31,11 @@ public class SpawnManager : MonoBehaviour
     void Start()
     {
         waveTimer = waveTime;
+        creepWaveMultiplierCount = 1;
         SpawnHeroes();
         StartCoroutine(Co_SpawnWave());
         StartCoroutine(Co_CreepScaling());
+
     }
     public void RespawnHero(Unit p_hero)
     {
@@ -44,6 +46,7 @@ public class SpawnManager : MonoBehaviour
         p_hero.gameObject.SetActive(false);
         StartCoroutine(RespawnTimer(currhpd));
     }
+
 
     IEnumerator RespawnTimer(HeroPerformanceData currhpd)
     {
@@ -104,8 +107,12 @@ public class SpawnManager : MonoBehaviour
     {
         yield return new WaitForSeconds(180f);
         creepWaveMultiplierCount++;
+    
+        StartCoroutine(Co_CreepScaling());
+        
+
     }
- 
+
     IEnumerator Co_SpawnWave()
     {
      
@@ -207,6 +214,7 @@ public class SpawnManager : MonoBehaviour
             {
                 Creep newCreep = genericObject as Creep;
                 newCreep.attribute.InitializeValues(creepWaveMultiplierCount);
+                newCreep.goldReward = newCreep.defaultGoldReward * creepWaveMultiplierCount;
                 newCreep.waypoints = GameManager.MakePath(p_team, p_lane);
                
                 newCreep.transform.position = (GameManager.instance.teams[p_team].lanes[p_lane].creepSpawnPoint.transform.position);

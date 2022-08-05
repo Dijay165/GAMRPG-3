@@ -21,6 +21,7 @@ public class HeroPerformanceData
 public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
+    public int goldPerMinute = 1;
     public float gameTime = 0;
     public Unit lastUnitSelect;
     public GameObject gameOverUI;
@@ -42,13 +43,41 @@ public class GameManager : MonoBehaviour
     private void OnEnable()
     {
         Events.OnGameOver.AddListener(WinCondition);
+        StartCoroutine(GoldPerMinute());
     }
 
     private void OnDisable()
     {
         Events.OnGameOver.RemoveListener(WinCondition);
     }
-    public static int GetKillStreakGold(int p_killstreak)
+
+
+
+
+    IEnumerator GoldPerMinute()
+    {
+        float goldTime = 60;
+        while (goldTime > 0)
+        {
+            yield return new WaitForSeconds(1f);
+            goldTime -= 1;
+           
+        }
+        foreach(HeroPerformanceData hpd in GameManager.instance.teams[0].heroPerformanceData)
+        {
+            hpd.gold += goldPerMinute;
+            GameManager.OnUpdateHeroUIEvent.Invoke(hpd);
+        }
+        foreach (HeroPerformanceData hpd in GameManager.instance.teams[1].heroPerformanceData)
+        {
+            hpd.gold += goldPerMinute;
+            GameManager.OnUpdateHeroUIEvent.Invoke(hpd);
+        }
+        StartCoroutine(GoldPerMinute());
+
+    }
+
+public static int GetKillStreakGold(int p_killstreak)
     {
        
         if (p_killstreak >= 10)
