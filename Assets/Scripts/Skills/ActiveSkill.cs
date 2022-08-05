@@ -7,32 +7,56 @@ public class ActiveSkill : AbilityBase
 {
     //public float castRange;
     public GameObject prefab;
+    public float refCountdown;
 
     public virtual void OnActivate(Unit target)
     {
-        if (canCast)
+        if(target.GetComponent<Mana>().currentMana >= this.manaCost[skillLevel])
         {
-          //  Debug.Log("OnActivate");
-            isCooldown = true;
-            isInEffect = true;
+            if (this.canCast)
+            {
+                //  Debug.Log("OnActivate");
+                this.isCooldown = true;
+                this.isInEffect = true;
+                target.GetComponent<Mana>().SubtractMana(manaCost[skillLevel]);
+                //   CoroutineSetup.instance.StartCoroutine(SkillManager.instance.CountdownText(coolDownDuration[skillLevel]));
+            }
         }
+       
 
+
+    }
+     
+    public override AbilityBase data
+    {
+        get
+        {
+            return data;
+        }
 
     }
 
     public virtual IEnumerator CoolDownEnumerator()
     {
-        Debug.Log("isCooldown");
+      
 
         while (isCooldown)
         {
-            // Debug.Log(coolDownDuration[skillLevel]);
-            yield return new WaitForSeconds(coolDownDuration[skillLevel]);
-            canCast = true;
-            isCooldown = false;
+           //  Debug.Log(coolDownDuration[skillLevel]);
+            yield return new WaitForSeconds(this.coolDownDuration[skillLevel]);
+            this.canCast = true;
+            this.isCooldown = false;
+            Debug.Log("can cast again");
             //SkillManager.Instance.skillButtons[SkillManager.Instance.skillRef].interactable = true;
         }
-        //Debug.Log("can cast again");
+
     }
 
+
+    private void OnDisable()
+    {
+        this.canCast = true;
+        this.isCooldown = false;
+        this.isInEffect = false;
+    }
 }

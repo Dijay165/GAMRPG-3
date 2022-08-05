@@ -90,16 +90,28 @@ public abstract class Creep : Unit
         if (!isStun)
         {
             //agent.isStopped = false;
+            if (agent.enabled)
+            {
+                if (agent.isOnNavMesh)
+                {
+                    agent.isStopped = false;
+
+                }
+            }
             FaceTarget();
             
         }
         else
         {
-            if (agent != null)
+            if (agent.enabled)
             {
-                agent.isStopped = true;
+                if (agent.isOnNavMesh)
+                {
+                    agent.isStopped = true;
+
+                }
             }
-        
+
             Debug.Log(gameObject.name + " is stop");
         }
       

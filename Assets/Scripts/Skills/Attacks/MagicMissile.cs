@@ -16,7 +16,7 @@ public class MagicMissile : ActiveSkill
     {
         base.OnActivate(target);
 
-
+        canCast = false;
         Debug.Log("Magic Missile");
 
         targetedDamager = target.gameObject.GetComponent<TargetedDamager>();
@@ -28,6 +28,9 @@ public class MagicMissile : ActiveSkill
         newInstance.transform.position = target.gameObject.transform.position;
         newInstance.InitializeValues(targetedDamager.targetHealth, damage[skillLevel], 900f);
         newInstance.gameObject.transform.SetParent(targetedDamager.targetHealth.playersParent);
+
+
+
         //  isInEffect = true;
     }
     public override IEnumerator CoolDownEnumerator()
@@ -38,25 +41,25 @@ public class MagicMissile : ActiveSkill
     }
 
 
-    public override void CastCondition()
-    {
-        base.CastCondition();
-        if (targetedDamager.targetHealth != null)
-        {
-            float distance = Vector3.Distance(targetedDamager.agent.transform.position, targetedDamager.targetHealth.playersParent.position);
-            if (distance < castRange)
-            {
-           //     canCast = true;
-                if (!isCooldown)
-                {
+    //public override void CastCondition()
+    //{
+    //    base.CastCondition();
+    //    if (targetedDamager.targetHealth != null)
+    //    {
+    //        float distance = Vector3.Distance(targetedDamager.agent.transform.position, targetedDamager.targetHealth.playersParent.position);
+    //        if (distance < castRange)
+    //        {
+    //       //     canCast = true;
+    //            if (!isCooldown)
+    //            {
                     
-                    animator.SetTrigger("CastSkill");
-                    //     Debug.Log("In Range");
-                    //animator.SetTrigger("CastSkill");
-                }
+    //                animator.SetTrigger("CastSkill");
+    //                //     Debug.Log("In Range");
+    //                //animator.SetTrigger("CastSkill");
+    //            }
 
 
-            }
-        }
-    }
+    //        }
+    //    }
+    //}
 }

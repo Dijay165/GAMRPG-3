@@ -9,11 +9,14 @@ public class SkillHolder : MonoBehaviour
     public Job job;
     public List<KeyCode> keyCodes;
 
-    public List<ActiveSkill> skills;
+    public List<AbilityBase> skills;
     Animator anim;
     MOBAMovement movement;
     [HideInInspector]
     public int skillIDIndex;
+
+    
+    
     private void Awake()
     {
         // Events.OnPlayerSkillIndex.AddListener(KeyIndex);
@@ -27,9 +30,12 @@ public class SkillHolder : MonoBehaviour
         //skills.Add(gameObject.GetComponents<Skill>());
         //skills = gameObject.GetComponents<Skill>();
         
-        foreach(ActiveSkill skill in job.skills)
+        foreach(AbilityBase skill in job.skills)
         {
             skills.Add(skill);
+            skill.isCooldown = false;
+            skill.isInEffect = false;
+            skill.canCast = true;
           //  Debug.Log(skill.name);
            // keyCodes.Add(skill.keyCode);
         }
@@ -47,7 +53,9 @@ public class SkillHolder : MonoBehaviour
     void Update()
     {
         KeyPressedCheckers();
-      //  anim.SetTrigger("CastSkill");
+        // PassiveSkill();
+        //  anim.SetTrigger("CastSkill");
+        ActivatePassiveSkill();
     }
 
 
@@ -69,17 +77,53 @@ public class SkillHolder : MonoBehaviour
             {
                 Debug.Log("Pressed " + keyCodes[i]);
        
-                movement.HeroMove();
                 Events.OnPlayerSkillIndex.Invoke(i);
                 skillIDIndex = i;
-              
-                    
-                ActivateSkill();
-                
+                movement.HeroMove();       
             }
           
         }
- 
+
+        if(gameObject.GetComponent<TargetedDamager>().targetHealth != null)
+        {
+            bool inDistance = skills[skillIDIndex].CastCondition(gameObject.transform, gameObject.GetComponent<TargetedDamager>().targetHealth.playersParent.transform);
+            if (inDistance)
+            {
+                Debug.Log("distance");
+                if (skills[skillIDIndex].canCast)
+                {
+                    if(gameObject.GetComponent<Mana>().currentMana > skills[skillIDIndex].manaCost[skills[skillIDIndex].skillLevel])
+                    {
+                        anim.SetTrigger("CastSkill");
+                    }
+                    else
+                    {
+                        anim.SetTrigger("Turn");
+                    }
+
+                  
+
+                }
+               
+            //    ActivateSkill();
+            }
+        }
+        else
+        {
+          //  Debug.Log("isnull");
+        }
+       
+
+    }
+
+    public void Passive()
+    {
+       
+
+        //foreach(PassiveSkill passiveSkill in skills)
+        //{
+
+        //}
     }
 
     public void CastSkill(int index)
@@ -88,12 +132,21 @@ public class SkillHolder : MonoBehaviour
         
             if(TryGetComponent<Unit>(out Unit unit))
             {
-                // job.skills[index].CastSkill(unit);
                 Debug.Log("Unit Found");
-                skills[index].OnActivate(unit);
-                //job.skills[index].CastSkill(unit);
-                StartCoroutine(skills[index].CoolDownEnumerator());
+                
+                //if(skills[index].GetType() == typeof(ActiveSkill))
+                //{
+                    if(skills[index] is ActiveSkill)
+                    {
+                        ActiveSkill activeSkill = (ActiveSkill)skills[index];
+                        activeSkill.OnActivate(unit);
+                        StartCoroutine(activeSkill.CoolDownEnumerator());
+                    }
+                 //   skills[index].OnActivate(unit);
+                    
+               //  }
             }
+              
             else
             {
                 Debug.Log("Unit Not Found");
@@ -101,22 +154,60 @@ public class SkillHolder : MonoBehaviour
           
     }
 
+    public void ActivatePassiveSkill()
+    {
+
+        for(int i = 0; i < skills.Count; i++)
+        {
+            if (skills[i] is PassiveSkill)
+            {
+                PassiveSkill passiveSkill = (PassiveSkill)skills[i];
+                passiveSkill.OnApply(gameObject.GetComponent<Unit>());
+            }
+        }
+        //foreach(PassiveSkill passiveSkill in skills)
+        //{
+        //    passiveSkill.OnApply();
+        //}
+    }
+
+
+
     public void ActivateSkill()
     {
-        /// Debug.Log("Activate Skill");
-        //CastSkill(skillIDIndex);
 
-       
-        skills[skillIDIndex].OnActivate(gameObject.GetComponent<Unit>());
-        StartCoroutine(skills[skillIDIndex].CoolDownEnumerator());
-        //if (skills[skillIDIndex].skillType == SkillType.Active)
-        //{
-        //    if (!skills[skillIDIndex].isCooldown)
-        //    {
-            
-        //    }
-            
-        //}
-     
+        if (skills[skillIDIndex] is ActiveSkill)
+        {
+            ActiveSkill activeSkill = (ActiveSkill)skills[skillIDIndex];
+            if (activeSkill.canCast)
+            {
+                Debug.Log("Can cast");
+
+                activeSkill.OnActivate(gameObject.GetComponent<Unit>());
+                StartCoroutine(activeSkill.CoolDownEnumerator());
+
+
+                if (gameObject.GetComponent<Unit>().CompareTag("Player"))
+                {
+                    StartCoroutine(SkillManager.instance.CountdownText(activeSkill.coolDownDuration[activeSkill.skillLevel], SkillManager.instance.text[skillIDIndex]));
+                   // SkillManager.instance.ButtonChecker();
+                }
+
+            }
+            else
+            {
+                Debug.Log("Cannot cast");
+            }
+        
+        }
+    }
+
+    public void StopCountdown()
+    {
+        Debug.Log("Stop");
+  //      ActiveSkill activeSkill = (ActiveSkill)skills[skillIDIndex];
+
+        StopAllCoroutines();
+      //  StopCoroutine(SkillManager.instance.CountdownText(activeSkill.coolDownDuration[activeSkill.skillLevel], SkillManager.instance.text[skillIDIndex]));
     }
 }

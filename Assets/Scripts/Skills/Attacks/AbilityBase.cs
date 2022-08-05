@@ -56,10 +56,39 @@ public abstract class AbilityBase : ScriptableObject
         this.skillType = skill.SkillType;
     }
 
-    
 
-    public virtual void CastCondition()
+    //public virtual void OnActivate(Unit target)
+    //{
+    //    if (canCast)
+    //    {
+    //        //  Debug.Log("OnActivate");
+    //        isCooldown = true;
+    //        isInEffect = true;
+    //    }
+
+
+    //}
+
+    public abstract AbilityBase data { get; }
+
+
+    public bool CastCondition(Transform self, Transform target)
     {
+        bool cond = false; 
+        if (target != null)
+        {
+            float distance = Vector3.Distance(self.position, target.position);
+            if (distance < castRange)
+            {
+                cond = true;
+            }
+            else
+            {
+                cond =  false;
+            }
+        }
 
+        return cond;
+        //  if(unit.transform.)
     }
 }

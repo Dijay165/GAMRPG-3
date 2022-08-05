@@ -6,7 +6,7 @@ public class DebugManager : MonoBehaviour
 {
     // Start is called before the first frame update
 
-    public GameObject debugGO;
+    public List<GameObject> debugGO;
     public TimeManager timeManager;
     public GameObject structure;
 
@@ -37,12 +37,21 @@ public class DebugManager : MonoBehaviour
 
     void GOActivator()
     {
-        debugGO.SetActive(true);
+        foreach(GameObject obj in debugGO)
+        {
+            obj.SetActive(true);
+        }
+      
     }
 
     void CancelGO()
     {
-        debugGO.SetActive(false);
+
+        foreach (GameObject obj in debugGO)
+        {
+            obj.SetActive(false);
+        }
+       // debugGO.SetActive(false);
     }
 
     public void IncreaseGameSpeed()
@@ -72,5 +81,29 @@ public class DebugManager : MonoBehaviour
         //Click any unit and then if this button is pressed, the healthpoints of the unit will be filled. 
         Health health = GameManager.instance.lastUnitSelect.GetComponent<Health>();
         health.AddHealth(100f);
+    }
+
+    public void RestoreMana()
+    {
+        Mana mana = PlayerManager.instance.player.GetComponent<Mana>();
+        mana.AddMana(100f);
+    }
+
+    public void RestoreCooldown()
+    {
+        GameObject player = PlayerManager.instance.player;
+
+      
+
+        for(int i = 0; i < SkillManager.instance.text.Count; i++)
+        {
+            player.GetComponent<SkillHolder>().skills[i].canCast = true;
+            player.GetComponent<SkillHolder>().skills[i].isCooldown = false;
+            player.GetComponent<SkillHolder>().skills[i].isInEffect = false;
+            SkillManager.instance.text[i].text = "";
+        }
+
+        player.GetComponent<SkillHolder>().StopCountdown();
+
     }
 }

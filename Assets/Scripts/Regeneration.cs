@@ -8,7 +8,7 @@ public class Regeneration : MonoBehaviour
 
     protected Health health;
     protected Mana mana;
- 
+    
 
     public virtual void Awake()
     {
@@ -24,7 +24,7 @@ public class Regeneration : MonoBehaviour
            //      health.AddHealth(regenValue);
             DoRegen();
 
-            yield return new WaitForSeconds(0.1f);
+            yield return new WaitForSeconds(1f);
         }
     }
 

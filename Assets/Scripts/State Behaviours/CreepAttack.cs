@@ -48,8 +48,15 @@ public class CreepAttack : StateMachineBehaviour
     override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
         animator.speed = 1;
-        if(creep.agent != null)
-        creep.agent.isStopped = false;
+        if (agent.enabled = true)
+        {
+            if (agent.isOnNavMesh)
+            {
+                agent.isStopped = false;
+
+            }
+        }
+
     }
 
     // OnStateMove is called right after Animator.OnAnimatorMove()
