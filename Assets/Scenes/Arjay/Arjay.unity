@@ -3294,6 +3294,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 40709ce5a2656b449b9347f99761d596, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  goldPerMinute: 1
   gameTime: 0
   lastUnitSelect: {fileID: 0}
   gameOverUI: {fileID: 1322839142}
@@ -5693,7 +5694,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 677287839}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -9023,12 +9024,14 @@ MonoBehaviour:
   currentTarget: {fileID: 0}
   level: {fileID: 0}
   goldReward: 0
+  defaultGoldReward: 0
   nearbyEnemyHeroes: []
   health: {fileID: 0}
   unitFaction: 1
   unitStat: {fileID: 11400000, guid: d6750346963de0840911385da16d176a, type: 2}
   attribute: {fileID: 0}
   isStun: 0
+  splitGoldReward: 0
   whenDestroyed:
     m_PersistentCalls:
       m_Calls:
@@ -9553,7 +9556,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 568064799}
   m_LocalRotation: {x: 0.6853366, y: 0.17410867, z: -0.17410867, w: 0.6853366}
-  m_LocalPosition: {x: 1.9, y: 100, z: 2.2}
+  m_LocalPosition: {x: 1.9, y: 10, z: 2.2}
   m_LocalScale: {x: 2.8719037, y: 2.871904, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -11526,8 +11529,8 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 27108619}
-  - {fileID: 371580495}
   - {fileID: 1872756065}
+  - {fileID: 371580495}
   m_Father: {fileID: 0}
   m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -11743,12 +11746,14 @@ MonoBehaviour:
   currentTarget: {fileID: 0}
   level: {fileID: 0}
   goldReward: 0
+  defaultGoldReward: 0
   nearbyEnemyHeroes: []
   health: {fileID: 0}
   unitFaction: 0
   unitStat: {fileID: 11400000, guid: d6750346963de0840911385da16d176a, type: 2}
   attribute: {fileID: 0}
   isStun: 0
+  splitGoldReward: 0
   whenDestroyed:
     m_PersistentCalls:
       m_Calls: []
@@ -25239,19 +25244,21 @@ MonoBehaviour:
   m_GameObject: {fileID: 954233844}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8df279344fba6a24da986feed5108bb7, type: 3}
+  m_Script: {fileID: 11500000, guid: ab02ee5a357482f469f4326689eca34b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   icon: {fileID: 0}
   currentTarget: {fileID: 0}
   level: {fileID: 0}
   goldReward: 0
+  defaultGoldReward: 0
   nearbyEnemyHeroes: []
   health: {fileID: 0}
   unitFaction: 0
   unitStat: {fileID: 11400000, guid: 1ba76c184d4fc2144bd9e6bafbd5e885, type: 2}
   attribute: {fileID: 0}
   isStun: 0
+  splitGoldReward: 0
   whenDestroyed:
     m_PersistentCalls:
       m_Calls:
@@ -25281,7 +25288,6 @@ MonoBehaviour:
         m_CallState: 2
   requiredBuildingsDeadForToBeVulnerable:
   - {fileID: 512404764}
-  oppositeFaction: {fileID: 0}
 --- !u!1 &955163661
 GameObject:
   m_ObjectHideFlags: 0
@@ -42579,6 +42585,7 @@ MonoBehaviour:
   currentTarget: {fileID: 0}
   level: {fileID: 0}
   goldReward: 0
+  defaultGoldReward: 0
   nearbyEnemyHeroes: []
   health: {fileID: 0}
   unitFaction: 0
@@ -57029,7 +57036,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 677287839}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}

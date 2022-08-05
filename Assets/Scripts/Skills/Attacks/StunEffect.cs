@@ -32,7 +32,8 @@ public class StunEffect : StatusEffect
 
     private void OnDisable()
     {
-      //  Debug.Log("OnDisable");
+        //  Debug.Log("OnDisable");
+        unit.isStun = false;
     }
 
     public override IEnumerator Debuff()
@@ -44,6 +45,6 @@ public class StunEffect : StatusEffect
 
     private void OnDestroy()
     {
-        unit.isStun = false;
+        
     }
 }
