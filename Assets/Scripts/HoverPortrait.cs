@@ -11,40 +11,67 @@ public class HoverPortrait : MonoBehaviour
     IPointerEnterHandler pointerEnterHandler;
     IPointerExitHandler pointerExitHandler;
 
-    private void Update()
+    //private void Update()
+    //{
+    //    if (IsPointerOverUIElement())
+    //    {
+    //        addInfoGO.SetActive(true);
+    //    }
+    //    else
+    //    {
+    //        addInfoGO.SetActive(false);
+    //    }
+    //}
+
+    //public static bool IsPointerOverUIElement()
+    //{
+    //    return IsPointerOverUIElement(GetEventSystemRaycastResults());
+    //}
+    /////Returns 'true' if we touched or hovering on Unity UI element.
+    //public static bool IsPointerOverUIElement(List<RaycastResult> eventSystemRaysastResults)
+    //{
+    //    for (int index = 0; index < eventSystemRaysastResults.Count; index++)
+    //    {
+    //        RaycastResult curRaysastResult = eventSystemRaysastResults[index];
+    //        if (curRaysastResult.gameObject.layer == LayerMask.NameToLayer("UI"))
+    //            return true;
+    //    }
+    //    return false;
+    //}
+    /////Gets all event systen raycast results of current mouse or touch position.
+    //static List<RaycastResult> GetEventSystemRaycastResults()
+    //{
+    //    PointerEventData eventData = new PointerEventData(EventSystem.current);
+    //    eventData.position = Input.mousePosition;
+    //    List<RaycastResult> raysastResults = new List<RaycastResult>();
+    //    EventSystem.current.RaycastAll(eventData, raysastResults);
+    //    return raysastResults;
+    //}
+
+    //private void OnTriggerEnter(Collider other)
+    //{
+    //    if (other.CompareTag("Portrait"))
+    //    {
+    //        Debug.Log("Mouse Enter");
+    //    }
+    //}
+
+    //private void OnTriggerExit(Collider other)
+    //{
+    //    if (other.CompareTag("Portrait"))
+    //    {
+    //        Debug.Log("Mouse Exit");
+    //    }
+    //}
+
+    public void MouseHover()
     {
-        if (IsPointerOverUIElement())
-        {
-            addInfoGO.SetActive(true);
-        }
-        else
-        {
-            addInfoGO.SetActive(false);
-        }
+        addInfoGO.SetActive(true);
     }
 
-    public static bool IsPointerOverUIElement()
+    public void MouseExitHover()
     {
-        return IsPointerOverUIElement(GetEventSystemRaycastResults());
+        addInfoGO.SetActive(false);
     }
-    ///Returns 'true' if we touched or hovering on Unity UI element.
-    public static bool IsPointerOverUIElement(List<RaycastResult> eventSystemRaysastResults)
-    {
-        for (int index = 0; index < eventSystemRaysastResults.Count; index++)
-        {
-            RaycastResult curRaysastResult = eventSystemRaysastResults[index];
-            if (curRaysastResult.gameObject.layer == LayerMask.NameToLayer("UI"))
-                return true;
-        }
-        return false;
-    }
-    ///Gets all event systen raycast results of current mouse or touch position.
-    static List<RaycastResult> GetEventSystemRaycastResults()
-    {
-        PointerEventData eventData = new PointerEventData(EventSystem.current);
-        eventData.position = Input.mousePosition;
-        List<RaycastResult> raysastResults = new List<RaycastResult>();
-        EventSystem.current.RaycastAll(eventData, raysastResults);
-        return raysastResults;
-    }
+
 }
