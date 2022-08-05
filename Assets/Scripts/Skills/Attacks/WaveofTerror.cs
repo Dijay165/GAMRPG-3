@@ -23,7 +23,7 @@ public class WaveofTerror : ActiveSkill
 
         //   Debug.Log("WaveofTerror");
         canCast = false;
-        GameObject obj = Instantiate(prefab,target.gameObject.transform.position, Quaternion.identity);
+        GameObject obj = Instantiate(prefab, target.gameObject.transform.position, Quaternion.identity);
         StraightProjectile straightProjectile = obj.GetComponentInChildren<StraightProjectile>();
         // straightProjectile.transform.position = gameObject.transform.position;
         // straightProjectile.

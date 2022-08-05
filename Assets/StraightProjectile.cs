@@ -20,6 +20,11 @@ public class StraightProjectile : MonoBehaviour
     public float waveTravelDistance;
 
     private GameObject par;
+    Vector3 direction;
+    private Transform targetTransform;
+
+    bool hasCollide;
+
     void Start()
     {
         previousPosition = transform.position;
@@ -44,15 +49,29 @@ public class StraightProjectile : MonoBehaviour
         }
 
 
+        Vector3 sav = targetTransform.transform.position;
 
-        transform.Translate(Vector3.forward * projectileSpeed * Time.deltaTime);
+        if (!hasCollide)
+        {
+            direction = sav - transform.position;
+            transform.LookAt(targetTransform.transform);
+            Debug.Log("is far ");
+            transform.position += (direction).normalized * projectileSpeed * Time.deltaTime;
+        }
+        else
+        {
+            transform.Translate(Vector3.forward * projectileSpeed * Time.deltaTime);
+            Debug.Log("is near ");
+        }
+
+        // transform.Translate(tr * projectileSpeed * Time.deltaTime);
 
     }
 
     public void Initialization(Health p_targetHealth, float p_damage)
     {
         targetHealth = p_targetHealth;
-      
+        targetTransform = p_targetHealth.transform;
         damage = p_damage;
 
     }
@@ -67,7 +86,7 @@ public class StraightProjectile : MonoBehaviour
                 GameObject obj = Instantiate(armorReduction);
 
                 StatusEffect status = obj.gameObject.GetComponent<StatusEffect>();
-
+                hasCollide = true;
                 status.isInEffect = true;
                 status.Initialized(1f, unit.transform);
              //   status.gameObject.transform.SetParent(unit.transform);

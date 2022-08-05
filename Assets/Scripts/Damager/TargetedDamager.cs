@@ -16,8 +16,8 @@ public class TargetedDamager : MonoBehaviour
 
     float attackRate;
 
-    public float attackTime; 
-
+    public float attackTime;
+    public Transform projectile;
     Attributes attributes;
     
     void Awake()
