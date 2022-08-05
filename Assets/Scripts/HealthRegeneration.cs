@@ -7,7 +7,7 @@ public class HealthRegeneration : Regeneration
 {
     //   float currentHP;
     protected float regenValue;
-    public TextMeshProUGUI text;
+    //public TextMeshProUGUI text;
     public override void Awake()
     {
         base.Awake();
