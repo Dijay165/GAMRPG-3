@@ -25,8 +25,9 @@ public class WaveofTerror : ActiveSkill
         canCast = false;
         GameObject obj = Instantiate(prefab,target.gameObject.transform.position, Quaternion.identity);
         StraightProjectile straightProjectile = obj.GetComponentInChildren<StraightProjectile>();
-       // straightProjectile.transform.position = gameObject.transform.position;
-      // straightProjectile.
+        // straightProjectile.transform.position = gameObject.transform.position;
+        // straightProjectile.
+      //  straightProjectile.transform.SetParent(targetedDamager.transform);
         straightProjectile.Initialization(targetedDamager.targetHealth, damage[skillLevel]);
 
     }

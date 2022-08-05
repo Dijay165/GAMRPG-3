@@ -70,7 +70,7 @@ public class StraightProjectile : MonoBehaviour
 
                 status.isInEffect = true;
                 status.Initialized(1f, unit.transform);
-                status.gameObject.transform.SetParent(unit.transform);
+             //   status.gameObject.transform.SetParent(unit.transform);
              //   Debug.Log("Collide with something: " + unit.gameObject.name);
             }
         }
