@@ -28,6 +28,8 @@ public class Level : MonoBehaviour
     public Hitbox LevelTrigger;
     Unit unit;
     int team;
+
+    public GameObject skillPointsGO;
     private void Awake()
     {
         if (TryGetComponent<Unit>(out Unit foundUnit))
@@ -88,15 +90,20 @@ public class Level : MonoBehaviour
         
         if (currentLevel < GameManager.instance.expPerLevel.Count + 1)
         {
-            Debug.Log(currentLevel + " ADDED EXP " + p_expModifer);
+            ///Debug.Log(currentLevel + " ADDED EXP " + p_expModifer);
             exp += p_expModifer;
             //can still level up
             if (exp >= maxExp)
             {
               
-                Debug.Log("Level up");
+               // Debug.Log("Level up");
                 currentLevel++;
                 skillPoints++;
+                if(skillPointsGO != null)
+                {
+                    skillPointsGO.SetActive(true);
+                }
+               
                 //Level up
                 if (currentLevel < GameManager.instance.expPerLevel.Count + 1)
                 {

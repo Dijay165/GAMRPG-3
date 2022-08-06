@@ -55,13 +55,13 @@ public class StraightProjectile : MonoBehaviour
         {
             direction = sav - transform.position;
             transform.LookAt(targetTransform.transform);
-            Debug.Log("is far ");
+           // Debug.Log("is far ");
             transform.position += (direction).normalized * projectileSpeed * Time.deltaTime;
         }
         else
         {
             transform.Translate(Vector3.forward * projectileSpeed * Time.deltaTime);
-            Debug.Log("is near ");
+         //   Debug.Log("is near ");
         }
 
         // transform.Translate(tr * projectileSpeed * Time.deltaTime);

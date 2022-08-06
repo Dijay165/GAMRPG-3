@@ -3517,7 +3517,7 @@ MonoBehaviour:
       buildings:
       - {fileID: 18752181}
   killStreakGoldReward: 0000000000000000000000003c0000006400000096000000d20000001801000068010000c201000026020000
-  expPerLevel: e600000072010000e00100004402000058020000d0020000ee0200007a030000a2030000ca030000f20300001a040000c9040000e2040000fb040000140500002d050000dc05000036060000400600003a070000340800002e090000280a0000ac0d0000941100007c150000641900004c1d0000
+  expPerLevel: 05000000050000000500000005000000050000000500000005000000050000000500000005000000f20300001a040000c9040000e2040000fb040000140500002d050000dc05000036060000400600003a070000340800002e090000280a0000ac0d0000941100007c150000641900004c1d0000
 --- !u!4 &187289500
 Transform:
   m_ObjectHideFlags: 0
@@ -33944,7 +33944,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1164108387}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1655683683}
+        m_TargetAssemblyTypeName: UpgradeSkillManager, Assembly-CSharp
+        m_MethodName: OnSkillUpgrade
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1164108387
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -34231,7 +34243,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1169307226}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1655683683}
+        m_TargetAssemblyTypeName: UpgradeSkillManager, Assembly-CSharp
+        m_MethodName: OnSkillUpgrade
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 2
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1169307226
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -36022,7 +36046,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1324878313}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1655683683}
+        m_TargetAssemblyTypeName: UpgradeSkillManager, Assembly-CSharp
+        m_MethodName: OnSkillUpgrade
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 3
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1324878313
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -44077,6 +44113,7 @@ MonoBehaviour:
   expBarFill: {fileID: 511489885}
   skillPoints: 0
   LevelTrigger: {fileID: 0}
+  skillPointsGO: {fileID: 1655683677}
 --- !u!1 &1541846288
 GameObject:
   m_ObjectHideFlags: 0
@@ -45476,7 +45513,7 @@ GameObject:
   - component: {fileID: 1655683682}
   - component: {fileID: 1655683681}
   - component: {fileID: 1655683680}
-  - component: {fileID: 1655683679}
+  - component: {fileID: 1655683683}
   m_Layer: 5
   m_Name: UpgradeSkill
   m_TagString: Untagged
@@ -45508,25 +45545,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 29.2}
   m_SizeDelta: {x: 46.57259, y: 53.1}
   m_Pivot: {x: 0.5, y: 1}
---- !u!114 &1655683679
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1655683677}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0e4ac2efee34d7c499e262e7e59a2061, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  buttons:
-  - {fileID: 1164108386}
-  - {fileID: 1925374829}
-  - {fileID: 1169307225}
-  - {fileID: 1324878312}
-  text: []
-  cooldownIndexes: []
 --- !u!114 &1655683680
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -45591,6 +45609,23 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1655683677}
   m_CullTransparentMesh: 1
+--- !u!114 &1655683683
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1655683677}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 387bc5a9212ebb541b4443cb60096f59, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  buttons:
+  - {fileID: 1164108386}
+  - {fileID: 1925374829}
+  - {fileID: 1169307225}
+  - {fileID: 1324878312}
 --- !u!1 &1664217972
 GameObject:
   m_ObjectHideFlags: 0
@@ -59354,7 +59389,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1925374830}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1655683683}
+        m_TargetAssemblyTypeName: UpgradeSkillManager, Assembly-CSharp
+        m_MethodName: OnSkillUpgrade
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 1
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1925374830
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -27,8 +27,8 @@ public class Hero : Creep
                         hpd.kills++;
                         hpd.killstreak++;
                         hpd.networth = hpd.gold;
-                        Debug.Log(health.damager.gameObject.name);
-                        Debug.Log( " HERO DEATH GAINED GOLD " + goldReward);
+                        //Debug.Log(health.damager.gameObject.name);
+                      ///  Debug.Log( " HERO DEATH GAINED GOLD " + goldReward);
 
                     }
                     else if (hpd != null)
@@ -36,8 +36,8 @@ public class Hero : Creep
                         //Formula(30 + Victim Net Worth x 0.038) x k / Number of Heroes
                         hpd.gold += (goldReward + Mathf.FloorToInt(1f * 0.038f)) / nearbyEnemyHeroes.Count;
                         hpd.networth = hpd.gold;
-                        Debug.Log(gameObject.name);
-                        Debug.Log( " SPLIT HERO DEATH GAINED GOLD " + goldReward);
+                //        Debug.Log(gameObject.name);
+                      //  Debug.Log( " SPLIT HERO DEATH GAINED GOLD " + goldReward);
                     }
                     GameManager.OnUpdateHeroUIEvent.Invoke(hpd);
                 }

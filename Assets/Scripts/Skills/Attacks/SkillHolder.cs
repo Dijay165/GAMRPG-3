@@ -36,6 +36,8 @@ public class SkillHolder : MonoBehaviour
             skill.isCooldown = false;
             skill.isInEffect = false;
             skill.canCast = true;
+            skill.skillLevel = 0;
+            skill.maxSkillLevel = skill.manaCost.Count - 1;
           //  Debug.Log(skill.name);
            // keyCodes.Add(skill.keyCode);
         }
@@ -75,7 +77,7 @@ public class SkillHolder : MonoBehaviour
         {
             if (Input.GetKeyDown(keyCodes[i]))
             {
-                Debug.Log("Pressed " + keyCodes[i]);
+              //  Debug.Log("Pressed " + keyCodes[i]);
        
                 Events.OnPlayerSkillIndex.Invoke(i);
                 skillIDIndex = i;
@@ -89,7 +91,7 @@ public class SkillHolder : MonoBehaviour
             bool inDistance = skills[skillIDIndex].CastCondition(gameObject.transform, gameObject.GetComponent<TargetedDamager>().targetHealth.playersParent.transform);
             if (inDistance)
             {
-                Debug.Log("distance");
+                //Debug.Log("distance");
                 if (skills[skillIDIndex].canCast)
                 {
                     if(gameObject.GetComponent<Mana>().currentMana > skills[skillIDIndex].manaCost[skills[skillIDIndex].skillLevel])
@@ -181,7 +183,7 @@ public class SkillHolder : MonoBehaviour
             ActiveSkill activeSkill = (ActiveSkill)skills[skillIDIndex];
             if (activeSkill.canCast)
             {
-                Debug.Log("Can cast");
+                //Debug.Log("Can cast");
 
                 activeSkill.OnActivate(gameObject.GetComponent<Unit>());
                 StartCoroutine(activeSkill.CoolDownEnumerator());
@@ -196,7 +198,7 @@ public class SkillHolder : MonoBehaviour
             }
             else
             {
-                Debug.Log("Cannot cast");
+           //     Debug.Log("Cannot cast");
             }
         
         }

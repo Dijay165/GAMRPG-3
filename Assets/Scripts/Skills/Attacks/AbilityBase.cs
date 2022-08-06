@@ -36,13 +36,10 @@ public abstract class AbilityBase : ScriptableObject
 
     private void Awake()
     {
-        maxSkillLevel = manaCost.Count;
-
+        //maxSkillLevel = manaCost.Count;
+        //skillLevel = 0;
     }
-    private void Start()
-    {
-        
-    }
+   
 
 
     
@@ -56,6 +53,7 @@ public abstract class AbilityBase : ScriptableObject
         this.attackType = skill.attackType;
         this.keyCode = skill.pressButton;
         this.skillType = skill.SkillType;
+
     }
 
 

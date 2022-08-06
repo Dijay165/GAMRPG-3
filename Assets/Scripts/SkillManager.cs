@@ -138,13 +138,13 @@ public class SkillManager : MonoBehaviour
     
 
             yield return new WaitForSeconds(1f);
-            Debug.Log("After Countdown");
+           /// Debug.Log("After Countdown");
             refCountdown--;
 
         }
 
         cooldownText.text = "";
-        Debug.Log("Cooldown finish");
+       // Debug.Log("Cooldown finish");
     }
 
 }

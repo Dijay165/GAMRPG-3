@@ -133,7 +133,7 @@ public class SpawnManager : MonoBehaviour
         {
             int otherTeam = teamIndex == 0 ? 1 : 0; //If p_team variable is equals to 0, make value 1, else (if its 1) make value 0
 
-            Debug.Log("WORKPLEASE " + "Spawn: " + laneIndex);
+           // Debug.Log("WORKPLEASE " + "Spawn: " + laneIndex);
             //Melee Creep
             if (GameManager.instance.teams[otherTeam].lanes[laneIndex].meleeBarracksIsAlive) //If enemy team's barracks is dead spawn mega Creep
             {
@@ -186,11 +186,11 @@ public class SpawnManager : MonoBehaviour
         //MegaSiegeCreepPool.Clear();
         //yield return new WaitForSeconds(5f);
         Spawn(0);
-        Debug.Log("WORKPLEASE " + "TEAM Spawn: 0");
+       // Debug.Log("WORKPLEASE " + "TEAM Spawn: 0");
 
    
         Spawn(1);
-        Debug.Log("WORKPLEASE " + "TEAM Spawn: 1");
+      //  Debug.Log("WORKPLEASE " + "TEAM Spawn: 1");
 
 
 
@@ -223,7 +223,7 @@ public class SpawnManager : MonoBehaviour
 
     void SpawnCreep(System.Type p_type,int p_team, int p_lane, int p_amount = 1 )
     {
-        Debug.Log("WORKPLEASE " + "Spawn Creep T: " + p_lane);
+    //    Debug.Log("WORKPLEASE " + "Spawn Creep T: " + p_lane);
         StartCoroutine(Co_SpawnCreep(p_type,p_team,  p_lane,  p_amount));
            
     }
@@ -259,7 +259,7 @@ public class SpawnManager : MonoBehaviour
 
         //Debug.Log("OUT WORKPLEASE " + genericObject.gameObject.name + " TEAM " + p_team + " Spawn Creep Out: " + p_lane + " index " + p_amount);
 
-        Debug.Log("INN WORKPLEASE " + genericObject.gameObject.name + " TEAM " + p_team + " Spawn Creep In: " + p_lane + " index " + p_amount);
+  //      Debug.Log("INN WORKPLEASE " + genericObject.gameObject.name + " TEAM " + p_team + " Spawn Creep In: " + p_lane + " index " + p_amount);
         Creep newCreep = genericObject as Creep;
         newCreep.attribute.InitializeValues(creepWaveMultiplierCount);
         newCreep.goldReward = newCreep.defaultGoldReward * creepWaveMultiplierCount;
