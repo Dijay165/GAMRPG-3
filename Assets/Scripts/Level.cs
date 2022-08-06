@@ -29,7 +29,7 @@ public class Level : MonoBehaviour
     Unit unit;
     int team;
 
-    public GameObject skillPointsGO;
+    public List<GameObject> skillPointsGO;
     private void Awake()
     {
         if (TryGetComponent<Unit>(out Unit foundUnit))
@@ -99,9 +99,14 @@ public class Level : MonoBehaviour
                // Debug.Log("Level up");
                 currentLevel++;
                 skillPoints++;
+
                 if(skillPointsGO != null)
                 {
-                    skillPointsGO.SetActive(true);
+                    foreach(GameObject go in skillPointsGO)
+                    {
+                        go.SetActive(true);
+                    }
+              //      skillPointsGO.SetActive(true);
                 }
                
                 //Level up

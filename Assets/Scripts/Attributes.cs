@@ -130,6 +130,25 @@ public class Attributes : MonoBehaviour
 
 
    
+    public void IncreaseStats()
+    {
+        totalArmor += 2;
+        totalMagicResistance += 2;
+        totalAttackSpeed += 2;
+        Health health = GetComponent<Health>();
+        Mana mana = GetComponent<Mana>();
+
+        health.maxHealth += 50;
+        mana.maxMana += 50;
+
+
+        health.healthRegen += 0.2f;
+        mana.manaRegen += 0.2f;
+
+
+        //   bas
+        Debug.Log("Increase Stats");
+    }
 }
 
 

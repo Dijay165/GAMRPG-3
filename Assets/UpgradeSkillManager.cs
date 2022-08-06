@@ -23,14 +23,15 @@ public class UpgradeSkillManager : MonoBehaviour
 
     private void Update()
     {
-        //if (level.skillPoints > 0)
-        //{
-        //    gameObject.SetActive(true);
-        //}
-        //else
-        //{
-        //    gameObject.SetActive(false);
-        //}
+        //Uncomment if finished 
+        if (level.skillPoints > 0)
+        {
+            gameObject.SetActive(true);
+        }
+        else
+        {
+            gameObject.SetActive(false);
+        }
     }
 
 
@@ -44,16 +45,7 @@ public class UpgradeSkillManager : MonoBehaviour
 
             skillHolder.skills[index].skillLevel++;
 
-
-
-
-            //    Debug.Log(skillHolder.skills[index].name + " " + skillHolder.skills[index].skillLevel);
-
             level.skillPoints--;
-           
-            Debug.Log("Skillpoints: " + level.skillPoints);
-
-         //   skillHolder.skills[index].skillLevel++;
 
         }
         else
@@ -72,5 +64,14 @@ public class UpgradeSkillManager : MonoBehaviour
     {
         buttons[index].interactable = false;
         buttons[index].image.color = Color.gray;
+    }
+
+    public void LevelStats()
+    {
+        Attributes attributes = unit.GetComponent<Attributes>();
+
+        attributes.IncreaseStats();
+        level.skillPoints--;
+
     }
 }
