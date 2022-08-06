@@ -106,4 +106,21 @@ public class DebugManager : MonoBehaviour
         player.GetComponent<SkillHolder>().StopCountdown();
 
     }
+
+
+    public void GainLevel()
+    {
+        GameObject player = PlayerManager.instance.player;
+
+        Level level = player.GetComponent<Level>();
+        level.AddExp(9999f);
+
+        if (level.skillPointsGO != null)
+        {
+            foreach (GameObject go in level.skillPointsGO)
+            {
+                go.SetActive(true);
+            }
+        }
+    }
 }

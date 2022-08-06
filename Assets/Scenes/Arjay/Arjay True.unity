@@ -6243,7 +6243,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 919067636}
         m_TargetAssemblyTypeName: DebugManager, Assembly-CSharp
         m_MethodName: RestoreMana
         m_Mode: 1
@@ -6997,9 +6997,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 919067636}
         m_TargetAssemblyTypeName: DebugManager, Assembly-CSharp
-        m_MethodName: RestoreCooldown
+        m_MethodName: GainLevel
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -36436,7 +36436,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 919067636}
         m_TargetAssemblyTypeName: DebugManager, Assembly-CSharp
         m_MethodName: RestoreHealth
         m_Mode: 1
@@ -38021,7 +38021,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 919067636}
         m_TargetAssemblyTypeName: DebugManager, Assembly-CSharp
         m_MethodName: RestoreCooldown
         m_Mode: 1
@@ -38190,7 +38190,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 919067636}
         m_TargetAssemblyTypeName: DebugManager, Assembly-CSharp
         m_MethodName: DecreaseGameSpeed
         m_Mode: 1
@@ -38324,7 +38324,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 919067636}
         m_TargetAssemblyTypeName: DebugManager, Assembly-CSharp
         m_MethodName: IncreaseGameSpeed
         m_Mode: 1
@@ -63045,7 +63045,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 919067636}
         m_TargetAssemblyTypeName: DebugManager, Assembly-CSharp
         m_MethodName: DestroyStructure
         m_Mode: 1
