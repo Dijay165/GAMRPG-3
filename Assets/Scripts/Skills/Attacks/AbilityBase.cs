@@ -32,9 +32,11 @@ public abstract class AbilityBase : ScriptableObject
 
     public SkillType skillType;
 
+    public int maxSkillLevel;
+
     private void Awake()
     {
-    
+        maxSkillLevel = manaCost.Count;
 
     }
     private void Start()
