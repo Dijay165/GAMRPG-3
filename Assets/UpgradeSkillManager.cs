@@ -37,13 +37,13 @@ public class UpgradeSkillManager : MonoBehaviour
     public void OnSkillUpgrade(int index)
     {
 
+        indicatorManager.OnUpgradeSkill(skillHolder.skills[index].skillLevel, index);
 
         if (skillHolder.skills[index].skillLevel < skillHolder.skills[index].maxSkillLevel)
         {
 
             skillHolder.skills[index].skillLevel++;
 
-            indicatorManager.OnUpgradeSkill(skillHolder.skills[index].skillLevel - 1, index);
 
 
 
@@ -58,7 +58,7 @@ public class UpgradeSkillManager : MonoBehaviour
         }
         else
         {
-            indicatorManager.OnUpgradeSkill(skillHolder.skills[index].skillLevel, index);
+           // indicatorManager.OnUpgradeSkill(skillHolder.skills[index].skillLevel, index);
 
             skillHolder.skills[index].skillLevel = skillHolder.skills[index].maxSkillLevel;
             DisableButton(index);
