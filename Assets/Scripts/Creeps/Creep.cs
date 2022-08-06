@@ -113,7 +113,7 @@ public abstract class Creep : Unit
                 }
             }
 
-            Debug.Log(gameObject.name + " is stop");
+          //  Debug.Log(gameObject.name + " is stop");
         }
       
 

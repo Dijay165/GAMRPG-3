@@ -119,7 +119,7 @@ public class SkillManager : MonoBehaviour
     {
        
         float refCountdown = cooldown;
-        Debug.Log(skillIndex);
+       // Debug.Log(skillIndex);
 
         cooldownIndexes.Add(refCountdown);
 

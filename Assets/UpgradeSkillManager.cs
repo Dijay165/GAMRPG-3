@@ -40,7 +40,15 @@ public class UpgradeSkillManager : MonoBehaviour
     {
 
         indicatorManager.OnUpgradeSkill(skillHolder.skills[index].skillLevel, index);
-     //   ButtonDecider(index);
+
+        //if(level.skillPoints > 1)
+        //{
+        //     ButtonDecider(index);
+        //}
+        lastUpgradeIndex = index;
+
+        ButtonDecider(index);
+       
 
         if (skillHolder.skills[index].skillLevel < skillHolder.skills[index].maxSkillLevel)
         {
@@ -48,7 +56,6 @@ public class UpgradeSkillManager : MonoBehaviour
             skillHolder.skills[index].skillLevel++;
 
             level.skillPoints--;
-            lastUpgradeIndex = index;
 
         }
         else
@@ -80,10 +87,20 @@ public class UpgradeSkillManager : MonoBehaviour
 
     public void ButtonDecider(int index)
     {
-
         if (index == lastUpgradeIndex)
         {
-            DisableButton(index);
+            if (level.skillPoints < 1)
+            {
+                Debug.Log("Disable Button");
+
+                DisableButton(index);
+            }
+
+        }
+        else
+        {
+            buttons[lastUpgradeIndex].interactable = true;
+            buttons[lastUpgradeIndex].image.color = Color.white;
         }
         //if (level.skillPoints > 1)
         //{

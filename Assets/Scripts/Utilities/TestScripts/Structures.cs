@@ -90,12 +90,12 @@ public class Structures : Unit
                 {
                     if (currentHero == GameManager.GetHeroData(health.damager))
                     {
-                        Debug.Log(" SPLIT structure DEATH GAINED GOLD " + goldReward);
+                   //     Debug.Log(" SPLIT structure DEATH GAINED GOLD " + goldReward);
                         currentHero.gold += goldReward;
                         currentHero.networth = currentHero.gold;
                     }
                     
-                    Debug.Log(" SPLIT structure DEATH GAINED GOLD " + defaultGoldReward);
+                   // Debug.Log(" SPLIT structure DEATH GAINED GOLD " + defaultGoldReward);
                     currentHero.gold += defaultGoldReward;
                     currentHero.networth = currentHero.gold;
                     

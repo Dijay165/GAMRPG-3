@@ -6,10 +6,10 @@ public class SkillPointsIndicatorManager : MonoBehaviour
 {
     // Start is called before the first frame update
     public List<GameObject> skillListIndicator;
-    public List<Image> firstSkill;
-    public List<Image> secondSkill;
-    public List<Image> thirdSkill;
-    public List<Image> lastSkill;
+  //  public List<Image> firstSkill;
+   // public List<Image> secondSkill;
+   // public List<Image> thirdSkill;
+    //public List<Image> lastSkill;
     List<Image> skillImage = new List<Image>();
 
     void Start()

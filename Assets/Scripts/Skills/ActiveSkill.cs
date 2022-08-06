@@ -46,7 +46,7 @@ public class ActiveSkill : AbilityBase
             yield return new WaitForSeconds(this.coolDownDuration[skillLevel]);
             this.canCast = true;
             this.isCooldown = false;
-            Debug.Log("can cast again");
+            //Debug.Log("can cast again");
             //SkillManager.Instance.skillButtons[SkillManager.Instance.skillRef].interactable = true;
         }
 

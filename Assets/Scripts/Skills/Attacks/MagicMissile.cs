@@ -17,7 +17,7 @@ public class MagicMissile : ActiveSkill
         base.OnActivate(target);
 
         canCast = false;
-        Debug.Log("Magic Missile");
+      //  Debug.Log("Magic Missile");
 
         targetedDamager = target.gameObject.GetComponent<TargetedDamager>();
 
