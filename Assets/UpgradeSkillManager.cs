@@ -11,6 +11,7 @@ public class UpgradeSkillManager : MonoBehaviour
     Level level;
     SkillHolder skillHolder;
     public List<Button> buttons;
+    public SkillPointsIndicatorManager indicatorManager;
 
     private void Awake()
     {
@@ -22,35 +23,43 @@ public class UpgradeSkillManager : MonoBehaviour
 
     private void Update()
     {
-        if (level.skillPoints > 0)
-        {
-            gameObject.SetActive(true);
-        }
-        else
-        {
-            gameObject.SetActive(false);
-        }
+        //if (level.skillPoints > 0)
+        //{
+        //    gameObject.SetActive(true);
+        //}
+        //else
+        //{
+        //    gameObject.SetActive(false);
+        //}
     }
 
 
     public void OnSkillUpgrade(int index)
     {
-    
-        if (skillHolder.skills[index].skillLevel != skillHolder.skills[index].maxSkillLevel)
+
+
+        if (skillHolder.skills[index].skillLevel < skillHolder.skills[index].maxSkillLevel)
         {
+
             skillHolder.skills[index].skillLevel++;
 
-            Debug.Log(skillHolder.skills[index].name + " " + skillHolder.skills[index].skillLevel);
+            indicatorManager.OnUpgradeSkill(skillHolder.skills[index].skillLevel - 1, index);
+
+
+
+            //    Debug.Log(skillHolder.skills[index].name + " " + skillHolder.skills[index].skillLevel);
 
             level.skillPoints--;
            
             Debug.Log("Skillpoints: " + level.skillPoints);
 
-
+         //   skillHolder.skills[index].skillLevel++;
 
         }
         else
         {
+            indicatorManager.OnUpgradeSkill(skillHolder.skills[index].skillLevel, index);
+
             skillHolder.skills[index].skillLevel = skillHolder.skills[index].maxSkillLevel;
             DisableButton(index);
             Debug.Log("Already Max");
