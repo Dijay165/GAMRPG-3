@@ -41,31 +41,28 @@ public class UpgradeSkillManager : MonoBehaviour
 
         indicatorManager.OnUpgradeSkill(skillHolder.skills[index].skillLevel, index);
 
-        //if(level.skillPoints > 1)
-        //{
-        //     ButtonDecider(index);
-        //}
-        lastUpgradeIndex = index;
-
-        ButtonDecider(index);
-       
-
         if (skillHolder.skills[index].skillLevel < skillHolder.skills[index].maxSkillLevel)
         {
-
             skillHolder.skills[index].skillLevel++;
-
-            level.skillPoints--;
-
         }
         else
         {
-           // indicatorManager.OnUpgradeSkill(skillHolder.skills[index].skillLevel, index);
-
             skillHolder.skills[index].skillLevel = skillHolder.skills[index].maxSkillLevel;
             DisableButton(index);
-            Debug.Log("Already Max");
+            //Debug.Log("Already Max");
         }
+
+        level.skillPoints--;
+
+
+        if (level.skillPoints <= 1)
+        {
+            Debug.Log("Skillpoints");
+            ButtonDecider(index);
+        }
+
+
+        lastUpgradeIndex = index;
 
     }
 
@@ -89,18 +86,37 @@ public class UpgradeSkillManager : MonoBehaviour
     {
         if (index == lastUpgradeIndex)
         {
-            if (level.skillPoints < 1)
-            {
-                Debug.Log("Disable Button");
+            Debug.Log("Disable specific buttons");
 
-                DisableButton(index);
-            }
-
+            DisableButton(index);
         }
         else
         {
-            buttons[lastUpgradeIndex].interactable = true;
-            buttons[lastUpgradeIndex].image.color = Color.white;
+            Debug.Log("Button Index");
+
+            for(int i = 0; i < buttons.Count; i++)
+            {
+                if(i == lastUpgradeIndex)
+                {
+
+                    if(skillHolder.skills[i].skillLevel < skillHolder.skills[i].maxSkillLevel)
+                    {
+                        Debug.Log("Upgrade Skill Index");
+
+                        buttons[i].interactable = true;
+                        buttons[i].image.color = Color.white;
+                       // break;
+                    }
+                    //else
+                    //{
+                    //    Debug.Log(skillHolder.skills[i].name);
+                    //    Debug.Log("Skill is already max Index");
+
+                    //}
+
+                }
+            }
+         
         }
         //if (level.skillPoints > 1)
         //{
@@ -109,4 +125,5 @@ public class UpgradeSkillManager : MonoBehaviour
          
         //}
     }
+
 }
