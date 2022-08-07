@@ -25514,7 +25514,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1548470357}
+      - m_Target: {fileID: 1655683683}
         m_TargetAssemblyTypeName: UpgradeSkillManager, Assembly-CSharp
         m_MethodName: LevelStats
         m_Mode: 1
@@ -37619,6 +37619,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1655683683}
+        m_TargetAssemblyTypeName: UpgradeSkillManager, Assembly-CSharp
+        m_MethodName: UltIndexAdder
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1324878313
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -46477,7 +46489,6 @@ GameObject:
   - component: {fileID: 1548470356}
   - component: {fileID: 1548470359}
   - component: {fileID: 1548470358}
-  - component: {fileID: 1548470357}
   m_Layer: 5
   m_Name: UpgradeSkill (1)
   m_TagString: Untagged
@@ -46506,22 +46517,6 @@ RectTransform:
   m_AnchoredPosition: {x: -36.5, y: 29.2}
   m_SizeDelta: {x: 46.57259, y: 53.1}
   m_Pivot: {x: 0.5, y: 1}
---- !u!114 &1548470357
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1548470355}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 387bc5a9212ebb541b4443cb60096f59, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  buttons:
-  - {fileID: 916177195}
-  indicatorManager: {fileID: 1395496979}
-  lastUpgradeIndex: 0
 --- !u!114 &1548470358
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -48134,8 +48129,10 @@ MonoBehaviour:
   - {fileID: 1925374829}
   - {fileID: 1169307225}
   - {fileID: 1324878312}
+  statButton: {fileID: 916177195}
   indicatorManager: {fileID: 1395496979}
   lastUpgradeIndex: 0
+  ultIndex: 0
 --- !u!1 &1664217972
 GameObject:
   m_ObjectHideFlags: 0

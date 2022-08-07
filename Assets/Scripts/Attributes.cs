@@ -147,7 +147,7 @@ public class Attributes : MonoBehaviour
 
 
         //   bas
-        Debug.Log("Increase Stats");
+     //   Debug.Log("Increase Stats");
     }
 }
 

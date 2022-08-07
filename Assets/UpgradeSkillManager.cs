@@ -11,8 +11,11 @@ public class UpgradeSkillManager : MonoBehaviour
     Level level;
     SkillHolder skillHolder;
     public List<Button> buttons;
+    public Button statButton;
     public SkillPointsIndicatorManager indicatorManager;
     public int lastUpgradeIndex;
+    public int ultIndex;
+    int ultCount;
 
     private void Awake()
     {
@@ -41,6 +44,7 @@ public class UpgradeSkillManager : MonoBehaviour
 
         indicatorManager.OnUpgradeSkill(skillHolder.skills[index].skillLevel, index);
 
+
         if (skillHolder.skills[index].skillLevel < skillHolder.skills[index].maxSkillLevel)
         {
             skillHolder.skills[index].skillLevel++;
@@ -58,9 +62,11 @@ public class UpgradeSkillManager : MonoBehaviour
 
         if (level.skillPoints <= 1)
         {
-            Debug.Log("Skillpoints");
+          //  Debug.Log("Skillpoints");
             ButtonDecider(index);
         }
+
+
 
 
         lastUpgradeIndex = index;
@@ -74,47 +80,105 @@ public class UpgradeSkillManager : MonoBehaviour
         buttons[index].image.color = Color.gray;
     }
 
-    public void LevelStats()
+    private void OnEnable()
     {
-        Attributes attributes = unit.GetComponent<Attributes>();
+        statButton.transform.parent.gameObject.SetActive(true);
 
-        attributes.IncreaseStats();
-        level.skillPoints--;
+        OnUltActivate();
+    }
 
+    private void OnDisable()
+    {
+        statButton.transform.parent.gameObject.SetActive(false);
     }
 
     public void ButtonDecider(int index)
     {
         if (index == lastUpgradeIndex)
         {
-            Debug.Log("Disable specific buttons");
+           // Debug.Log("Disable specific buttons");
 
             DisableButton(index);
         }
         else
         {
-            Debug.Log("Button Index");
+            // Debug.Log("Button Index");
 
-            for(int i = 0; i < buttons.Count; i++)
-            {
-                if(i == lastUpgradeIndex)
-                {
-                    if (!skillHolder.skills[i].isMaxLevel)
-                    {
-                        buttons[i].interactable = true;
-                        buttons[i].image.color = Color.white;
-                    }
-
-                }
-            }
+            MaxLevelDecider();
          
         }
-        //if (level.skillPoints > 1)
-        //{
-
-           
-         
-        //}
     }
 
+    public void MaxLevelDecider()
+    {
+        
+
+        for (int i = 0; i < buttons.Count; i++)
+        {
+            if (i == lastUpgradeIndex)
+            {
+                if (!skillHolder.skills[i].isMaxLevel)
+                {
+                    buttons[i].interactable = true;
+                    buttons[i].image.color = Color.white;
+                }
+            }
+        }
+    }
+    public void OnUltActivate()
+    {
+        //  Debug.Log("OnUltActivate");
+         ultCount = skillHolder.skills[3].ultimateIndexReq.Count;
+     //   Debug.Log("Ult Count: " + ultCount);
+
+        Debug.Log(buttons.Count - 1);
+        if (level.currentLevel == skillHolder.skills[3].ultimateIndexReq[ultIndex])
+        {
+        
+            buttons[buttons.Count - 1].interactable = true;
+            buttons[buttons.Count - 1].image.color = Color.white;
+          //  ultIndex++;
+        }
+        else
+        {
+            DisableButton(buttons.Count - 1);
+        }
+    }
+
+
+    public void UltIndexAdder()
+    {
+        if(ultIndex < ultCount - 1)
+        {
+
+            ultIndex++;
+
+            Debug.Log("if Clicking : " + ultIndex);
+
+        }
+        else
+        {
+
+
+            ultIndex = ultCount - 1;
+
+            Debug.Log("Else Clicking : " + ultIndex);
+
+        }
+
+    }
+
+    public void LevelStats()
+    {
+        Attributes attributes = unit.GetComponent<Attributes>();
+
+        attributes.IncreaseStats();
+
+        level.skillPoints--;
+        Debug.Log(level.skillPoints + "Level Skillpoints");
+        lastUpgradeIndex = 0;
+
+        MaxLevelDecider();
+
+    }
 }

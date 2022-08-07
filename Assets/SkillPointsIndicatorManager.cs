@@ -41,7 +41,7 @@ public class SkillPointsIndicatorManager : MonoBehaviour
         }
 
     //    Debug.Log(skillImage);
-
+        
         skillImage[skillLevel].color = Color.yellow;
 
         skillImage.Clear();

@@ -35,6 +35,7 @@ public abstract class AbilityBase : ScriptableObject
     public int maxSkillLevel;
     public bool isMaxLevel;
     public bool isUnlock;
+    public List<int> ultimateIndexReq;
 
     private void Awake()
     {
