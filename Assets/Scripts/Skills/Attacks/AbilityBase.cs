@@ -33,6 +33,8 @@ public abstract class AbilityBase : ScriptableObject
     public SkillType skillType;
 
     public int maxSkillLevel;
+    public bool isMaxLevel;
+    public bool isUnlock;
 
     private void Awake()
     {

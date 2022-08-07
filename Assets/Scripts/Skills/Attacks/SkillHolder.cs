@@ -37,6 +37,7 @@ public class SkillHolder : MonoBehaviour
             skill.isInEffect = false;
             skill.canCast = true;
             skill.skillLevel = 0;
+            skill.isMaxLevel = false;
             skill.maxSkillLevel = skill.manaCost.Count - 1;
           //  Debug.Log(skill.name);
            // keyCodes.Add(skill.keyCode);

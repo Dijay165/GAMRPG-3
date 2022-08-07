@@ -47,7 +47,8 @@ public class UpgradeSkillManager : MonoBehaviour
         }
         else
         {
-            skillHolder.skills[index].skillLevel = skillHolder.skills[index].maxSkillLevel;
+           skillHolder.skills[index].isMaxLevel = true;
+           skillHolder.skills[index].skillLevel = skillHolder.skills[index].maxSkillLevel;
             DisableButton(index);
             //Debug.Log("Already Max");
         }
@@ -98,21 +99,11 @@ public class UpgradeSkillManager : MonoBehaviour
             {
                 if(i == lastUpgradeIndex)
                 {
-
-                    if(skillHolder.skills[i].skillLevel < skillHolder.skills[i].maxSkillLevel)
+                    if (!skillHolder.skills[i].isMaxLevel)
                     {
-                        Debug.Log("Upgrade Skill Index");
-
                         buttons[i].interactable = true;
                         buttons[i].image.color = Color.white;
-                       // break;
                     }
-                    //else
-                    //{
-                    //    Debug.Log(skillHolder.skills[i].name);
-                    //    Debug.Log("Skill is already max Index");
-
-                    //}
 
                 }
             }
