@@ -16,6 +16,7 @@ public class UpgradeSkillManager : MonoBehaviour
     public int lastUpgradeIndex;
     public int ultIndex;
     int ultCount;
+    public bool canUpgradeUlt;
 
     private void Awake()
     {
@@ -137,16 +138,22 @@ public class UpgradeSkillManager : MonoBehaviour
      //   Debug.Log("Ult Count: " + ultCount);
 
         Debug.Log(buttons.Count - 1);
+
         if (level.currentLevel == skillHolder.skills[3].ultimateIndexReq[ultIndex])
         {
         
             buttons[buttons.Count - 1].interactable = true;
             buttons[buttons.Count - 1].image.color = Color.white;
+            canUpgradeUlt = true;
+            Debug.Log("can upgrade ult: " + canUpgradeUlt);
           //  ultIndex++;
         }
         else
         {
+            if(!canUpgradeUlt)
             DisableButton(buttons.Count - 1);
+           
+            
         }
     }
 
@@ -170,6 +177,8 @@ public class UpgradeSkillManager : MonoBehaviour
             Debug.Log("Else Clicking : " + ultIndex);
 
         }
+
+        canUpgradeUlt = false;
 
     }
 
