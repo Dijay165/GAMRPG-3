@@ -48,6 +48,11 @@ public class UpgradeSkillManager : MonoBehaviour
         if (skillHolder.skills[index].skillLevel < skillHolder.skills[index].maxSkillLevel)
         {
             skillHolder.skills[index].skillLevel++;
+
+            if (!skillHolder.skills[index].isUnlock)
+            {
+                skillHolder.skills[index].isUnlock = true;
+            }
         }
         else
         {

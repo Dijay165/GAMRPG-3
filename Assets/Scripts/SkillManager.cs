@@ -54,6 +54,7 @@ public class SkillManager : MonoBehaviour
         //Compare all 
         // if(player.GetComponent<Mana>().currentMana < )
         ButtonChecker();
+        LockButton();
     }
 
 
@@ -80,6 +81,26 @@ public class SkillManager : MonoBehaviour
 
                 }
               
+            }
+        }
+    }
+
+    public void LockButton()
+    {
+        for (int i = 0; i < buttons.Count; i++)
+        {
+            // Debug.Log("Start Loop i " + i + " Button count " + buttons.Count);
+            if (player.job.skills[i].isUnlock)
+            {
+                buttons[i].interactable = true;
+                buttons[i].GetComponent<Image>().color = Color.white;
+
+            }
+            else
+            {
+                buttons[i].interactable = false;
+
+                buttons[i].GetComponent<Image>().color = Color.grey;
             }
         }
     }

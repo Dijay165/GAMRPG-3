@@ -39,6 +39,7 @@ public class SkillHolder : MonoBehaviour
             skill.skillLevel = 0;
             skill.isMaxLevel = false;
             skill.maxSkillLevel = skill.manaCost.Count - 1;
+            skill.isUnlock = false;
           //  Debug.Log(skill.name);
            // keyCodes.Add(skill.keyCode);
         }
@@ -97,7 +98,17 @@ public class SkillHolder : MonoBehaviour
                 {
                     if(gameObject.GetComponent<Mana>().currentMana > skills[skillIDIndex].manaCost[skills[skillIDIndex].skillLevel])
                     {
-                        anim.SetTrigger("CastSkill");
+                        if (skills[skillIDIndex].isUnlock)
+                        {
+                            Debug.Log("Can cast, unlocked");
+
+                            anim.SetTrigger("CastSkill");
+                        }
+                        else
+                        {
+                            Debug.Log("Can't cast, locked");
+                        }
+                        
                     }
                     else
                     {
@@ -164,14 +175,21 @@ public class SkillHolder : MonoBehaviour
         {
             if (skills[i] is PassiveSkill)
             {
-                PassiveSkill passiveSkill = (PassiveSkill)skills[i];
-                passiveSkill.OnApply(gameObject.GetComponent<Unit>());
+                if (skills[i].isUnlock)
+                {
+                    PassiveSkill passiveSkill = (PassiveSkill)skills[i];
+                    passiveSkill.OnApply(gameObject.GetComponent<Unit>());
+                    Debug.Log("Passive is unlocked");
+
+                }
+                else
+                {
+                    Debug.Log("Passive is locked");
+                }
+              
             }
         }
-        //foreach(PassiveSkill passiveSkill in skills)
-        //{
-        //    passiveSkill.OnApply();
-        //}
+ 
     }
 
 
@@ -182,26 +200,36 @@ public class SkillHolder : MonoBehaviour
         if (skills[skillIDIndex] is ActiveSkill)
         {
             ActiveSkill activeSkill = (ActiveSkill)skills[skillIDIndex];
-            if (activeSkill.canCast)
+            if (activeSkill.isUnlock)
             {
-                //Debug.Log("Can cast");
-
-                activeSkill.OnActivate(gameObject.GetComponent<Unit>());
-                StartCoroutine(activeSkill.CoolDownEnumerator());
-
-
-                if (gameObject.GetComponent<Unit>().CompareTag("Player"))
+                if (activeSkill.canCast)
                 {
-                    StartCoroutine(SkillManager.instance.CountdownText(activeSkill.coolDownDuration[activeSkill.skillLevel], SkillManager.instance.text[skillIDIndex]));
-                   // SkillManager.instance.ButtonChecker();
-                }
+                    //Debug.Log("Can cast");
+                    Debug.Log("Active is unlocked");
 
+                    activeSkill.OnActivate(gameObject.GetComponent<Unit>());
+                    StartCoroutine(activeSkill.CoolDownEnumerator());
+
+
+                    if (gameObject.GetComponent<Unit>().CompareTag("Player"))
+                    {
+                        StartCoroutine(SkillManager.instance.CountdownText(activeSkill.coolDownDuration[activeSkill.skillLevel], SkillManager.instance.text[skillIDIndex]));
+                        // SkillManager.instance.ButtonChecker();
+                    }
+
+                }
+                else
+                {
+                    //     Debug.Log("Cannot cast");
+                }
             }
             else
             {
-           //     Debug.Log("Cannot cast");
+                Debug.Log("Active is locked");
+
             }
-        
+
+
         }
     }
 

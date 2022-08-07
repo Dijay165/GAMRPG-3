@@ -46291,7 +46291,7 @@ MonoBehaviour:
   canLevelUp: 1
   isFixedEXPReward: 0
   fixedEXPReward: 0
-  currentLevel: 1
+  currentLevel: 0
   exp: 0
   maxExp: 0
   enemies: []

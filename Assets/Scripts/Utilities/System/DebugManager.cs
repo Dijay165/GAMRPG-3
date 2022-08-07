@@ -9,7 +9,13 @@ public class DebugManager : MonoBehaviour
     public List<GameObject> debugGO;
     public TimeManager timeManager;
     public GameObject structure;
+    public static DebugManager instances;
 
+    private void Awake()
+    {
+        if(instances == null)
+        instances = this;
+    }
 
     private void OnEnable()
     {
