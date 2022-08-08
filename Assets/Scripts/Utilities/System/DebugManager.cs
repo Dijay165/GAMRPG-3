@@ -114,12 +114,12 @@ public class DebugManager : MonoBehaviour
     }
 
 
-    public void GainLevel()
+    public void GainLevel(float exp)
     {
         GameObject player = PlayerManager.instance.player;
 
         Level level = player.GetComponent<Level>();
-        level.AddExp(9999f);
+        level.AddExp(GameManager.instance.expPerLevel[level.currentLevel]);
 
         if (level.skillPointsGO != null)
         {

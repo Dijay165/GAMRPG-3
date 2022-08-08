@@ -74,13 +74,19 @@ public class Level : MonoBehaviour
     {
         if (canLevelUp)
         {
-            DebugManager.instances.GainLevel();
             maxExp = GameManager.instance.expPerLevel[currentLevel];
+
+            if (gameObject.GetComponent<Player>())
+            {
+                DebugManager.instances.GainLevel(GameManager.instance.expPerLevel[0]);
+
+            }
+
             //LevelTrigger.OnTriggerEnteredFunction += TriggerEnteredFunction;
             //LevelTrigger.OnTriggerExittedFunction += TriggerExittedFunction;
-          
+
         }
-        
+
         UpdateLevelUI();
         UpdateExpUIBar();
 
