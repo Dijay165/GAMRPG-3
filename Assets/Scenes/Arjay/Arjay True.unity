@@ -10982,7 +10982,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isAlwaysInContainer: 1
   container: {fileID: 597851529}
-  prefab: {fileID: 1456717285825329381, guid: 28714a03466bd104684e1f1da3852747, type: 3}
+  prefab: {fileID: 2691126574947964728, guid: 0df057b8e8be6a045a46f10f648dfeae, type: 3}
   isCollectionCheck: 0
   defaultMaxAmount: 6
   flexibleMaxAmount: 6
@@ -48133,6 +48133,7 @@ MonoBehaviour:
   indicatorManager: {fileID: 1395496979}
   lastUpgradeIndex: 0
   ultIndex: 0
+  canUpgradeUlt: 0
 --- !u!1 &1664217972
 GameObject:
   m_ObjectHideFlags: 0
@@ -56194,7 +56195,7 @@ ParticleSystem:
         m_RotationOrder: 4
     startSizeY:
       serializedVersion: 2
-      minMaxState: 0
+      minMaxState: 3
       scalar: 1
       minScalar: 1
       maxCurve:
@@ -56247,7 +56248,7 @@ ParticleSystem:
         m_RotationOrder: 4
     startSizeZ:
       serializedVersion: 2
-      minMaxState: 0
+      minMaxState: 3
       scalar: 1
       minScalar: 1
       maxCurve:
