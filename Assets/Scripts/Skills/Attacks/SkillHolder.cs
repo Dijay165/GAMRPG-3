@@ -14,7 +14,7 @@ public class SkillHolder : MonoBehaviour
     MOBAMovement movement;
     [HideInInspector]
     public int skillIDIndex;
-
+    bool willCast;
     
     
     private void Awake()
@@ -83,7 +83,15 @@ public class SkillHolder : MonoBehaviour
        
                 Events.OnPlayerSkillIndex.Invoke(i);
                 skillIDIndex = i;
-                movement.HeroMove();       
+                movement.HeroMove();
+                if (skills[skillIDIndex].canCast)
+                {
+                    if (skills[skillIDIndex].isUnlock)
+                    {
+                        willCast = true;
+
+                    }
+                }
             }
           
         }
@@ -102,20 +110,27 @@ public class SkillHolder : MonoBehaviour
                         {
                             Debug.Log("Can cast, unlocked");
 
-                            anim.SetTrigger("CastSkill");
+                            if (willCast)
+                            {
+                                anim.SetTrigger("CastSkill");
+                            }
+                            
                         }
                         else
                         {
                             Debug.Log("Can't cast, locked");
+                            willCast = false;
                         }
                         
                     }
                     else
                     {
                         anim.SetTrigger("Turn");
+                        willCast = false;
+
                     }
 
-                  
+
 
                 }
                
