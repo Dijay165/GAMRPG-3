@@ -115,7 +115,12 @@ public class SpawnManager : MonoBehaviour
 
     public void Despawn(GameObject g)
     {
-        StartCoroutine(Co_Despawning(g));
+        if (SpawnManager.instance != null)
+        {
+            StartCoroutine(Co_Despawning(g));
+
+        }
+
     }
 
     IEnumerator Co_Despawning(GameObject g)
